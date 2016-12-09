@@ -17,30 +17,26 @@
     <script>
         var map;
         var marker;
-
         function updateMarker(latIn = -25.363, lngIn = 131.044) {
             var uluru = {
                 lat: latIn,
                 lng: lngIn
             };
             marker.setMap(null);
-            map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
-            });
+
             marker = new google.maps.Marker({
                 position: uluru,
                 map: map
             });
+            map.setCenter(marker.getPosition());
         }
-
-        function initMap(latIn = -25.363, lngIn = 131.044) {
+        function initMap(latIn = 51.752845, lngIn = 19.453180) {
             var uluru = {
                 lat: latIn,
                 lng: lngIn
             };
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 18,
                 center: uluru
             });
             marker = new google.maps.Marker({
@@ -51,8 +47,7 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap">
     </script>
-
-     <button type="button"  onclick="updateMarker(35,131)">Click Me!</button>
+     <button type="button"  onclick="updateMarker(-25,131)">Click Me!</button>
 </body>
 
 </html>
