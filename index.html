@@ -24,6 +24,10 @@
                 lng: lngIn
             };
             marker.setMap(null);
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
             marker = new google.maps.Marker({
                 position: uluru,
                 map: map
@@ -47,6 +51,8 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap">
     </script>
+
+     <button type="button"  onclick="updateMarker(35,131)">Click Me!</button>
 </body>
 
 </html>
