@@ -10,8 +10,8 @@ class MainList extends React.Component {
                         {
                             "name": "I...I...S...",
                             "short": "IIS",
-                            "longitude": "10",
-                            "latitude": "10"
+                            "longitude": 51.747791,
+                            "latitude": 19.451922   ,
                         }
                     ]
                 }
@@ -158,7 +158,10 @@ class PlaceElement extends React.Component {
     }
     updateBtn(e) {
         this.setState({id: e.target.id});
-        console.log(e.target.value.split(" "))
+        var a = e.target.value.split(" ");
+        console.log(e.target.value.split(" "));
+        console.log(a[0] + " " + a[1]);
+        updateMarker(parseFloat(a[0]),parseFloat(a[1]));
     }
 
     render() {
