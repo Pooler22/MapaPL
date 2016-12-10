@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="add toggle element list">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/MapaPL.iml" afterPath="$PROJECT_DIR$/.idea/MapaPL.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
@@ -24,7 +26,30 @@
     <favorites_list name="MapaPL" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="152" column="5" lean-forward="false" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+              <folding>
+                <marker date="1481396289546" expanded="true" signature="1846:1859" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="39" column="88" lean-forward="false" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="88" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,9 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>butt</find>
-      <find>mult</find>
-      <find>class</find>
       <find>mui-container-fluid</find>
       <find>i</find>
       <find>stron</find>
@@ -54,9 +76,7 @@
       <find>slideToggle</find>
       <find>updateMarker</find>
       <find>hideSidedrawer</find>
-      <find>js-hide-sidedrawer</find>
       <find>showSidedrawer</find>
-      <find>js-show-sidedrawer</find>
       <find>overlayEl</find>
       <find>append</find>
       <find>options</find>
@@ -67,6 +87,11 @@
       <find>sidedrawerEl</find>
       <find>toggleListElement</find>
       <find>sidedrawer</find>
+      <find>mapa</find>
+      <find>initMa</find>
+      <find>init</find>
+      <find>js-show-sidedrawer</find>
+      <find>js-hide-sidedrawer</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -93,8 +118,8 @@
         <option value="$PROJECT_DIR$/list.html" />
         <option value="$PROJECT_DIR$/script.jsx" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
@@ -229,7 +254,7 @@
       <workItem from="1481286561816" duration="1331000" />
       <workItem from="1481301326457" duration="10461000" />
       <workItem from="1481312948496" duration="2455000" />
-      <workItem from="1481364522321" duration="24940000" />
+      <workItem from="1481364522321" duration="27249000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -273,17 +298,24 @@
       <option name="project" value="LOCAL" />
       <updated>1481393265113</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add toggle element list">
+      <created>1481394052792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1481394052792</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39187000" />
+    <option name="totallyTimeSpent" value="41496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14955357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14955357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -309,17 +341,21 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="init repo" />
     <MESSAGE value="merge progress" />
     <MESSAGE value="remove react, add css ui" />
     <MESSAGE value="prepare filter" />
     <MESSAGE value="prepare to remove jquery" />
     <MESSAGE value="remove jquery" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove jquery" />
+    <MESSAGE value="add toggle element list" />
+    <option name="LAST_COMMIT_MESSAGE" value="add toggle element list" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -337,17 +373,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#54#1052#0" expanded="false" />
-            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
-            <element signature="n#!!block;n#initMap#0" expanded="false" />
-            <element signature="n#!!block;n#initList#0" expanded="false" />
-            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
-            <element signature="n#!!block;n#filterList#0" expanded="false" />
-            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1481393981011" expanded="true" signature="1892:1905" ph="..." />
+            <marker date="1481396289546" expanded="true" signature="1846:1859" ph="..." />
           </folding>
         </state>
       </provider>
@@ -365,17 +391,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#54#1052#0" expanded="false" />
-            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
-            <element signature="n#!!block;n#initMap#0" expanded="false" />
-            <element signature="n#!!block;n#initList#0" expanded="false" />
-            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
-            <element signature="n#!!block;n#filterList#0" expanded="false" />
-            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1481393981011" expanded="true" signature="1892:1905" ph="..." />
+            <marker date="1481396289546" expanded="true" signature="1846:1859" ph="..." />
           </folding>
         </state>
       </provider>
@@ -406,13 +422,6 @@
     <entry file="file://$PROJECT_DIR$/src/App.js" />
     <entry file="file://$PROJECT_DIR$/src/logo.svg" />
     <entry file="file://$PROJECT_DIR$/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -446,14 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/MapaPL/node_modules/lodash/fp/nthArg.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -462,31 +463,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="159" column="36" lean-forward="false" selection-start-line="159" selection-start-column="36" selection-end-line="159" selection-end-column="36" />
-          <folding>
-            <element signature="e#54#1052#0" expanded="false" />
-            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
-            <element signature="n#!!block;n#initMap#0" expanded="false" />
-            <element signature="n#!!block;n#initList#0" expanded="false" />
-            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
-            <element signature="n#!!block;n#filterList#0" expanded="false" />
-            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1481393981011" expanded="true" signature="1892:1905" ph="..." />
-          </folding>
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="46" column="41" lean-forward="true" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+        <state relative-caret-position="179">
+          <caret line="39" column="88" lean-forward="false" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="88" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="152" column="5" lean-forward="false" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+          <folding>
+            <marker date="1481396289546" expanded="true" signature="1846:1859" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

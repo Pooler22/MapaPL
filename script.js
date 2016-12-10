@@ -48,7 +48,7 @@ const data = [
     },
 ];
 
-function updateMarker(latIn = 51.752845, lngIn = 19.453180) {
+function updateMarker(latIn, lngIn) {
     marker.setMap(null);
     marker = new google.maps.Marker({
         position: {
@@ -60,23 +60,22 @@ function updateMarker(latIn = 51.752845, lngIn = 19.453180) {
     map.setCenter(marker.getPosition());
 }
 
-function initMap(latIn = 51.752845, lngIn = 19.453180) {
-    const uluru = {
+function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
+    const position = {
         lat: latIn,
         lng: lngIn
     };
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 18,
-        center: uluru
+        zoom: zoomIn,
+        center: position
     });
     marker = new google.maps.Marker({
-        position: uluru,
+        position: position,
         map: map
     });
 }
 
 function initList() {
-    var list = document.getElementById("list");
     let tmp = "";
     for (let group of data) {
         tmp += "<li>";
@@ -85,30 +84,27 @@ function initList() {
             tmp += "<li><a href='javascript:updateMarker(" + place.lat + "," + place.lng + ");'>" + place.name + "</a></li>";
         }
         tmp += "</ul></li>";
-
     }
-    list.innerHTML = tmp;
+    document.getElementById("list").innerHTML = tmp;
 }
 
 function filterPlaces(value) {
-    if (value.length > 1) {
+    if (value.length != 0) {
         filterList(value);
     }
     else {
         if (edited) {
-            initList();
             edited = false;
+            initList();
         }
     }
 }
 
 function filterList(value) {
-    let list = document.getElementById("list");
     let tmp = "";
     for (let group of data) {
         let tmp2 = "", tmp3 = "";
         tmp2 += "<strong>" + group.short + "</strong><ul>";
-
         for (let place of group.places) {
             if (place.name.toLowerCase().search(value.toLowerCase()) != -1 || place.short.toLowerCase().search(value.toLowerCase()) != -1) {
                 tmp3 += "<li><a href='javascript:updateMarker(" + place.lat + "," + place.lng + ");'>" + place.name + "</a></li>";
@@ -123,11 +119,9 @@ function filterList(value) {
         tmp += tmp2;
     }
     if (tmp == "") {
-        list.innerHTML = "<p>Brak wyników.</p>";
+        tmp = "<strong>Brak wyników</strong>";
     }
-    else {
-        list.innerHTML = tmp;
-    }
+    document.getElementById("list").innerHTML = tmp;
     edited = true;
 }
 
@@ -140,16 +134,12 @@ function showSidedrawer() {
         }
     };
 
-    let overlayEl = mui.overlay('on', options);
-
-    overlayEl.appendChild(sidedrawerEl);
-    setTimeout(function () {
-        sidedrawerEl.className += ' active';
-    }, 20);
+    mui.overlay('on', options).appendChild(sidedrawerEl);
+    setTimeout(() => sidedrawerEl.className += ' active', 20);
 }
 
 function toggleSidedrawer() {
-    var body = document.getElementsByTagName('BODY')[0];
+    let body = document.getElementsByTagName('BODY')[0];
     if (body.className == 'hide-sidedrawer') {
         body.className = 'show-sidedrawer'
     } else {
@@ -168,12 +158,8 @@ function toggleListElement(element) {
 
 function init() {
     initList();
-    for (i of document.getElementsByClassName('js-show-sidedrawer')) {
-        i.addEventListener('click', showSidedrawer, false);
-    }
-    for (i of document.getElementsByClassName('js-hide-sidedrawer')) {
-        i.addEventListener('click', toggleSidedrawer, false);
-    }
+    document.getElementsByClassName('js-show-sidedrawer')[0].addEventListener('click', showSidedrawer, false);
+    document.getElementsByClassName('js-hide-sidedrawer')[0].addEventListener('click', toggleSidedrawer, false);
 }
 
 init();
