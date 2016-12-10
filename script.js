@@ -1,35 +1,7 @@
-//maps
-
-var map;
-var marker;
-function updateMarker(latIn = 51.752845, lngIn = 19.453180) {
-    marker.setMap(null);
-    marker = new google.maps.Marker({
-        position: {
-            lat: latIn,
-            lng: lngIn
-        },
-        map: map
-    });
-    map.setCenter(marker.getPosition());
-}
-function initMap(latIn = 51.752845, lngIn = 19.453180) {
-    const uluru = {
-        lat: latIn,
-        lng: lngIn
-    };
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 18,
-        center: uluru
-    });
-    marker = new google.maps.Marker({
-        position: uluru,
-        map: map
-    });
-}
-
-//load data
-var data = [
+let map;
+let marker;
+let edited = false;
+const data = [
     {
         "name":"WEEIA",
         "short":"WEEIA",
@@ -52,7 +24,7 @@ var data = [
                 "lat":51.755845,
                 "lng":19.453180,
             }
-            ]
+        ]
     },
     {
         "name":"FTIMS",
@@ -75,7 +47,33 @@ var data = [
         }]
     },
 ];
-var edited = false;
+
+function updateMarker(latIn = 51.752845, lngIn = 19.453180) {
+    marker.setMap(null);
+    marker = new google.maps.Marker({
+        position: {
+            lat: latIn,
+            lng: lngIn
+        },
+        map: map
+    });
+    map.setCenter(marker.getPosition());
+}
+
+function initMap(latIn = 51.752845, lngIn = 19.453180) {
+    const uluru = {
+        lat: latIn,
+        lng: lngIn
+    };
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 18,
+        center: uluru
+    });
+    marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+}
 
 function initList(){
     var list = document.getElementById("list");
@@ -91,8 +89,6 @@ function initList(){
     }
     list.innerHTML = tmp;
     }
-
-initList();
 
 function filterPlaces(value){
     if(value.length > 1){
@@ -135,53 +131,42 @@ function filterList(value){
     edited = true;
 }
 
-var list = document.getElementById("filterPlace");
+function init(){
+    initList();
+    let $bodyEl = $('body');
+    let $sidedrawerEl = $('#sidedrawer');
+    let $titleEls = $('strong', $sidedrawerEl);
 
+    document.getElementsByClassName('js-show-sidedrawer')[0].addEventListener('click', showSidedrawer,false);
+    document.getElementsByClassName('js-hide-sidedrawer')[0].addEventListener('click', hideSidedrawer,false);
 
+    $titleEls.next().hide();
 
-//slide menu
-
-jQuery(function($) {
-    var $bodyEl = $('body'),
-        $sidedrawerEl = $('#sidedrawer');
-
+    $titleEls.on('click', function () {
+        $(this).next().slideToggle(200);
+    });
 
     function showSidedrawer() {
-        // show overlay
-        var options = {
-            onclose: function() {
+        let options = {
+            onclose: function () {
                 $sidedrawerEl
                     .removeClass('active')
                     .appendTo(document.body);
             }
         };
 
-        var $overlayEl = $(mui.overlay('on', options));
+        let $overlayEl = $(mui.overlay('on', options));
 
-        // show element
         $sidedrawerEl.appendTo($overlayEl);
-        setTimeout(function() {
+        setTimeout(function () {
             $sidedrawerEl.addClass('active');
         }, 20);
     }
 
-
     function hideSidedrawer() {
         $bodyEl.toggleClass('hide-sidedrawer');
+        //document.getElementsByTagName('BODY')[0].className = 'hide-sidedrawer';
     }
+}
 
-
-    $('.js-show-sidedrawer').on('click', showSidedrawer);
-    $('.js-hide-sidedrawer').on('click', hideSidedrawer);
-
-
-    var $titleEls = $('strong', $sidedrawerEl);
-
-    $titleEls
-        .next()
-        .hide();
-
-    $titleEls.on('click', function() {
-        $(this).next().slideToggle(200);
-    });
-});
+init();
