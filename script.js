@@ -1,7 +1,7 @@
 let map;
 let marker;
 let edited = false;
-const data = [
+const campus = [
     {
         "name": "WEEIA",
         "short": "WEEIA",
@@ -25,27 +25,7 @@ const data = [
                 "lng": 19.453180,
             }
         ]
-    },
-    {
-        "name": "FTIMS",
-        "short": "FTIMS",
-        "places": [{
-            "name": "IMSI",
-            "short": "k12",
-            "lat": 51.755845,
-            "lng": 19.453180,
-        }]
-    },
-    {
-        "name": "OIZ",
-        "short": "OIZ",
-        "places": [{
-            "name": "IMSI",
-            "short": "k12",
-            "lat": 51.755845,
-            "lng": 19.453180,
-        }]
-    },
+    }
 ];
 
 function updateMarker(latIn, lngIn) {
@@ -77,7 +57,7 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
 
 function initList() {
     let tmp = "";
-    for (let group of data) {
+    for (let group of campus) {
         tmp += "<li>";
         tmp += "<strong onclick='toggleListElement(this);'>" + group.short + "</strong><ul style='display:none;'>";
         for (let place of group.places) {
@@ -102,7 +82,7 @@ function filterPlaces(value) {
 
 function filterList(value) {
     let tmp = "";
-    for (let group of data) {
+    for (let group of campus) {
         let tmp2 = "", tmp3 = "";
         tmp2 += "<strong>" + group.short + "</strong><ul>";
         for (let place of group.places) {
@@ -148,11 +128,13 @@ function toggleSidedrawer() {
 }
 
 function toggleListElement(element) {
-    if (element.nextSibling.style.display != "none") {
-        element.nextSibling.style.display = "none";
+    let nextElement = element.nextSibling;
+    if (nextElement.style.display != "none") {
+        nextElement.style.display = "none";
+        nextElement.className = "active";
     }
     else {
-        element.nextSibling.style.display = "block";
+        nextElement.style.display = "block";
     }
 }
 

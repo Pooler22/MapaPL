@@ -1,25 +1,21 @@
 Mapa PL
 
-
-
 Class structure:
 
+
 class Group{
-    constructor(name){
+    constructor(name,short){
         this.name = name;
+        this.name = short;
         this.places = [];
     }
 }
 
 class Place{
-    constructor(name, short,longitude, latitude){
+    constructor(name, short, longitude, latitude){
         this.name = name;
         this.short = short;
         this.longitude = longitude;
-        this.latitude= latitude;
+        this.latitude = latitude;
     }
 }
-
-//dev local files use:
-
-python -m http.server
