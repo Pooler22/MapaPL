@@ -49,13 +49,11 @@ class MainList extends React.Component {
     languageUpdate(e) {
         this.setState({lang: e.target.id});
     }
+// <Language update={this.languageUpdate} data={this.data.lang}/>
 
     render() {
         return (
-            <div>
-                <Language update={this.languageUpdate} data={this.data.lang}/>
                 <GroupsList lang={this.state.lang} update={this.update} data={this.data.faculty}/>
-            </div>
         );
     }
 }
@@ -68,9 +66,9 @@ class Language extends React.Component {
             .data
             .map((e) => {
                 return (
-                    <button id={e.id} key={e.id} onClick={this.props.update}>
+                    <a id={e.id} key={e.id} onClick={this.props.update}>
                         {e.name}
-                    </button>
+                    </a>
                 );
             })
     }
@@ -99,11 +97,9 @@ class GroupsList extends React.Component {
 
     render() {
         return (
-            <nav>
                 <ul>
                     {this.renderNavElements()}
                 </ul>
-            </nav>
         );
     }
 }
@@ -113,9 +109,9 @@ class GroupElement extends React.Component {
     render() {
         return (
             <li>
-                <button onClick={this.props.update} id={this.props.data.id}>
+                <a onClick={this.props.update} id={this.props.data.id}>
                     {(this.props.lang==='pl') ? this.props.data.text : this.props.data.id}
-                </button>
+                </a>
                 <PlacesList data={this.props.data.places} key={this.props.data.id} lang={this.props.lang} update={this.props.update}/>
             </li>
         )
@@ -167,10 +163,10 @@ class PlaceElement extends React.Component {
     render() {
         return (
             <li>
-                <button onClick={this.update} key={this.props.data.id} id={this.props.data.id} name={this.props.data.name}
+                <a onClick={this.update} key={this.props.data.id} id={this.props.data.id} name={this.props.data.name}
                         value={this.props.data.longitude + " " + this.props.data.latitude}>
                     {(this.props.lang==='pl') ? this.props.data.name : this.props.data.id}
-                </button>
+                </a>
             </li>
         );
     }
