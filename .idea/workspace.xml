@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/script.jsx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="26" column="63" lean-forward="false" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,9 +38,16 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="234">
+              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <folding>
+                <element signature="e#54#1023#0" expanded="false" />
+                <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+                <element signature="n#!!block;n#initMap#0" expanded="false" />
+                <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+                <element signature="n#!!block;n#filterList#0" expanded="false" />
+                <marker date="1481393213235" expanded="true" signature="1886:1899" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,36 +65,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>GroupList</find>
-      <find>head</find>
-      <find>Header</find>
-      <find>hEAD</find>
-      <find>Navigation</find>
-      <find>about</find>
-      <find>consol</find>
-      <find>navigation</find>
-      <find>id</find>
-      <find>Content</find>
-      <find>languageUpdate</find>
-      <find>faculty</find>
-      <find>GroupElement</find>
-      <find>update</find>
-      <find>console.log</find>
-      <find>par</find>
-      <find>cons</find>
-      <find>ul</find>
-      <find>ro</find>
       <find>brand</find>
       <find>li&gt;</find>
       <find>lang</find>
       <find>butt</find>
-      <find>updateMarker</find>
       <find>mult</find>
       <find>class</find>
       <find>mui-container-fluid</find>
       <find>i</find>
       <find>stron</find>
       <find>wyni</find>
+      <find>updateMarkerupdateMarker</find>
+      <find>togg</find>
+      <find>hideSidedrawerhideSidedrawer</find>
+      <find>$bodyEl</find>
+      <find>bodyEl</find>
+      <find>$sidedrawerEl</find>
+      <find>$</find>
+      <find>slideToggle</find>
+      <find>updateMarker</find>
+      <find>hideSidedrawer</find>
+      <find>sidedrawer</find>
+      <find>js-hide-sidedrawer</find>
+      <find>showSidedrawer</find>
+      <find>js-show-sidedrawer</find>
+      <find>overlayEl</find>
+      <find>append</find>
+      <find>options</find>
+      <find>active</find>
+      <find>appendChild</find>
+      <find>hide-sidedrawer</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -252,7 +257,7 @@
       <workItem from="1481286561816" duration="1331000" />
       <workItem from="1481301326457" duration="10461000" />
       <workItem from="1481312948496" duration="2455000" />
-      <workItem from="1481364522321" duration="17211000" />
+      <workItem from="1481364522321" duration="24178000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -275,11 +280,25 @@
       <option name="project" value="LOCAL" />
       <updated>1481373647823</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="prepare filter">
+      <created>1481384835761</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1481384835762</updated>
+    </task>
+    <task id="LOCAL-00005" summary="prepare to remove jquery">
+      <created>1481386656525</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1481386656525</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31458000" />
+    <option name="totallyTimeSpent" value="38425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -314,11 +333,13 @@
     <MESSAGE value="init repo" />
     <MESSAGE value="merge progress" />
     <MESSAGE value="remove react, add css ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove react, add css ui" />
+    <MESSAGE value="prepare filter" />
+    <MESSAGE value="prepare to remove jquery" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare to remove jquery" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -335,7 +356,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#54#1023#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#filterList#0" expanded="false" />
+            <marker date="1481393213235" expanded="true" signature="1886:1899" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -351,7 +379,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#54#1023#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#filterList#0" expanded="false" />
+            <marker date="1481393213235" expanded="true" signature="1886:1899" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -439,17 +474,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="26" column="63" lean-forward="false" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="234">
+          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <element signature="e#54#1023#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#filterList#0" expanded="false" />
+            <marker date="1481393213235" expanded="true" signature="1886:1899" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

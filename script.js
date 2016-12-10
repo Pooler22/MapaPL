@@ -80,7 +80,7 @@ function initList(){
     let tmp = "";
     for(let group of data){
         tmp +=  "<li>";
-        tmp += "<strong>"+group.short+"</strong><ul>";
+        tmp += "<strong onclick='showSidedrawer(this);'>"+group.short+"</strong onclick='showSidedrawer(this);'><ul style='display:none;'>";
         for (let place of group.places){
             tmp+= "<li><a href='javascript:updateMarker(" + place.lat + "," + place.lng + ");'>" + place.name + "</a></li>";
         }
@@ -131,42 +131,49 @@ function filterList(value){
     edited = true;
 }
 
+
+function showSidedrawer() {
+    let sidedrawerEl = document.getElementById('sidedrawer');
+    let options = {
+        onclose: function() {
+            sidedrawerEl.className = sidedrawerEl.className.replace(' active','');
+            document.body.appendChild(sidedrawerEl);
+        }
+    };
+
+    let overlayEl = mui.overlay('on', options);
+
+    overlayEl.appendChild(sidedrawerEl);
+     setTimeout(function() {
+         sidedrawerEl.className += ' active';
+     }, 20);
+}
+
+function toggleSidedrawer() {
+    var body = document.getElementsByTagName('BODY')[0];
+    if(body.className  == 'hide-sidedrawer'){
+        body.className  = 'show-sidedrawer'
+    }else{
+        body.className  = 'hide-sidedrawer'
+    }
+}
+
 function init(){
     initList();
-    let $bodyEl = $('body');
-    let $sidedrawerEl = $('#sidedrawer');
-    let $titleEls = $('strong', $sidedrawerEl);
+    let sidedrawerEl = document.getElementById('sidedrawer');
+    //let titleEls = ('strong', sidedrawerEl);
 
-    document.getElementsByClassName('js-show-sidedrawer')[0].addEventListener('click', showSidedrawer,false);
-    document.getElementsByClassName('js-hide-sidedrawer')[0].addEventListener('click', hideSidedrawer,false);
-
-    $titleEls.next().hide();
-
-    $titleEls.on('click', function () {
-        $(this).next().slideToggle(200);
-    });
-
-    function showSidedrawer() {
-        let options = {
-            onclose: function () {
-                $sidedrawerEl
-                    .removeClass('active')
-                    .appendTo(document.body);
-            }
-        };
-
-        let $overlayEl = $(mui.overlay('on', options));
-
-        $sidedrawerEl.appendTo($overlayEl);
-        setTimeout(function () {
-            $sidedrawerEl.addClass('active');
-        }, 20);
+    for(i of document.getElementsByClassName('js-show-sidedrawer')){
+        i.addEventListener('click', showSidedrawer,false);
+    }
+    for(i of document.getElementsByClassName('js-hide-sidedrawer')){
+        i.addEventListener('click', toggleSidedrawer,false);
     }
 
-    function hideSidedrawer() {
-        $bodyEl.toggleClass('hide-sidedrawer');
-        //document.getElementsByTagName('BODY')[0].className = 'hide-sidedrawer';
-    }
+    // titleEls.on('click', function () {
+    //     (this).next().slideToggle(200);
+    // });
+    //
 }
 
 init();
