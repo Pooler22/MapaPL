@@ -1,6 +1,6 @@
 #map {
-    height: 100vh;
-    width: 100%;
+    top: 64px;
+    position: absolute;
 }
 
 html,
