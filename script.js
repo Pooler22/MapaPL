@@ -73,67 +73,40 @@ function closeSidedraver() {
 //list
 
 function printCategory(category) {
-    // tmp += "<li>";
-    // tmp += "<strong onclick='toggleListElement(this);'>" + category.name + "</strong><ul style='display:block;'>";
-    // tmp += "</ul></li>";
-    console.log(category.name);
-    for (let place of building.filter((x) => x.place_category.split(',').indexOf(category.id) != -1)) {
-        console.log("\t" + place.name);
+    let tmp = "<strong onclick='toggleListElement(this);'>" + category.name + "</strong>";
+
+    tmp += "<ul style='display:none;'>";
+    if (category.subcategory !== undefined) {
+        tmp += printCategories(category.subcategory);
     }
+    for (let place of building.filter((x) => x.place_category.split(',').indexOf(category.id) != -1)) {
+        if (place.short == undefined) {
+            place.short = ""
+        }
+        tmp += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.short + "\");'>" + "<b>" + place.short + "</b> " + place.name + "</a></li>";
+    }
+    tmp += "</ul>";
+    return tmp;
 }
 
 function printCategories(categories) {
+    let tmp = "";
     for (let category of categories) {
-        printCategory(category);
-        if (category.subcategory !== undefined) {
-            printCategories(category.subcategory);
-        }
+        tmp += "<li>";
+        tmp += printCategory(category);
+        tmp += "</li>";
     }
+    return tmp;
 }
 
 function initList() {
     let tmp = "";
-    printCategories(categories);
-
-    // for (let category of categories){
-    //     tmp += "<li>";
-    //     tmp += "<strong onclick='toggleListElement(this);'>" + category.name + "</strong><ul style='display:block;'>";
-    //     if(category.faculties !== undefined){
-    //         for (let faculty of category.faculties){
-    //             tmp += "<li>";
-    //             tmp += "<strong onclick='toggleListElement(this);'>" + faculty.name + "</strong><ul style='display:none;'>";
-    //
-    //             for(let unit of units.filter((x)=>x.unit_faculty == faculty.id)){
-    //                 if(unit.short == undefined){
-    //                     unit.short = ""
-    //                 }
-    //                 tmp += "<li>"+ "<b>" + unit.short + "</b> " + unit.name + "</li>";
-    //             }
-    //
-    //             tmp += "</ul></li>";
-    //         }
-    //     }
-    //     else{
-    //         for(let place of building.filter((x)=>x.place_category.split(',').indexOf(category.id) != -1)){
-    //             if(place.short == undefined){
-    //                 place.short = ""
-    //             }
-    //             tmp += "<li>"+ "<b>" + place.short + "</b> " + place.name + "</li>";
-    //         }
-    //     }
-    //     tmp += "</ul></li>";
-    // }
-    // for (let place of building) {
-    //     // tmp += "<li>";
-    //     // tmp += "<strong onclick='toggleListElement(this);'>" + place.name + "</strong><ul style='display:none;'>";
-    //
-    //     // for (let place of group.building) {
-    //     tmp += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.symbol + "\");'>" + "<b>" + place.symbol + "</b> " + place.name + "</a></li>";
-    //     // }
-    //
-    //     // tmp += "</ul></li>";
-    // }
-    // listElement.innerHTML = tmp + "</ul></li>";
+    tmp += printCategories(categories);
+    tmp += "<strong onclick='toggleListElement(this);'>" + "Budynki" + "</strong><ul style='display:none;'>";
+    for (let place of building) {
+        tmp += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.short + "\");'>" + "<b>" + place.short + "</b> " + place.name + "</a></li>";
+    }
+    listElement.innerHTML = tmp + "</ul></li>";
 }
 
 function filterPlaces(value) {
