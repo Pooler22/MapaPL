@@ -1,21 +1,36 @@
-Mapa PL
+Mapa online Politechniki Łódzkiej
 
-Class structure:
+Data structure:
+
+- category
+  - id
+  - name
+  - short_name
+  - short
+  - subcategory
+	
+- place
+  - id
+  - name
+  - short
+  - category
+  - wwww
+  - phone
+	
+- building
+  - id
+  - name
+  - short 
+  - longitude
+  - latitude
+  - address
+  - photo
 
 
-class Group{
-    constructor(name,short){
-        this.name = name;
-        this.name = short;
-        this.places = [];
-    }
-}
+Data view:
 
-class Place{
-    constructor(name, short, longitude, latitude){
-        this.name = name;
-        this.short = short;
-        this.longitude = longitude;
-        this.latitude = latitude;
-    }
-}
+- categories
+  - places - building
+  - subcategories
+    - ...
+  - buildings - places

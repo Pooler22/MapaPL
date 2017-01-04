@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="refactoring">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="add autorezise map">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/json/building.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/json/categories.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/json/places.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/style.css" afterPath="$PROJECT_DIR$/style.css" />
@@ -25,36 +29,82 @@
     <favorites_list name="MapaPL" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="categories.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json/categories.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+            <state relative-caret-position="188">
+              <caret line="159" column="68" lean-forward="false" selection-start-line="159" selection-start-column="68" selection-end-line="159" selection-end-column="76" />
               <folding>
-                <element signature="e#80#657#0" expanded="false" />
-                <marker date="1481458046709" expanded="true" signature="1849:1862" ph="..." />
+                <element signature="e#79#138#0" expanded="false" />
+                <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+                <element signature="n#!!block;n#initMap#0" expanded="false" />
+                <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+                <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+                <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+                <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+                <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+                <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+                <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+                <element signature="n#!!block;n#resize#0" expanded="false" />
+                <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+                <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+                <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+                <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/style.css">
+      <file leaf-file-name="building.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json/building.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="places.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json/places.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="278">
+                <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -64,51 +114,54 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$sidedrawerEl</find>
-      <find>$</find>
-      <find>slideToggle</find>
-      <find>updateMarker</find>
-      <find>hideSidedrawer</find>
-      <find>showSidedrawer</find>
-      <find>overlayEl</find>
-      <find>append</find>
-      <find>active</find>
-      <find>appendChild</find>
-      <find>hide-sidedrawer</find>
-      <find>initMap</find>
-      <find>sidedrawerEl</find>
-      <find>toggleListElement</find>
-      <find>sidedrawer</find>
-      <find>mapa</find>
-      <find>initMa</find>
-      <find>init</find>
-      <find>js-show-sidedrawer</find>
-      <find>js-hide-sidedrawer</find>
-      <find>list</find>
-      <find>div</find>
-      <find>trans</find>
-      <find>ftims</find>
-      <find>contet</find>
-      <find>map</find>
       <find>options</find>
-      <find>200px</find>
+      <find>760</find>
+      <find>document.getE</find>
+      <find>document.</find>
+      <find>image</find>
+      <find>leav</find>
+      <find>angleRotated</find>
+      <find>getPositionYMouse</find>
+      <find>cons</find>
+      <find>initList</find>
+      <find>campus</find>
+      <find>campusplace</find>
+      <find>updateMarker</find>
+      <find>place.latitude</find>
+      <find>map</find>
+      <find>zoom</find>
+      <find>marker</find>
+      <find>loadJSON</find>
+      <find>console</find>
+      <find>update</find>
+      <find>lastWidth</find>
       <find>isOpenPanel</find>
-      <find>750</find>
+      <find>mapElement</find>
+      <find>initMap</find>
+      <find>2</find>
+      <find>30</find>
+      <find>filterable_name</find>
+      <find>short_name</find>
+      <find>places</find>
+      <find>long</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
       <replace>dt&gt;</replace>
       <replace>ul&gt;</replace>
-      <replace>short</replace>
       <replace>760</replace>
+      <replace>300px</replace>
+      <replace>770</replace>
+      <replace>sizeMin</replace>
+      <replace>short</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -128,10 +181,21 @@
         <option value="$PROJECT_DIR$/list.jsx" />
         <option value="$PROJECT_DIR$/list.html" />
         <option value="$PROJECT_DIR$/script.jsx" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/rotate.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/faculties.json" />
+        <option value="$PROJECT_DIR$/categories.json" />
+        <option value="$PROJECT_DIR$/places.json" />
+        <option value="$PROJECT_DIR$/units.json" />
+        <option value="$PROJECT_DIR$/json/faculties.json" />
+        <option value="$PROJECT_DIR$/json/units.json" />
+        <option value="$PROJECT_DIR$/json/categories.json" />
         <option value="$PROJECT_DIR$/script.js" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/json/places.json" />
+        <option value="$PROJECT_DIR$/json/building.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -144,8 +208,34 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1382" />
     <option name="height" value="754" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsJavaScript</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -163,6 +253,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -175,22 +267,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapaPL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapaPL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="json" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/npm/node_modules/create-react-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.eslint.eslintPackage" value="C:\Users\pooler\WebstormProjects\MapaPL\node_modules\eslint" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pooler\WebstormProjects\MapaPL\json" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -233,7 +342,7 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
+      <command value="run" />
       <scripts />
       <node-interpreter value="project" />
       <envs />
@@ -267,7 +376,15 @@
       <workItem from="1481301326457" duration="10461000" />
       <workItem from="1481312948496" duration="2455000" />
       <workItem from="1481364522321" duration="33751000" />
-      <workItem from="1481453610479" duration="3968000" />
+      <workItem from="1481453610479" duration="4590000" />
+      <workItem from="1481478025406" duration="4407000" />
+      <workItem from="1481487059669" duration="3337000" />
+      <workItem from="1481748790732" duration="818000" />
+      <workItem from="1481749672956" duration="4827000" />
+      <workItem from="1482092467858" duration="34000" />
+      <workItem from="1483473741480" duration="10629000" />
+      <workItem from="1483517018446" duration="1627000" />
+      <workItem from="1483528216371" duration="1218000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -332,33 +449,40 @@
       <option name="project" value="LOCAL" />
       <updated>1481403515864</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add autorezise map">
+      <created>1481458084258</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1481458084258</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51966000" />
+    <option name="totallyTimeSpent" value="79485000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="754" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1509009" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14955357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25281805" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,25 +501,226 @@
     <MESSAGE value="remove jquery" />
     <MESSAGE value="add toggle element list" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="add autorezise map" />
+    <option name="LAST_COMMIT_MESSAGE" value="add autorezise map" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/json/categories.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#64#1383#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/places.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7412">
+          <caret line="436" column="9" lean-forward="false" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/categories.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="62" column="7" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="7" />
+          <folding>
+            <element signature="e#64#1383#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/places.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7412">
+          <caret line="436" column="9" lean-forward="true" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/building.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11917">
+          <caret line="701" column="19" lean-forward="false" selection-start-line="701" selection-start-column="5" selection-end-line="701" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rotate.html" />
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/list.html" />
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#80#657#0" expanded="false" />
-            <marker date="1481458046709" expanded="true" signature="1849:1862" ph="..." />
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
           </folding>
         </state>
       </provider>
@@ -406,8 +731,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#80#657#0" expanded="false" />
-            <marker date="1481458046709" expanded="true" signature="1849:1862" ph="..." />
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
           </folding>
         </state>
       </provider>
@@ -439,25 +777,76 @@
     <entry file="file://$PROJECT_DIR$/src/index.js" />
     <entry file="file://$PROJECT_DIR$/list.html" />
     <entry file="file://$PROJECT_DIR$/Language.jsx" />
-    <entry file="file://$USER_HOME$/Desktop/MapaPL/node_modules/lodash/fp/nthArg.js">
+    <entry file="file://$USER_HOME$/Desktop/MapaPL/node_modules/lodash/fp/nthArg.js" />
+    <entry file="file://$PROJECT_DIR$/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rotate.html" />
+    <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-863">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/json/faculties.json" />
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="74">
+          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/categories.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="4" column="19" lean-forward="false" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="159" column="68" lean-forward="false" selection-start-line="159" selection-start-column="68" selection-end-line="159" selection-end-column="76" />
+          <folding>
+            <element signature="e#79#138#0" expanded="false" />
+            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483528986281" expanded="true" signature="1814:1828" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2515:2529" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="2783:2796" ph="..." />
+            <marker date="1483528986281" expanded="true" signature="3767:3780" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/places.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <first_editor relative-caret-position="278">
+            <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -468,35 +857,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
+    <entry file="file://$PROJECT_DIR$/json/building.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding>
-            <element signature="e#80#657#0" expanded="false" />
-            <marker date="1481458046709" expanded="true" signature="1849:1862" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
