@@ -3,7 +3,6 @@ Mapa online Politechniki Łódzkiej
 TODO:
  - [ ] aktualizacja danych
  - [ ] więcej informacji w dymku
- - [ ] obsługa parametrów url
  - [ ] więcej informacji dla budynku / miejsca
  - [ ] udostępnienie linku do danego miejsca / budynku
 
@@ -36,9 +35,15 @@ Data structure:
 
 
 Data view:
-
 - categories
   - places - building
   - subcategories
     - ...
   - buildings - places
+
+
+API (url query):
+- Marked building:
+  - `url/buildingId=id example: url/buildingId=1`
+- Marked place:
+  - `url/placeId=id example: url/buildingId=101`

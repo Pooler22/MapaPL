@@ -4,6 +4,26 @@ let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
+//url query
+
+let QueryString = function () {
+    let query_string = {};
+    let query = window.location.search.substring(1);
+    let vars = query.split("&");
+    for (let i = 0; i < vars.length; i++) {
+        let pair = vars[i].split("=");
+        if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = decodeURIComponent(pair[1]);
+        } else if (typeof query_string[pair[0]] === "string") {
+            query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
+        } else {
+            query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+    }
+    return query_string;
+}();
+
+
 //json
 function loadJSON(path, success) {
     let xhr = new XMLHttpRequest();
@@ -38,6 +58,8 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18, label = "PŁ
 }
 
 function updateMarker(latIn, lngIn, name = "", label = "") {
+    console.log(name);
+    console.log(label);
     marker.setMap(null);
     setMarker(latIn, lngIn, label);
 
@@ -239,6 +261,18 @@ function init() {
             loadJSON('json/buildings.json', data => {
                 buildings = data;
                 initList();
+                if (QueryString.placeId !== undefined) {
+                    let place = places.find(x => x.id == QueryString.placeId);
+                    let building = buildings.find(x => x.id == place.building.split(",")[0]);
+                    updateMarker(Number(building.latitude), Number(building.longitude), place.name, place.short);
+
+                }
+                else if (QueryString.buildingId !== undefined) {
+                    let building = buildings.find(x => x.id == QueryString.buildingId);
+                    console.log(building);
+                    updateMarker(Number(building.latitude), Number(building.longitude), building.name, building.short);
+
+                }
             });
         });
     });

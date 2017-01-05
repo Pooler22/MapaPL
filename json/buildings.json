@@ -1,0 +1,552 @@
+[
+  {
+    "id": "1",
+    "short": "A1",
+    "name": "Budynek A1",
+    "latitude": "51.755138",
+    "longitude": "19.452522"
+  },
+  {
+    "id": "2",
+    "short": "A2",
+    "name": "Budynek A2",
+    "latitude": "51.754645",
+    "longitude": "19.452780"
+  },
+  {
+    "id": "3",
+    "short": "A3",
+    "name": "Budynek A3",
+    "latitude": "51.7547082",
+    "longitude": "19.4532694"
+  },
+  {
+    "id": "4",
+    "short": "A4",
+    "name": "Budynek A4",
+    "latitude": "51.754585",
+    "longitude": "19.454711"
+  },
+  {
+    "id": "5",
+    "short": "A5",
+    "name": "Budynek A5",
+    "latitude": "51.754243",
+    "longitude": "19.454883"
+  },
+  {
+    "id": "6",
+    "short": "A6",
+    "name": "Budynek A6",
+    "latitude": "51.7541216",
+    "longitude": "19.4540303"
+  },
+  {
+    "id": "8",
+    "short": "A8",
+    "name": "Budynek A8",
+    "tags": "Garbarstwo",
+    "latitude": "51.753513",
+    "longitude": "19.453027"
+  },
+  {
+    "id": "9",
+    "short": "A9",
+    "name": "Budynek A9",
+    "latitude": "51.7534724",
+    "longitude": "19.4533662"
+  },
+  {
+    "id": "10",
+    "short": "A10",
+    "name": "Budynek A10",
+    "tags": "Elektryczny",
+    "latitude": "51.752606",
+    "longitude": "19.453086"
+  },
+  {
+    "id": "11",
+    "short": "A11",
+    "name": "Budynek A11",
+    "tags": "Mały Elektryczny",
+    "latitude": "51.753124",
+    "longitude": "19.453531"
+  },
+  {
+    "id": "12",
+    "short": "A12",
+    "name": "Budynek A12",
+    "latitude": "51.7528589",
+    "longitude": "19.4543747"
+  },
+  {
+    "id": "13",
+    "short": "A13",
+    "name": "Sekcja Rekrutacji Politechniki Łódzkiej",
+    "latitude": "51.752407",
+    "longitude": "19.453772"
+  },
+  {
+    "id": "14",
+    "short": "A14",
+    "name": "Budynek A14",
+    "latitude": "51.753060",
+    "longitude": "19.455130"
+  },
+  {
+    "id": "16",
+    "short": "A16",
+    "name": "Centrum Kształcenia Międzynarodowego",
+    "tags": "IFE",
+    "latitude": "51.755112",
+    "longitude": "19.451533"
+  },
+  {
+    "id": "17",
+    "short": "A17",
+    "name": "Kwestura",
+    "latitude": "51.755103",
+    "longitude": "19.450631"
+  },
+  {
+    "id": "18",
+    "short": "A18",
+    "name": "Fabryka Inżynierów",
+    "latitude": "51.7547448",
+    "longitude": "19.4516909"
+  },
+  {
+    "id": "19",
+    "short": "A19",
+    "name": "Budynek A19",
+    "latitude": "51.753788",
+    "longitude": "19.452072"
+  },
+  {
+    "id": "20",
+    "short": "A20",
+    "name": "Budynek A20",
+    "tags": "4M",
+    "latitude": "51.753490",
+    "longitude": "19.451648"
+  },
+  {
+    "id": "21",
+    "short": "A21",
+    "name": "Budynek A21",
+    "latitude": "51.7529831",
+    "longitude": "19.4516726"
+  },
+  {
+    "id": "22",
+    "short": "A22",
+    "name": "Budynek A22",
+    "tags": "1M, 2M",
+    "latitude": "51.752576",
+    "longitude": "19.451809"
+  },
+  {
+    "id": "24",
+    "short": "A24",
+    "name": "Budynek A24",
+    "latitude": "51.7544842",
+    "longitude": "19.4508928"
+  },
+  {
+    "id": "26",
+    "short": "A26",
+    "name": "Budynek A26",
+    "latitude": "51.7540867",
+    "longitude": "19.4505966"
+  },
+  {
+    "id": "27",
+    "short": "A27",
+    "name": "Budynek A27",
+    "latitude": "51.753825",
+    "longitude": "19.450967"
+  },
+  {
+    "id": "28",
+    "short": "A28",
+    "name": "Budynek A28",
+    "latitude": "51.7535851",
+    "longitude": "19.4509969"
+  },
+  {
+    "id": "30",
+    "short": "A30",
+    "name": "Budynek A30",
+    "latitude": "51.752588",
+    "longitude": "19.451323"
+  },
+  {
+    "id": "31",
+    "short": "A31",
+    "name": "Budynek A31",
+    "latitude": "51.7537783",
+    "longitude": "19.4496228"
+  },
+  {
+    "id": "33",
+    "short": "A33",
+    "name": "Budynek A33",
+    "latitude": "51.7528475",
+    "longitude": "19.4500623"
+  },
+  {
+    "id": "34",
+    "short": "B1",
+    "name": "Rektorat Politechniki Łódzkiej",
+    "latitude": "51.748621",
+    "longitude": "19.455360"
+  },
+  {
+    "id": "35",
+    "short": "B2",
+    "name": "Budynek B2",
+    "latitude": "51.7489063",
+    "longitude": "19.4548576"
+  },
+  {
+    "id": "36",
+    "short": "B3",
+    "name": "Budynek B3",
+    "latitude": "51.7486057",
+    "longitude": "19.453125"
+  },
+  {
+    "id": "37",
+    "short": "B4",
+    "name": "Budynek B4",
+    "latitude": "51.7480461",
+    "longitude": "19.4558245"
+  },
+  {
+    "id": "38",
+    "short": "B5",
+    "name": "Budynek B5",
+    "latitude": "51.7480104",
+    "longitude": "19.4554295"
+  },
+  {
+    "id": "39",
+    "short": "B6",
+    "name": "Budynek B6",
+    "tags": "",
+    "latitude": "51.7477509",
+    "longitude": "19.4531241"
+  },
+  {
+    "id": "40",
+    "short": "B7",
+    "name": "Budynek B7",
+    "latitude": "51.7476239",
+    "longitude": "19.4519306"
+  },
+  {
+    "id": "42",
+    "short": "B9",
+    "name": "Budynek Trzech Wydziałów",
+    "tags": "Lodex, Tramwaj",
+    "latitude": "51.7472277",
+    "longitude": "19.4537199"
+  },
+  {
+    "id": "43",
+    "short": "B10",
+    "name": "Budynek B10",
+    "latitude": "51.7473809",
+    "longitude": "19.4554135"
+  },
+  {
+    "id": "44",
+    "short": "B11",
+    "name": "Budynek B11",
+    "latitude": "51.7473759",
+    "longitude": "19.4560713"
+  },
+  {
+    "id": "45",
+    "short": "B12",
+    "name": "Budynek B12",
+    "latitude": "51.7471604",
+    "longitude": "19.4556281"
+  },
+  {
+    "id": "46",
+    "short": "B13",
+    "name": "Budynek B13",
+    "latitude": "51.746788",
+    "longitude": "19.454275"
+  },
+  {
+    "id": "47",
+    "short": "B14",
+    "name": "Budynek B14",
+    "latitude": "51.7465176",
+    "longitude": "19.4553862"
+  },
+  {
+    "id": "48",
+    "short": "B15",
+    "name": "Budynek B15",
+    "latitude": "51.7466000",
+    "longitude": "19.4557936"
+  },
+  {
+    "id": "49",
+    "short": "B16",
+    "name": "Budynek B16",
+    "latitude": "51.7463987",
+    "longitude": "19.4531671"
+  },
+  {
+    "id": "50",
+    "short": "B17",
+    "name": "Instytut Papiernictwa i Poligrafii",
+    "latitude": "51.7461245",
+    "longitude": "19.4546554"
+  },
+  {
+    "id": "51",
+    "short": "B18",
+    "name": "Budynek B18",
+    "tags": "DMCS, 5E",
+    "latitude": "51.7460987",
+    "longitude": "19.4557229"
+  },
+  {
+    "id": "52",
+    "short": "B19",
+    "name": "Centrum Technologii Informatycznych",
+    "latitude": "51.7470548",
+    "longitude": "19.4559248"
+  },
+  {
+    "id": "55",
+    "short": "B22",
+    "name": "Biblioteka Główna",
+    "latitude": "51.7456283",
+    "longitude": "19.4539643"
+  },
+  {
+    "id": "57",
+    "short": "B24",
+    "name": "Centrum Językowe",
+    "latitude": "51.7454352",
+    "longitude": "19.4519802"
+  },
+  {
+    "id": "58",
+    "short": "B25",
+    "name": "Centrum Językowe",
+    "latitude": "51.7453924",
+    "longitude": "19.451256"
+  },
+  {
+    "id": "59",
+    "short": "C1",
+    "name": "Budynek C1",
+    "latitude": "51.744552",
+    "longitude": "19.448524"
+  },
+  {
+    "id": "60",
+    "short": "C2",
+    "name": "Budynek C2",
+    "latitude": "51.7445835",
+    "longitude": "19.4485581"
+  },
+  {
+    "id": "61",
+    "short": "C3",
+    "name": "Budynek C3",
+    "tags": "Akwarium",
+    "latitude": "51.74519",
+    "longitude": "19.4499796"
+  },
+  {
+    "id": "62",
+    "short": "C4",
+    "name": "Centrum Sportu",
+    "latitude": "51.7454267",
+    "longitude": "19.4493607"
+  },
+  {
+    "id": "63",
+    "short": "C5",
+    "name": "VI Dom Akademicki",
+    "tags": "Akwarium",
+    "latitude": "51.7457995",
+    "longitude": "19.4498475"
+  },
+  {
+    "id": "64",
+    "short": "C6",
+    "name": "Budynek C6",
+    "latitude": "51.7458352",
+    "longitude": "19.4493218"
+  },
+  {
+    "id": "65",
+    "short": "C7",
+    "name": "Budynek C7",
+    "latitude": "51.7458228",
+    "longitude": "19.4489041"
+  },
+  {
+    "id": "67",
+    "short": "C9",
+    "name": "VII Dom Akademicki",
+    "tags": "Siódemka",
+    "latitude": "51.7461292",
+    "longitude": "19.4500547"
+  },
+  {
+    "id": "68",
+    "short": "C10",
+    "name": "Underground",
+    "latitude": "51.746343",
+    "longitude": "19.450086"
+  },
+  {
+    "id": "69",
+    "short": "C11",
+    "name": "IV Dom Akademicki",
+    "tags": "Czwórka",
+    "latitude": "51.7467162",
+    "longitude": "19.450183"
+  },
+  {
+    "id": "70",
+    "short": "C12",
+    "name": "III Dom Akademicki",
+    "tags": "Trójka",
+    "latitude": "51.7474178",
+    "longitude": "19.4500173"
+  },
+  {
+    "id": "71",
+    "short": "C13",
+    "name": "II Dom Akademicki",
+    "tags": "Mikrus",
+    "latitude": "51.7482778",
+    "longitude": "19.4498611"
+  },
+  {
+    "id": "72",
+    "short": "C14",
+    "name": "I Dom Akademicki",
+    "tags": "Jedynka",
+    "latitude": "51.7485368",
+    "longitude": "19.4496385"
+  },
+  {
+    "id": "73",
+    "short": "C15",
+    "name": "Budynek C15",
+    "latitude": "51.7489808",
+    "longitude": "19.4494321"
+  },
+  {
+    "id": "74",
+    "short": "C16",
+    "name": "VIII Dom Akademicki",
+    "tags": "Zwartek",
+    "latitude": "51.7513544",
+    "longitude": "19.4479121"
+  },
+  {
+    "id": "75",
+    "short": "C18",
+    "name": "Budynek C18",
+    "latitude": "51.744966",
+    "longitude": "19.449698"
+  },
+  {
+    "id": "78",
+    "short": "D1",
+    "name": "Budynek D1",
+    "latitude": "51.749568",
+    "longitude": "19.460970"
+  },
+  {
+    "id": "79",
+    "short": "D2",
+    "name": "Budynek D2",
+    "latitude": "51.749681",
+    "longitude": "19.461451"
+  },
+  {
+    "id": "80",
+    "short": "D3",
+    "name": "Budynek D3",
+    "latitude": "51.749398",
+    "longitude": "19.461506"
+  },
+  {
+    "id": "81",
+    "short": "D4",
+    "name": "Budynek D4",
+    "latitude": "51.749064",
+    "longitude": "19.461686"
+  },
+  {
+    "id": "82",
+    "short": "D5",
+    "name": "Budynek D5",
+    "latitude": "51.749160",
+    "longitude": "19.461006"
+  },
+  {
+    "id": "83",
+    "short": "E1",
+    "name": "IX Dom Akademicki",
+    "latitude": "51.7469747",
+    "longitude": "19.4598611"
+  },
+  {
+    "id": "84",
+    "short": "E2",
+    "name": "V Dom Akademicki",
+    "tags": "Tygrys",
+    "latitude": "51.7790746",
+    "longitude": "19.4944225"
+  },
+  {
+    "id": "85",
+    "short": "X1",
+    "name": "Hala Sportowa",
+    "latitude": "51.7492691",
+    "longitude": "19.4517149"
+  },
+  {
+    "id": "86",
+    "short": "X2",
+    "name": "Lodowisko Bombonierka",
+    "latitude": "51.7504749",
+    "longitude": "19.4539359"
+  },
+  {
+    "id": "87",
+    "short": "X3",
+    "name": "Miejski Klub Tenisowy",
+    "latitude": "51.7547895",
+    "longitude": "19.4420291"
+  },
+  {
+    "id": "88",
+    "short": "X4",
+    "name": "Aqua Park Fala",
+    "latitude": "51.7640732",
+    "longitude": "19.4216938"
+  },
+  {
+    "id": "89",
+    "short": "X5",
+    "name": "Basen Wodny Raj",
+    "latitude": "51.79326",
+    "longitude": "19.380079"
+  }
+]
