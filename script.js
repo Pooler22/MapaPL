@@ -5,13 +5,10 @@ let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
 //url query
-
 let QueryString = function () {
     let query_string = {};
-    let query = window.location.search.substring(1);
-    let vars = query.split("&");
-    for (let i = 0; i < vars.length; i++) {
-        let pair = vars[i].split("=");
+    window.location.search.substring(1).split("&").forEach(item => {
+        let pair = item.split("=");
         if (typeof query_string[pair[0]] === "undefined") {
             query_string[pair[0]] = decodeURIComponent(pair[1]);
         } else if (typeof query_string[pair[0]] === "string") {
@@ -19,10 +16,9 @@ let QueryString = function () {
         } else {
             query_string[pair[0]].push(decodeURIComponent(pair[1]));
         }
-    }
+    });
     return query_string;
 }();
-
 
 //json
 function loadJSON(path, success) {
@@ -37,34 +33,80 @@ function loadJSON(path, success) {
 }
 
 //map
+function setMarker(coordinate) {
 
-function setMarker(latIn, lngIn, label = "") {
     marker = new google.maps.Marker({
         position: {
-            lat: latIn,
-            lng: lngIn
+            lat: coordinate[0],
+            lng: coordinate[1]
         },
-        label: label,
         map: map
     });
     map.setCenter(marker.getPosition());
 }
 
-function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18, label = "PŁ") {
+function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
     map = new google.maps.Map(mapElement, {
         zoom: zoomIn
     });
-    setMarker(latIn, lngIn, label);
+    updateMarker("Witaj na stronie mapy Politechniki Łódzkiej - online <br>" +
+        "Wybierz z menu po lewej stornie kategorię i miejsce<br>" +
+        "jakie cię interesują albo wyszukaj za pomocą<br>" +
+        "wyszukiwarki.",
+        latIn, lngIn);
+
 }
 
-function updateMarker(latIn, lngIn, name = "", label = "") {
-    console.log(name);
-    console.log(label);
-    marker.setMap(null);
-    setMarker(latIn, lngIn, label);
+
+function setMarkerExt(coordinate) {
+
+    marker = new google.maps.Marker({
+        position: {
+            lat: Number(coordinate[0]),
+            lng: Number(coordinate[1])
+        },
+        map: map
+    });
+    map.setCenter(marker.getPosition());
+}
+
+function updateMarkerExt(content, coordinate) {
+    if (marker !== undefined) {
+        marker.setMap(null);
+    }
+    coordinate.forEach(x => {
+        setMarkerExt(x);
+        let infowindow = new google.maps.InfoWindow({
+            content: content
+        });
+
+        google.maps.event.addListener(marker, 'click', (e) => {
+            infowindow.open(map, marker);
+            e.target.removeEventListener(e.type, arguments.callee);
+        });
+
+        //infowindow.open(map, marker);
+
+        marker.setMap(map);
+    });
+
+
+    if (window.innerWidth < sizeMin) {
+        closeSidedraver();
+    }
+}
+
+function updateMarker(content, latIn, lngIn, ...rest) {
+    if (rest.length != 0) {
+        console.log(rest)
+    }
+    if (marker !== undefined) {
+        marker.setMap(null);
+    }
+    setMarker([latIn, lngIn]);
 
     let infowindow = new google.maps.InfoWindow({
-        content: name
+        content: content
     });
 
     google.maps.event.addListener(marker, 'click', (e) => {
@@ -73,6 +115,7 @@ function updateMarker(latIn, lngIn, name = "", label = "") {
     });
 
     infowindow.open(map, marker);
+
     marker.setMap(map);
 
     if (window.innerWidth < sizeMin) {
@@ -88,7 +131,6 @@ function closeSidedraver() {
 }
 
 //list
-
 function printCategory(category) {
     let tmp = "";
 
@@ -99,15 +141,16 @@ function printCategory(category) {
         tmp += printCategories(category.subcategory);
     }
 
-    for (let place of places.filter((x) => x.category.split(',').indexOf(category.id) != -1)) {
+    places.filter((x) => x.category.split(',').indexOf(category.id) != -1).forEach(place => {
         if (place.short == undefined) {
             place.short = ""
         }
         if (place.building != undefined) {
+
             let building = buildings.find(x => x.id == place.building.split(",")[0]);
-            tmp += `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${place.name}","${place.short}");'><b>${place.short}</b> ${place.name}</a></li>`;
+            tmp += `<li><a href='javascript:updateMarker("${place.name}",${building.latitude},${building.longitude});'><b>${place.short}</b> ${place.name}</a></li>`;
         }
-    }
+    });
     tmp += `</ul>`;
     return tmp;
 }
@@ -121,7 +164,7 @@ function initList() {
     tmp += printCategories(categories);
     tmp += `<strong onclick='toggleListElement(this);'>Budynki</strong><ul style='display:none;'>`;
     tmp += buildings.reduce((a, b) => {
-        return a + `<li><a href='javascript:updateMarker(${b.latitude},${b.longitude},"${b.name}","${b.short}");'>${b.name}</a></li>`;
+        return a + `<li><a href='javascript:updateMarker("${b.name}",${b.latitude},${b.longitude});'>${b.name}</a></li>`;
     }, "");
     tmp += "</ul></li>";
     listElement.innerHTML = tmp;
@@ -148,10 +191,10 @@ function getSearchResult(value, collection, findInBuildingsCollection = false) {
         if (isFunded(value.toLowerCase(), element)) {
             if (findInBuildingsCollection) {
                 let building = buildings.find(x => x.id == element.building.split(",")[0]);
-                return a + `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker("${element.name}",${building.latitude},${building.longitude});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
             else {
-                return a + `<li><a href='javascript:updateMarker(${element.latitude},${element.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker("${element.name}",${element.latitude},${element.longitude});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
         }
         else {
@@ -263,15 +306,17 @@ function init() {
                 initList();
                 if (QueryString.placeId !== undefined) {
                     let place = places.find(x => x.id == QueryString.placeId);
-                    let building = buildings.find(x => x.id == place.building.split(",")[0]);
-                    updateMarker(Number(building.latitude), Number(building.longitude), place.name, place.short);
+                    let coordinates = place.building.split(",").map(y => {
+                        let tmp = buildings.find(x => x.id == y);
+                        return [tmp.latitude, tmp.longitude];
+                    });
 
+                    //let building = buildings.find(x => x.id == place.building.split(",")[0]);
+                    updateMarkerExt(place.name, coordinates);
                 }
                 else if (QueryString.buildingId !== undefined) {
                     let building = buildings.find(x => x.id == QueryString.buildingId);
-                    console.log(building);
-                    updateMarker(Number(building.latitude), Number(building.longitude), building.name, building.short);
-
+                    updateMarker(building.name, Number(building.latitude), Number(building.longitude));
                 }
             });
         });

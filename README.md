@@ -2,9 +2,10 @@ Mapa online Politechniki Łódzkiej
 
 TODO:
  - [ ] aktualizacja danych
- - [ ] więcej informacji w dymku
- - [ ] więcej informacji dla budynku / miejsca
+ - [ ] więcej informacji w dymku: strona www, adres
+ - [ ] wyszukiwanie za pomocą tagów
  - [ ] udostępnienie linku do danego miejsca / budynku
+ - [ ] zaznaczanie miejsc z wieloma budynkami
 
 Data structure:
 
