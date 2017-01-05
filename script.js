@@ -1,4 +1,4 @@
-let map, marker;
+let map, marker, markers = [];
 let mapElement, listElement, sidedrawerElement;
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
@@ -46,48 +46,57 @@ function setMarker(coordinate) {
 }
 
 function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
+    let welcomeText =
+        "Witaj na stronie mapy Politechniki Łódzkiej - online <br>" +
+        "Wybierz z menu po lewej stornie kategorię i miejsce<br>" +
+        "jakie cię interesują albo wyszukaj za pomocą<br>" +
+        "wyszukiwarki.";
+
     map = new google.maps.Map(mapElement, {
         zoom: zoomIn
     });
-    updateMarker("Witaj na stronie mapy Politechniki Łódzkiej - online <br>" +
-        "Wybierz z menu po lewej stornie kategorię i miejsce<br>" +
-        "jakie cię interesują albo wyszukaj za pomocą<br>" +
-        "wyszukiwarki.",
-        latIn, lngIn);
-
+    updateMarker(welcomeText, latIn, lngIn);
 }
 
 
-function setMarkerExt(coordinate) {
-
-    marker = new google.maps.Marker({
+function setMarkerExt(coordinate, infowindow) {
+    markers.push(new google.maps.Marker({
         position: {
             lat: Number(coordinate[0]),
             lng: Number(coordinate[1])
         },
         map: map
+    }));
+
+    map.setCenter(markers[markers.length - 1].getPosition());
+
+    google.maps.event.addListener(markers[markers.length - 1], 'click', (e) => {
+        infowindow.open(map, markers[markers.length - 1]);
+        // e.target.removeEventListener(e.type, arguments.callee);
     });
-    map.setCenter(marker.getPosition());
+
+    infowindow.open(map, markers[markers.length - 1]);
+
+    markers[markers.length - 1].setMap(map);
 }
 
 function updateMarkerExt(content, coordinate) {
     if (marker !== undefined) {
         marker.setMap(null);
     }
+    markers.forEach(marker1 => {
+        if (marker1 !== undefined) {
+            marker1.setMap(null);
+        }
+    });
+    markers = [];
+
+    let infowindow = new google.maps.InfoWindow({
+        content: content
+    });
+
     coordinate.forEach(x => {
-        setMarkerExt(x);
-        let infowindow = new google.maps.InfoWindow({
-            content: content
-        });
-
-        google.maps.event.addListener(marker, 'click', (e) => {
-            infowindow.open(map, marker);
-            e.target.removeEventListener(e.type, arguments.callee);
-        });
-
-        //infowindow.open(map, marker);
-
-        marker.setMap(map);
+        setMarkerExt(x, infowindow);
     });
 
 
@@ -310,8 +319,6 @@ function init() {
                         let tmp = buildings.find(x => x.id == y);
                         return [tmp.latitude, tmp.longitude];
                     });
-
-                    //let building = buildings.find(x => x.id == place.building.split(",")[0]);
                     updateMarkerExt(place.name, coordinates);
                 }
                 else if (QueryString.buildingId !== undefined) {
