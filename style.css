@@ -24,6 +24,10 @@ buttons {
  * Layout CSS
  */
 
+.map {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 #header {
     position: fixed;
@@ -46,7 +50,22 @@ buttons {
     transition: transform 0.2s;
 }
 
+#content-wrapper {
+    min-height: 100%;
+    overflow-x: hidden;
+    margin-left: 0;
+    transition: margin-left 0.2s;
 
+    /* sticky bottom */
+    margin-bottom: -160px;
+    padding-bottom: 160px;
+}
+
+#footer {
+    height: 160px;
+    margin-left: 0;
+    transition: margin-left 0.2s;
+}
 
 @media (min-width: 768px) {
     #header {
@@ -57,6 +76,14 @@ buttons {
         transform: translate(300px);
     }
 
+    #content-wrapper {
+        margin-left: 300px;
+    }
+
+    #footer {
+        margin-left: 300px;
+    }
+
     body.hide-sidedrawer #header {
         left: 0;
     }
@@ -65,12 +92,23 @@ buttons {
         transform: translate(0px);
     }
 
+    body.hide-sidedrawer #content-wrapper {
+        margin-left: 0;
+    }
+
+    body.hide-sidedrawer #footer {
+        margin-left: 0;
+    }
 }
 
 
 /**
  * Toggle Side drawer
  */
+#sidedrawer.active {
+    transform: translate(300px);
+}
+
 
 /**
  * Header CSS
@@ -92,6 +130,10 @@ buttons {
 /**
  * Footer CSS
  */
+#footer {
+    background-color: #0288D1;
+    color: #fff;
+}
 
 #footer a {
     color: #fff;
