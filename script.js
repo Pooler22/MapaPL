@@ -46,11 +46,7 @@ function setMarker(coordinate) {
 }
 
 function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
-    let welcomeText =
-        "Witaj na stronie mapy Politechniki Łódzkiej - online <br>" +
-        "Wybierz z menu po lewej stornie kategorię i miejsce<br>" +
-        "jakie cię interesują albo wyszukaj za pomocą<br>" +
-        "wyszukiwarki.";
+    let welcomeText = /**/"Witaj na stronie mapy Politechniki Łódzkiej - online. Wybierz z menu po lewej stornie kategorię i miejsce jakie cię interesują albo wyszukaj za pomocą wyszukiwarki.";
 
     map = new google.maps.Map(mapElement, {
         zoom: zoomIn
