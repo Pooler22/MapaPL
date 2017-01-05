@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="hotfix css">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="contact">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,39 +25,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+            <state relative-caret-position="173">
+              <caret line="318" column="29" lean-forward="true" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
               <folding>
-                <element signature="e#220#763#0" expanded="false" />
-                <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+                <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+                <element signature="n#!!block;n#setMarker#0" expanded="false" />
+                <element signature="n#!!block;n#initMap#0" expanded="false" />
+                <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+                <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+                <element signature="n#!!block;n#updateMarker#0" expanded="false" />
                 <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+                <element signature="n#!!block;n#printCategory#0" expanded="false" />
                 <element signature="n#!!block;n#printCategories#0" expanded="false" />
+                <element signature="n#!!block;n#initList#0" expanded="false" />
                 <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
                 <element signature="n#!!block;n#isFunded#0" expanded="false" />
+                <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
                 <element signature="n#!!block;n#filterList#0" expanded="false" />
                 <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
                 <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
                 <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-                <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
                 <element signature="n#!!block;n#resize#0" expanded="false" />
-                <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-                <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="72" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#iframe#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+                <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
               </folding>
             </state>
           </provider>
@@ -76,12 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>find</find>
-      <find>filterList</find>
-      <find>filt</find>
-      <find>js-hide-sidedrawer</find>
-      <find>pix</find>
-      <find>sizeMin</find>
       <find>short</find>
       <find>jedze</find>
       <find>ijt</find>
@@ -106,6 +93,12 @@
       <find>update</find>
       <find>ext</find>
       <find>zoo</find>
+      <find>QueryString</find>
+      <find>mapElement</find>
+      <find>listElement</find>
+      <find>sidedrawerElement</find>
+      <find>kon</find>
+      <find>success</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -149,8 +142,8 @@
         <option value="$PROJECT_DIR$/json/buildings.json" />
         <option value="$PROJECT_DIR$/json/categories.json" />
         <option value="$PROJECT_DIR$/json/places.json" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/style.css" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
@@ -345,7 +338,7 @@
       <workItem from="1483538453659" duration="1991000" />
       <workItem from="1483565635983" duration="8555000" />
       <workItem from="1483604274873" duration="18929000" />
-      <workItem from="1483639381436" duration="733000" />
+      <workItem from="1483639381436" duration="4818000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -473,11 +466,18 @@
       <option name="project" value="LOCAL" />
       <updated>1483639564738</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="contact">
+      <created>1483640135839</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1483640135839</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115450000" />
+    <option name="totallyTimeSpent" value="119535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -486,21 +486,21 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14955357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25281805" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -547,13 +547,14 @@
     <MESSAGE value="url query" />
     <MESSAGE value="multiplace testing" />
     <MESSAGE value="hotfix css" />
-    <option name="LAST_COMMIT_MESSAGE" value="hotfix css" />
+    <MESSAGE value="contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="26" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -563,20 +564,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -585,6 +592,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -592,6 +600,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="63" column="32" lean-forward="false" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,6 +608,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -617,6 +627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -624,6 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7412">
           <caret line="436" column="9" lean-forward="false" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -631,6 +643,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="62" column="7" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -638,6 +651,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7412">
           <caret line="436" column="9" lean-forward="true" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -645,6 +659,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11917">
           <caret line="701" column="19" lean-forward="false" selection-start-line="701" selection-start-column="5" selection-end-line="701" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -653,20 +668,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -693,20 +714,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -724,20 +751,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -762,20 +795,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -793,20 +832,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -817,20 +862,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
             <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
             <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
             <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
             <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
             <element signature="n#!!block;n#filterList#0" expanded="false" />
             <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
             <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
             <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
             <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>
@@ -878,33 +929,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="119">
-            <caret line="7" column="45" lean-forward="true" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/json/buildings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4505">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json/categories.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="68" column="4" lean-forward="true" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -912,6 +941,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,36 +953,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-          <folding>
-            <element signature="e#220#763#0" expanded="false" />
-            <element signature="n#!!block;n#loadJSON#0" expanded="false" />
-            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
-            <element signature="n#!!block;n#printCategories#0" expanded="false" />
-            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
-            <element signature="n#!!block;n#isFunded#0" expanded="false" />
-            <element signature="n#!!block;n#filterList#0" expanded="false" />
-            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
-            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
-            <element signature="n#!!block;n#updateMapSize#0" expanded="false" />
-            <element signature="n#!!block;n#resize#0" expanded="false" />
-            <marker date="1483639723698" expanded="true" signature="3809:3822" ph="..." />
-            <marker date="1483639723698" expanded="true" signature="4745:4758" ph="..." />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="17">
+            <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="48" column="72" lean-forward="false" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="72" />
+        <state relative-caret-position="235">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#iframe#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/categories.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="318" column="29" lean-forward="true" selection-start-line="318" selection-start-column="29" selection-end-line="318" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!block;n#getQueryString#0" expanded="false" />
+            <element signature="n#!!block;n#setMarker#0" expanded="false" />
+            <element signature="n#!!block;n#initMap#0" expanded="false" />
+            <element signature="n#!!block;n#setMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarkerExt#0" expanded="false" />
+            <element signature="n#!!block;n#updateMarker#0" expanded="false" />
+            <element signature="n#!!block;n#closeSidedraver#0" expanded="false" />
+            <element signature="n#!!block;n#printCategory#0" expanded="false" />
+            <element signature="n#!!block;n#printCategories#0" expanded="false" />
+            <element signature="n#!!block;n#initList#0" expanded="false" />
+            <element signature="n#!!block;n#filterPlaces#0" expanded="false" />
+            <element signature="n#!!block;n#isFunded#0" expanded="false" />
+            <element signature="n#!!block;n#getSearchResult#0" expanded="false" />
+            <element signature="n#!!block;n#filterList#0" expanded="false" />
+            <element signature="n#!!block;n#toggleListElement#0" expanded="false" />
+            <element signature="n#!!block;n#showSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#toggleSidedrawer#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0" expanded="false" />
+            <marker date="1483649930670" expanded="true" signature="3957:3970" ph="..." />
+            <marker date="1483649930670" expanded="true" signature="4893:4906" ph="..." />
           </folding>
         </state>
       </provider>

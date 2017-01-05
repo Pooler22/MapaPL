@@ -5,7 +5,7 @@ let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
 //url query
-let QueryString = function () {
+function getQueryString() {
     let query_string = {};
     window.location.search.substring(1).split("&").forEach(item => {
         let pair = item.split("=");
@@ -18,18 +18,23 @@ let QueryString = function () {
         }
     });
     return query_string;
-}();
+}
 
 //json
-function loadJSON(path, success) {
-    let xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200 && success) {
-            success(JSON.parse(xhr.responseText));
-        }
-    };
-    xhr.open("GET", path, true);
-    xhr.send();
+function loadJSON(path) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                resolve(JSON.parse(xhr.responseText));
+            }
+        };
+        xhr.onerror = function () {
+            reject(Error("Network Error"));
+        };
+        xhr.open("GET", path, true);
+        xhr.send();
+    });
 }
 
 //map
@@ -53,7 +58,6 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
     });
     updateMarker(welcomeText, latIn, lngIn);
 }
-
 
 function setMarkerExt(coordinate, infowindow) {
     markers.push(new google.maps.Marker({
@@ -288,10 +292,26 @@ function resize() {
     updateMapSize()
 }
 
+function getQueryURL() {
+    let queryString = getQueryString();
+    if (queryString.placeId !== undefined) {
+        let place = places.find(x => x.id == queryString.placeId);
+        let coordinates = place.building.split(",").map(y => {
+            let tmp = buildings.find(x => x.id == y);
+            return [tmp.latitude, tmp.longitude];
+        });
+        updateMarkerExt(place.name, coordinates);
+    }
+    else if (queryString.buildingId !== undefined) {
+        let building = buildings.find(x => x.id == queryString.buildingId);
+        updateMarker(building.name, Number(building.latitude), Number(building.longitude));
+    }
+}
+
 //init
 function init() {
     lastWidth = window.innerWidth;
-    isOpenPanel = window.innerWidth > sizeMin;
+    isOpenPanel = lastWidth > sizeMin;
     mapElement = document.getElementById('map');
     listElement = document.getElementById("list");
     sidedrawerElement = document.getElementById('sidedrawer');
@@ -302,27 +322,14 @@ function init() {
 
     updateMapSize();
 
-    loadJSON('json/categories.json', data => {
-        categories = data;
-        loadJSON('json/places.json', data => {
-            places = data;
-            loadJSON('json/buildings.json', data => {
-                buildings = data;
-                initList();
-                if (QueryString.placeId !== undefined) {
-                    let place = places.find(x => x.id == QueryString.placeId);
-                    let coordinates = place.building.split(",").map(y => {
-                        let tmp = buildings.find(x => x.id == y);
-                        return [tmp.latitude, tmp.longitude];
-                    });
-                    updateMarkerExt(place.name, coordinates);
-                }
-                else if (QueryString.buildingId !== undefined) {
-                    let building = buildings.find(x => x.id == QueryString.buildingId);
-                    updateMarker(building.name, Number(building.latitude), Number(building.longitude));
-                }
-            });
-        });
+    Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
+        categories = values[0];
+        places = values[1];
+        buildings = values[2];
+        initList();
+        getQueryURL();
+    }, reason => {
+        console.log(reason)
     });
 }
 
