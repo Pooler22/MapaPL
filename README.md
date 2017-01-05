@@ -1,12 +1,21 @@
 Mapa online Politechniki Łódzkiej
 
+TODO:
+ - [ ] aktualizacja danych
+ - [ ] więcej informacji w dymku
+ - [ ] obsługa parametrów url
+ - [ ] więcej informacji dla budynku / miejsca
+ - [ ] udostępnienie linku do danego miejsca / budynku
+ - [ ] stopka
+ - [ ] bug z wysokością i szerokośćią strony
+
 Data structure:
 
 - category
   - id
   - name
-  - short_name
   - short
+  - short_name
   - subcategory
 	
 - place
@@ -14,7 +23,8 @@ Data structure:
   - name
   - short
   - category
-  - wwww
+  - building []
+  - www
   - phone
 	
 - building

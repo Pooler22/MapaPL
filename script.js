@@ -1,13 +1,9 @@
 let map, marker;
 let mapElement, listElement, sidedrawerElement;
-let options = {
-    onclose: () => {
-        isOpenPanel = false;
-    }
-};
+
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
-let building, categories, units;
+let buildings, categories, places;
 
 //json
 function loadJSON(path, success) {
@@ -22,25 +18,8 @@ function loadJSON(path, success) {
 }
 
 //map
-function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18, label = "PŁ") {
-    const position = {
-        lat: latIn,
-        lng: lngIn
-    };
-    map = new google.maps.Map(mapElement, {
-        zoom: zoomIn,
-        center: position
-    });
 
-    marker = new google.maps.Marker({
-        position: position,
-        label: label,
-        map: map
-    });
-}
-
-function updateMarker(latIn, lngIn, name, label = "") {
-    marker.setMap(null);
+function setMarker(latIn, lngIn, label = "") {
     marker = new google.maps.Marker({
         position: {
             lat: latIn,
@@ -49,12 +28,30 @@ function updateMarker(latIn, lngIn, name, label = "") {
         label: label,
         map: map
     });
-
     map.setCenter(marker.getPosition());
+}
+
+function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18, label = "PŁ") {
+    map = new google.maps.Map(mapElement, {
+        zoom: zoomIn
+    });
+    setMarker(latIn, lngIn, label);
+}
+
+function updateMarker(latIn, lngIn, name = "", label = "") {
+    marker.setMap(null);
+
+    setMarker(latIn, lngIn, label);
 
     let infowindow = new google.maps.InfoWindow({
         content: name
     });
+
+    google.maps.event.addListener(marker, 'click', (e) => {
+        infowindow.open(map, marker);
+        e.target.removeEventListener(e.type, arguments.callee);
+    });
+
     infowindow.open(map, marker);
     marker.setMap(map);
 
@@ -73,40 +70,43 @@ function closeSidedraver() {
 //list
 
 function printCategory(category) {
-    let tmp = "<strong onclick='toggleListElement(this);'>" + category.name + "</strong>";
+    let tmp = "";
 
-    tmp += "<ul style='display:none;'>";
+    tmp += `<strong onclick='toggleListElement(this);'>${category.name}</strong>`;
+    tmp += `<ul style='display:none;'>`;
+
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
     }
-    for (let place of building.filter((x) => x.place_category.split(',').indexOf(category.id) != -1)) {
+
+    for (let place of places.filter((x) => x.category.split(',').indexOf(category.id) != -1)) {
         if (place.short == undefined) {
             place.short = ""
         }
-        tmp += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.short + "\");'>" + "<b>" + place.short + "</b> " + place.name + "</a></li>";
+        if (place.building != undefined) {
+            let building = buildings.filter(x => x.id == place.building.split(",")[0])[0];
+            tmp += `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${place.name}","${place.short}");'><b>${place.short}</b>${place.name}</a></li>`;
+        }
     }
     tmp += "</ul>";
     return tmp;
 }
 
 function printCategories(categories) {
-    let tmp = "";
-    for (let category of categories) {
-        tmp += "<li>";
-        tmp += printCategory(category);
-        tmp += "</li>";
-    }
-    return tmp;
+    return categories.reduce((a, b) => {
+        return a + `<li>${printCategory(b)}</li>`;
+    }, "");
 }
 
 function initList() {
     let tmp = "";
     tmp += printCategories(categories);
-    tmp += "<strong onclick='toggleListElement(this);'>" + "Budynki" + "</strong><ul style='display:none;'>";
-    for (let place of building) {
-        tmp += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.short + "\");'>" + "<b>" + place.short + "</b> " + place.name + "</a></li>";
-    }
-    listElement.innerHTML = tmp + "</ul></li>";
+    tmp += `<strong onclick='toggleListElement(this);'>Budynki</strong><ul style='display:none;'>`;
+    tmp += buildings.reduce((a, b) => {
+        return a + `<li><a href='javascript:updateMarker(${b.latitude},${b.longitude},"${b.name}","${b.short}");'><b>${b.short}</b>${b.name}</a></li>`;
+    }, "");
+    tmp += "</ul></li>";
+    listElement.innerHTML = tmp;
 }
 
 function filterPlaces(value) {
@@ -121,18 +121,23 @@ function filterPlaces(value) {
     }
 }
 
-function filterList(value) {
-    let tmp = "";
-
-    // for (let group of campus) {
-    let tmp2 = "", tmp3 = "";
-
-    tmp2 += "<strong>" + "Miejsca" + "</strong><ul>";
-    for (let place of building) {
-        if (place.name.toLowerCase().search(value.toLowerCase()) != -1 || place.symbol.toLowerCase().search(value.toLowerCase()) != -1) {
-            tmp3 += "<li><a href='javascript:updateMarker(" + place.latitude + "," + place.longitude + ",\"" + place.name + "\",\"" + place.symbol + "\");'>" + "<b>" + place.symbol + "</b> " + place.name + "</a></li>";
+function getSearchResult(value, collection) {
+    let tmp3 = "";
+    for (let element of collection) {
+        if (element.name.toLowerCase().search(value) != -1 || element.short.toLowerCase().search(value) != -1) {
+            tmp3 += "<li><a href='javascript:updateMarker(" + element.latitude + "," + element.longitude + ",\"" + element.name + "\",\"" + element.short + "\");'>" + "<b>" + element.short + "</b> " + element.name + "</a></li>";
         }
     }
+    return tmp3;
+}
+
+function filterList(value) {
+    let tmp = "", tmp2 = "", tmp3 = "";
+
+    tmp2 += `<strong>Miejsca</strong><ul>`;
+    tmp3 += getSearchResult(value.toLowerCase(), buildings);
+    tmp3 += getSearchResult(value.toLowerCase(), places);
+
     if (tmp3 == "") {
         tmp2 = "";
     }
@@ -140,12 +145,12 @@ function filterList(value) {
         tmp2 += tmp3 + "</ul>";
     }
     tmp += tmp2;
-    // }
+
     if (tmp == "") {
-        tmp = "<strong>Brak wyników</strong>";
+        tmp = `<strong>Brak wyników</strong>`;
     }
-    listElement.innerHTML = tmp;
     edited = true;
+    listElement.innerHTML = tmp;
 }
 
 function toggleListElement(element) {
@@ -181,7 +186,11 @@ function toggleSidedrawer() {
 
 function updateMapSize() {
     if (lastWidth > sizeMin)
-        mui.overlay('off', options);
+        mui.overlay('off', {
+            onclose: () => {
+                isOpenPanel = false;
+            }
+        });
     mapElement.style.height = (window.innerHeight - 64) + 'px';
     if (isOpenPanel) {
         mapElement.style.width = (window.innerWidth - 200) + 'px';
@@ -212,13 +221,16 @@ function init() {
 
     updateMapSize();
 
-    loadJSON('json/categories.json', data => categories = data);
-    loadJSON('json/places.json', data => units = data);
-    loadJSON('json/building.json',
-        (data) => {
-            building = data;
-            initList();
+    loadJSON('json/categories.json', data => {
+        categories = data;
+        loadJSON('json/places.json', data => {
+            places = data;
+            loadJSON('json/buildings.json', data => {
+                buildings = data;
+                initList();
+            });
         });
+    });
 }
 
 init();
