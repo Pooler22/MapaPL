@@ -1,6 +1,5 @@
 let map, marker;
 let mapElement, listElement, sidedrawerElement;
-
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
@@ -40,7 +39,6 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18, label = "PŁ
 
 function updateMarker(latIn, lngIn, name = "", label = "") {
     marker.setMap(null);
-
     setMarker(latIn, lngIn, label);
 
     let infowindow = new google.maps.InfoWindow({
@@ -84,22 +82,20 @@ function printCategory(category) {
             place.short = ""
         }
         if (place.building != undefined) {
-            let building = buildings.filter(x => x.id == place.building.split(",")[0])[0];
+            let building = buildings.find(x => x.id == place.building.split(",")[0]);
             tmp += `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${place.name}","${place.short}");'><b>${place.short}</b>${place.name}</a></li>`;
         }
     }
-    tmp += "</ul>";
+    tmp += `</ul>`;
     return tmp;
 }
 
 function printCategories(categories) {
-    return categories.reduce((a, b) => {
-        return a + `<li>${printCategory(b)}</li>`;
-    }, "");
+    return categories.reduce((a, b) => a + `<li>${printCategory(b)}</li>`, "");
 }
 
 function initList() {
-    let tmp = "";
+    let tmp = ``;
     tmp += printCategories(categories);
     tmp += `<strong onclick='toggleListElement(this);'>Budynki</strong><ul style='display:none;'>`;
     tmp += buildings.reduce((a, b) => {
@@ -121,22 +117,27 @@ function filterPlaces(value) {
     }
 }
 
+function isFunded(value, element) {
+    return element.name.toLowerCase().search(value) != -1 || element.short.toLowerCase().search(value) != -1
+}
+
 function getSearchResult(value, collection) {
-    let tmp3 = "";
-    for (let element of collection) {
-        if (element.name.toLowerCase().search(value) != -1 || element.short.toLowerCase().search(value) != -1) {
-            tmp3 += "<li><a href='javascript:updateMarker(" + element.latitude + "," + element.longitude + ",\"" + element.name + "\",\"" + element.short + "\");'>" + "<b>" + element.short + "</b> " + element.name + "</a></li>";
+    return collection.reduce((a, element) => {
+        if (isFunded(value.toLowerCase(), element)) {
+            return a + `<li><a href='javascript:updateMarker(${element.latitude},${element.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
         }
-    }
-    return tmp3;
+        else {
+            return a;
+        }
+    }, "");
 }
 
 function filterList(value) {
-    let tmp = "", tmp2 = "", tmp3 = "";
+    let tmp = ``, tmp2 = ``, tmp3 = ``;
 
     tmp2 += `<strong>Miejsca</strong><ul>`;
-    tmp3 += getSearchResult(value.toLowerCase(), buildings);
-    tmp3 += getSearchResult(value.toLowerCase(), places);
+    tmp3 += getSearchResult(value, buildings);
+    tmp3 += getSearchResult(value, places);
 
     if (tmp3 == "") {
         tmp2 = "";
@@ -170,7 +171,6 @@ function showSidedrawer() {
     isOpenPanel = true;
     mui.overlay('on', options).appendChild(sidedrawerElement);
     setTimeout(() => sidedrawerElement.className += ' active', 20);
-
 }
 
 function toggleSidedrawer() {
@@ -185,20 +185,25 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
+    let magic1 = 200;
+    let magic2 = 64;
+    let magic3 = "300px";
+    let magic4 = '0px';
+
     if (lastWidth > sizeMin)
         mui.overlay('off', {
             onclose: () => {
                 isOpenPanel = false;
             }
         });
-    mapElement.style.height = (window.innerHeight - 64) + 'px';
+    mapElement.style.height = (window.innerHeight - magic2) + 'px';
     if (isOpenPanel) {
-        mapElement.style.width = (window.innerWidth - 200) + 'px';
-        mapElement.style.marginLeft = '300px';
+        mapElement.style.width = (window.innerWidth - magic1) + 'px';
+        mapElement.style.marginLeft = magic3;
     }
     else {
         mapElement.style.width = (window.innerWidth) + 'px';
-        mapElement.style.marginLeft = '0px';
+        mapElement.style.marginLeft = magic4;
     }
 }
 
