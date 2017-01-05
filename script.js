@@ -4,22 +4,6 @@ let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
-//url query
-function getQueryString() {
-    let query_string = {};
-    window.location.search.substring(1).split("&").forEach(item => {
-        let pair = item.split("=");
-        if (typeof query_string[pair[0]] === "undefined") {
-            query_string[pair[0]] = decodeURIComponent(pair[1]);
-        } else if (typeof query_string[pair[0]] === "string") {
-            query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
-        } else {
-            query_string[pair[0]].push(decodeURIComponent(pair[1]));
-        }
-    });
-    return query_string;
-}
-
 //json
 function loadJSON(path) {
     return new Promise((resolve, reject) => {
@@ -38,6 +22,21 @@ function loadJSON(path) {
 }
 
 //url query
+function getQueryString() {
+    let query_string = {};
+    window.location.search.substring(1).split("&").forEach(item => {
+        let pair = item.split("=");
+        if (typeof query_string[pair[0]] === "undefined") {
+            query_string[pair[0]] = decodeURIComponent(pair[1]);
+        } else if (typeof query_string[pair[0]] === "string") {
+            query_string[pair[0]] = [query_string[pair[0]], decodeURIComponent(pair[1])];
+        } else {
+            query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+    });
+    return query_string;
+}
+
 function getQueryURL() {
     let queryString = getQueryString();
     if (queryString.placeId !== undefined) {
@@ -163,7 +162,7 @@ function updateMarkerExt(content, coordinate) {
 //list
 function extendCategories(categories) {
     categories.forEach(category => {
-        category.places = places.filter(place => place.category == category.id);;
+        category.places = places.filter(place => place.category == category.id);
         if (category.subcategory !== undefined) {
             extendCategories(category.subcategory);
         }
@@ -199,22 +198,19 @@ function printCategory(category) {
         tmp += printCategories(category.subcategory);
     }
     category.places.forEach(place => {
-        // places.filter(place => place.category.split(',').indexOf(category.id) != -1).forEach(place => {
         if (place.short == undefined) {
             place.short = ""
         }
-        if (place.building != undefined) {
             let building = buildings.find(x => x.id == place.building.split(",")[0]);
-            tmp += `<li><a href='javascript:updateMarker("${place.name}",${building.lat},${building.lng});'><b>${place.short}</b> ${place.name}</a></li>`;
-        }
+        tmp += `<li><a href='javascript:updateMarker2("${place.name + '<br>' + building.name}",{"lat":${building.lat}, "lng":${building.lng}});'><b>${place.short}</b> ${place.name}</a></li>`;
     });
     tmp += `</ul>`;
     return tmp;
 }
 
-function filterPlaces(value) {
-    if (value.length) {
-        filterList(value);
+function filterPlaces(searched) {
+    if (searched.length) {
+        filterList(searched);
     }
     else {
         if (edited) {
@@ -224,19 +220,28 @@ function filterPlaces(value) {
     }
 }
 
-function isFunded(value, element) {
-    return element.name.toLowerCase().search(value) != -1 || element.short.toLowerCase().search(value) != -1
+function filterList(searched) {
+    let tmp = getSearchResult(searched, buildings, false) + getSearchResult(searched, places, true);
+
+    if (tmp == "") {
+        tmp = `<strong>Brak wyników</strong>`;
+    }
+    else {
+        tmp = `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>`;
+    }
+    edited = true;
+    listElement.innerHTML = tmp;
 }
 
-function getSearchResult(value, collection, findInBuildingsCollection = false) {
+function getSearchResult(searched, collection, findInBuildingsCollection = false) {
     return collection.reduce((a, element) => {
-        if (isFunded(value.toLowerCase(), element)) {
+        if (isFunded(searched.toLowerCase(), element)) {
             if (findInBuildingsCollection) {
                 let building = buildings.find(x => x.id == element.building.split(",")[0]);
-                return a + `<li><a href='javascript:updateMarker("${element.name}",${building.lat},${building.lng});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker2("${element.name + '<br>' + building.name}",{"lat":${building.lat}, "lng":${building.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
             else {
-                return a + `<li><a href='javascript:updateMarker("${element.name}",${element.lat},${element.lng});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker2("${element.name}",{"lat":${element.lat}, "lng":${element.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
         }
         else {
@@ -245,44 +250,25 @@ function getSearchResult(value, collection, findInBuildingsCollection = false) {
     }, "");
 }
 
-function filterList(value) {
-    let tmp = ``, tmp2 = ``, tmp3 = ``;
-
-    tmp2 += `<strong>Miejsca</strong><ul>`;
-    tmp3 += getSearchResult(value, buildings);
-    tmp3 += getSearchResult(value, places, true);
-
-    if (tmp3 == "") {
-        tmp2 = "";
-    }
-    else {
-        tmp2 += tmp3 + "</ul>";
-    }
-    tmp += tmp2;
-
-    if (tmp == "") {
-        tmp = `<strong>Brak wyników</strong>`;
-    }
-    edited = true;
-    listElement.innerHTML = tmp;
+function isFunded(value, element) {
+    return element.name.toLowerCase().search(value) != -1
+        || element.short.toLowerCase().search(value) != -1
 }
 
+//view
 function toggleListElement(element) {
     element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
 }
 
-//view
 function showSidedrawer() {
-    let options = {
+    isOpenPanel = true;
+    mui.overlay('on', {
         onclose: () => {
             sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
             document.body.appendChild(sidedrawerElement);
             isOpenPanel = false;
         }
-    };
-
-    isOpenPanel = true;
-    mui.overlay('on', options).appendChild(sidedrawerElement);
+    }).appendChild(sidedrawerElement);
     setTimeout(() => sidedrawerElement.className += ' active', 20);
 }
 
