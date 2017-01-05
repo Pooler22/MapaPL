@@ -6,8 +6,6 @@ TODO:
  - [ ] obsługa parametrów url
  - [ ] więcej informacji dla budynku / miejsca
  - [ ] udostępnienie linku do danego miejsca / budynku
- - [ ] stopka
- - [ ] bug z wysokością i szerokośćią strony
 
 Data structure:
 

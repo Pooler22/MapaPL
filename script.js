@@ -83,7 +83,7 @@ function printCategory(category) {
         }
         if (place.building != undefined) {
             let building = buildings.find(x => x.id == place.building.split(",")[0]);
-            tmp += `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${place.name}","${place.short}");'><b>${place.short}</b>${place.name}</a></li>`;
+            tmp += `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${place.name}","${place.short}");'><b>${place.short}</b> ${place.name}</a></li>`;
         }
     }
     tmp += `</ul>`;
@@ -99,7 +99,7 @@ function initList() {
     tmp += printCategories(categories);
     tmp += `<strong onclick='toggleListElement(this);'>Budynki</strong><ul style='display:none;'>`;
     tmp += buildings.reduce((a, b) => {
-        return a + `<li><a href='javascript:updateMarker(${b.latitude},${b.longitude},"${b.name}","${b.short}");'><b>${b.short}</b>${b.name}</a></li>`;
+        return a + `<li><a href='javascript:updateMarker(${b.latitude},${b.longitude},"${b.name}","${b.short}");'>${b.name}</a></li>`;
     }, "");
     tmp += "</ul></li>";
     listElement.innerHTML = tmp;
@@ -121,10 +121,16 @@ function isFunded(value, element) {
     return element.name.toLowerCase().search(value) != -1 || element.short.toLowerCase().search(value) != -1
 }
 
-function getSearchResult(value, collection) {
+function getSearchResult(value, collection, findInBuildingsCollection = false) {
     return collection.reduce((a, element) => {
         if (isFunded(value.toLowerCase(), element)) {
-            return a + `<li><a href='javascript:updateMarker(${element.latitude},${element.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
+            if (findInBuildingsCollection) {
+                let building = buildings.find(x => x.id == element.building.split(",")[0]);
+                return a + `<li><a href='javascript:updateMarker(${building.latitude},${building.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
+            }
+            else {
+                return a + `<li><a href='javascript:updateMarker(${element.latitude},${element.longitude},"${element.name}","${element.short}");'><b>${element.short}</b> ${element.name}</a></li>`;
+            }
         }
         else {
             return a;
@@ -137,7 +143,7 @@ function filterList(value) {
 
     tmp2 += `<strong>Miejsca</strong><ul>`;
     tmp3 += getSearchResult(value, buildings);
-    tmp3 += getSearchResult(value, places);
+    tmp3 += getSearchResult(value, places, true);
 
     if (tmp3 == "") {
         tmp2 = "";
@@ -185,7 +191,7 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
-    let magic1 = 200;
+    let magic1 = 300;
     let magic2 = 64;
     let magic3 = "300px";
     let magic4 = '0px';
