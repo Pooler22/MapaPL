@@ -43,17 +43,18 @@ function getQueryURL() {
         let place = places.find(x => x.id == queryString.placeId);
         let coordinates = place.building.split(",").map(y => {
             let tmp = buildings.find(x => x.id == y);
-            return [tmp.lat, tmp.lng];
+            return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
         });
-        updateMarkerExt(place.name + `<br><a href=${'?placeId=' + place.id}>Link</a>`, coordinates);
+        updateMarkerExt(prepareInfoContent(place, true), coordinates);
     }
     else if (queryString.buildingId !== undefined) {
         let building = buildings.find(x => x.id == queryString.buildingId);
-        updateMarker(building.name + `<br><a href=${'?buildingId=' + building.id}>Link</a>`, {
-            "lat": Number(building.lat),
-            "lng": Number(building.lng)
-        });
+        updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
     }
+}
+
+function prepareInfoContent(element, isPlace = false) {
+    return element.name + `<br><a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
 }
 
 //map
@@ -93,39 +94,31 @@ function setMarker(position) {
     map.setCenter(marker.getPosition());
 }
 
-function setMarkerExt(coordinate, content) {
-    marker = new google.maps.Marker({
-        position: {
-            lat: Number(coordinate[0]),
-            lng: Number(coordinate[1])
-        },
-        map: map
-    });
-
-    // map.setCenter(marker.getPosition());
-    (function (marker) {
-        google.maps.event.addListener(marker, 'click', (e) => {
-            new google.maps.InfoWindow({content: content}).open(map, marker);
-        });
-        // infowindow.open(map, marker);
-    })(marker);
-}
-
 function updateMarkerExt(content, coordinate) {
     if (marker !== undefined) {
         marker.setMap(null);
     }
-    markers.forEach(marker1 => {
-        if (marker1 !== undefined) {
-            marker1.setMap(null);
-        }
+    markers.forEach(x => {
+        x.setMap(null);
     });
     markers = [];
 
-
-    coordinate.forEach(x => {
-        console.log(x);
-        setMarkerExt(x, content);
+    coordinate.forEach(coordinate => {
+        let marker = new google.maps.Marker({
+            position: {
+                lat: (coordinate.lat),
+                lng: (coordinate.lng)
+            },
+            map: map
+        });
+        marker.setMap(map);
+        let infowindow = new google.maps.InfoWindow({content: content});
+        google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker));
+        if (markers.length == 0) {
+            infowindow.open(map, marker);
+            map.setCenter(marker.getPosition());
+        }
+        markers.push(marker);
     });
 
     if (window.innerWidth < sizeMin) {
@@ -149,14 +142,10 @@ function initList() {
 }
 
 function printBuildings() {
-    let tmp = ``;
-    tmp += `<li><strong onclick='toggleListElement(this);'>Budynki</strong>`;
-    tmp += `<ul style='display:none;'>`;
-    tmp += buildings.reduce((a, building) => {
-        return a + `<li><a href='javascript:updateMarker("${building.name}<br><a href=${'?buildingId=' + building.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'>${building.name}</a></li>`;
-    }, "");
-    tmp += "</ul>";
-    return tmp;
+    return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
+        + `<ul style='display:none;'>`
+        + buildings.reduce((a, building) => a + prepareLinkBuilding(building), "")
+        + "</ul>";
 }
 
 function printCategories(categories) {
@@ -171,12 +160,12 @@ function printCategory(category) {
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
     }
-    category.places.forEach(place => {
+    tmp += category.places.map(place => {
         if (place.short == undefined) {
             place.short = ""
         }
         let building = buildings.find(x => x.id == place.building.split(",")[0]);
-        tmp += `<li><a href='javascript:updateMarker("${place.name}<br>${building.name}<br><a href=${'?placeId=' + place.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'><b>${place.short}</b> ${place.name}</a></li>`;
+        return prepareLinkPlace(place, building);
     });
     tmp += `</ul>`;
     return tmp;
@@ -196,26 +185,31 @@ function filterPlaces(searched) {
 
 function filterList(searched) {
     let tmp = getSearchResult(searched, buildings, false) + getSearchResult(searched, places, true);
-
-    if (tmp == "") {
-        tmp = `<strong>Brak wyników</strong>`;
-    }
-    else {
-        tmp = `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>`;
-    }
     edited = true;
-    listElement.innerHTML = tmp;
+    listElement.innerHTML = tmp ? `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>` : `<strong>Brak wyników</strong>`;
+}
+
+function prepareLinkPlace(place, building) {
+    let coordinates = place.building.split(",").map(y => {
+        let tmp = buildings.find(x => x.id == y);
+        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
+    });
+    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(place, true)}",${JSON.stringify(coordinates)});'><b>${place.short}</b> ${place.name}</a></li>`;
+}
+
+function prepareLinkBuilding(element) {
+    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element)}",[{"lat":${element.lat}, "lng":${element.lng}}]);'><b>${element.short}</b> ${element.name}</a></li>`;
 }
 
 function getSearchResult(searched, collection, findInBuildingsCollection = false) {
     return collection.reduce((a, element) => {
-        if (isFunded(searched.toLowerCase(), element)) {
+        if (isFunded(searched.toLowerCase().trim(), element)) {
             if (findInBuildingsCollection) {
                 let building = buildings.find(x => x.id == element.building.split(",")[0]);
-                return a + `<li><a href='javascript:updateMarker("${element.name}<br>${building.name}<br><a href=${'?placeId=' + element.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + prepareLinkPlace(element, building);
             }
             else {
-                return a + `<li><a href='javascript:updateMarker("${element.name}<br><a href=${'?buildingId=' + element.id}>Link</a>",{"lat":${element.lat}, "lng":${element.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + prepareLinkBuilding(element);
             }
         }
         else {
@@ -224,9 +218,15 @@ function getSearchResult(searched, collection, findInBuildingsCollection = false
     }, "");
 }
 
-function isFunded(value, element) {
-    return element.name.toLowerCase().search(value) != -1
-        || element.short.toLowerCase().search(value) != -1
+function isFunded(searched, element) {
+    let tmp1 = false, tmp2 = false;
+    if (element.tags !== undefined) {
+        tmp1 = element.tags.toLowerCase().search(searched) != -1
+    }
+    if (element.short_name !== undefined) {
+        tmp2 = element.short_name.toLowerCase().search(searched) != -1
+    }
+    return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
 }
 
 //view
