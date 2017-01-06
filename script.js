@@ -1,9 +1,9 @@
-let map, marker, markers = [];
+let map, markers = [], infowindows = [];
 let mapElement, listElement, sidedrawerElement;
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
-const pageUrl = "pooler22.github.io/MapaPL/index.html";
+
 //json
 function loadJSON(path) {
     return new Promise((resolve, reject) => {
@@ -54,7 +54,16 @@ function getQueryURL() {
 }
 
 function prepareInfoContent(element, isPlace = false) {
-    return element.name + `<br><a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
+    return `${element.name}<br>`
+        + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
+}
+
+function prepareInfoContentExt(element, isPlace = false) {
+    let building = buildings.find(x => x.id == element.building.split(",")[0]);
+
+    return `${element.name}<br>`
+        + `<ul>${prepareLinkBuilding(building)}</ul>`
+        + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
 }
 
 //map
@@ -65,39 +74,10 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
     map = new google.maps.Map(mapElement, {
         zoom: zoomIn
     });
-    updateMarker(welcomeText, {"lat": latIn, "lng": lngIn});
-}
-
-function updateMarker(content, position) {
-    if (marker !== undefined) {
-        marker.setMap(null);
-    }
-    setMarker(position);
-
-    let infowindow = new google.maps.InfoWindow({content: content});
-
-    google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker));
-    infowindow.open(map, marker);
-    if (window.innerWidth < sizeMin) {
-        closeSidedraver();
-    }
-}
-
-function setMarker(position) {
-    marker = new google.maps.Marker({
-        position: {
-            lat: position.lat,
-            lng: position.lng
-        },
-        map: map
-    });
-    map.setCenter(marker.getPosition());
+    updateMarkerExt(welcomeText, [{"lat": latIn, "lng": lngIn}]);
 }
 
 function updateMarkerExt(content, coordinate) {
-    if (marker !== undefined) {
-        marker.setMap(null);
-    }
     markers.forEach(x => {
         x.setMap(null);
     });
@@ -113,11 +93,15 @@ function updateMarkerExt(content, coordinate) {
         });
         marker.setMap(map);
         let infowindow = new google.maps.InfoWindow({content: content});
-        google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker));
+        google.maps.event.addListener(marker, 'click', () => {
+            infowindows.forEach(x => x.close());
+            infowindow.open(map, marker);
+        });
         if (markers.length == 0) {
             infowindow.open(map, marker);
             map.setCenter(marker.getPosition());
         }
+        infowindows.push(infowindow);
         markers.push(marker);
     });
 
@@ -160,12 +144,12 @@ function printCategory(category) {
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
     }
-    tmp += category.places.map(place => {
+    category.places.forEach(place => {
         if (place.short == undefined) {
             place.short = ""
         }
         let building = buildings.find(x => x.id == place.building.split(",")[0]);
-        return prepareLinkPlace(place, building);
+        tmp += prepareLinkPlace(place, building);
     });
     tmp += `</ul>`;
     return tmp;
@@ -190,11 +174,12 @@ function filterList(searched) {
 }
 
 function prepareLinkPlace(place, building) {
+    let buildingsInfo = [];
     let coordinates = place.building.split(",").map(y => {
         let tmp = buildings.find(x => x.id == y);
         return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
     });
-    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(place, true)}",${JSON.stringify(coordinates)});'><b>${place.short}</b> ${place.name}</a></li>`;
+    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(place, true)}",${JSON.stringify(coordinates)});'>${place.name}</a></li>`;
 }
 
 function prepareLinkBuilding(element) {
