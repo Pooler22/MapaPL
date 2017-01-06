@@ -3,7 +3,7 @@ let mapElement, listElement, sidedrawerElement;
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
-
+const pageUrl = "pooler22.github.io/MapaPL/index.html";
 //json
 function loadJSON(path) {
     return new Promise((resolve, reject) => {
@@ -45,11 +45,14 @@ function getQueryURL() {
             let tmp = buildings.find(x => x.id == y);
             return [tmp.lat, tmp.lng];
         });
-        updateMarkerExt(place.name, coordinates);
+        updateMarkerExt(place.name + `<br><a href=${'?placeId=' + place.id}>Link</a>`, coordinates);
     }
     else if (queryString.buildingId !== undefined) {
         let building = buildings.find(x => x.id == queryString.buildingId);
-        updateMarker(building.name, Number(building.lat), Number(building.lng));
+        updateMarker(building.name + `<br><a href=${'?buildingId=' + building.id}>Link</a>`, {
+            "lat": Number(building.lat),
+            "lng": Number(building.lng)
+        });
     }
 }
 
@@ -61,30 +64,10 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
     map = new google.maps.Map(mapElement, {
         zoom: zoomIn
     });
-
-    updateMarker(welcomeText, latIn, lngIn);
+    updateMarker(welcomeText, {"lat": latIn, "lng": lngIn});
 }
 
-function updateMarker(content, latIn, lngIn) {
-    if (marker !== undefined) {
-        marker.setMap(null);
-    }
-    setMarker({"lat": latIn, "lng": lngIn});
-
-    let infowindow = new google.maps.InfoWindow({content: content});
-
-    google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker));
-
-    infowindow.open(map, marker);
-
-    //marker.setMap(map);
-
-    if (window.innerWidth < sizeMin) {
-        closeSidedraver();
-    }
-}
-
-function updateMarker2(content, position) {
+function updateMarker(content, position) {
     if (marker !== undefined) {
         marker.setMap(null);
     }
@@ -93,11 +76,7 @@ function updateMarker2(content, position) {
     let infowindow = new google.maps.InfoWindow({content: content});
 
     google.maps.event.addListener(marker, 'click', () => infowindow.open(map, marker));
-
     infowindow.open(map, marker);
-
-    //marker.setMap(map);
-
     if (window.innerWidth < sizeMin) {
         closeSidedraver();
     }
@@ -114,25 +93,22 @@ function setMarker(position) {
     map.setCenter(marker.getPosition());
 }
 
-function setMarkerExt(coordinate, infowindow) {
-    markers.push(new google.maps.Marker({
+function setMarkerExt(coordinate, content) {
+    marker = new google.maps.Marker({
         position: {
             lat: Number(coordinate[0]),
             lng: Number(coordinate[1])
         },
         map: map
-    }));
-
-    map.setCenter(markers[markers.length - 1].getPosition());
-
-    google.maps.event.addListener(markers[markers.length - 1], 'click', (e) => {
-        infowindow.open(map, markers[markers.length - 1]);
-        // e.target.removeEventListener(e.type, arguments.callee);
     });
 
-    infowindow.open(map, markers[markers.length - 1]);
-
-    markers[markers.length - 1].setMap(map);
+    // map.setCenter(marker.getPosition());
+    (function (marker) {
+        google.maps.event.addListener(marker, 'click', (e) => {
+            new google.maps.InfoWindow({content: content}).open(map, marker);
+        });
+        // infowindow.open(map, marker);
+    })(marker);
 }
 
 function updateMarkerExt(content, coordinate) {
@@ -146,12 +122,10 @@ function updateMarkerExt(content, coordinate) {
     });
     markers = [];
 
-    let infowindow = new google.maps.InfoWindow({
-        content: content
-    });
 
     coordinate.forEach(x => {
-        setMarkerExt(x, infowindow);
+        console.log(x);
+        setMarkerExt(x, content);
     });
 
     if (window.innerWidth < sizeMin) {
@@ -179,7 +153,7 @@ function printBuildings() {
     tmp += `<li><strong onclick='toggleListElement(this);'>Budynki</strong>`;
     tmp += `<ul style='display:none;'>`;
     tmp += buildings.reduce((a, building) => {
-        return a + `<li><a href='javascript:updateMarker2("${building.name}",{"lat":${building.lat}, "lng":${building.lng}});'>${building.name}</a></li>`;
+        return a + `<li><a href='javascript:updateMarker("${building.name}<br><a href=${'?buildingId=' + building.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'>${building.name}</a></li>`;
     }, "");
     tmp += "</ul>";
     return tmp;
@@ -201,8 +175,8 @@ function printCategory(category) {
         if (place.short == undefined) {
             place.short = ""
         }
-            let building = buildings.find(x => x.id == place.building.split(",")[0]);
-        tmp += `<li><a href='javascript:updateMarker2("${place.name + '<br>' + building.name}",{"lat":${building.lat}, "lng":${building.lng}});'><b>${place.short}</b> ${place.name}</a></li>`;
+        let building = buildings.find(x => x.id == place.building.split(",")[0]);
+        tmp += `<li><a href='javascript:updateMarker("${place.name}<br>${building.name}<br><a href=${'?placeId=' + place.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'><b>${place.short}</b> ${place.name}</a></li>`;
     });
     tmp += `</ul>`;
     return tmp;
@@ -238,10 +212,10 @@ function getSearchResult(searched, collection, findInBuildingsCollection = false
         if (isFunded(searched.toLowerCase(), element)) {
             if (findInBuildingsCollection) {
                 let building = buildings.find(x => x.id == element.building.split(",")[0]);
-                return a + `<li><a href='javascript:updateMarker2("${element.name + '<br>' + building.name}",{"lat":${building.lat}, "lng":${building.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker("${element.name}<br>${building.name}<br><a href=${'?placeId=' + element.id}>Link</a>",{"lat":${building.lat}, "lng":${building.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
             else {
-                return a + `<li><a href='javascript:updateMarker2("${element.name}",{"lat":${element.lat}, "lng":${element.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
+                return a + `<li><a href='javascript:updateMarker("${element.name}<br><a href=${'?buildingId=' + element.id}>Link</a>",{"lat":${element.lat}, "lng":${element.lng}});'><b>${element.short}</b> ${element.name}</a></li>`;
             }
         }
         else {
