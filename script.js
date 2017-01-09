@@ -41,10 +41,7 @@ function getQueryURL() {
     let queryString = getQueryString();
     if (queryString.placeId !== undefined) {
         let place = places.find(x => x.id == queryString.placeId);
-        let coordinates = place.building.split(",").map(y => {
-            let tmp = buildings.find(x => x.id == y);
-            return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
-        });
+        let coordinates = getCoordinate(place.building);
         updateMarkerExt(prepareInfoContent(place, true), coordinates);
     }
     else if (queryString.buildingId !== undefined) {
@@ -53,18 +50,28 @@ function getQueryURL() {
     }
 }
 
+function getCoordinate(building) {
+    return building.split(",").map(y => {
+        let tmp = buildings.find(x => x.id == y);
+        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
+    });
+}
+
 function prepareInfoContent(element, isPlace = false) {
     return `${element.name}<br>`
         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
 }
 
-function prepareInfoContentExt(element, isPlace = false) {
-    let building = buildings.find(x => x.id == element.building.split(",")[0]);
-
-    return `${element.name}<br>`
-        + `<ul>${prepareLinkBuilding(building)}</ul>`
-        + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
-}
+// function prepareInfoContentExt(element, isPlace = false) {
+//     if(isPlace){
+//         let coordinates = getCoordinate(element);
+//     }
+//     let building = buildings.find(x => x.id == element.building.split(",")[0]);
+//
+//     return `${element.name}<br>`
+//         + `<ul>${prepareLinkBuilding(building)}</ul>`
+//         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
+// }
 
 //map
 function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
@@ -128,7 +135,7 @@ function initList() {
 function printBuildings() {
     return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
         + `<ul style='display:none;'>`
-        + buildings.reduce((a, building) => a + prepareLinkBuilding(building), "")
+        + buildings.reduce((a, building) => a + prepareLink(building), "")
         + "</ul>";
 }
 
@@ -148,8 +155,7 @@ function printCategory(category) {
         if (place.short == undefined) {
             place.short = ""
         }
-        let building = buildings.find(x => x.id == place.building.split(",")[0]);
-        tmp += prepareLinkPlace(place, building);
+        tmp += prepareLink(place, true);
     });
     tmp += `</ul>`;
     return tmp;
@@ -173,28 +179,23 @@ function filterList(searched) {
     listElement.innerHTML = tmp ? `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>` : `<strong>Brak wyników</strong>`;
 }
 
-function prepareLinkPlace(place, building) {
-    let buildingsInfo = [];
-    let coordinates = place.building.split(",").map(y => {
-        let tmp = buildings.find(x => x.id == y);
-        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
-    });
-    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(place, true)}",${JSON.stringify(coordinates)});'>${place.name}</a></li>`;
-}
-
-function prepareLinkBuilding(element) {
-    return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element)}",[{"lat":${element.lat}, "lng":${element.lng}}]);'><b>${element.short}</b> ${element.name}</a></li>`;
+function prepareLink(element, isPlace = false) {
+    if (isPlace) {
+        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element, true)}",${JSON.stringify(getCoordinate(element.building))});'>${element.name}</a></li>`;
+    }
+    else {
+        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element)}",);'><b>${element.short}</b> ${element.name}</a></li>`;
+    }
 }
 
 function getSearchResult(searched, collection, findInBuildingsCollection = false) {
     return collection.reduce((a, element) => {
         if (isFunded(searched.toLowerCase().trim(), element)) {
             if (findInBuildingsCollection) {
-                let building = buildings.find(x => x.id == element.building.split(",")[0]);
-                return a + prepareLinkPlace(element, building);
+                return a + prepareLink(element, true);
             }
             else {
-                return a + prepareLinkBuilding(element);
+                return a + prepareLink(element);
             }
         }
         else {
