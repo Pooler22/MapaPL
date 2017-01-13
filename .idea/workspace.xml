@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="under es6 testing v2">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="under es6 testing v3">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
@@ -53,9 +53,12 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="41" column="55" lean-forward="false" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-              <folding />
+            <state relative-caret-position="400">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <folding>
+                <marker date="1484321830908" expanded="false" signature="1665:1687" ph="..." />
+                <marker date="1484321830908" expanded="false" signature="2391:2418" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -338,7 +341,7 @@
       <workItem from="1484254817916" duration="1102000" />
       <workItem from="1484314153356" duration="1551000" />
       <workItem from="1484318716498" duration="789000" />
-      <workItem from="1484319753752" duration="1954000" />
+      <workItem from="1484319753752" duration="2063000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -543,11 +546,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484321602494</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="under es6 testing v3">
+      <created>1484321741849</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1484321741849</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145174000" />
+    <option name="totallyTimeSpent" value="145283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -625,7 +635,8 @@
     <MESSAGE value="polyfil promis" />
     <MESSAGE value="under es6 testing" />
     <MESSAGE value="under es6 testing v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="under es6 testing v2" />
+    <MESSAGE value="under es6 testing v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="under es6 testing v3" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -944,9 +955,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="41" column="55" lean-forward="false" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="400">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <marker date="1484321830908" expanded="false" signature="1665:1687" ph="..." />
+            <marker date="1484321830908" expanded="false" signature="2391:2418" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
