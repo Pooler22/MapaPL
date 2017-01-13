@@ -8,7 +8,7 @@ let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
 //json
-function loadJSON(path) {
+function loadJSON_promise(path) {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
@@ -22,6 +22,23 @@ function loadJSON(path) {
         xhr.open("GET", path, true);
         xhr.send();
     });
+}
+
+function loadJSON(path, success, error) {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                if (success)
+                    success(JSON.parse(xhr.responseText));
+            } else {
+                if (error)
+                    error(xhr);
+            }
+        }
+    };
+    xhr.open("GET", path, true);
+    xhr.send();
 }
 
 //url query
@@ -297,15 +314,56 @@ function init() {
 
     updateMapSize();
 
-    Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
-        categories = values[0];
-        places = values[1];
-        buildings = values[2];
-        initList();
-        getQueryURL();
-    }, reason => {
-        console.log(reason)
-    });
+    // loadJSON('json/categories.json').then((data) =>{
+    //     categories = data;
+    //     loadJSON('json/places.json').then((data) =>{
+    //         places = data;
+    //         loadJSON('json/buildings.json').then((data) =>{
+    //             buildings = data;
+    //             initList();
+    //             getQueryURL();
+    //         })
+    //     })
+    // });
+
+    loadJSON('json/categories.json',
+        function (data) {
+            categories = data;
+
+            loadJSON('json/places.json',
+                function (data) {
+                    places = data;
+
+                    loadJSON('json/buildings.json',
+                        function (data) {
+                            buildings = data;
+                            initList();
+                            getQueryURL();
+                        },
+                        function (xhr) {
+                            console.error(xhr);
+                        }
+                    );
+                },
+                function (xhr) {
+                    console.error(xhr);
+                }
+            );
+        },
+        function (xhr) {
+            console.error(xhr);
+        }
+    );
+
+    // Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
+    //     categories = values[0];
+    //     places = values[1];
+    //     buildings = values[2];
+    //     initList();
+    //     getQueryURL();
+    // }, reason => {
+    //     console.log(reason)
+    // });
 }
 
 init();
