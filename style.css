@@ -1,175 +1,90 @@
-#map {
-    top: 64px;
-    position: absolute;
-}
-
-html,
-body {
-    height: 100%;
-    background-color: #eee;
-}
-
-html,
-body,
-input,
-textarea,
-buttons {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-}
-
-
-/**
- * Layout CSS
+/* TODO: Hover and Focus state.
+ *       Fix position of mobile search button.
  */
-
-.map {
-    padding-left: 0;
-    padding-right: 0;
+.mdh-expandable-search {
+    margin: 0 50px;
+    align-items: center;
+    justify-content: center;
 }
 
-#header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 2;
-    transition: left 0.2s;
+.mdh-expandable-search form {
+    max-width: 600px;
 }
 
-#sidedrawer {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 300px;
-    left: -300px;
-    overflow: auto;
-    z-index: 2;
-    background-color: #fff;
-    transition: transform 0.2s;
+.mdh-expandable-search,
+.mdh-expandable-search form,
+.mdh-expandable-search input {
+    /* Cross browser flex-grow */
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
 }
 
-#content-wrapper {
-    min-height: 100%;
-    overflow-x: hidden;
-    margin-left: 0;
-    transition: margin-left 0.2s;
-
-    /* sticky bottom */
-    margin-bottom: -160px;
-    padding-bottom: 160px;
+.mdh-expandable-search,
+.mdh-expandable-search form {
+    /* Cross browser inline-flex */
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
 }
 
-#footer {
-    height: 160px;
-    margin-left: 0;
-    transition: margin-left 0.2s;
+/* Position search icon */
+.mdh-expandable-search .material-icons {
+    position: relative;
+    right: -40px;
+    margin-left: -24px; /* Remove the blank space left behind by the icon being relatively positioned */
 }
 
-@media (min-width: 768px) {
-    #header {
-        left: 300px;
+.mdh-expandable-search input {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #470103;
+    padding: 0px 35px 0px 70px;
+    height: 40px;
+    line-height: 40px; /* TODO: This was recommended for cross browser compatability of input height, check if its actually needed in modern browsers */
+
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+}
+
+.mdh-expandable-search input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #FFFFFF;
+}
+
+.mdh-expandable-search input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #FFFFFF;
+    opacity: 1; /* Firefox gives the placeholder a reduced opacity so we have to increase it */
+}
+
+.mdh-expandable-search input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #FFFFFF;
+    opacity: 1; /* Firefox gives the placeholder a reduced opacity so we have to increase it */
+}
+
+.mdh-expandable-search input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #FFFFFF;
+}
+
+/* Bug fix: https://github.com/google/material-design-lite/issues/1078
+ * To much padding on the left of header when the menu button is hidden */
+@media screen and (min-width: 851px) {
+    .mdl-layout__header-row {
+        padding: 0 40px 0 40px;
     }
-
-    #sidedrawer {
-        transform: translate(300px);
-    }
-
-    #content-wrapper {
-        margin-left: 300px;
-    }
-
-    #footer {
-        margin-left: 300px;
-    }
-
-    body.hide-sidedrawer #header {
-        left: 0;
-    }
-
-    body.hide-sidedrawer #sidedrawer {
-        transform: translate(0px);
-    }
-
-    body.hide-sidedrawer #content-wrapper {
-        margin-left: 0;
-    }
-
-    body.hide-sidedrawer #footer {
-        margin-left: 0;
-    }
 }
 
-
-/**
- * Toggle Side drawer
- */
-#sidedrawer.active {
-    transform: translate(300px);
+/* Bug fix for badges being in the wrong location */
+.mdl-badge[data-badge]:after {
+    right: -7px;
+    top: -8px;
 }
 
-
-/**
- * Header CSS
- */
-.sidedrawer-toggle {
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    line-height: 20px;
-    margin-right: 10px;
-}
-
-.sidedrawer-toggle:hover {
-    color: #fff;
-    text-decoration: none;
-}
-
-
-/**
- * Footer CSS
- */
-#footer {
-    background-color: #0288D1;
-    color: #fff;
-}
-
-#footer a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-
-/**
- * Side drawer CSS
- */
-#sidedrawer-brand {
-    padding-left: 20px;
-}
-
-#sidedrawer ul {
-    list-style: none;
-}
-
-#sidedrawer > ul {
-    padding-left: 0;
-}
-
-#sidedrawer > ul > li:first-child {
-    padding-top: 15px;
-}
-
-#sidedrawer strong {
-    display: block;
-    padding: 15px 22px;
-    cursor: pointer;
-}
-
-#sidedrawer strong:hover {
-    background-color: #E0E0E0;
-}
-
-#sidedrawer strong + ul > li {
-    padding: 6px 0;
+.mdl-layout__header {
+    background-color: rgb(117, 1, 4);
 }

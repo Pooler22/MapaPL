@@ -66,7 +66,10 @@ function getQueryURL() {
     }
     else if (queryString.buildingId !== undefined) {
         let building = buildings.find(x => x.id == queryString.buildingId);
-        updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
+        updateMarkerExt(prepareInfoContent(building, false), [{
+            "lat": Number(building.lat),
+            "lng": Number(building.lng)
+        }]);
     }
 }
 
@@ -109,7 +112,7 @@ function updateMarkerExt(content, coordinate) {
         x.setMap(null);
     });
     markers = [];
-
+    console.log(coordinate);
     coordinate.forEach(coordinate => {
         let marker = new google.maps.Marker({
             position: {
@@ -154,7 +157,7 @@ function initList() {
 
 function printBuildings() {
     return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
-        + `<ul style='display:none;'>`
+        + `<ul style='display:block;'>`
         + buildings.reduce((a, building) => a + prepareLink(building), "")
         + "</ul>";
 }
@@ -166,7 +169,7 @@ function printCategories(categories) {
 function printCategory(category) {
     let tmp = ``;
     tmp += `<strong onclick='toggleListElement(this);'>${category.name}</strong>`;
-    tmp += `<ul style='display:none;'>`;
+    tmp += `<ul style='display:block;'>`;
 
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
@@ -201,10 +204,10 @@ function filterList(searched) {
 
 function prepareLink(element, isPlace = false) {
     if (isPlace) {
-        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element, true)}",${JSON.stringify(getCoordinate(element.building))});'>${element.name}</a></li>`;
+        return `<li><a class="mdl-navigation__link"  href='javascript:updateMarkerExt("${prepareInfoContent(element, true)}",${JSON.stringify(getCoordinate(element.building))});'>${element.name}</a></li>`;
     }
     else {
-        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element)}",);'><b>${element.short}</b> ${element.name}</a></li>`;
+        return `<li><a class="mdl-navigation__link"  href='javascript:updateMarkerExt("${prepareInfoContent(element, false)}");'><b>${element.short}</b> ${element.name}</a></li>`;
     }
 }
 
@@ -237,62 +240,63 @@ function isFunded(searched, element) {
 
 //view
 function toggleListElement(element) {
-    element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
+    // element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
 }
 
 function showSidedrawer() {
-    isOpenPanel = true;
-    mui.overlay('on', {
-        onclose: () => {
-            sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
-            document.body.appendChild(sidedrawerElement);
-            isOpenPanel = false;
-        }
-    }).appendChild(sidedrawerElement);
-    setTimeout(() => sidedrawerElement.className += ' active', 20);
+    // isOpenPanel = true;
+    // mui.overlay('on', {
+    //     onclose: () => {
+    //         sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    //         document.body.appendChild(sidedrawerElement);
+    //         isOpenPanel = false;
+    //     }
+    // }).appendChild(sidedrawerElement);
+    // setTimeout(() => sidedrawerElement.className += ' active', 20);
 }
 
 function closeSidedraver() {
-    isOpenPanel = false;
-    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
-    document.body.appendChild(sidedrawerElement);
-    mui.overlay('off');
+    //isOpenPanel = false;
+    // sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    // document.body.appendChild(sidedrawerElement);
+    // mui.overlay('off');
 }
 
 function toggleSidedrawer() {
-    if (document.body.className == 'hide-sidedrawer') {
-        isOpenPanel = true;
-        document.body.className = 'show-sidedrawer';
-    } else {
-        isOpenPanel = false;
-        document.body.className = 'hide-sidedrawer'
-    }
-    updateMapSize();
+    document.getElementsByClassName('mdl-layout').MaterialLayout.toggleDrawer();;;
+    // if (document.body.className == 'hide-sidedrawer') {
+    //     isOpenPanel = true;
+    //     document.body.className = 'show-sidedrawer';
+    // } else {
+    //     isOpenPanel = false;
+    //     document.body.className = 'hide-sidedrawer'
+    // }
+    // updateMapSize();
 }
 
 function updateMapSize() {
-    let magic1 = 300;
+    // let magic1 = 300;
     let magic2 = 64;
-    let magic3 = "300px";
-    let magic4 = '0px';
+    // let magic3 = "300px";
+    // let magic4 = '0px';
 
-    if (lastWidth > sizeMin)
-        mui.overlay('off', {
-            onclose: () => {
-                isOpenPanel = false;
-            }
-        });
+    // if (lastWidth > sizeMin)
+    //     mui.overlay('off', {
+    //         onclose: () => {
+    //             isOpenPanel = false;
+    //         }
+    //     });
 
     mapElement.style.height = `${window.innerHeight - magic2}px`;
-
-    if (isOpenPanel) {
-        mapElement.style.width = `${window.innerWidth - magic1}px`;
-        mapElement.style.marginLeft = magic3;
-    }
-    else {
-        mapElement.style.width = `${window.innerWidth}px`;
-        mapElement.style.marginLeft = magic4;
-    }
+    //
+    // if (isOpenPanel) {
+    //     mapElement.style.width = `${window.innerWidth - magic1}px`;
+    //     mapElement.style.marginLeft = magic3;
+    // }
+    // else {
+    //     mapElement.style.width = `${window.innerWidth}px`;
+    //     mapElement.style.marginLeft = magic4;
+    // }
 }
 
 function resize() {
@@ -308,62 +312,33 @@ function init() {
     listElement = document.getElementById("list");
     sidedrawerElement = document.getElementById('sidedrawer');
 
-    window.addEventListener('resize', resize);
-    document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
-    document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
-
     updateMapSize();
 
-    // loadJSON('json/categories.json').then((data) =>{
-    //     categories = data;
-    //     loadJSON('json/places.json').then((data) =>{
-    //         places = data;
-    //         loadJSON('json/buildings.json').then((data) =>{
-    //             buildings = data;
-    //             initList();
-    //             getQueryURL();
-    //         })
-    //     })
-    // });
-
     loadJSON('json/categories.json',
-        function (data) {
+        (data) => {
             categories = data;
-
             loadJSON('json/places.json',
-                function (data) {
+                (data) => {
                     places = data;
-
                     loadJSON('json/buildings.json',
-                        function (data) {
+                        (data) => {
                             buildings = data;
                             initList();
                             getQueryURL();
                         },
-                        function (xhr) {
+                        (xhr) => {
                             console.error(xhr);
                         }
                     );
                 },
-                function (xhr) {
+                (xhr) => {
                     console.error(xhr);
                 }
             );
         },
-        function (xhr) {
+        (xhr) => {
             console.error(xhr);
         }
     );
-
-    // Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
-    //     categories = values[0];
-    //     places = values[1];
-    //     buildings = values[2];
-    //     initList();
-    //     getQueryURL();
-    // }, reason => {
-    //     console.log(reason)
-    // });
 }
-
 init();
