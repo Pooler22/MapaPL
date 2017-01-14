@@ -79,13 +79,59 @@
         </div>
     </header>
 
-    <!-- Menu -->
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Mapa PŁ</span>
-        <b>Wybierz miejsce:</b>
-        <nav class="mdl-navigation" id="list">
+        <header class="mdl-navheader">
+            <div class="mdl-navheader__brand">
+                <span class="mdl-layout-title">Mapa PŁ</span>
+            </div>
+
+            <div class="m-navheader__user">
+                <span class="mdl-navheader__meta">Wybierz miejsce spośród kategorii:</span>
+            </div>
+        </header>
+
+        <nav class="mdl-navigation">
+            <ul class="mdl-navigation__list" id="list">
+                <!--<li class="has-subnav">-->
+                <!--<a href="#" class="mdl-navigation__link js-toggle-subnav">-->
+                <!--example-page.com-->
+                <!--</a>-->
+
+                <!--<ul class="mdl-navigation__list">-->
+                <!--<li>-->
+                <!--<a href="#" class="mdl-navigation__link">-->
+                <!--example-1.com-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="#" class="mdl-navigation__link">-->
+                <!--example-2.com-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="#" class="mdl-navigation__link">-->
+                <!--example-3.com-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="#" class="mdl-navigation__link">-->
+                <!--example-4.com-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+
+            <div class="mdl-layout-spacer"></div>
+
+            <div class="mdl-navigation__footer">
+                <div class="l-split">
+                    <div>Pooler22 Copyright</div>
+                </div>
+            </div>
         </nav>
     </div>
+
 
     <!-- Body -->
     <main class="mdl-layout__content">
@@ -94,10 +140,11 @@
         </div>
     </main>
 
-    <script src="script_over_es2015.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap"></script>
-
 </div>
+
+<script src="script_over_es2015.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap"></script>
+
 </body>
 </html>

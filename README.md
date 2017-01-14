@@ -1,5 +1,12 @@
 Mapa online Politechniki Łódzkiej
 
+
+
+Bugs:
+zamykanie drawera po wybraniu miejsca
+rozwijanie wszystkich list
+
+
 API (url query):
 - Marked building:
   - `url/buildingId=id example: url/buildingId=1`
