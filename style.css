@@ -1,3 +1,4 @@
+/*Pooler22 copyright. All right reserved*/
 #map {
     top: 64px;
     position: absolute;
@@ -6,7 +7,7 @@
 html,
 body {
     height: 100%;
-    background-color: #eee;
+    background-color: #fff;
 }
 
 html,
@@ -131,7 +132,7 @@ buttons {
  * Footer CSS
  */
 #footer {
-    background-color: #0288D1;
+    background-color: #730007;
     color: #fff;
 }
 
@@ -172,4 +173,9 @@ buttons {
 
 #sidedrawer strong + ul > li {
     padding: 6px 0;
+}
+
+#footer {
+    background-color: #730007;
+    color: #fff;
 }
