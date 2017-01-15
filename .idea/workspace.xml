@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix v2">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
@@ -16,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\Users\pooler\WebstormProjects\MapaPL" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -49,11 +49,11 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="332" column="14" lean-forward="false" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
+            <state relative-caret-position="530">
+              <caret line="347" column="7" lean-forward="false" selection-start-line="347" selection-start-column="7" selection-end-line="347" selection-end-column="7" />
               <folding>
-                <marker date="1484514638410" expanded="true" signature="4763:4776" ph="..." />
-                <marker date="1484514638410" expanded="true" signature="5212:5225" ph="..." />
+                <marker date="1484514774753" expanded="true" signature="4975:4988" ph="..." />
+                <marker date="1484514774753" expanded="true" signature="5448:5461" ph="..." />
               </folding>
             </state>
           </provider>
@@ -363,7 +363,7 @@
       <workItem from="1484395944474" duration="5256000" />
       <workItem from="1484414125874" duration="15937000" />
       <workItem from="1484503166607" duration="28000" />
-      <workItem from="1484503555825" duration="7354000" />
+      <workItem from="1484503555825" duration="7489000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -652,11 +652,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484514529511</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="fix v2">
+      <created>1484514657231</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1484514657231</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174826000" />
+    <option name="totallyTimeSpent" value="174961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -712,7 +719,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="add: places selection, fix search, refactoring," />
     <MESSAGE value="hotfix" />
     <MESSAGE value="url query" />
     <MESSAGE value="multiplace testing" />
@@ -737,7 +743,8 @@
     <MESSAGE value="testing es6" />
     <MESSAGE value="transpile" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="fix v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix v2" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1035,11 +1042,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="332" column="14" lean-forward="false" selection-start-line="332" selection-start-column="14" selection-end-line="332" selection-end-column="14" />
+        <state relative-caret-position="530">
+          <caret line="347" column="7" lean-forward="false" selection-start-line="347" selection-start-column="7" selection-end-line="347" selection-end-column="7" />
           <folding>
-            <marker date="1484514638410" expanded="true" signature="4763:4776" ph="..." />
-            <marker date="1484514638410" expanded="true" signature="5212:5225" ph="..." />
+            <marker date="1484514774753" expanded="true" signature="4975:4988" ph="..." />
+            <marker date="1484514774753" expanded="true" signature="5448:5461" ph="..." />
           </folding>
         </state>
       </provider>
