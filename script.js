@@ -17,6 +17,16 @@ var buildings = void 0,
     categories = void 0,
     places = void 0;
 
+function activateModal() {
+    var modalEl = document.createElement('div');
+    modalEl.innerHTML = "<div class='mui-panel'>" + "<h1>Mapa Politechniki Łódzkiej</h1>" + "<br>" + "<p>Niniejsza strona jest projektem od studenta dla studentów i nie tylko.</p>" + "<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>" + "<button class=\"mui-btn\"><a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class=\"fa fa-envelope-o\"></i> Kontakt</a></button>" + "</div>";
+    modalEl.style.width = '400px';
+    modalEl.style.margin = '100px auto';
+    modalEl.style.backgroundColor = '#fff';
+
+    mui.overlay('on', modalEl);
+}
+
 //json
 function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
@@ -160,12 +170,12 @@ function initList() {
 function printBuildings() {
     return "<strong onclick='toggleListElement(this);'>Budynki</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
             return a + prepareLink(building);
-        }, "") + "</ul>";
+        }, "") + "</ul><div class='mui-divider'></div>";
 }
 
 function printCategories(categories) {
     return categories.reduce(function (a, category) {
-        return a + ("<li>" + printCategory(category) + "</li>");
+        return a + ("<li>" + printCategory(category) + "</li><div class='mui-divider'></div>");
     }, "");
 }
 
