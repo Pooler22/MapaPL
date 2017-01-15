@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- Pooler22 copyright. All right reserved
+ * Created by pooler on 12.01.2017.
  */
 var map = void 0,
     markers = [],
@@ -18,30 +18,18 @@ var buildings = void 0,
     places = void 0;
 
 //json
-function loadJSON_promise(path) {
-    return new Promise(function (resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                resolve(JSON.parse(xhr.responseText));
-            }
-        };
-        xhr.onerror = function () {
-            reject(Error("Network Error"));
-        };
-        xhr.open("GET", path, true);
-        xhr.send();
-    });
-}
-
 function loadJSON(path, success, error) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                if (success) success(JSON.parse(xhr.responseText));
+                if (success) {
+                    success(JSON.parse(xhr.responseText));
+                }
             } else {
-                if (error) error(xhr);
+                if (error) {
+                    error(xhr);
+                }
             }
         }
     };
@@ -68,13 +56,13 @@ function getQueryString() {
 function getQueryURL() {
     var queryString = getQueryString();
     if (queryString.placeId !== undefined) {
-        var place = places.filter(function (x) {
+        var place = places.find(function (x) {
             return x.id == queryString.placeId;
         });
         var coordinates = getCoordinate(place.building);
         updateMarkerExt(prepareInfoContent(place, true), coordinates);
     } else if (queryString.buildingId !== undefined) {
-        var building = buildings.filter(function (x) {
+        var building = buildings.find(function (x) {
             return x.id == queryString.buildingId;
         });
         updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
@@ -82,15 +70,12 @@ function getQueryURL() {
 }
 
 function getCoordinate(building) {
-
-    var tmp1 = building.split(",").map(function (y) {
-        var tmp = buildings.filter(function (x) {
+    return building.split(",").map(function (y) {
+        var tmp = buildings.find(function (x) {
             return x.id == y;
         });
-        return {"lat": Number(tmp[0].lat), "lng": Number(tmp[0].lng)};
+        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
     });
-    return tmp1;
-
 }
 
 function prepareInfoContent(element) {
@@ -98,17 +83,6 @@ function prepareInfoContent(element) {
 
     return element.name + "<br>" + ("<a href=" + (isPlace ? '?placeId=' : '?buildingId=') + element.id + ">Link do lokacji</a>");
 }
-
-// function prepareInfoContentExt(element, isPlace = false) {
-//     if(isPlace){
-//         let coordinates = getCoordinate(element);
-//     }
-//     let building = buildings.find(x => x.id == element.building.split(",")[0]);
-//
-//     return `${element.name}<br>`
-//         + `<ul>${prepareLinkBuilding(building)}</ul>`
-//         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
-// }
 
 //map
 function initMap() {
@@ -124,39 +98,8 @@ function initMap() {
     updateMarkerExt(welcomeText, [{"lat": latIn, "lng": lngIn}]);
 }
 
-function updateMarkerExt1(content, coordinate) {
-    markers.forEach(function (x) {
-        x.setMap(null);
-    });
-    markers = [];
-
-    coordinate.forEach(function (coordinate) {
-        var marker = new google.maps.Marker({
-            position: {
-                lat: (coordinate.lat),
-                lng: (coordinate.lng)
-            },
-            map: map
-        });
-        marker.setMap(map);
-        var infowindow = new google.maps.InfoWindow({content: content});
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindows.forEach(function (x) {
-                return x.close();
-            });
-            infowindow.open(map, marker);
-        });
-        if (markers.length == 0) {
-            infowindow.open(map, marker);
-            map.setCenter(marker.getPosition());
-        }
-        infowindows.push(infowindow);
-        markers.push(marker);
-    });
-
-    if (window.innerWidth < sizeMin) {
-        closeSidedraver();
-    }
+function updateMarkerExt1(content, latIn, lngIn) {
+    updateMarkerExt(content, [{"lat": Number(latIn), "lng": Number(lngIn)}]);
 }
 
 function updateMarkerExt(content, coordinate) {
@@ -213,7 +156,7 @@ function initList() {
 
 function printBuildings() {
     return "<strong onclick='toggleListElement(this);'>Budynki</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
-            return a + prepareLink(building, false);
+            return a + prepareLink(building);
         }, "") + "</ul>";
 }
 
@@ -241,6 +184,13 @@ function printCategory(category) {
     return tmp;
 }
 
+function search() {
+    if (!isOpenPanel) {
+        showSidedrawer();
+    }
+    document.getElementById("search-input").focus();
+}
+
 function filterPlaces(searched) {
     if (searched.length) {
         filterList(searched);
@@ -258,11 +208,13 @@ function filterList(searched) {
     listElement.innerHTML = tmp ? "<strong>Wyniki wyszukiwania</strong><ul>" + tmp + "</ul>" : "<strong>Brak wynik\xF3w</strong>";
 }
 
-function prepareLink(element, isPlace) {
+function prepareLink(element) {
+    var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
     if (isPlace) {
-        return "<li><a href='javascript:updateMarkerExt1(\"" + prepareInfoContent(element, true) + "\"," + JSON.stringify(getCoordinate(element.building)) + ");'>" + element.name + "</a></li>";
+        return "<li><a href='javascript:updateMarkerExt(\"" + prepareInfoContent(element, true) + "\"," + JSON.stringify(getCoordinate(element.building)) + ");'>" + element.name + "</a></li>";
     } else {
-        return "<li><a href='javascript:updateMarkerExt1(\"" + prepareInfoContent(element) + "\",);'><b>" + element.short + "</b> " + element.name + "</a></li>";
+        return "<li><a href='javascript:updateMarkerExt1(\"" + prepareInfoContent(element) + "\"," + element.lat + "," + element.lng + ");'><b>" + element.short + "</b> " + element.name + "</a></li>";
     }
 }
 
@@ -274,7 +226,7 @@ function getSearchResult(searched, collection) {
             if (findInBuildingsCollection) {
                 return a + prepareLink(element, true);
             } else {
-                return a + prepareLink(element, false);
+                return a + prepareLink(element);
             }
         } else {
             return a;
@@ -373,21 +325,8 @@ function init() {
 
     updateMapSize();
 
-    // loadJSON('json/categories.json').then((data) =>{
-    //     categories = data;
-    //     loadJSON('json/places.json').then((data) =>{
-    //         places = data;
-    //         loadJSON('json/buildings.json').then((data) =>{
-    //             buildings = data;
-    //             initList();
-    //             getQueryURL();
-    //         })
-    //     })
-    // });
-
     loadJSON('json/categories.json', function (data) {
         categories = data;
-
         loadJSON('json/places.json', function (data) {
             places = data;
 
@@ -404,16 +343,6 @@ function init() {
     }, function (xhr) {
         console.error(xhr);
     });
-
-    // Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
-    //     categories = values[0];
-    //     places = values[1];
-    //     buildings = values[2];
-    //     initList();
-    //     getQueryURL();
-    // }, reason => {
-    //     console.log(reason)
-    // });
 }
 
 init();

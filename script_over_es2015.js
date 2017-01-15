@@ -8,32 +8,18 @@ let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
 //json
-function loadJSON_promise(path) {
-    return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                resolve(JSON.parse(xhr.responseText));
-            }
-        };
-        xhr.onerror = function () {
-            reject(Error("Network Error"));
-        };
-        xhr.open("GET", path, true);
-        xhr.send();
-    });
-}
-
 function loadJSON(path, success, error) {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                if (success)
+                if (success) {
                     success(JSON.parse(xhr.responseText));
+                }
             } else {
-                if (error)
+                if (error) {
                     error(xhr);
+                }
             }
         }
     };
@@ -81,17 +67,6 @@ function prepareInfoContent(element, isPlace = false) {
     return `${element.name}<br>`
         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
 }
-
-// function prepareInfoContentExt(element, isPlace = false) {
-//     if(isPlace){
-//         let coordinates = getCoordinate(element);
-//     }
-//     let building = buildings.find(x => x.id == element.building.split(",")[0]);
-//
-//     return `${element.name}<br>`
-//         + `<ul>${prepareLinkBuilding(building)}</ul>`
-//         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
-// }
 
 //map
 function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
@@ -326,56 +301,33 @@ function init() {
 
     updateMapSize();
 
-    // loadJSON('json/categories.json').then((data) =>{
-    //     categories = data;
-    //     loadJSON('json/places.json').then((data) =>{
-    //         places = data;
-    //         loadJSON('json/buildings.json').then((data) =>{
-    //             buildings = data;
-    //             initList();
-    //             getQueryURL();
-    //         })
-    //     })
-    // });
-
     loadJSON('json/categories.json',
-        function (data) {
+        (data) => {
             categories = data;
-
             loadJSON('json/places.json',
-                function (data) {
+                (data) => {
                     places = data;
 
                     loadJSON('json/buildings.json',
-                        function (data) {
+                        (data) => {
                             buildings = data;
                             initList();
                             getQueryURL();
                         },
-                        function (xhr) {
+                        (xhr) => {
                             console.error(xhr);
                         }
                     );
                 },
-                function (xhr) {
+                (xhr) => {
                     console.error(xhr);
                 }
             );
         },
-        function (xhr) {
+        (xhr) => {
             console.error(xhr);
         }
     );
-
-    // Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
-    //     categories = values[0];
-    //     places = values[1];
-    //     buildings = values[2];
-    //     initList();
-    //     getQueryURL();
-    // }, reason => {
-    //     console.log(reason)
-    // });
 }
 
 init();
