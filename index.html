@@ -1,4 +1,4 @@
-<!--Pooler 22 copyright. all  -->
+<!-- Pooler22 copyright. all right reserved  -->
 <!DOCTYPE html>
 <html>
 
@@ -23,12 +23,13 @@
     </div>
     <div class="mui-divider"></div>
     <div class="mui-container-fluid">
-        <b>Wyszukaj miejsce:</b>
+        <b>Wysukiwarka:</b>
         <div class="mui-textfield mui-textfield--float-label">
             <input id="search-input" type="text" oninput="filterPlaces(this.value)" title="Wyszukiwarka">
-            <label>Szukaj...</label>
+            <label><i class="fa fa-search"></i>Szukaj...</label>
         </div>
-        <b>Wybierz miejsce:</b>
+        <div class="mui-divider"></div>
+        <b>Lista kategorii:</b>
     </div>
 
     <ul id="list"></ul>
@@ -64,6 +65,10 @@
                        href="https://www.facebook.com/sharer/sharer.php?app_id=1719069691755167&u=https%3A%2F%2Fpooler22.github.io%2FMapaPL%2Findex.html&display=popup&ref=plugin&src=share_button">
                         <i class="fa fa-facebook"></i>
                     </a>
+                    <span class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block"
+                          onclick="activateModal()">
+                        <i class="fa fa-user"></i>
+                    </span>
                 </td>
             </tr>
         </table>
@@ -71,7 +76,7 @@
 </header>
 
 <div id="map"></div>
-<script src="script.js"></script>
+<script src="script_over_es2015.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap"></script>
 

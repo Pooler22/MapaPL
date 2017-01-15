@@ -1,11 +1,27 @@
 /**
- * Created by pooler on 12.01.2017.
+ * Pooler22 copyright. all right reserved
  */
 let map, markers = [], infowindows = [];
 let mapElement, listElement, sidedrawerElement;
 let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
+
+function activateModal() {
+    let modalEl = document.createElement('div');
+    modalEl.innerHTML = "<div class='mui-panel'>" +
+        "<h1>Mapa Politechniki Łódzkiej</h1>" +
+        "<br>" +
+        "<p>Niniejsza strona jest projektem od studenta dla studentów i nie tylko.</p>" +
+        "<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>" +
+        `<button class="mui-btn"><a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a></button>` +
+        "</div>";
+    modalEl.style.width = '400px';
+    modalEl.style.margin = '100px auto';
+    modalEl.style.backgroundColor = '#fff';
+
+    mui.overlay('on', modalEl);
+}
 
 //json
 function loadJSON(path, success, error) {
@@ -138,11 +154,11 @@ function printBuildings() {
     return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
         + `<ul style='display:none;'>`
         + buildings.reduce((a, building) => a + prepareLink(building), "")
-        + "</ul>";
+        + "</ul><div class='mui-divider'></div>";
 }
 
 function printCategories(categories) {
-    return categories.reduce((a, category) => a + `<li>${printCategory(category)}</li>`, "");
+    return categories.reduce((a, category) => a + `<li>${printCategory(category)}</li><div class='mui-divider'></div>`, "");
 }
 
 function printCategory(category) {

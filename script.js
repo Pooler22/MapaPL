@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Created by pooler on 12.01.2017.
+ * Pooler22 copyright. all right reserved
  */
 var map = void 0,
     markers = [],
