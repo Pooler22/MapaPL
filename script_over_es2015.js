@@ -7,6 +7,24 @@ let isOpenPanel, edited = false;
 let lastWidth, sizeMin = 770;
 let buildings, categories, places;
 
+var a;
+
+
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+function addClass(ele, cls) {
+    if (!this.hasClass(ele, cls)) ele.className += " " + cls;
+}
+function removeClass(ele, cls) {
+    if (hasClass(ele, cls)) {
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        ele.className = ele.className.replace(reg, ' ');
+    }
+}
+
+
 //json
 function loadJSON_promise(path) {
     return new Promise((resolve, reject) => {
@@ -66,7 +84,10 @@ function getQueryURL() {
     }
     else if (queryString.buildingId !== undefined) {
         let building = buildings.find(x => x.id == queryString.buildingId);
-        updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
+        updateMarkerExt(prepareInfoContent(building, false), [{
+            "lat": Number(building.lat),
+            "lng": Number(building.lng)
+        }]);
     }
 }
 
@@ -78,8 +99,7 @@ function getCoordinate(building) {
 }
 
 function prepareInfoContent(element, isPlace = false) {
-    return `${element.name}<br>`
-        + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
+    return `${element.name}<br><a  href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
 }
 
 // function prepareInfoContentExt(element, isPlace = false) {
@@ -88,9 +108,9 @@ function prepareInfoContent(element, isPlace = false) {
 //     }
 //     let building = buildings.find(x => x.id == element.building.split(",")[0]);
 //
-//     return `${element.name}<br>`
-//         + `<ul>${prepareLinkBuilding(building)}</ul>`
-//         + `<a href=${isPlace ? '?placeId=' : '?buildingId='}${element.id}>Link do lokacji</a>`
+//     return `{element.name}<br>`
+//         + `<ul>{prepareLinkBuilding(building)}</ul>`
+//         + `<a  class="mdl-navigation__link" href={isPlace ? '?placeId=' : '?buildingId='}{element.id}>Link do lokacji</a>`
 // }
 
 //map
@@ -104,12 +124,12 @@ function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
     updateMarkerExt(welcomeText, [{"lat": latIn, "lng": lngIn}]);
 }
 
+
 function updateMarkerExt(content, coordinate) {
     markers.forEach(x => {
         x.setMap(null);
     });
     markers = [];
-
     coordinate.forEach(coordinate => {
         let marker = new google.maps.Marker({
             position: {
@@ -137,6 +157,11 @@ function updateMarkerExt(content, coordinate) {
     }
 }
 
+function updateMarker(content, x, y) {
+    updateMarkerExt(content, [{'lat': Number(x), 'lng': Number(y)}]);
+}
+
+
 //list
 function extendCategories(categories) {
     categories.forEach(category => {
@@ -153,20 +178,17 @@ function initList() {
 }
 
 function printBuildings() {
-    return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
-        + `<ul style='display:none;'>`
-        + buildings.reduce((a, building) => a + prepareLink(building), "")
-        + "</ul>";
+    return `<li class="has-subnav"><a href="#" class="mdl-navigation__link js-toggle-subnav">Budynki</a><ul class="mdl-navigation__list">${buildings.reduce((a, building) => a + prepareLink(building), "")}</ul></li>`;
 }
 
 function printCategories(categories) {
-    return categories.reduce((a, category) => a + `<li>${printCategory(category)}</li>`, "");
+    return categories.reduce((a, category) => a + `<li class="has-subnav">${printCategory(category)}</li>`, "");
 }
 
 function printCategory(category) {
     let tmp = ``;
-    tmp += `<strong onclick='toggleListElement(this);'>${category.name}</strong>`;
-    tmp += `<ul style='display:none;'>`;
+    tmp += `<a href="#" class="mdl-navigation__link js-toggle-subnav" >${category.name}</a>`;
+    tmp += `<ul class="mdl-navigation__list">`;
 
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
@@ -196,15 +218,15 @@ function filterPlaces(searched) {
 function filterList(searched) {
     let tmp = getSearchResult(searched, buildings, false) + getSearchResult(searched, places, true);
     edited = true;
-    listElement.innerHTML = tmp ? `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>` : `<strong>Brak wyników</strong>`;
+    listElement.innerHTML = tmp ? `<a href="#" class="mdl-navigation__link js-toggle-subnav">>Wyniki wyszukiwania</a><ul>${tmp}</ul>` : `<a href="#" class="mdl-navigation__link js-toggle-subnav">Brak wyników</a>`;
 }
 
 function prepareLink(element, isPlace = false) {
     if (isPlace) {
-        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element, true)}",${JSON.stringify(getCoordinate(element.building))});'>${element.name}</a></li>`;
+        return `<li><a  class="mdl-navigation__link" href='javascript:updateMarkerExt("${prepareInfoContent(element, true)}",${JSON.stringify(getCoordinate(element.building))});'>${element.name}</a></li>`;
     }
     else {
-        return `<li><a href='javascript:updateMarkerExt("${prepareInfoContent(element)}",);'><b>${element.short}</b> ${element.name}</a></li>`;
+        return `<li><a class="mdl-navigation__link" href='javascript:updateMarker("${prepareInfoContent(element)}",${element.lat},${element.lng});'>${element.name}</a></li>`;
     }
 }
 
@@ -237,62 +259,63 @@ function isFunded(searched, element) {
 
 //view
 function toggleListElement(element) {
-    element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
+    // element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
 }
 
 function showSidedrawer() {
-    isOpenPanel = true;
-    mui.overlay('on', {
-        onclose: () => {
-            sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
-            document.body.appendChild(sidedrawerElement);
-            isOpenPanel = false;
-        }
-    }).appendChild(sidedrawerElement);
-    setTimeout(() => sidedrawerElement.className += ' active', 20);
+    // isOpenPanel = true;
+    // mui.overlay('on', {
+    //     onclose: () => {
+    //         sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    //         document.body.appendChild(sidedrawerElement);
+    //         isOpenPanel = false;
+    //     }
+    // }).appendChild(sidedrawerElement);
+    // setTimeout(() => sidedrawerElement.className += ' active', 20);
 }
 
 function closeSidedraver() {
-    isOpenPanel = false;
-    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
-    document.body.appendChild(sidedrawerElement);
-    mui.overlay('off');
+    //isOpenPanel = false;
+    // sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    // document.body.appendChild(sidedrawerElement);
+    // mui.overlay('off');
 }
 
 function toggleSidedrawer() {
-    if (document.body.className == 'hide-sidedrawer') {
-        isOpenPanel = true;
-        document.body.className = 'show-sidedrawer';
-    } else {
-        isOpenPanel = false;
-        document.body.className = 'hide-sidedrawer'
-    }
-    updateMapSize();
+    document.getElementsByClassName('mdl-layout').MaterialLayout.toggleDrawer();
+    // if (document.body.className == 'hide-sidedrawer') {
+    //     isOpenPanel = true;
+    //     document.body.className = 'show-sidedrawer';
+    // } else {
+    //     isOpenPanel = false;
+    //     document.body.className = 'hide-sidedrawer'
+    // }
+    // updateMapSize();
 }
 
 function updateMapSize() {
-    let magic1 = 300;
+    // let magic1 = 300;
     let magic2 = 64;
-    let magic3 = "300px";
-    let magic4 = '0px';
+    // let magic3 = "300px";
+    // let magic4 = '0px';
 
-    if (lastWidth > sizeMin)
-        mui.overlay('off', {
-            onclose: () => {
-                isOpenPanel = false;
-            }
-        });
+    // if (lastWidth > sizeMin)
+    //     mui.overlay('off', {
+    //         onclose: () => {
+    //             isOpenPanel = false;
+    //         }
+    //     });
 
     mapElement.style.height = `${window.innerHeight - magic2}px`;
-
-    if (isOpenPanel) {
-        mapElement.style.width = `${window.innerWidth - magic1}px`;
-        mapElement.style.marginLeft = magic3;
-    }
-    else {
-        mapElement.style.width = `${window.innerWidth}px`;
-        mapElement.style.marginLeft = magic4;
-    }
+    //
+    // if (isOpenPanel) {
+    //     mapElement.style.width = `{window.innerWidth - magic1}px`;
+    //     mapElement.style.marginLeft = magic3;
+    // }
+    // else {
+    //     mapElement.style.width = `{window.innerWidth}px`;
+    //     mapElement.style.marginLeft = magic4;
+    // }
 }
 
 function resize() {
@@ -308,62 +331,63 @@ function init() {
     listElement = document.getElementById("list");
     sidedrawerElement = document.getElementById('sidedrawer');
 
-    window.addEventListener('resize', resize);
-    document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
-    document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
-
     updateMapSize();
 
-    // loadJSON('json/categories.json').then((data) =>{
-    //     categories = data;
-    //     loadJSON('json/places.json').then((data) =>{
-    //         places = data;
-    //         loadJSON('json/buildings.json').then((data) =>{
-    //             buildings = data;
-    //             initList();
-    //             getQueryURL();
-    //         })
-    //     })
-    // });
-
     loadJSON('json/categories.json',
-        function (data) {
+        (data) => {
             categories = data;
-
             loadJSON('json/places.json',
-                function (data) {
+                (data) => {
                     places = data;
-
                     loadJSON('json/buildings.json',
-                        function (data) {
+                        (data) => {
                             buildings = data;
                             initList();
                             getQueryURL();
+
+
+                            let navListWithSubNav = document.querySelectorAll('.mdl-navigation__list .has-subnav');
+                            a = navListWithSubNav;
+                            navListWithSubNav.forEach(listItem => {
+                                // console.log(a);
+                                let toggleButton = listItem.querySelector('.js-toggle-subnav');
+                                // console.log(toggleButton);
+                                let subnav = listItem.querySelector('ul');
+                                // console.log(subnav);
+
+                                toggleButton.addEventListener('click', function (event) {
+                                    // event.preventDefault();
+
+                                    if (hasClass(listItem, 'is-opened')) {
+                                        removeClass(listItem, 'is-opened');
+                                        removeClass(toggleButton, 'is-active');
+                                    } else {
+                                        // close all other
+                                        // removeClass(navListWithSubNav, 'is-opened');
+                                        // removeClass(navListWithSubNav.find('.is-active'), 'is-active');
+                                        // open this one
+                                        addClass(listItem, 'is-opened');
+                                        addClass(toggleButton, 'is-active');
+                                    }
+                                })
+                            });
+
+
+
                         },
-                        function (xhr) {
+                        (xhr) => {
                             console.error(xhr);
                         }
                     );
                 },
-                function (xhr) {
+                (xhr) => {
                     console.error(xhr);
                 }
             );
         },
-        function (xhr) {
+        (xhr) => {
             console.error(xhr);
         }
     );
-
-    // Promise.all([loadJSON('json/categories.json'), loadJSON('json/places.json'), loadJSON('json/buildings.json')]).then(values => {
-    //     categories = values[0];
-    //     places = values[1];
-    //     buildings = values[2];
-    //     initList();
-    //     getQueryURL();
-    // }, reason => {
-    //     console.log(reason)
-    // });
 }
-
 init();
