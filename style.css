@@ -1,4 +1,3 @@
-/*Pooler22 copyright. All right reserved*/
 #map {
     top: 64px;
     position: absolute;
@@ -7,7 +6,7 @@
 html,
 body {
     height: 100%;
-    background-color: #ffffff;
+    background-color: #eee;
 }
 
 html,
@@ -47,7 +46,7 @@ buttons {
     left: -300px;
     overflow: auto;
     z-index: 2;
-    background-color: #ffffff;
+    background-color: #fff;
     transition: transform 0.2s;
 }
 
@@ -132,12 +131,12 @@ buttons {
  * Footer CSS
  */
 #footer {
-    background-color: #730007;
-    color: #ffffff;
+    background-color: #0288D1;
+    color: #fff;
 }
 
 #footer a {
-    color: #ffffff;
+    color: #fff;
     text-decoration: underline;
 }
 
@@ -168,14 +167,9 @@ buttons {
 }
 
 #sidedrawer strong:hover {
-    background-color: #ffffff;
+    background-color: #E0E0E0;
 }
 
 #sidedrawer strong + ul > li {
     padding: 6px 0;
-}
-
-.mui-appbar {
-    background-color: #730007;
-    color: #ffffff;
 }
