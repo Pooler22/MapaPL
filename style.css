@@ -175,7 +175,7 @@ buttons {
     padding: 6px 0;
 }
 
-#footer {
+.mui-appbar {
     background-color: #730007;
     color: #fff;
 }
