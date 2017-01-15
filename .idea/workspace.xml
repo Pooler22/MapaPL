@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix v2">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix v3">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_over_es2015.js" afterPath="$PROJECT_DIR$/script_over_es2015.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,9 +28,12 @@
       <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="54" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="7" />
-              <folding />
+            <state relative-caret-position="200">
+              <caret line="53" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="7" />
+              <folding>
+                <marker date="1484514969891" expanded="true" signature="4326:4339" ph="..." />
+                <marker date="1484514969891" expanded="true" signature="4735:4748" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,8 +56,8 @@
             <state relative-caret-position="530">
               <caret line="347" column="7" lean-forward="false" selection-start-line="347" selection-start-column="7" selection-end-line="347" selection-end-column="7" />
               <folding>
-                <marker date="1484514774753" expanded="true" signature="4975:4988" ph="..." />
-                <marker date="1484514774753" expanded="true" signature="5448:5461" ph="..." />
+                <marker date="1484515005559" expanded="true" signature="5002:5015" ph="..." />
+                <marker date="1484515005559" expanded="true" signature="5475:5488" ph="..." />
               </folding>
             </state>
           </provider>
@@ -72,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>budynku</find>
       <find>subnav</find>
       <find>build</find>
       <find>list</find>
@@ -102,6 +105,7 @@
       <find>function se</find>
       <find>input</find>
       <find>getQueryURL</find>
+      <find>find</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -363,7 +367,7 @@
       <workItem from="1484395944474" duration="5256000" />
       <workItem from="1484414125874" duration="15937000" />
       <workItem from="1484503166607" duration="28000" />
-      <workItem from="1484503555825" duration="7489000" />
+      <workItem from="1484503555825" duration="7724000" />
     </task>
     <task id="LOCAL-00001" summary="init repo">
       <created>1481287558852</created>
@@ -659,11 +663,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484514657231</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="fix v3">
+      <created>1484514790047</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1484514790047</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174961000" />
+    <option name="totallyTimeSpent" value="175196000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -719,7 +730,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="hotfix" />
     <MESSAGE value="url query" />
     <MESSAGE value="multiplace testing" />
     <MESSAGE value="hotfix css" />
@@ -744,7 +754,8 @@
     <MESSAGE value="transpile" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix v2" />
+    <MESSAGE value="fix v3" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix v3" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1034,9 +1045,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="54" column="23" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="200">
+          <caret line="53" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="332" selection-end-column="7" />
+          <folding>
+            <marker date="1484514969891" expanded="true" signature="4326:4339" ph="..." />
+            <marker date="1484514969891" expanded="true" signature="4735:4748" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,8 +1059,8 @@
         <state relative-caret-position="530">
           <caret line="347" column="7" lean-forward="false" selection-start-line="347" selection-start-column="7" selection-end-line="347" selection-end-column="7" />
           <folding>
-            <marker date="1484514774753" expanded="true" signature="4975:4988" ph="..." />
-            <marker date="1484514774753" expanded="true" signature="5448:5461" ph="..." />
+            <marker date="1484515005559" expanded="true" signature="5002:5015" ph="..." />
+            <marker date="1484515005559" expanded="true" signature="5475:5488" ph="..." />
           </folding>
         </state>
       </provider>

@@ -46,20 +46,23 @@ function getQueryString() {
 function getQueryURL() {
     let queryString = getQueryString();
     if (queryString.placeId !== undefined) {
-        let place = places.find(x => x.id == queryString.placeId);
-        let coordinates = getCoordinate(place.building);
-        updateMarkerExt(prepareInfoContent(place, true), coordinates);
+        let place = places.filter(x => x.id == queryString.placeId);
+        let coordinates = getCoordinate(place[0].building);
+        updateMarkerExt(prepareInfoContent(place[0], true), coordinates);
     }
     else if (queryString.buildingId !== undefined) {
-        let building = buildings.find(x => x.id == queryString.buildingId);
-        updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
+        let building = buildings.filter(x => x.id == queryString.buildingId);
+        updateMarkerExt(prepareInfoContent(building[0]), [{
+            "lat": Number(building[0].lat),
+            "lng": Number(building[0].lng)
+        }]);
     }
 }
 
 function getCoordinate(building) {
     return building.split(",").map(y => {
-        let tmp = buildings.find(x => x.id == y);
-        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
+        let tmp = buildings.filter(x => x.id == y);
+        return {"lat": Number(tmp[0].lat), "lng": Number(tmp[0].lng)};
     });
 }
 

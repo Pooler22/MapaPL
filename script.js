@@ -56,25 +56,28 @@ function getQueryString() {
 function getQueryURL() {
     var queryString = getQueryString();
     if (queryString.placeId !== undefined) {
-        var place = places.find(function (x) {
+        var place = places.filter(function (x) {
             return x.id == queryString.placeId;
         });
-        var coordinates = getCoordinate(place.building);
-        updateMarkerExt(prepareInfoContent(place, true), coordinates);
+        var coordinates = getCoordinate(place[0].building);
+        updateMarkerExt(prepareInfoContent(place[0], true), coordinates);
     } else if (queryString.buildingId !== undefined) {
-        var building = buildings.find(function (x) {
+        var building = buildings.filter(function (x) {
             return x.id == queryString.buildingId;
         });
-        updateMarkerExt(prepareInfoContent(building), [{"lat": Number(building.lat), "lng": Number(building.lng)}]);
+        updateMarkerExt(prepareInfoContent(building[0]), [{
+            "lat": Number(building[0].lat),
+            "lng": Number(building[0].lng)
+        }]);
     }
 }
 
 function getCoordinate(building) {
     return building.split(",").map(function (y) {
-        var tmp = buildings.find(function (x) {
+        var tmp = buildings.filter(function (x) {
             return x.id == y;
         });
-        return {"lat": Number(tmp.lat), "lng": Number(tmp.lng)};
+        return {"lat": Number(tmp[0].lat), "lng": Number(tmp[0].lng)};
     });
 }
 
