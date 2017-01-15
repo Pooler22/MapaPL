@@ -179,3 +179,8 @@ buttons {
     background-color: #730007;
     color: #fff;
 }
+
+.icon-menu {
+    content: "\e603";
+}
+
