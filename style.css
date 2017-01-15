@@ -184,3 +184,6 @@ buttons {
     content: "\e603";
 }
 
+* {
+    font-family: Helvetica, sans-serif;
+}

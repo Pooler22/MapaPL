@@ -94,7 +94,11 @@ function getCoordinate(building) {
 function prepareInfoContent(element) {
     var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-    return element.name + "<br>" + ("<a href=" + (isPlace ? '?placeId=' : '?buildingId=') + element.id + ">Link do lokacji</a>");
+    if (isPlace) {
+        return element.name + "<br>" + ("<a href=?placeId=" + element.id + ">Link do lokacji</a>");
+    } else {
+        return element.name + "<br>" + ("<a href=?buildingId=" + element.id + ">Link do budynku</a>");
+    }
 }
 
 //map
@@ -221,11 +225,24 @@ function filterList(searched) {
     listElement.innerHTML = tmp ? "<strong>Wyniki wyszukiwania</strong><ul>" + tmp + "</ul>" : "<strong>Brak wynik\xF3w</strong>";
 }
 
+function prepareUpdateMarker(id) {
+    var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    if (isPlace) {
+        var element = places.filter(function (place) {
+            return place.id == id;
+        });
+        updateMarkerExt(prepareInfoContent(element[0], true), getCoordinate(element[0].building));
+    } else {
+        // prepareInfoContent(element, true)},JSON.stringify(getCoordinate(element.building));
+    }
+}
+
 function prepareLink(element) {
     var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     if (isPlace) {
-        return "<li><a href='javascript:updateMarkerExt(\"" + prepareInfoContent(element, true) + "\"," + JSON.stringify(getCoordinate(element.building)) + ");'>" + element.name + "</a></li>";
+        return "<li><a href='javascript:prepareUpdateMarker(" + element.id + ",true);'>" + element.name + "</a></li>";
     } else {
         return "<li><a href='javascript:updateMarkerExt1(\"" + prepareInfoContent(element) + "\"," + element.lat + "," + element.lng + ");'><b>" + element.short + "</b> " + element.name + "</a></li>";
     }
@@ -333,6 +350,7 @@ function init() {
     sidedrawerElement = document.getElementById('sidedrawer');
 
     window.addEventListener('resize', resize);
+    document.getElementById('activateModal').addEventListener('click', activateModal, false);
     document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
     document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
 

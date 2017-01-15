@@ -28,11 +28,13 @@
             <input id="search-input" type="text" oninput="filterPlaces(this.value)" title="Wyszukiwarka">
             <label><i class="fa fa-search"></i>Szukaj...</label>
         </div>
-        <div class="mui-divider"></div>
+    </div>
+    <div class="mui-divider"></div>
+    <div class="mui-container-fluid">
         <b>Lista kategorii:</b>
     </div>
-
     <ul id="list"></ul>
+
 
 </div>
 <header id="header">
@@ -66,7 +68,7 @@
                         <i class="fa fa-facebook"></i>
                     </a>
                     <span class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block"
-                          onclick="activateModal()">
+                          id="activateModal">
                         <i class="fa fa-user"></i>
                     </span>
                 </td>
