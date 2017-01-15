@@ -36,4 +36,7 @@ Data view:
   - subcategories
     - ...
   - buildings - places
+  
+  
+  Pooler22 copyright. All right reserved
 

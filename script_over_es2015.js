@@ -1,5 +1,5 @@
 /**
- * Created by pooler on 12.01.2017.
+ * Pooler22 copyright. All right reserved
  */
 let map, markers = [], infowindows = [];
 let mapElement, listElement, sidedrawerElement;
