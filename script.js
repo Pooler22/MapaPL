@@ -19,7 +19,7 @@ var buildings = void 0,
 
 function activateModal() {
     var modalEl = document.createElement('div');
-    modalEl.innerHTML = '<div class=\'mui-panel\'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>' + '<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>' + '<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz, link poni\u017Cej:</p>' + '<button class="mui-btn"><a href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a></button>' + '</div>';
+    modalEl.innerHTML = '<div class=\'mui-panel\'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>' + '<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>' + '<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz, link poni\u017Cej:</p>' + '<a href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a>' + '</div>';
     modalEl.style.width = '400px';
     modalEl.style.margin = '100px auto';
     modalEl.style.backgroundColor = '#fff';
@@ -335,13 +335,12 @@ function updateMapSize() {
     });
 
     mapElement.style.height = window.innerHeight - magic2 + 'px';
+    mapElement.style.width = window.innerWidth + 'px';
 
     if (isOpenPanel) {
-        mapElement.style.width = window.innerWidth - magic1 + 'px';
-        mapElement.style.marginLeft = magic3;
-    } else {
-        mapElement.style.width = window.innerWidth + 'px';
-        mapElement.style.marginLeft = magic4;
+        if (window.innerWidth > 768) {
+            mui.overlay('off');
+        }
     }
     try {
         google.maps.event.trigger(mapElement, 'resize');
@@ -350,7 +349,6 @@ function updateMapSize() {
 }
 
 function resize() {
-    isOpenPanel = window.innerWidth > sizeMin;
     updateMapSize();
 }
 

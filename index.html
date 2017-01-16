@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css"/>
-    <link href="//cdn.muicss.com/mui-0.9.6/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="mui.css" rel="stylesheet" type="text/css"/>
     <script src="//cdn.muicss.com/mui-0.9.6/js/mui.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -28,8 +28,6 @@
         </div>
     </div>
     <ul id="list"></ul>
-
-
 </div>
 <header id="header">
     <div class="mui-appbar mui--appbar-line-height">
@@ -45,7 +43,7 @@
                         <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm " id="js-hide-sidedrawer">
                             <i class="fa fa-bars"></i>
                         </a>
-                        <span class="mui--text-title mui--visible-inline-block">Mapa PŁ</span>
+                        <span class="mui--text-title mui--visible-inline-block">Mapa PŁ pre-&alpha;</span>
                     </div>
                 </td>
                 <td class="mui--appbar-height" align="right">
@@ -54,24 +52,41 @@
                         <i class="fa fa-search"></i>
                     </span>
                     <a class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block" target="_blank"
-                       href="https://goo.gl/forms/1Bc9liKsKKKPZrxs1">
-                        <i class="fa fa-envelope-o"></i>
-                    </a>
-                    <a class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block" target="_blank"
                        href="https://www.facebook.com/sharer/sharer.php?app_id=1719069691755167&u=https%3A%2F%2Fpooler22.github.io%2FMapaPL%2Findex.html&display=popup&ref=plugin&src=share_button">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <span class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block"
-                          id="activateModal">
-                        <i class="fa fa-user"></i>
-                    </span>
+
+                    <div class="mui-dropdown">
+                        <button class="mui-btn mui-btn--small mui-btn mui-btn--primary mui-btn--fab"
+                                data-mui-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="mui-dropdown__menu mui-dropdown__menu--right">
+                            <li>
+                                <a class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block"
+                                   id="activateModal">
+                                    <i class="fa fa-user"></i>
+                                    O aplikacji
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidedrawer-toggle mui--visible-inline-block mui--visible-inline-block"
+                                   target="_blank"
+                                   href="https://goo.gl/forms/1Bc9liKsKKKPZrxs1">
+                                    <i class="fa fa-envelope-o"></i>
+                                    Kontakt
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         </table>
     </div>
 </header>
-
-<div id="map"></div>
+<div id="content-wrapper">
+    <div id="map"></div>
+</div>
 <script src="script.js"></script>
 <!--<script src="script_over_es2015.js"></script>-->
 <script async defer

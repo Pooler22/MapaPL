@@ -12,7 +12,7 @@ function activateModal() {
     modalEl.innerHTML = `<div class='mui-panel'><h1>Mapa Politechniki Łódzkiej</h1><br>` +
         `<p>Niniejsza strona jest projektem od studentów dla studentów i nie tylko.</p>` +
         `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>` +
-        `<button class="mui-btn"><a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a></button>` +
+        `<a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a>` +
         `</div>`;
     modalEl.style.width = '400px';
     modalEl.style.margin = '100px auto';
@@ -313,14 +313,12 @@ function updateMapSize() {
         });
 
     mapElement.style.height = `${window.innerHeight - magic2}px`;
+    mapElement.style.width = `${window.innerWidth}px`;
 
     if (isOpenPanel) {
-        mapElement.style.width = `${window.innerWidth - magic1}px`;
-        mapElement.style.marginLeft = magic3;
-    }
-    else {
-        mapElement.style.width = `${window.innerWidth}px`;
-        mapElement.style.marginLeft = magic4;
+        if (window.innerWidth > 768) {
+            mui.overlay('off')
+        }
     }
     try {
         google.maps.event.trigger(mapElement, 'resize');
@@ -330,7 +328,6 @@ function updateMapSize() {
 }
 
 function resize() {
-    isOpenPanel = window.innerWidth > sizeMin;
     updateMapSize()
 }
 
