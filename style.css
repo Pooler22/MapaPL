@@ -187,3 +187,7 @@ buttons {
 * {
     font-family: Arial, sans-serif;
 }
+
+.mui-caret {
+    margin-top: 6px;
+}

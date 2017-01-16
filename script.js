@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Pooler22 copyright. all right reserved
@@ -19,7 +19,7 @@ var buildings = void 0,
 
 function activateModal() {
     var modalEl = document.createElement('div');
-    modalEl.innerHTML = "<div class='mui-panel'>" + "<h1>Mapa Politechniki Łódzkiej</h1>" + "<br>" + "<p>Niniejsza strona jest projektem od studenta dla studentów i nie tylko.</p>" + "<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>" + "<button class=\"mui-btn\"><a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class=\"fa fa-envelope-o\"></i> Kontakt</a></button>" + "</div>";
+    modalEl.innerHTML = '<div class=\'mui-panel\'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>' + '<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>' + '<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz, link poni\u017Cej:</p>' + '<button class="mui-btn"><a href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a></button>' + '</div>';
     modalEl.style.width = '400px';
     modalEl.style.margin = '100px auto';
     modalEl.style.backgroundColor = '#fff';
@@ -95,9 +95,9 @@ function prepareInfoContent(element) {
     var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     if (isPlace) {
-        return element.name + "<br>" + ("<a href=?placeId=" + element.id + ">Link do lokacji</a>");
+        return element.name + '<br>' + ('<a href=?placeId=' + element.id + '>Link do lokacji</a>');
     } else {
-        return element.name + "<br>" + ("<a href=?buildingId=" + element.id + ">Link do budynku</a>");
+        return element.name + '<br>' + ('<a href=?buildingId=' + element.id + '>Link do budynku</a>');
     }
 }
 
@@ -171,22 +171,26 @@ function initList() {
     listElement.innerHTML = printCategories(categories) + printBuildings();
 }
 
+function arrowSpan() {
+    return '<span class="mui--pull-right mui-caret"></span>';
+}
+
 function printBuildings() {
-    return "<strong onclick='toggleListElement(this);'>Budynki</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
+    return '<strong onclick=\'toggleListElement(this);\'>Budynki' + arrowSpan() + '</strong>' + '<ul style=\'display:none;\'>' + buildings.reduce(function (a, building) {
             return a + prepareLink(building);
-        }, "") + "</ul><div class='mui-divider'></div>";
+        }, "") + "${arrowSpan()}</ul>";
 }
 
 function printCategories(categories) {
     return categories.reduce(function (a, category) {
-        return a + ("<li>" + printCategory(category) + "</li><div class='mui-divider'></div>");
+        return a + ('<li>' + printCategory(category) + '</li>');
     }, "");
 }
 
 function printCategory(category) {
-    var tmp = "";
-    tmp += "<strong onclick='toggleListElement(this);'>" + category.name + "</strong>";
-    tmp += "<ul style='display:none;'>";
+    var tmp = '';
+    tmp += '<strong onclick=\'toggleListElement(this);\'>' + (category.name + arrowSpan()) + '</strong>';
+    tmp += '<ul style=\'display:none;\'>';
 
     if (category.subcategory !== undefined) {
         tmp += printCategories(category.subcategory);
@@ -197,13 +201,16 @@ function printCategory(category) {
         }
         tmp += prepareLink(place, true);
     });
-    tmp += "</ul>";
+    tmp += '</ul>';
     return tmp;
 }
 
 function search() {
     if (!isOpenPanel) {
-        showSidedrawer();
+        document.getElementById("js-hide-sidedrawer").click();
+        if (window.innerWidth < 768) {
+            showSidedrawer();
+        }
     }
     document.getElementById("search-input").focus();
 }
@@ -222,7 +229,7 @@ function filterPlaces(searched) {
 function filterList(searched) {
     var tmp = getSearchResult(searched, buildings, false) + getSearchResult(searched, places, true);
     edited = true;
-    listElement.innerHTML = tmp ? "<strong>Wyniki wyszukiwania</strong><ul>" + tmp + "</ul>" : "<strong>Brak wynik\xF3w</strong>";
+    listElement.innerHTML = tmp ? '<strong>Wyniki wyszukiwania</strong><ul>' + tmp + '</ul>' : '<strong>Brak wynik\xF3w</strong>';
 }
 
 function prepareUpdateMarker(id) {
@@ -242,9 +249,9 @@ function prepareLink(element) {
     var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     if (isPlace) {
-        return "<li><a href='javascript:prepareUpdateMarker(" + element.id + ",true);'>" + element.name + "</a></li>";
+        return '<li><a href=\'javascript:prepareUpdateMarker(' + element.id + ',true);\'>' + element.name + '</a></li>';
     } else {
-        return "<li><a href='javascript:updateMarkerExt1(\"" + prepareInfoContent(element) + "\"," + element.lat + "," + element.lng + ");'><b>" + element.short + "</b> " + element.name + "</a></li>";
+        return '<li><a href=\'javascript:updateMarkerExt1("' + prepareInfoContent(element) + '",' + element.lat + ',' + element.lng + ');\'><b>' + element.short + '</b> ' + element.name + '</a></li>';
     }
 }
 
@@ -297,9 +304,10 @@ function showSidedrawer() {
 
 function closeSidedraver() {
     isOpenPanel = false;
-    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    sidedrawerElement.className = sidedrawerElement.className.replace(' ', 'active');
     document.body.appendChild(sidedrawerElement);
     mui.overlay('off');
+    updateMapSize();
 }
 
 function toggleSidedrawer() {
@@ -314,6 +322,7 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
+
     var magic1 = 300;
     var magic2 = 64;
     var magic3 = "300px";
@@ -325,14 +334,18 @@ function updateMapSize() {
         }
     });
 
-    mapElement.style.height = window.innerHeight - magic2 + "px";
+    mapElement.style.height = window.innerHeight - magic2 + 'px';
 
     if (isOpenPanel) {
-        mapElement.style.width = window.innerWidth - magic1 + "px";
+        mapElement.style.width = window.innerWidth - magic1 + 'px';
         mapElement.style.marginLeft = magic3;
     } else {
-        mapElement.style.width = window.innerWidth + "px";
+        mapElement.style.width = window.innerWidth + 'px';
         mapElement.style.marginLeft = magic4;
+    }
+    try {
+        google.maps.event.trigger(mapElement, 'resize');
+    } catch (e) {
     }
 }
 
@@ -355,7 +368,6 @@ function init() {
     document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
 
     updateMapSize();
-
     loadJSON('json/categories.json', function (data) {
         categories = data;
         loadJSON('json/places.json', function (data) {
@@ -363,6 +375,7 @@ function init() {
 
             loadJSON('json/buildings.json', function (data) {
                 buildings = data;
+
                 initList();
                 getQueryURL();
             }, function (xhr) {

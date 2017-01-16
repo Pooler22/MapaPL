@@ -79,7 +79,8 @@
     "id": "201",
     "name": "Dziekanat Wydziału EEIA",
     "category": "2",
-    "building": "10"
+    "building": "10",
+    "tags": "weeia"
   },
   {
     "id": "202",
@@ -196,7 +197,9 @@
     "id": "401",
     "name": "Dziekanat Wydziału TMiWT",
     "category": "4",
-    "building": "33"
+    "building": "33",
+    "tags": "wTMiWT"
+
   },
   {
     "id": "402",
@@ -244,7 +247,8 @@
     "id": "501",
     "name": "Dziekanat Wydziału BiNOŻ",
     "category": "5",
-    "building": "4"
+    "building": "4",
+    "tags": "wBiNOŻ"
   },
   {
     "id": "502",
@@ -271,7 +275,8 @@
     "id": "601",
     "name": "Dziekanat Wudziału BAIŚ",
     "category": "6",
-    "building": "40"
+    "building": "40",
+    "tags": "wBAIŚ"
   },
   {
     "id": "602",

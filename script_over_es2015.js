@@ -10,7 +10,7 @@ let buildings, categories, places;
 function activateModal() {
     let modalEl = document.createElement('div');
     modalEl.innerHTML = `<div class='mui-panel'><h1>Mapa Politechniki Łódzkiej</h1><br>` +
-        `<p>Niniejsza strona jest projektem od studenta dla studentów i nie tylko.</p>` +
+        `<p>Niniejsza strona jest projektem od studentów dla studentów i nie tylko.</p>` +
         `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>` +
         `<button class="mui-btn"><a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a></button>` +
         `</div>`;
@@ -154,11 +154,15 @@ function initList() {
     listElement.innerHTML = printCategories(categories) + printBuildings();
 }
 
+function arrowSpan() {
+    return `<span class="mui--pull-right mui-caret"></span>`;
+}
+
 function printBuildings() {
-    return `<strong onclick='toggleListElement(this);'>Budynki</strong>`
+    return `<strong onclick='toggleListElement(this);'>Budynki${arrowSpan()}</strong>`
         + `<ul style='display:none;'>`
         + buildings.reduce((a, building) => a + prepareLink(building), "")
-        + "</ul>";
+        + "${arrowSpan()}</ul>";
 }
 
 function printCategories(categories) {
@@ -167,7 +171,7 @@ function printCategories(categories) {
 
 function printCategory(category) {
     let tmp = ``;
-    tmp += `<strong onclick='toggleListElement(this);'>${category.name}</strong>`;
+    tmp += `<strong onclick='toggleListElement(this);'>${category.name + arrowSpan()}</strong>`;
     tmp += `<ul style='display:none;'>`;
 
     if (category.subcategory !== undefined) {
@@ -185,7 +189,10 @@ function printCategory(category) {
 
 function search() {
     if (!isOpenPanel) {
-        showSidedrawer();
+        document.getElementById("js-hide-sidedrawer").click();
+        if (window.innerWidth < 768) {
+            showSidedrawer();
+        }
     }
     document.getElementById("search-input").focus();
 
@@ -274,9 +281,10 @@ function showSidedrawer() {
 
 function closeSidedraver() {
     isOpenPanel = false;
-    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+    sidedrawerElement.className = sidedrawerElement.className.replace(' ', 'active');
     document.body.appendChild(sidedrawerElement);
     mui.overlay('off');
+    updateMapSize();
 }
 
 function toggleSidedrawer() {
@@ -291,6 +299,7 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
+
     let magic1 = 300;
     let magic2 = 64;
     let magic3 = "300px";
@@ -313,6 +322,11 @@ function updateMapSize() {
         mapElement.style.width = `${window.innerWidth}px`;
         mapElement.style.marginLeft = magic4;
     }
+    try {
+        google.maps.event.trigger(mapElement, 'resize');
+    } catch (e) {
+
+    }
 }
 
 function resize() {
@@ -333,8 +347,8 @@ function init() {
     document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
     document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
 
-    updateMapSize();
 
+    updateMapSize();
     loadJSON('json/categories.json',
         (data) => {
             categories = data;
@@ -345,6 +359,7 @@ function init() {
                     loadJSON('json/buildings.json',
                         (data) => {
                             buildings = data;
+
                             initList();
                             getQueryURL();
                         },
