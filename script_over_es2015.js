@@ -14,8 +14,7 @@ function activateModal() {
         `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>` +
         `<a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a>` +
         `</div>`;
-    modalEl.style.width = '400px';
-    modalEl.style.margin = '100px auto';
+    modalEl.style.margin = '50px auto auto auto';
     modalEl.style.backgroundColor = '#fff';
 
     mui.overlay('on', modalEl);
