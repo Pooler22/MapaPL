@@ -4,6 +4,7 @@
     <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="testing v2">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="182" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="378" selection-end-column="7" />
+            <state relative-caret-position="105">
+              <caret line="316" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="378" selection-end-column="7" />
               <folding>
                 <marker date="1484556310908" expanded="true" signature="5261:5274" ph="..." />
                 <marker date="1484556310908" expanded="true" signature="5698:5711" ph="..." />
@@ -40,9 +41,12 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="903" lean-forward="false" selection-start-line="8" selection-start-column="903" selection-end-line="8" selection-end-column="903" />
-              <folding />
+            <state relative-caret-position="532">
+              <caret line="388" column="7" lean-forward="false" selection-start-line="388" selection-start-column="7" selection-end-line="388" selection-end-column="7" />
+              <folding>
+                <marker date="1484557674112" expanded="true" signature="5950:5963" ph="..." />
+                <marker date="1484557674112" expanded="true" signature="6457:6470" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,11 +54,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="50" column="52" lean-forward="true" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+            <state relative-caret-position="249">
+              <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#1951#1958#0" expanded="true" />
+                <element signature="e#1999#2006#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>link</find>
-      <find>link do</find>
       <find>prepare</find>
       <find>updateMarker</find>
       <find>find</find>
@@ -103,6 +105,8 @@
       <find>mapa</find>
       <find>javascript</find>
       <find>search</find>
+      <find>small</find>
+      <find>onclick</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -367,14 +371,7 @@
       <workItem from="1484414125874" duration="15937000" />
       <workItem from="1484503166607" duration="28000" />
       <workItem from="1484503555825" duration="13763000" />
-      <workItem from="1484552409426" duration="4479000" />
-    </task>
-    <task id="LOCAL-00004" summary="prepare filter">
-      <created>1481384835761</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1481384835762</updated>
+      <workItem from="1484552409426" duration="5279000" />
     </task>
     <task id="LOCAL-00005" summary="prepare to remove jquery">
       <created>1481386656525</created>
@@ -712,11 +709,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484556656635</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="testing v2">
+      <created>1484556907172</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1484556907172</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189514000" />
+    <option name="totallyTimeSpent" value="190314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -772,7 +776,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="under es6 testing" />
     <MESSAGE value="under es6 testing v2" />
     <MESSAGE value="under es6 testing v3" />
     <MESSAGE value="under es6 testing v4" />
@@ -797,7 +800,8 @@
     <MESSAGE value="hotfix: search icon ie9" />
     <MESSAGE value="fix: search icon ie9, modal size" />
     <MESSAGE value="testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing" />
+    <MESSAGE value="testing v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing v2" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1057,19 +1061,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" column="52" lean-forward="true" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        <state relative-caret-position="249">
+          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#1951#1958#0" expanded="true" />
+            <element signature="e#1999#2006#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="182" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="378" selection-end-column="7" />
+        <state relative-caret-position="105">
+          <caret line="316" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="378" selection-end-column="7" />
           <folding>
             <marker date="1484556310908" expanded="true" signature="5261:5274" ph="..." />
             <marker date="1484556310908" expanded="true" signature="5698:5711" ph="..." />
@@ -1079,9 +1083,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="903" lean-forward="false" selection-start-line="8" selection-start-column="903" selection-end-line="8" selection-end-column="903" />
-          <folding />
+        <state relative-caret-position="532">
+          <caret line="388" column="7" lean-forward="false" selection-start-line="388" selection-start-column="7" selection-end-line="388" selection-end-column="7" />
+          <folding>
+            <marker date="1484557674112" expanded="true" signature="5950:5963" ph="..." />
+            <marker date="1484557674112" expanded="true" signature="6457:6470" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
