@@ -340,6 +340,7 @@ function init() {
     sidedrawerElement = document.getElementById('sidedrawer');
 
     window.addEventListener('resize', resize);
+    document.getElementById('search-icon').addEventListener('click', search, false);
     document.getElementById('activateModal').addEventListener('click', activateModal, false);
     document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
     document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
