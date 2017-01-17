@@ -298,11 +298,8 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
-
     let magic1 = 300;
-    let magic2 = 64;
-    let magic3 = "300px";
-    let magic4 = '0px';
+    let magic2 = 70;
 
     if (lastWidth > sizeMin)
         mui.overlay('off', {
@@ -310,13 +307,24 @@ function updateMapSize() {
                 isOpenPanel = false;
             }
         });
+    if (isOpenPanel) {
+        mapElement.style.height = `${window.innerHeight - magic2}px`;
+        mapElement.style.width = `${window.innerWidth - magic1}px`;
+    }
+    else {
+        mapElement.style.height = `${window.innerHeight - magic2}px`;
+        mapElement.style.width = `${window.innerWidth}px`;
 
-    mapElement.style.height = `${window.innerHeight - magic2}px`;
-    mapElement.style.width = `${window.innerWidth}px`;
+    }
 
     if (isOpenPanel) {
         if (window.innerWidth > 768) {
             mui.overlay('off')
+        }
+        else {
+            mapElement.style.height = `${window.innerHeight - magic2}px`;
+            mapElement.style.width = `${window.innerWidth}px`;
+
         }
     }
     try {

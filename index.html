@@ -17,10 +17,9 @@
 </head>
 
 <body>
+
 <div id="sidedrawer" class="mui--no-user-select">
-    <div class="mui-container-fluid">
         <br>
-    </div>
     <div class="mui-container-fluid">
         <div class="mui-textfield mui-textfield--float-label">
             <input id="search-input" type="text" oninput="filterPlaces(this.value)" title="Wyszukiwarka">
@@ -29,6 +28,7 @@
     </div>
     <ul id="list"></ul>
 </div>
+
 <header id="header">
     <div class="mui-appbar mui--appbar-line-height">
         <table width="100%">
@@ -88,11 +88,13 @@
         </table>
     </div>
 </header>
+
 <div id="content-wrapper">
     <div id="map"></div>
 </div>
-<script src="script.js"></script>
-<!--<script src="script_over_es2015.js"></script>-->
+
+<!--<script src="script.js"></script>-->
+<script src="script_over_es2015.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap"></script>
 
