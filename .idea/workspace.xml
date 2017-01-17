@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix size map">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix navbar">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
@@ -25,35 +25,7 @@
     <favorites_list name="MapaPL" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-              <folding>
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="199" column="29" lean-forward="true" selection-start-line="199" selection-start-column="29" selection-end-line="199" selection-end-column="29" />
-              <folding>
-                <marker date="1484685925722" expanded="true" signature="5543:5556" ph="..." />
-                <marker date="1484685925722" expanded="true" signature="5980:5993" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,36 +38,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>768</find>
-      <find>google</find>
-      <find>blu</find>
-      <find>2196F3</find>
-      <find>1976D2</find>
-      <find>click</find>
-      <find>39a1f4</find>
-      <find>mui.overlay</find>
-      <find>hidd</find>
-      <find>mapa</find>
-      <find>javascript</find>
-      <find>small</find>
-      <find>onclick</find>
-      <find>ta</find>
-      <find>tag</find>
-      <find>button</find>
-      <find>show</find>
+      <find>toggleSidedrawer</find>
+      <find>edited</find>
+      <find>lastWidth</find>
+      <find>buildings</find>
+      <find>categories</find>
+      <find>View</find>
+      <find>initList</find>
+      <find>printCategories</find>
+      <find>printCategory</find>
+      <find>loadJSON</find>
+      <find>places</find>
+      <find>closeSidedraver</find>
+      <find>place</find>
+      <find>arrowSpan</find>
+      <find>prepareLink</find>
+      <find>console</find>
       <find>filter</find>
-      <find>find</find>
-      <find>isopen</find>
-      <find>mapElement.style</find>
-      <find>resize</find>
-      <find>content-wrapper</find>
-      <find>javascript:</find>
-      <find>cont</find>
-      <find>js-show-sidedrawer</find>
-      <find>js-hide-sidedrawer</find>
-      <find>search-icon</find>
-      <find>activateModal</find>
-      <find>search</find>
+      <find>filterPlaces</find>
+      <find>filterpla</find>
+      <find>toggleListElement</find>
+      <find>data</find>
+      <find>init</find>
+      <find>getCoordinate</find>
+      <find>sizeMin</find>
+      <find>updateMapSize</find>
+      <find>setCenter</find>
+      <find>getQueryURL</find>
+      <find>getSearchResult</find>
+      <find>prepareUpdateMarker</find>
+      <find>updateMarkerExt</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -112,6 +84,7 @@
       <replace>lng</replace>
       <replace>(data) =&gt;</replace>
       <replace>730007</replace>
+      <replace>overlayOff</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -153,9 +126,9 @@
         <option value="$PROJECT_DIR$/json/places.json" />
         <option value="$PROJECT_DIR$/mui.css" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/script_over_es2015.js" />
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/script_over_es2015.js" />
       </list>
     </option>
   </component>
@@ -363,14 +336,7 @@
       <workItem from="1484552409426" duration="5719000" />
       <workItem from="1484576047617" duration="75000" />
       <workItem from="1484587473425" duration="1881000" />
-      <workItem from="1484680110186" duration="6575000" />
-    </task>
-    <task id="LOCAL-00008" summary="refactoring">
-      <created>1481396342962</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1481396342962</updated>
+      <workItem from="1484680110186" duration="14932000" />
     </task>
     <task id="LOCAL-00009" summary="refactoring">
       <created>1481403515864</created>
@@ -708,17 +674,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484683642247</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="fix navbar">
+      <created>1484686750270</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1484686750271</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199285000" />
+    <option name="totallyTimeSpent" value="207642000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12276786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12276786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -747,7 +720,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="prepare mdl" />
     <MESSAGE value="simple view done" />
     <MESSAGE value="copyright" />
     <MESSAGE value="color menu" />
@@ -772,13 +744,14 @@
     <MESSAGE value="testing v3" />
     <MESSAGE value="hotfix" />
     <MESSAGE value="fix size map" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix size map" />
+    <MESSAGE value="fix navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix navbar" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="37" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1029,34 +1002,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="363" column="47" lean-forward="true" selection-start-line="363" selection-start-column="47" selection-end-line="363" selection-end-column="47" />
+        <state relative-caret-position="465">
+          <caret line="431" column="1" lean-forward="true" selection-start-line="431" selection-start-column="1" selection-end-line="431" selection-end-column="1" />
           <folding>
-            <marker date="1484686504333" expanded="true" signature="6182:6195" ph="..." />
-            <marker date="1484686504333" expanded="true" signature="6689:6702" ph="..." />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1484688781251" expanded="true" signature="11478:11491" ph="..." />
+            <marker date="1484688781251" expanded="true" signature="11986:11999" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="199" column="29" lean-forward="true" selection-start-line="199" selection-start-column="29" selection-end-line="199" selection-end-column="29" />
+        <state relative-caret-position="171">
+          <caret line="244" column="38" lean-forward="true" selection-start-line="244" selection-start-column="38" selection-end-line="244" selection-end-column="38" />
           <folding>
-            <marker date="1484685925722" expanded="true" signature="5543:5556" ph="..." />
-            <marker date="1484685925722" expanded="true" signature="5980:5993" ph="..." />
+            <element signature="n#JSONHelper#0" expanded="false" />
+            <element signature="n#!!block;n#getCoordinate#0;n#Data#0" expanded="false" />
+            <element signature="n#!!block;n#extendCategories#0;n#Data#0" expanded="false" />
+            <element signature="n#!!block;n#arrowSpan#0;n#Data#0" expanded="false" />
+            <element signature="n#!!block;n#isFunded#0;n#Data#0" expanded="false" />
+            <element signature="n#!!block;n#prepareInfoContent#0;n#View#0" expanded="false" />
+            <marker date="1484695106475" expanded="true" signature="3344:3357" ph="..." />
+            <marker date="1484695106475" expanded="true" signature="3833:3846" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="453">
+          <caret line="103" column="7" lean-forward="true" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
           <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

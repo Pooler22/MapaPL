@@ -24,7 +24,7 @@
     <div class="mui-container-fluid">
         <br>
         <div class="mui-textfield mui-textfield--float-label">
-            <input id="search-input" type="text" oninput="filterPlaces(this.value)" title="Wyszukiwarka">
+            <input id="search-input" type="text" oninput="data.filterPlaces(this.value)" title="Wyszukiwarka">
             <label><i class="fa fa-search"></i>Szukaj...</label>
         </div>
     </div>
@@ -38,11 +38,11 @@
                 <td class="mui--appbar-height ">
                     <div class="mui-container-fluid ">
                         <span class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block"
-                              onclick="showSidedrawer()">
+                              onclick="view.showSidedrawer()">
                             <i class="fa fa-bars"></i>
                         </span>
                         <span class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm "
-                              onclick="toggleSidedrawer()">
+                              onclick="view.toggleSidedrawer()">
                             <i class="fa fa-bars"></i>
                         </span>
                         <span class="mui--text-title mui--visible-inline-block">Mapa PŁ</span>
@@ -51,11 +51,11 @@
                 <td align="right">
                     <div class="mui-container-fluid ">
                         <span class="sidedrawer-toggle"
-                              onclick="search()">
+                              onclick="view.searchExt()">
                             <i class="fa fa-search"></i>
                         </span>
                         <span class="sidedrawer-toggle "
-                              onclick="activateModal()">
+                              onclick="view.activateModal()">
                             <i class="fa fa-info-circle"></i>
                         </span>
                     </div>
@@ -81,7 +81,7 @@
             <!--onclick="search()">-->
             <!--<i class="fa fa-search"></i>-->
             <!--</button>-->
-            <!--<button class="mui-btn mui-btn&#45;&#45;fab  mui-btn&#45;&#45;primary sidedrawer-toggle "-->
+            <!--<button     class="mui-btn mui-btn&#45;&#45;fab  mui-btn&#45;&#45;primary sidedrawer-toggle "-->
             <!--onclick="activateModal()">-->
             <!--<i class="fa fa-info-circle"></i>-->
             <!--</button>-->
@@ -96,10 +96,10 @@
     <div id="map"></div>
 </div>
 
-<script src="script.js"></script>
-<!--<script src="script_over_es2015.js"></script>-->
+<!--<script src="script.js"></script>-->
+<script src="script_over_es2015.js"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU&callback=initMap"></script>
-
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjmvwAXG2tkSu2x_6AScYWNenNxMoWkyU"></script>
+<!--&callback=initMap-->
 </body>
 </html>
