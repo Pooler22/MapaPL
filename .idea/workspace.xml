@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix navbar">
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="more object-oriented">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
@@ -25,7 +25,48 @@
     <favorites_list name="MapaPL" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="100" column="17" lean-forward="false" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
+              <folding>
+                <element signature="n#JSONHelper#0" expanded="false" />
+                <marker date="1484696992465" expanded="true" signature="3374:3387" ph="..." />
+                <marker date="1484696992465" expanded="true" signature="3863:3876" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="559">
+              <caret line="493" column="7" lean-forward="false" selection-start-line="493" selection-start-column="7" selection-end-line="493" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!block;n#init#0" expanded="false" />
+                <marker date="1484697003296" expanded="true" signature="5587:5600" ph="..." />
+                <marker date="1484697003296" expanded="true" signature="6376:6389" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -38,20 +79,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>toggleSidedrawer</find>
-      <find>edited</find>
-      <find>lastWidth</find>
-      <find>buildings</find>
-      <find>categories</find>
-      <find>View</find>
-      <find>initList</find>
-      <find>printCategories</find>
-      <find>printCategory</find>
-      <find>loadJSON</find>
-      <find>places</find>
-      <find>closeSidedraver</find>
       <find>place</find>
-      <find>arrowSpan</find>
       <find>prepareLink</find>
       <find>console</find>
       <find>filter</find>
@@ -59,7 +87,6 @@
       <find>filterpla</find>
       <find>toggleListElement</find>
       <find>data</find>
-      <find>init</find>
       <find>getCoordinate</find>
       <find>sizeMin</find>
       <find>updateMapSize</find>
@@ -67,7 +94,21 @@
       <find>getQueryURL</find>
       <find>getSearchResult</find>
       <find>prepareUpdateMarker</find>
+      <find>initList</find>
+      <find>init</find>
+      <find>initMap</find>
       <find>updateMarkerExt</find>
+      <find>view</find>
+      <find>prepareInfoContent</find>
+      <find>da</find>
+      <find>edited</find>
+      <find>edited</find>
+      <find>mapElement</find>
+      <find>sidedrawerElement</find>
+      <find>listElement</find>
+      <find>map</find>
+      <find>markers</find>
+      <find>arrowSpan</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -126,9 +167,9 @@
         <option value="$PROJECT_DIR$/json/places.json" />
         <option value="$PROJECT_DIR$/mui.css" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/script_over_es2015.js" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
@@ -336,14 +377,7 @@
       <workItem from="1484552409426" duration="5719000" />
       <workItem from="1484576047617" duration="75000" />
       <workItem from="1484587473425" duration="1881000" />
-      <workItem from="1484680110186" duration="14932000" />
-    </task>
-    <task id="LOCAL-00009" summary="refactoring">
-      <created>1481403515864</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1481403515864</updated>
+      <workItem from="1484680110186" duration="16822000" />
     </task>
     <task id="LOCAL-00010" summary="add autorezise map">
       <created>1481458084258</created>
@@ -681,17 +715,24 @@
       <option name="project" value="LOCAL" />
       <updated>1484686750271</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="more object-oriented">
+      <created>1484695182037</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1484695182037</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207642000" />
+    <option name="totallyTimeSpent" value="209532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12276786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12276786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -720,7 +761,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="simple view done" />
     <MESSAGE value="copyright" />
     <MESSAGE value="color menu" />
     <MESSAGE value="color menu fix" />
@@ -745,7 +785,8 @@
     <MESSAGE value="hotfix" />
     <MESSAGE value="fix size map" />
     <MESSAGE value="fix navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix navbar" />
+    <MESSAGE value="more object-oriented" />
+    <option name="LAST_COMMIT_MESSAGE" value="more object-oriented" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1000,41 +1041,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="431" column="1" lean-forward="true" selection-start-line="431" selection-start-column="1" selection-end-line="431" selection-end-column="1" />
+        <state relative-caret-position="366">
+          <caret line="100" column="17" lean-forward="false" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
           <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1484688781251" expanded="true" signature="11478:11491" ph="..." />
-            <marker date="1484688781251" expanded="true" signature="11986:11999" ph="..." />
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="244" column="38" lean-forward="true" selection-start-line="244" selection-start-column="38" selection-end-line="244" selection-end-column="38" />
+        <state relative-caret-position="221">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
           <folding>
             <element signature="n#JSONHelper#0" expanded="false" />
-            <element signature="n#!!block;n#getCoordinate#0;n#Data#0" expanded="false" />
-            <element signature="n#!!block;n#extendCategories#0;n#Data#0" expanded="false" />
-            <element signature="n#!!block;n#arrowSpan#0;n#Data#0" expanded="false" />
-            <element signature="n#!!block;n#isFunded#0;n#Data#0" expanded="false" />
-            <element signature="n#!!block;n#prepareInfoContent#0;n#View#0" expanded="false" />
-            <marker date="1484695106475" expanded="true" signature="3344:3357" ph="..." />
-            <marker date="1484695106475" expanded="true" signature="3833:3846" ph="..." />
+            <marker date="1484696992465" expanded="true" signature="3374:3387" ph="..." />
+            <marker date="1484696992465" expanded="true" signature="3863:3876" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="103" column="7" lean-forward="true" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="7" />
+        <state relative-caret-position="559">
+          <caret line="493" column="7" lean-forward="false" selection-start-line="493" selection-start-column="7" selection-end-line="493" selection-end-column="7" />
           <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1484697003296" expanded="true" signature="5587:5600" ph="..." />
+            <marker date="1484697003296" expanded="true" signature="6376:6389" ph="..." />
           </folding>
         </state>
       </provider>

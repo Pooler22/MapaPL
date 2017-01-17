@@ -1,12 +1,11 @@
 /**
  * Pooler22 copyright. all right reserved
  */
+let view;
+let data;
 
 let map, markers = [], infowindows = [];
 let mapElement, listElement, sidedrawerElement;
-let edited = false;
-let view;
-let data;
 
 //tood: api google class
 //tood: map class
@@ -49,7 +48,7 @@ class QueryHelper {
         return query_string;
     }
 
-    static getQueryURL(data) {
+    static getQueryURL() {
         let queryString = QueryHelper.getQueryString();
         if (queryString.placeId !== undefined) {
             let place = data.places.filter(x => x.id == queryString.placeId);
@@ -65,14 +64,16 @@ class QueryHelper {
         }
     }
 }
+
 //data class
 class Data {
     constructor(buildings, categories, places) {
+        this.edited = false;
         this.buildings = buildings;
         this.categories = categories;
         this.places = places;
+        this.initList();
     }
-
 
     getCoordinate(building) {
         return building.split(",").map(y => {
@@ -134,8 +135,8 @@ class Data {
             this.filterList(searched);
         }
         else {
-            if (edited) {
-                edited = false;
+            if (this.edited) {
+                this.edited = false;
                 this.initList();
             }
         }
@@ -143,7 +144,7 @@ class Data {
 
     filterList(searched) {
         let tmp = this.getSearchResult(searched, this.buildings, false) + this.getSearchResult(searched, this.places, true);
-        edited = true;
+        this.edited = true;
         listElement.innerHTML = tmp ? `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>` : `<strong>Brak wyników</strong>`;
     }
 
@@ -193,6 +194,8 @@ class View {
         this.sizeMin = 770;
         this.lastWidth = window.innerWidth;
         this.isOpenPanel = this.lastWidth > this.sizeMin;
+        window.addEventListener('resize', this.updateMapSize);
+
     }
 
     static initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
@@ -371,19 +374,12 @@ class View {
     }
 }
 
-//init
-function initMap(latIn = 51.752845, lngIn = 19.453180, zoomIn = 18) {
-    View.initMap(latIn, lngIn, zoomIn)
-}
 
 function init() {
-
-
+    var buildings, categories, places;
     mapElement = document.getElementById('map');
     listElement = document.getElementById("list");
     sidedrawerElement = document.getElementById('sidedrawer');
-
-    var buildings, categories, places;
 
     JSONHelper.loadJSON('json/categories.json',
         (data1) => {
@@ -395,31 +391,18 @@ function init() {
                         (data3) => {
                             buildings = data3;
                             data = new Data(buildings, categories, places);
-                            data.initList();
-
                             view = new View();
-                            console.log(data);
-                            window.addEventListener('resize', view.updateMapSize);
-
-                            initMap();
-                            QueryHelper.getQueryURL(data);
-
+                            View.initMap();
+                            QueryHelper.getQueryURL();
                             view.updateMapSize();
-
                         },
-                        (xhr) => {
-                            console.error(xhr);
-                        }
+                        (xhr) => console.error(xhr)
                     );
                 },
-                (xhr) => {
-                    console.error(xhr);
-                }
+                (xhr) => console.error(xhr)
             );
         },
-        (xhr) => {
-            console.error(xhr);
-        }
+        (xhr) => console.error(xhr)
     );
 }
 

@@ -27,6 +27,8 @@ function _classCallCheck(instance, Constructor) {
 /**
  * Pooler22 copyright. all right reserved
  */
+var view = void 0;
+var data = void 0;
 
 var map = void 0,
     markers = [],
@@ -34,16 +36,11 @@ var map = void 0,
 var mapElement = void 0,
     listElement = void 0,
     sidedrawerElement = void 0;
-var isOpenPanel = void 0,
-    edited = false;
-var lastWidth = void 0,
-    sizeMin = 770;
-var buildings = void 0,
-    categories = void 0,
-    places = void 0;
-var view = void 0;
 
-//class
+//tood: api google class
+//tood: map class
+
+//class helper
 
 var JSONHelper = function () {
     function JSONHelper() {
@@ -101,16 +98,16 @@ var QueryHelper = function () {
         value: function getQueryURL() {
             var queryString = QueryHelper.getQueryString();
             if (queryString.placeId !== undefined) {
-                var place = places.filter(function (x) {
+                var place = data.places.filter(function (x) {
                     return x.id == queryString.placeId;
                 });
-                var coordinates = Data.getCoordinate(place[0].building);
-                updateMarkerExt(View.prepareInfoContent(place[0], true), coordinates);
+                var coordinates = data.getCoordinate(place[0].building);
+                View.updateMarkerExt(View.prepareInfoContent(place[0], true), coordinates);
             } else if (queryString.buildingId !== undefined) {
-                var building = buildings.filter(function (x) {
+                var building = data.buildings.filter(function (x) {
                     return x.id == queryString.buildingId;
                 });
-                updateMarkerExt(View.prepareInfoContent(building[0]), [{
+                View.updateMarkerExt(View.prepareInfoContent(building[0]), [{
                     "lat": Number(building[0].lat),
                     "lng": Number(building[0].lng)
                 }]);
@@ -121,42 +118,175 @@ var QueryHelper = function () {
     return QueryHelper;
 }();
 
-//rest
-
-
-//map class
-
 //data class
 
 
 var Data = function () {
-    function Data() {
+    function Data(buildings, categories, places) {
         _classCallCheck(this, Data);
+
+        this.edited = false;
+        this.buildings = buildings;
+        this.categories = categories;
+        this.places = places;
+        this.initList();
     }
 
-    _createClass(Data, null, [{
+    _createClass(Data, [{
         key: "getCoordinate",
         value: function getCoordinate(building) {
+            var _this = this;
+
             return building.split(",").map(function (y) {
-                var tmp = buildings.filter(function (x) {
+                var tmp = _this.buildings.filter(function (x) {
                     return x.id == y;
                 });
                 return {"lat": Number(tmp[0].lat), "lng": Number(tmp[0].lng)};
             });
         }
+    }, {
+        key: "extendCategories",
+        value: function extendCategories(categories) {
+            var _this2 = this;
+
+            categories.forEach(function (category) {
+                category.places = _this2.places.filter(function (place) {
+                    return place.category == category.id;
+                });
+                if (category.subcategory !== undefined) {
+                    _this2.extendCategories(category.subcategory);
+                }
+            });
+        }
+    }, {
+        key: "initList",
+        value: function initList() {
+            this.extendCategories(this.categories);
+            listElement.innerHTML = this.printCategories(this.categories) + this.printBuildings();
+        }
+    }, {
+        key: "arrowSpan",
+        value: function arrowSpan() {
+            return "<span class=\"mui--pull-right mui-caret\"></span>";
+        }
+    }, {
+        key: "printBuildings",
+        value: function printBuildings() {
+            var _this3 = this;
+
+            return "<strong onclick='View.toggleListElement(this);'>Budynki" + this.arrowSpan() + "</strong>" + "<ul style='display:none;'>" + this.buildings.reduce(function (a, building) {
+                    return a + _this3.prepareLink(building);
+                }, "") + "${this.arrowSpan()}</ul>";
+        }
+    }, {
+        key: "printCategories",
+        value: function printCategories(categories) {
+            var _this4 = this;
+
+            return categories.reduce(function (a, category) {
+                return a + ("<li>" + _this4.printCategory(category) + "</li>");
+            }, "");
+        }
+    }, {
+        key: "printCategory",
+        value: function printCategory(category) {
+            var _this5 = this;
+
+            var tmp = "";
+            tmp += "<strong onclick='View.toggleListElement(this);'>" + (category.name + this.arrowSpan()) + "</strong>";
+            tmp += "<ul style='display:none;'>";
+
+            if (category.subcategory !== undefined) {
+                tmp += this.printCategories(category.subcategory);
+            }
+            category.places.forEach(function (place) {
+                if (place.short == undefined) {
+                    place.short = "";
+                }
+                tmp += _this5.prepareLink(place, true);
+            });
+            tmp += "</ul>";
+            return tmp;
+        }
+    }, {
+        key: "filterPlaces",
+        value: function filterPlaces(searched) {
+            if (searched.length) {
+                this.filterList(searched);
+            } else {
+                if (this.edited) {
+                    this.edited = false;
+                    this.initList();
+                }
+            }
+        }
+    }, {
+        key: "filterList",
+        value: function filterList(searched) {
+            var tmp = this.getSearchResult(searched, this.buildings, false) + this.getSearchResult(searched, this.places, true);
+            this.edited = true;
+            listElement.innerHTML = tmp ? "<strong>Wyniki wyszukiwania</strong><ul>" + tmp + "</ul>" : "<strong>Brak wynik\xF3w</strong>";
+        }
+    }, {
+        key: "prepareLink",
+        value: function prepareLink(element) {
+            var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            if (isPlace) {
+                return "<li><a href='javascript:View.prepareUpdateMarker(" + element.id + ",true);'>" + element.name + "</a></li>";
+            } else {
+                return "<li><a href='javascript:View.updateMarkerExt1(\"" + View.prepareInfoContent(element) + "\"," + element.lat + "," + element.lng + ");'><b>" + element.short + "</b> " + element.name + "</a></li>";
+            }
+        }
+    }, {
+        key: "getSearchResult",
+        value: function getSearchResult(searched, collection) {
+            var _this6 = this;
+
+            var findInBuildingsCollection = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+            return collection.reduce(function (a, element) {
+                if (_this6.isFunded(searched.toLowerCase().trim(), element)) {
+                    if (findInBuildingsCollection) {
+                        return a + _this6.prepareLink(element, true);
+                    } else {
+                        return a + _this6.prepareLink(element);
+                    }
+                } else {
+                    return a;
+                }
+            }, "");
+        }
+    }, {
+        key: "isFunded",
+        value: function isFunded(searched, element) {
+            var tmp1 = false,
+                tmp2 = false;
+            if (element.tags !== undefined) {
+                tmp1 = element.tags.toLowerCase().search(searched) != -1;
+            }
+            if (element.short_name !== undefined) {
+                tmp2 = element.short_name.toLowerCase().search(searched) != -1;
+            }
+            return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
+        }
     }]);
 
     return Data;
 }();
-//api google class
 
 //view class
+
 
 var View = function () {
     function View() {
         _classCallCheck(this, View);
 
         this.modal = View.initModal();
+        this.sizeMin = 770;
+        this.lastWidth = window.innerWidth;
+        this.isOpenPanel = this.lastWidth > this.sizeMin;
+        window.addEventListener('resize', this.updateMapSize);
     }
 
     _createClass(View, [{
@@ -165,15 +295,169 @@ var View = function () {
             mui.overlay('on', this.modal);
         }
     }, {
-        key: "closePanel",
-        value: function closePanel() {
+        key: "overlayOff",
+        value: function overlayOff() {
             mui.overlay('off');
         }
+    }, {
+        key: "showSidedrawer",
+        value: function showSidedrawer() {
+            var _this7 = this;
+
+            this.isOpenPanel = true;
+            mui.overlay('on', {
+                onclose: function onclose() {
+                    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
+                    document.body.appendChild(sidedrawerElement);
+                    _this7.isOpenPanel = false;
+                }
+            }).appendChild(sidedrawerElement);
+            setTimeout(function () {
+                return sidedrawerElement.className += ' active';
+            }, 20);
+        }
+    }, {
+        key: "closeSidedraver",
+        value: function closeSidedraver() {
+            this.isOpenPanel = false;
+            sidedrawerElement.className = sidedrawerElement.className.replace(' ', 'active');
+            document.body.appendChild(sidedrawerElement);
+            mui.overlay('off');
+            this.updateMapSize();
+        }
+    }, {
+        key: "toggleSidedrawer",
+        value: function toggleSidedrawer() {
+            if (document.body.className == 'hide-sidedrawer') {
+                this.isOpenPanel = true;
+                document.body.className = 'show-sidedrawer';
+            } else {
+                this.isOpenPanel = false;
+                document.body.className = 'hide-sidedrawer';
+            }
+            this.updateMapSize();
+        }
+    }, {
+        key: "updateMapSize",
+        value: function updateMapSize() {
+            var _this8 = this;
+
+            var magic1 = 300;
+            var magic2 = 70;
+
+            if (this.lastWidth > this.sizeMin) mui.overlay('off', {
+                onclose: function onclose() {
+                    _this8.isOpenPanel = false;
+                }
+            });
+            if (this.isOpenPanel) {
+                mapElement.style.height = window.innerHeight - magic2 + "px";
+                mapElement.style.width = window.innerWidth - magic1 + "px";
+            } else {
+                mapElement.style.height = window.innerHeight - magic2 + "px";
+                mapElement.style.width = window.innerWidth + "px";
+            }
+
+            if (this.isOpenPanel) {
+                if (window.innerWidth > 768) {
+                    mui.overlay('off');
+                } else {
+                    mapElement.style.height = window.innerHeight - magic2 + "px";
+                    mapElement.style.width = window.innerWidth + "px";
+                }
+            }
+            try {
+                google.maps.event.trigger(mapElement, 'resize');
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }, {
+        key: "searchExt",
+        value: function searchExt() {
+            if (!this.isOpenPanel) {
+                this.toggleSidedrawer();
+                if (window.innerWidth < 768) {
+                    this.showSidedrawer();
+                }
+            }
+            document.getElementById("search-input").focus();
+        }
     }], [{
+        key: "initMap",
+        value: function initMap() {
+            var latIn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 51.752845;
+            var lngIn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 19.453180;
+            var zoomIn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 18;
+
+            var welcomeText = "Witaj na stronie mapy Politechniki Łódzkiej - online. Wybierz z menu po lewej stornie " + "kategorię i miejsce jakie cię interesują albo wyszukaj za pomocą wyszukiwarki.";
+
+            map = new google.maps.Map(mapElement, {
+                zoom: zoomIn
+            });
+            View.updateMarkerExt(welcomeText, [{"lat": latIn, "lng": lngIn}]);
+        }
+    }, {
+        key: "prepareUpdateMarker",
+        value: function prepareUpdateMarker(id) {
+            var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            if (isPlace) {
+                console.log(data);
+                var element = data.places.filter(function (place) {
+                    return place.id == id;
+                });
+                View.updateMarkerExt(View.prepareInfoContent(element[0], true), data.getCoordinate(element[0].building));
+            } else {
+                // View.prepareInfoContent(element, true)},JSON.stringify(this.getCoordinate(element.building));
+            }
+        }
+    }, {
+        key: "updateMarkerExt1",
+        value: function updateMarkerExt1(content, latIn, lngIn) {
+            View.updateMarkerExt(content, [{"lat": Number(latIn), "lng": Number(lngIn)}]);
+        }
+    }, {
+        key: "updateMarkerExt",
+        value: function updateMarkerExt(content, coordinate) {
+            markers.forEach(function (x) {
+                x.setMap(null);
+            });
+            markers = [];
+
+            coordinate.forEach(function (coordinate) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: coordinate.lat,
+                        lng: coordinate.lng
+                    },
+                    map: map
+                });
+                marker.setMap(map);
+                var infowindow = new google.maps.InfoWindow({content: content});
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindows.forEach(function (x) {
+                        return x.close();
+                    });
+                    infowindow.open(map, marker);
+                });
+                if (markers.length == 0) {
+                    infowindow.open(map, marker);
+                    map.setCenter(marker.getPosition());
+                }
+                infowindows.push(infowindow);
+                markers.push(marker);
+            });
+
+            if (window.innerWidth < view.sizeMin) {
+                view.closeSidedraver();
+            }
+        }
+    }, {
         key: "initModal",
         value: function initModal() {
             var modalEl = document.createElement('div');
-            modalEl.innerHTML = "<div class='mui-container mui-panel'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>" + "<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>" + "<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz!. Link poni\u017Cej:</p>" + "<div class=\"mui-row mui--text-center\">" + "<a class=\"mui-btn mui-btn--primary \"  href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class=\"fa fa-envelope-o\"></i> Kontakt</a>" + "</div>" + "<div class=\"mui-row mui--text-center\">" + "<button class=\"mui-btn\" onclick=\"view.closePanel()\">Zamknij</button>" + "</div>" + "</div>";
+            modalEl.innerHTML = "<div class='mui-container mui-panel'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>" + "<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>" + "<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz!. Link poni\u017Cej:</p>" + "<div class=\"mui-row mui--text-center\">" + "<a class=\"mui-btn mui-btn--primary \"  href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class=\"fa fa-envelope-o\"></i> Kontakt</a>" + "</div>" + "<div class=\"mui-row mui--text-center\">" + "<button class=\"mui-btn\" onclick=\"view.overlayOff()\">Zamknij</button>" + "</div>" + "</div>";
             modalEl.style.margin = '10px auto auto auto';
             return modalEl;
         }
@@ -191,295 +475,39 @@ var View = function () {
     }, {
         key: "toggleListElement",
         value: function toggleListElement(element) {
-            element.nextSibling.style.display = element.nextSibling.style.display == "none" ? "block" : "none";
-        }
-    }, {
-        key: "showSidedrawer",
-        value: function showSidedrawer() {
-            isOpenPanel = true;
-            mui.overlay('on', {
-                onclose: function onclose() {
-                    sidedrawerElement.className = sidedrawerElement.className.replace(' active', '');
-                    document.body.appendChild(sidedrawerElement);
-                    isOpenPanel = false;
-                }
-            }).appendChild(sidedrawerElement);
-            setTimeout(function () {
-                return sidedrawerElement.className += ' active';
-            }, 20);
-        }
-    }, {
-        key: "closeSidedraver",
-        value: function closeSidedraver() {
-            isOpenPanel = false;
-            sidedrawerElement.className = sidedrawerElement.className.replace(' ', 'active');
-            document.body.appendChild(sidedrawerElement);
-            mui.overlay('off');
-            this.updateMapSize();
-        }
-    }, {
-        key: "toggleSidedrawer",
-        value: function toggleSidedrawer() {
-            if (document.body.className == 'hide-sidedrawer') {
-                isOpenPanel = true;
-                document.body.className = 'show-sidedrawer';
-            } else {
-                isOpenPanel = false;
-                document.body.className = 'hide-sidedrawer';
-            }
-            this.updateMapSize();
-        }
-    }, {
-        key: "updateMapSize",
-        value: function updateMapSize() {
-            var magic1 = 300;
-            var magic2 = 70;
-
-            if (lastWidth > sizeMin) mui.overlay('off', {
-                onclose: function onclose() {
-                    isOpenPanel = false;
-                }
-            });
-            if (isOpenPanel) {
-                mapElement.style.height = window.innerHeight - magic2 + "px";
-                mapElement.style.width = window.innerWidth - magic1 + "px";
-            } else {
-                mapElement.style.height = window.innerHeight - magic2 + "px";
-                mapElement.style.width = window.innerWidth + "px";
-            }
-
-            if (isOpenPanel) {
-                if (window.innerWidth > 768) {
-                    mui.overlay('off');
-                } else {
-                    mapElement.style.height = window.innerHeight - magic2 + "px";
-                    mapElement.style.width = window.innerWidth + "px";
-                }
-            }
-            try {
-                google.maps.event.trigger(mapElement, 'resize');
-            } catch (e) {
-            }
+            var tmp = element.nextSibling;
+            tmp.style.display = tmp.style.display == "none" ? "block" : "none";
         }
     }]);
 
     return View;
 }();
 
-//rest
-
-//map
-
-
-function initMap() {
-    var latIn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 51.752845;
-    var lngIn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 19.453180;
-    var zoomIn = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 18;
-
-    var welcomeText = "Witaj na stronie mapy Politechniki Łódzkiej - online. Wybierz z menu po lewej stornie " + "kategorię i miejsce jakie cię interesują albo wyszukaj za pomocą wyszukiwarki.";
-
-    map = new google.maps.Map(mapElement, {
-        zoom: zoomIn
-    });
-    updateMarkerExt(welcomeText, [{"lat": latIn, "lng": lngIn}]);
-}
-
-function updateMarkerExt1(content, latIn, lngIn) {
-    updateMarkerExt(content, [{"lat": Number(latIn), "lng": Number(lngIn)}]);
-}
-
-function updateMarkerExt(content, coordinate) {
-    markers.forEach(function (x) {
-        x.setMap(null);
-    });
-    markers = [];
-
-    coordinate.forEach(function (coordinate) {
-        var marker = new google.maps.Marker({
-            position: {
-                lat: coordinate.lat,
-                lng: coordinate.lng
-            },
-            map: map
-        });
-        marker.setMap(map);
-        var infowindow = new google.maps.InfoWindow({content: content});
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindows.forEach(function (x) {
-                return x.close();
-            });
-            infowindow.open(map, marker);
-        });
-        if (markers.length == 0) {
-            infowindow.open(map, marker);
-            map.setCenter(marker.getPosition());
-        }
-        infowindows.push(infowindow);
-        markers.push(marker);
-    });
-
-    if (window.innerWidth < sizeMin) {
-        View.closeSidedraver();
-    }
-}
-
-//list
-function extendCategories(categories) {
-    categories.forEach(function (category) {
-        category.places = places.filter(function (place) {
-            return place.category == category.id;
-        });
-        if (category.subcategory !== undefined) {
-            extendCategories(category.subcategory);
-        }
-    });
-}
-
-function initList() {
-    extendCategories(categories);
-    listElement.innerHTML = printCategories(categories) + printBuildings();
-}
-
-function arrowSpan() {
-    return "<span class=\"mui--pull-right mui-caret\"></span>";
-}
-
-function printBuildings() {
-    return "<strong onclick='View.toggleListElement(this);'>Budynki" + arrowSpan() + "</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
-            return a + prepareLink(building);
-        }, "") + "${arrowSpan()}</ul>";
-}
-
-function printCategories(categories) {
-    return categories.reduce(function (a, category) {
-        return a + ("<li>" + printCategory(category) + "</li>");
-    }, "");
-}
-
-function printCategory(category) {
-    var tmp = "";
-    tmp += "<strong onclick='View.toggleListElement(this);'>" + (category.name + arrowSpan()) + "</strong>";
-    tmp += "<ul style='display:none;'>";
-
-    if (category.subcategory !== undefined) {
-        tmp += printCategories(category.subcategory);
-    }
-    category.places.forEach(function (place) {
-        if (place.short == undefined) {
-            place.short = "";
-        }
-        tmp += prepareLink(place, true);
-    });
-    tmp += "</ul>";
-    return tmp;
-}
-
-function search() {
-    if (!isOpenPanel) {
-        View.toggleSidedrawer();
-        if (window.innerWidth < 768) {
-            View.showSidedrawer();
-        }
-    }
-    document.getElementById("search-input").focus();
-}
-
-function filterPlaces(searched) {
-    if (searched.length) {
-        filterList(searched);
-    } else {
-        if (edited) {
-            edited = false;
-            initList();
-        }
-    }
-}
-
-function filterList(searched) {
-    var tmp = getSearchResult(searched, buildings, false) + getSearchResult(searched, places, true);
-    edited = true;
-    listElement.innerHTML = tmp ? "<strong>Wyniki wyszukiwania</strong><ul>" + tmp + "</ul>" : "<strong>Brak wynik\xF3w</strong>";
-}
-
-function prepareUpdateMarker(id) {
-    var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-    if (isPlace) {
-        var element = places.filter(function (place) {
-            return place.id == id;
-        });
-        updateMarkerExt(View.prepareInfoContent(element[0], true), Data.getCoordinate(element[0].building));
-    } else {
-        // View.prepareInfoContent(element, true)},JSON.stringify(Data.getCoordinate(element.building));
-    }
-}
-
-function prepareLink(element) {
-    var isPlace = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-    if (isPlace) {
-        return "<li><a href='javascript:prepareUpdateMarker(" + element.id + ",true);'>" + element.name + "</a></li>";
-    } else {
-        return "<li><a href='javascript:updateMarkerExt1(\"" + View.prepareInfoContent(element) + "\"," + element.lat + "," + element.lng + ");'><b>" + element.short + "</b> " + element.name + "</a></li>";
-    }
-}
-
-function getSearchResult(searched, collection) {
-    var findInBuildingsCollection = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-    return collection.reduce(function (a, element) {
-        if (isFunded(searched.toLowerCase().trim(), element)) {
-            if (findInBuildingsCollection) {
-                return a + prepareLink(element, true);
-            } else {
-                return a + prepareLink(element);
-            }
-        } else {
-            return a;
-        }
-    }, "");
-}
-
-function isFunded(searched, element) {
-    var tmp1 = false,
-        tmp2 = false;
-    if (element.tags !== undefined) {
-        tmp1 = element.tags.toLowerCase().search(searched) != -1;
-    }
-    if (element.short_name !== undefined) {
-        tmp2 = element.short_name.toLowerCase().search(searched) != -1;
-    }
-    return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
-}
-
-//init
 function init() {
-    lastWidth = window.innerWidth;
-    isOpenPanel = lastWidth > sizeMin;
+    var buildings, categories, places;
     mapElement = document.getElementById('map');
     listElement = document.getElementById("list");
     sidedrawerElement = document.getElementById('sidedrawer');
 
-    window.addEventListener('resize', View.updateMapSize);
-
-    View.updateMapSize();
-    JSONHelper.loadJSON('json/categories.json', function (data) {
-        categories = data;
-        JSONHelper.loadJSON('json/places.json', function (data) {
-            places = data;
-            JSONHelper.loadJSON('json/buildings.json', function (data) {
-                buildings = data;
-                initList();
-                QueryHelper.getQueryURL();
+    JSONHelper.loadJSON('json/categories.json', function (data1) {
+        categories = data1;
+        JSONHelper.loadJSON('json/places.json', function (data2) {
+            places = data2;
+            JSONHelper.loadJSON('json/buildings.json', function (data3) {
+                buildings = data3;
+                data = new Data(buildings, categories, places);
                 view = new View();
+                View.initMap();
+                QueryHelper.getQueryURL();
+                view.updateMapSize();
             }, function (xhr) {
-                console.error(xhr);
+                return console.error(xhr);
             });
         }, function (xhr) {
-            console.error(xhr);
+            return console.error(xhr);
         });
     }, function (xhr) {
-        console.error(xhr);
+        return console.error(xhr);
     });
 }
 
