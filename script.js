@@ -19,11 +19,13 @@ var buildings = void 0,
 
 function activateModal() {
     var modalEl = document.createElement('div');
-    modalEl.innerHTML = '<div class=\'mui-panel\'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>' + '<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>' + '<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz, link poni\u017Cej:</p>' + '<a href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a>' + '</div>';
-    modalEl.style.margin = '50px auto auto auto';
-    modalEl.style.backgroundColor = '#fff';
-
+    modalEl.innerHTML = '<div class=\'mui-container mui-panel\'><h1>Mapa Politechniki \u0141\xF3dzkiej</h1><br>' + '<p>Niniejsza strona jest projektem od student\xF3w dla student\xF3w i nie tylko.</p>' + '<p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz!. Link poni\u017Cej:</p>' + '<div class="mui-row mui--text-center">' + '<a class="mui-btn mui-btn--primary "  href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a>' + '</div>' + '<div class="mui-row mui--text-center">' + '<button class="mui-btn" onclick="closePanel()">Zamknij</button>' + '</div>' + '</div>';
+    modalEl.style.margin = '10px auto auto auto';
     mui.overlay('on', modalEl);
+}
+
+function closePanel() {
+    mui.overlay('off');
 }
 
 //json
@@ -206,7 +208,7 @@ function printCategory(category) {
 
 function search() {
     if (!isOpenPanel) {
-        document.getElementById("js-hide-sidedrawer").click();
+        toggleSidedrawer();
         if (window.innerWidth < 768) {
             showSidedrawer();
         }
@@ -321,24 +323,28 @@ function toggleSidedrawer() {
 }
 
 function updateMapSize() {
-
     var magic1 = 300;
-    var magic2 = 64;
-    var magic3 = "300px";
-    var magic4 = '0px';
+    var magic2 = 70;
 
     if (lastWidth > sizeMin) mui.overlay('off', {
         onclose: function onclose() {
             isOpenPanel = false;
         }
     });
-
-    mapElement.style.height = window.innerHeight - magic2 + 'px';
-    mapElement.style.width = window.innerWidth + 'px';
+    if (isOpenPanel) {
+        mapElement.style.height = window.innerHeight - magic2 + 'px';
+        mapElement.style.width = window.innerWidth - magic1 + 'px';
+    } else {
+        mapElement.style.height = window.innerHeight - magic2 + 'px';
+        mapElement.style.width = window.innerWidth + 'px';
+    }
 
     if (isOpenPanel) {
         if (window.innerWidth > 768) {
             mui.overlay('off');
+        } else {
+            mapElement.style.height = window.innerHeight - magic2 + 'px';
+            mapElement.style.width = window.innerWidth + 'px';
         }
     }
     try {
@@ -360,10 +366,11 @@ function init() {
     sidedrawerElement = document.getElementById('sidedrawer');
 
     window.addEventListener('resize', resize);
-    document.getElementById('search-icon').addEventListener('click', search, false);
-    document.getElementById('activateModal').addEventListener('click', activateModal, false);
-    document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
-    document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
+    // document.getElementById('search-icon').addEventListener('click', search, false);
+    // document.getElementById('activateModal').addEventListener('click', activateModal, false);
+    // document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
+    // document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
+
 
     updateMapSize();
     loadJSON('json/categories.json', function (data) {

@@ -9,15 +9,22 @@ let buildings, categories, places;
 
 function activateModal() {
     let modalEl = document.createElement('div');
-    modalEl.innerHTML = `<div class='mui-panel'><h1>Mapa Politechniki Łódzkiej</h1><br>` +
+    modalEl.innerHTML = `<div class='mui-container mui-panel'><h1>Mapa Politechniki Łódzkiej</h1><br>` +
         `<p>Niniejsza strona jest projektem od studentów dla studentów i nie tylko.</p>` +
-        `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz, link poniżej:</p>` +
-        `<a href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a>` +
+        `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz!. Link poniżej:</p>` +
+        `<div class="mui-row mui--text-center">` +
+        `<a class="mui-btn mui-btn--primary "  href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a>` +
+        `</div>` +
+        `<div class="mui-row mui--text-center">` +
+        `<button class="mui-btn" onclick="closePanel()">Zamknij</button>` +
+        `</div>` +
         `</div>`;
-    modalEl.style.margin = '50px auto auto auto';
-    modalEl.style.backgroundColor = '#fff';
-
+    modalEl.style.margin = '10px auto auto auto';
     mui.overlay('on', modalEl);
+}
+
+function closePanel() {
+    mui.overlay('off');
 }
 
 //json
@@ -188,7 +195,7 @@ function printCategory(category) {
 
 function search() {
     if (!isOpenPanel) {
-        document.getElementById("js-hide-sidedrawer").click();
+        toggleSidedrawer();
         if (window.innerWidth < 768) {
             showSidedrawer();
         }
@@ -347,10 +354,10 @@ function init() {
     sidedrawerElement = document.getElementById('sidedrawer');
 
     window.addEventListener('resize', resize);
-    document.getElementById('search-icon').addEventListener('click', search, false);
-    document.getElementById('activateModal').addEventListener('click', activateModal, false);
-    document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
-    document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
+    // document.getElementById('search-icon').addEventListener('click', search, false);
+    // document.getElementById('activateModal').addEventListener('click', activateModal, false);
+    // document.getElementById('js-show-sidedrawer').addEventListener('click', showSidedrawer, false);
+    // document.getElementById('js-hide-sidedrawer').addEventListener('click', toggleSidedrawer, false);
 
 
     updateMapSize();
