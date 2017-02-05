@@ -17,8 +17,8 @@
     </style>
 
 
-    <link rel="stylesheet" href="plugins/leaflet.css"/>
-    <script src="plugins/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css"/>
@@ -27,30 +27,30 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
-    <script src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster-src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/leaflet.markercluster.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/leaflet.markercluster-src.js"></script>
 
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css"/>
 
 
-    <script src="plugins/L.Control.Locate.min.js"
+    <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js"
             charset="utf-8"></script>
 
-    <script src="plugins/mui.min.js"></script>
+    <script src="//cdn.muicss.com/mui-0.9.6/js/mui.min.js"></script>
 
 
     <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />-->
     <link rel="stylesheet"
-          href="plugins/leaflet-routing-machine.css"/>
+          href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.css"/>
     <!--<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>-->
-    <script src="plugins/leaflet-routing-machine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.js"></script>
 
     <!--<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>-->
     <!--<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />-->
-    <link rel="stylesheet" href="plugins/Control.FullScreen.css"/>
-    <script src="plugins/Control.FullScreen.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.js"></script>
 
     <!--<link rel="stylesheet" href="plugins/leaflet.groupedlayercontrol.min.css"/>-->
     <!--<script src="plugins/leaflet.groupedlayercontrol.min.js.map"></script>-->
@@ -58,7 +58,7 @@
 
 
 
-    <script src="plugins/leaflet.easyPrint.js"></script>
+    <!--<script src="https://raw.githubusercontent.com/rowanwins/leaflet-easyPrint/gh-pages/dist/leaflet.easyPrint.js"></script>-->
 
     <style>
         .marker-cluster-small {
@@ -115,16 +115,14 @@
                     </div>
                 </td>
                 <td align="right">
-                    <div class="mui-container-fluid ">
-                        <span class="sidedrawer-toggle"
+                        <span class="sidedrawer-toggle "
                               onclick="view.searchExt()">
                             <i class="fa fa-search"></i>
                         </span>
-                        <span class="sidedrawer-toggle "
-                              onclick="view.activateModal()">
+                    <span class="sidedrawer-toggle "
+                          onclick="view.activateModal()">
                             <i class="fa fa-info-circle"></i>
                         </span>
-                    </div>
                 </td>
             </tr>
         </table>

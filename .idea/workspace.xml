@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="fix">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/L.Control.Locate.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/L.Control.Locate.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/L.Control.Locate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/L.Control.Locate.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/MarkerCluster.Default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/MarkerCluster.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet-routing-machine.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet-routing-machine.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet.markercluster-src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/leaflet.markercluster.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/mui.min.js" />
+    <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/Control.FullScreen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/Control.FullScreen.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/L.Control.Locate.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/L.Control.Locate.min.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/L.Control.Locate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/L.Control.Locate.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/MarkerCluster.Default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/MarkerCluster.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/icon-fullscreen-2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/icon-fullscreen.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet-routing-machine.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet-routing-machine.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.easyPrint.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.groupedlayercontrol.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.groupedlayercontrol.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.groupedlayercontrol.min.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.markercluster-src.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/leaflet.markercluster.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/mui.min.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_over_es2015.js" afterPath="$PROJECT_DIR$/script_over_es2015.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,11 +52,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="102" />
-              <folding>
-                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="335">
+              <caret line="135" column="19" lean-forward="false" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,28 +62,44 @@
       <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="718" column="0" lean-forward="true" selection-start-line="718" selection-start-column="0" selection-end-line="718" selection-end-column="0" />
+            <state relative-caret-position="173">
+              <caret line="728" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="834" selection-end-column="0" />
               <folding>
                 <element signature="n#JSONHelper#0" expanded="false" />
-                <marker date="1486318738540" expanded="true" signature="3762:3778" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="9851:10398" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="9939:10212" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="11686:12075" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="11774:11889" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="12805:12818" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="13436:13449" ph="..." />
-                <marker date="1486318738540" expanded="true" signature="24934:24940" ph="©" />
+                <marker date="1486319456181" expanded="true" signature="3762:3778" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="9851:10398" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="9939:10212" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="11686:12075" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="11774:11889" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="12805:12818" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="13436:13449" ph="..." />
+                <marker date="1486319456181" expanded="true" signature="24934:24940" ph="©" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="571">
+              <caret line="926" column="7" lean-forward="false" selection-start-line="926" selection-start-column="7" selection-end-line="926" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!block;n#init#0" expanded="false" />
+                <marker date="1486319516921" expanded="true" signature="5870:5886" ph="..." />
+                <marker date="1486319516921" expanded="true" signature="13078:13091" ph="..." />
+                <marker date="1486319516921" expanded="true" signature="13984:13997" ph="..." />
+                <marker date="1486319516921" expanded="true" signature="33598:33604" ph="©" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state relative-caret-position="92">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,9 +118,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filterPlaces</find>
-      <find>filterpla</find>
-      <find>toggleListElement</find>
       <find>data</find>
       <find>getCoordinate</find>
       <find>sizeMin</find>
@@ -119,9 +142,12 @@
       <find>icon</find>
       <find>map</find>
       <find>L.Control.Locate.min.css</find>
-      <find>Locate</find>
       <find>locate</find>
+      <find>Locate</find>
+      <find>fullsc</find>
+      <find>full</find>
       <find>L.Control.Locate.min.css.map</find>
+      <find>ease</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -179,10 +205,10 @@
         <option value="$PROJECT_DIR$/json/places.json" />
         <option value="$PROJECT_DIR$/mui.css" />
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/script.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/script_over_es2015.js" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/script_over_es2015.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
   </component>
@@ -253,20 +279,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MapaPL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MapaPL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MapaPL" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,14 +419,7 @@
       <workItem from="1484576047617" duration="75000" />
       <workItem from="1484587473425" duration="1881000" />
       <workItem from="1484680110186" duration="16822000" />
-      <workItem from="1486317692287" duration="1142000" />
-    </task>
-    <task id="LOCAL-00011" summary="prepare structure data">
-      <created>1483529462579</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1483529462579</updated>
+      <workItem from="1486317692287" duration="1827000" />
     </task>
     <task id="LOCAL-00012" summary="share button + buildings view list">
       <created>1483534009187</created>
@@ -752,17 +757,24 @@
       <option name="project" value="LOCAL" />
       <updated>1486318793004</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="fix">
+      <created>1486318864290</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1486318864290</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210674000" />
+    <option name="totallyTimeSpent" value="211359000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="312" width="1366" height="768" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2414307" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2414307" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17069243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -790,7 +802,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="copyright" />
     <MESSAGE value="color menu" />
     <MESSAGE value="color menu fix" />
@@ -817,8 +830,6 @@
     <MESSAGE value="more object-oriented" />
     <MESSAGE value="fix" />
     <option name="LAST_COMMIT_MESSAGE" value="fix" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1041,53 +1052,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
+    <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="478" column="8" lean-forward="true" selection-start-line="478" selection-start-column="8" selection-end-line="478" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1486315960750" expanded="true" signature="5906:5922" ph="..." />
-            <marker date="1486315960750" expanded="true" signature="13114:13127" ph="..." />
-            <marker date="1486315960750" expanded="true" signature="14020:14033" ph="..." />
-            <marker date="1486315960750" expanded="true" signature="33634:33640" ph="©" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="718" column="0" lean-forward="true" selection-start-line="718" selection-start-column="0" selection-end-line="718" selection-end-column="0" />
-          <folding>
-            <element signature="n#JSONHelper#0" expanded="false" />
-            <marker date="1486318738540" expanded="true" signature="3762:3778" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="9851:10398" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="9939:10212" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="11686:12075" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="11774:11889" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="12805:12818" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="13436:13449" ph="..." />
-            <marker date="1486318738540" expanded="true" signature="24934:24940" ph="©" />
-          </folding>
+        <state relative-caret-position="92">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="102" />
+        <state relative-caret-position="335">
+          <caret line="135" column="19" lean-forward="false" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="728" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="834" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#JSONHelper#0" expanded="false" />
+            <marker date="1486319456181" expanded="true" signature="3762:3778" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="9851:10398" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="9939:10212" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="11686:12075" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="11774:11889" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="12805:12818" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="13436:13449" ph="..." />
+            <marker date="1486319456181" expanded="true" signature="24934:24940" ph="©" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
+    <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="571">
+          <caret line="926" column="7" lean-forward="false" selection-start-line="926" selection-start-column="7" selection-end-line="926" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <marker date="1486319516921" expanded="true" signature="5870:5886" ph="..." />
+            <marker date="1486319516921" expanded="true" signature="13078:13091" ph="..." />
+            <marker date="1486319516921" expanded="true" signature="13984:13997" ph="..." />
+            <marker date="1486319516921" expanded="true" signature="33598:33604" ph="©" />
+          </folding>
         </state>
       </provider>
     </entry>

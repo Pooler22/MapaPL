@@ -717,17 +717,17 @@ class GoogleMapsApi {
         this.map = L.map('map').setView(initCoordinate, zoom);
         // L.control.locate().addTo(this.map);
 
-        L.control.fullscreen({
-            position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
-            title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
-            titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
-            forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
-            forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
-            fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
-        }).addTo(this.map);
+        // L.control.fullscreen({
+        //     position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
+        //     title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
+        //     titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
+        //     forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
+        //     forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+        //     fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+        // }).addTo(this.map);
 
 
-        L.easyPrint().addTo(this.map);
+        // L.easyPrint().addTo(this.map);
 
 
         this.map.on('enterFullscreen', function () {
