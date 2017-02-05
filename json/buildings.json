@@ -4,42 +4,48 @@
     "short": "A1",
     "name": "Budynek A1",
     "lat": "51.755138",
-    "lng": "19.452522"
+    "lng": "19.452522",
+    "address": ""
   },
   {
     "id": "2",
     "short": "A2",
     "name": "Budynek A2",
     "lat": "51.754645",
-    "lng": "19.452780"
+    "lng": "19.452780",
+    "address": ""
   },
   {
     "id": "3",
     "short": "A3",
     "name": "Budynek A3",
     "lat": "51.7547082",
-    "lng": "19.4532694"
+    "lng": "19.4532694",
+    "address": ""
   },
   {
     "id": "4",
     "short": "A4",
     "name": "Budynek A4",
     "lat": "51.754585",
-    "lng": "19.454711"
+    "lng": "19.454711",
+    "address": ""
   },
   {
     "id": "5",
     "short": "A5",
     "name": "Budynek A5",
     "lat": "51.754243",
-    "lng": "19.454883"
+    "lng": "19.454883",
+    "address": ""
   },
   {
     "id": "6",
     "short": "A6",
     "name": "Budynek A6",
     "lat": "51.7541216",
-    "lng": "19.4540303"
+    "lng": "19.4540303",
+    "address": ""
   },
   {
     "id": "8",
@@ -47,14 +53,16 @@
     "name": "Budynek A8",
     "tags": "Garbarstwo",
     "lat": "51.753513",
-    "lng": "19.453027"
+    "lng": "19.453027",
+    "address": ""
   },
   {
     "id": "9",
     "short": "A9",
     "name": "Budynek A9",
     "lat": "51.7534724",
-    "lng": "19.4533662"
+    "lng": "19.4533662",
+    "address": ""
   },
   {
     "id": "10",
@@ -62,7 +70,8 @@
     "name": "Budynek A10",
     "tags": "Elektryczny",
     "lat": "51.752606",
-    "lng": "19.453086"
+    "lng": "19.453086",
+    "address": ""
   },
   {
     "id": "11",
@@ -70,28 +79,32 @@
     "name": "Budynek A11",
     "tags": "Mały Elektryczny",
     "lat": "51.753124",
-    "lng": "19.453531"
+    "lng": "19.453531",
+    "address": ""
   },
   {
     "id": "12",
     "short": "A12",
     "name": "Budynek A12",
     "lat": "51.7528589",
-    "lng": "19.4543747"
+    "lng": "19.4543747",
+    "address": ""
   },
   {
     "id": "13",
     "short": "A13",
     "name": "Sekcja Rekrutacji Politechniki Łódzkiej",
     "lat": "51.752407",
-    "lng": "19.453772"
+    "lng": "19.453772",
+    "address": ""
   },
   {
     "id": "14",
     "short": "A14",
     "name": "Budynek A14",
     "lat": "51.753060",
-    "lng": "19.455130"
+    "lng": "19.455130",
+    "address": ""
   },
   {
     "id": "16",
@@ -99,28 +112,32 @@
     "name": "Centrum Kształcenia Międzynarodowego",
     "tags": "IFE",
     "lat": "51.755112",
-    "lng": "19.451533"
+    "lng": "19.451533",
+    "address": ""
   },
   {
     "id": "17",
     "short": "A17",
     "name": "Kwestura",
     "lat": "51.755103",
-    "lng": "19.450631"
+    "lng": "19.450631",
+    "address": ""
   },
   {
     "id": "18",
     "short": "A18",
     "name": "Fabryka Inżynierów",
     "lat": "51.7547448",
-    "lng": "19.4516909"
+    "lng": "19.4516909",
+    "address": ""
   },
   {
     "id": "19",
     "short": "A19",
     "name": "Budynek A19",
     "lat": "51.753788",
-    "lng": "19.452072"
+    "lng": "19.452072",
+    "address": ""
   },
   {
     "id": "20",
@@ -128,14 +145,16 @@
     "name": "Budynek A20",
     "tags": "4M",
     "lat": "51.753490",
-    "lng": "19.451648"
+    "lng": "19.451648",
+    "address": ""
   },
   {
     "id": "21",
     "short": "A21",
     "name": "Budynek A21",
     "lat": "51.7529831",
-    "lng": "19.4516726"
+    "lng": "19.4516726",
+    "address": ""
   },
   {
     "id": "22",
@@ -143,91 +162,104 @@
     "name": "Budynek A22",
     "tags": "1M, 2M",
     "lat": "51.752576",
-    "lng": "19.451809"
+    "lng": "19.451809",
+    "address": ""
   },
   {
     "id": "24",
     "short": "A24",
     "name": "Budynek A24",
     "lat": "51.7544842",
-    "lng": "19.4508928"
+    "lng": "19.4508928",
+    "address": ""
   },
   {
     "id": "26",
     "short": "A26",
     "name": "Budynek A26",
     "lat": "51.7540867",
-    "lng": "19.4505966"
+    "lng": "19.4505966",
+    "address": ""
   },
   {
     "id": "27",
     "short": "A27",
     "name": "Budynek A27",
     "lat": "51.753825",
-    "lng": "19.450967"
+    "lng": "19.450967",
+    "address": ""
   },
   {
     "id": "28",
     "short": "A28",
     "name": "Budynek A28",
     "lat": "51.7535851",
-    "lng": "19.4509969"
+    "lng": "19.4509969",
+    "address": ""
   },
   {
     "id": "30",
     "short": "A30",
     "name": "Budynek A30",
     "lat": "51.752588",
-    "lng": "19.451323"
+    "lng": "19.451323",
+    "address": ""
   },
   {
     "id": "31",
     "short": "A31",
     "name": "Budynek A31",
     "lat": "51.7537783",
-    "lng": "19.4496228"
+    "lng": "19.4496228",
+    "address": ""
   },
   {
     "id": "33",
     "short": "A33",
     "name": "Budynek A33",
     "lat": "51.7528475",
-    "lng": "19.4500623"
+    "lng": "19.4500623",
+    "address": ""
   },
   {
     "id": "34",
     "short": "B1",
     "name": "Rektorat Politechniki Łódzkiej",
     "lat": "51.748621",
-    "lng": "19.455360"
+    "lng": "19.455360",
+    "address": ""
   },
   {
     "id": "35",
     "short": "B2",
     "name": "Budynek B2",
     "lat": "51.7489063",
-    "lng": "19.4548576"
+    "lng": "19.4548576",
+    "address": ""
   },
   {
     "id": "36",
     "short": "B3",
     "name": "Budynek B3",
     "lat": "51.7486057",
-    "lng": "19.453125"
+    "lng": "19.453125",
+    "address": ""
   },
   {
     "id": "37",
     "short": "B4",
     "name": "Budynek B4",
     "lat": "51.7480461",
-    "lng": "19.4558245"
+    "lng": "19.4558245",
+    "address": ""
   },
   {
     "id": "38",
     "short": "B5",
     "name": "Budynek B5",
     "lat": "51.7480104",
-    "lng": "19.4554295"
+    "lng": "19.4554295",
+    "address": ""
   },
   {
     "id": "39",
@@ -235,14 +267,16 @@
     "name": "Budynek B6",
     "tags": "",
     "lat": "51.7477509",
-    "lng": "19.4531241"
+    "lng": "19.4531241",
+    "address": ""
   },
   {
     "id": "40",
     "short": "B7",
     "name": "Budynek B7",
     "lat": "51.7476239",
-    "lng": "19.4519306"
+    "lng": "19.4519306",
+    "address": ""
   },
   {
     "id": "42",
@@ -250,63 +284,72 @@
     "name": "Budynek Trzech Wydziałów",
     "tags": "Lodex, Tramwaj",
     "lat": "51.7472277",
-    "lng": "19.4537199"
+    "lng": "19.4537199",
+    "address": ""
   },
   {
     "id": "43",
     "short": "B10",
     "name": "Budynek B10",
     "lat": "51.7473809",
-    "lng": "19.4554135"
+    "lng": "19.4554135",
+    "address": ""
   },
   {
     "id": "44",
     "short": "B11",
     "name": "Budynek B11",
     "lat": "51.7473759",
-    "lng": "19.4560713"
+    "lng": "19.4560713",
+    "address": ""
   },
   {
     "id": "45",
     "short": "B12",
     "name": "Budynek B12",
     "lat": "51.7471604",
-    "lng": "19.4556281"
+    "lng": "19.4556281",
+    "address": ""
   },
   {
     "id": "46",
     "short": "B13",
     "name": "Budynek B13",
     "lat": "51.746788",
-    "lng": "19.454275"
+    "lng": "19.454275",
+    "address": ""
   },
   {
     "id": "47",
     "short": "B14",
     "name": "Budynek B14",
     "lat": "51.7465176",
-    "lng": "19.4553862"
+    "lng": "19.4553862",
+    "address": ""
   },
   {
     "id": "48",
     "short": "B15",
     "name": "Budynek B15",
     "lat": "51.7466000",
-    "lng": "19.4557936"
+    "lng": "19.4557936",
+    "address": ""
   },
   {
     "id": "49",
     "short": "B16",
     "name": "Budynek B16",
     "lat": "51.7463987",
-    "lng": "19.4531671"
+    "lng": "19.4531671",
+    "address": ""
   },
   {
     "id": "50",
     "short": "B17",
     "name": "Instytut Papiernictwa i Poligrafii",
     "lat": "51.7461245",
-    "lng": "19.4546554"
+    "lng": "19.4546554",
+    "address": ""
   },
   {
     "id": "51",
@@ -314,49 +357,56 @@
     "name": "Budynek B18",
     "tags": "DMCS, 5E",
     "lat": "51.7460987",
-    "lng": "19.4557229"
+    "lng": "19.4557229",
+    "address": ""
   },
   {
     "id": "52",
     "short": "B19",
     "name": "Centrum Technologii Informatycznych",
     "lat": "51.7470548",
-    "lng": "19.4559248"
+    "lng": "19.4559248",
+    "address": ""
   },
   {
     "id": "55",
     "short": "B22",
     "name": "Biblioteka Główna",
     "lat": "51.7456283",
-    "lng": "19.4539643"
+    "lng": "19.4539643",
+    "address": ""
   },
   {
     "id": "57",
     "short": "B24",
     "name": "Centrum Językowe",
     "lat": "51.7454352",
-    "lng": "19.4519802"
+    "lng": "19.4519802",
+    "address": ""
   },
   {
     "id": "58",
     "short": "B25",
     "name": "Centrum Językowe",
     "lat": "51.7453924",
-    "lng": "19.451256"
+    "lng": "19.451256",
+    "address": ""
   },
   {
     "id": "59",
     "short": "C1",
     "name": "Budynek C1",
     "lat": "51.744552",
-    "lng": "19.448524"
+    "lng": "19.448524",
+    "address": ""
   },
   {
     "id": "60",
     "short": "C2",
     "name": "Budynek C2",
     "lat": "51.7445835",
-    "lng": "19.4485581"
+    "lng": "19.4485581",
+    "address": ""
   },
   {
     "id": "61",
@@ -364,14 +414,16 @@
     "name": "Budynek C3",
     "tags": "Akwarium",
     "lat": "51.74519",
-    "lng": "19.4499796"
+    "lng": "19.4499796",
+    "address": ""
   },
   {
     "id": "62",
     "short": "C4",
     "name": "Centrum Sportu",
     "lat": "51.7454267",
-    "lng": "19.4493607"
+    "lng": "19.4493607",
+    "address": ""
   },
   {
     "id": "63",
@@ -379,21 +431,24 @@
     "name": "VI Dom Akademicki",
     "tags": "Akwarium",
     "lat": "51.7457995",
-    "lng": "19.4498475"
+    "lng": "19.4498475",
+    "address": ""
   },
   {
     "id": "64",
     "short": "C6",
     "name": "Budynek C6",
     "lat": "51.7458352",
-    "lng": "19.4493218"
+    "lng": "19.4493218",
+    "address": ""
   },
   {
     "id": "65",
     "short": "C7",
     "name": "Budynek C7",
     "lat": "51.7458228",
-    "lng": "19.4489041"
+    "lng": "19.4489041",
+    "address": ""
   },
   {
     "id": "67",
@@ -401,14 +456,16 @@
     "name": "VII Dom Akademicki",
     "tags": "Siódemka",
     "lat": "51.7461292",
-    "lng": "19.4500547"
+    "lng": "19.4500547",
+    "address": ""
   },
   {
     "id": "68",
     "short": "C10",
     "name": "Underground",
     "lat": "51.746343",
-    "lng": "19.450086"
+    "lng": "19.450086",
+    "address": ""
   },
   {
     "id": "69",
@@ -416,7 +473,8 @@
     "name": "IV Dom Akademicki",
     "tags": "Czwórka",
     "lat": "51.7467162",
-    "lng": "19.450183"
+    "lng": "19.450183",
+    "address": ""
   },
   {
     "id": "70",
@@ -424,7 +482,8 @@
     "name": "III Dom Akademicki",
     "tags": "Trójka",
     "lat": "51.7474178",
-    "lng": "19.4500173"
+    "lng": "19.4500173",
+    "address": ""
   },
   {
     "id": "71",
@@ -432,7 +491,8 @@
     "name": "II Dom Akademicki",
     "tags": "Mikrus",
     "lat": "51.7482778",
-    "lng": "19.4498611"
+    "lng": "19.4498611",
+    "address": ""
   },
   {
     "id": "72",
@@ -440,14 +500,16 @@
     "name": "I Dom Akademicki",
     "tags": "Jedynka",
     "lat": "51.7485368",
-    "lng": "19.4496385"
+    "lng": "19.4496385",
+    "address": ""
   },
   {
     "id": "73",
     "short": "C15",
     "name": "Budynek C15",
     "lat": "51.7489808",
-    "lng": "19.4494321"
+    "lng": "19.4494321",
+    "address": ""
   },
   {
     "id": "74",
@@ -455,56 +517,64 @@
     "name": "VIII Dom Akademicki",
     "tags": "Zwartek",
     "lat": "51.7513544",
-    "lng": "19.4479121"
+    "lng": "19.4479121",
+    "address": ""
   },
   {
     "id": "75",
     "short": "C18",
     "name": "Budynek C18",
     "lat": "51.744966",
-    "lng": "19.449698"
+    "lng": "19.449698",
+    "address": ""
   },
   {
     "id": "78",
     "short": "D1",
     "name": "Budynek D1",
     "lat": "51.749568",
-    "lng": "19.460970"
+    "lng": "19.460970",
+    "address": ""
   },
   {
     "id": "79",
     "short": "D2",
     "name": "Budynek D2",
     "lat": "51.749681",
-    "lng": "19.461451"
+    "lng": "19.461451",
+    "address": ""
   },
   {
     "id": "80",
     "short": "D3",
     "name": "Budynek D3",
     "lat": "51.749398",
-    "lng": "19.461506"
+    "lng": "19.461506",
+    "address": ""
   },
   {
     "id": "81",
     "short": "D4",
     "name": "Budynek D4",
     "lat": "51.749064",
-    "lng": "19.461686"
+    "lng": "19.461686",
+    "address": ""
   },
   {
     "id": "82",
     "short": "D5",
     "name": "Budynek D5",
     "lat": "51.749160",
-    "lng": "19.461006"
+    "lng": "19.461006",
+    "address": ""
   },
   {
     "id": "83",
     "short": "E1",
     "name": "IX Dom Akademicki",
     "lat": "51.7469747",
-    "lng": "19.4598611"
+    "lng": "19.4598611",
+    "address": ""
   },
   {
     "id": "84",
@@ -512,41 +582,54 @@
     "name": "V Dom Akademicki",
     "tags": "Tygrys",
     "lat": "51.7790746",
-    "lng": "19.4944225"
+    "lng": "19.4944225",
+    "address": ""
   },
   {
     "id": "85",
     "short": "X1",
     "name": "Hala Sportowa",
     "lat": "51.7492691",
-    "lng": "19.4517149"
+    "lng": "19.4517149",
+    "address": ""
   },
   {
     "id": "86",
     "short": "X2",
     "name": "Lodowisko Bombonierka",
     "lat": "51.7504749",
-    "lng": "19.4539359"
+    "lng": "19.4539359",
+    "address": ""
   },
   {
     "id": "87",
     "short": "X3",
     "name": "Miejski Klub Tenisowy",
     "lat": "51.7547895",
-    "lng": "19.4420291"
+    "lng": "19.4420291",
+    "address": ""
   },
   {
     "id": "88",
     "short": "X4",
     "name": "Aqua Park Fala",
     "lat": "51.7640732",
-    "lng": "19.4216938"
+    "lng": "19.4216938",
+    "address": ""
   },
   {
     "id": "89",
     "short": "X5",
     "name": "Basen Wodny Raj",
     "lat": "51.79326",
-    "lng": "19.380079"
+    "lng": "19.380079",
+    "address": ""
+  },
+  {
+    "id": "70",
+    "short": "b28",
+    "name": "b28",
+    "lat": "51.746299",
+    "lng": "19.451305"
   }
 ]
