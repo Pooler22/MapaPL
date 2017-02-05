@@ -658,16 +658,11 @@ var View = function () {
     }, {
         key: "searchExt",
         value: function searchExt() {
-            console.log("??");
             // this.isOpenPanel = window.innerWidth < this.sizeMin;
             //
             // if (!this.isOpenPanel) {
-
-            console.log("???");
             this.openSidedrawerExt();
             if (window.innerWidth < this.sizeMin) {
-                console.log("????");
-
                 this.showSidedrawer();
             }
             // }
@@ -678,7 +673,6 @@ var View = function () {
         value: function getCategory(element) {
 
             //todo
-            console.log(data.categories);
             if (element.category !== undefined && element.category !== "") {
                 return "<dt>Kategoria</dt><dd>" + data.categories.filter(function (x) {
                         if (x.id == element.category) {
@@ -806,28 +800,22 @@ var GoogleMapsApi = function () {
         });
 
         this.map = L.map('map').setView(initCoordinate, zoom);
-        // L.control.locate().addTo(this.map);
+        L.control.locate().addTo(this.map);
 
-        // L.control.fullscreen({
-        //     position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
-        //     title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
-        //     titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
-        //     forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
-        //     forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
-        //     fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
-        // }).addTo(this.map);
-
-
-        // L.easyPrint().addTo(this.map);
-
+        L.control.fullscreen({
+            position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
+            title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
+            titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
+            forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
+            forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+            fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+        }).addTo(this.map);
 
         this.map.on('enterFullscreen', function () {
-            console.log("enter");
             view.mapElement.style.top = '0';
         });
 
         this.map.on('exitFullscreen', function () {
-            console.log("exit");
             view.mapElement.style.top = '64px';
             // view.resizeMap();
         });
@@ -850,6 +838,12 @@ var GoogleMapsApi = function () {
         //     L.geoJson(myRegions, {style: myStyle}).addTo(this.map);
         // });
 
+        // this.map.setView([41.8758,-87.6189], 16);
+        // var layer = Tangram.leafletLayer({
+        //     scene: 'https://raw.githubusercontent.com/tangrams/cinnabar-style/gh-pages/cinnabar-style.yaml',
+        //     attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | <a href="http://www.openstreetmap.org/about" target="_blank">&copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>',
+        // });
+        // layer.addTo(this.map);
     }
 
     _createClass(GoogleMapsApi, [{
