@@ -207,7 +207,6 @@ class View {
     static getCategory(element) {
 
         //todo
-        console.log(data.categories);
         if (element.category !== undefined && element.category !== "") {
             return "<dt>Kategoria</dt><dd>" + data.categories.filter(x => {
                     if (x.id == element.category) {
@@ -684,16 +683,11 @@ class View {
     }
 
     searchExt() {
-        console.log("??");
         // this.isOpenPanel = window.innerWidth < this.sizeMin;
         //
         // if (!this.isOpenPanel) {
-
-            console.log("???");
             this.openSidedrawerExt();
             if (window.innerWidth < this.sizeMin) {
-                console.log("????");
-
                 this.showSidedrawer();
             }
         // }
@@ -715,29 +709,27 @@ class GoogleMapsApi {
 
 
         this.map = L.map('map').setView(initCoordinate, zoom);
-        // L.control.locate().addTo(this.map);
+        L.control.locate().addTo(this.map);
 
-        // L.control.fullscreen({
-        //     position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
-        //     title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
-        //     titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
-        //     forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
-        //     forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
-        //     fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
-        // }).addTo(this.map);
+        L.control.fullscreen({
+            position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
+            title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
+            titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
+            forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
+            forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
+            fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+        }).addTo(this.map);
 
 
         // L.easyPrint().addTo(this.map);
 
 
         this.map.on('enterFullscreen', function () {
-            console.log("enter");
             view.mapElement.style.top = '0';
 
         });
 
         this.map.on('exitFullscreen', function () {
-            console.log("exit");
             view.mapElement.style.top = '64px';
             // view.resizeMap();
         });
@@ -761,7 +753,6 @@ class GoogleMapsApi {
         //
         //     L.geoJson(myRegions, {style: myStyle}).addTo(this.map);
         // });
-
 
     }
 
