@@ -715,7 +715,7 @@ class GoogleMapsApi {
 
 
         this.map = L.map('map').setView(initCoordinate, zoom);
-        L.control.locate().addTo(this.map);
+        // L.control.locate().addTo(this.map);
 
         L.control.fullscreen({
             position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
