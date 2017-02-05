@@ -720,10 +720,6 @@ class GoogleMapsApi {
             fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
         }).addTo(this.map);
 
-
-        // L.easyPrint().addTo(this.map);
-
-
         this.map.on('enterFullscreen', function () {
             view.mapElement.style.top = '0';
 
@@ -753,6 +749,13 @@ class GoogleMapsApi {
         //
         //     L.geoJson(myRegions, {style: myStyle}).addTo(this.map);
         // });
+
+        // this.map.setView([41.8758,-87.6189], 16);
+        // var layer = Tangram.leafletLayer({
+        //     scene: 'https://raw.githubusercontent.com/tangrams/cinnabar-style/gh-pages/cinnabar-style.yaml',
+        //     attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | <a href="http://www.openstreetmap.org/about" target="_blank">&copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>',
+        // });
+        // layer.addTo(this.map);
 
     }
 
