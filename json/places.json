@@ -874,56 +874,56 @@
   },
   {
     "id": "2026111",
-    "name": "I Dom Studencki",
+    "name": "I Dom Akademicki",
     "category": "11",
     "building": "72",
     "website": ""
   },
   {
     "id": "2026112",
-    "name": "II Dom Studencki",
+    "name": "II Dom Akademicki",
     "category": "11",
     "building": "71",
     "website": ""
   },
   {
     "id": "2026113",
-    "name": "III Dom Studencki",
+    "name": "III Dom Akademicki",
     "category": "11",
     "building": "70",
     "website": ""
   },
   {
     "id": "2026114",
-    "name": "IV Dom Studencki",
+    "name": "IV Dom Akademicki",
     "category": "11",
     "building": "69",
     "website": ""
   },
   {
     "id": "2026115",
-    "name": "VI Dom Studencki",
+    "name": "VI Dom Akademicki",
     "category": "11",
     "building": "63",
     "website": ""
   },
   {
     "id": "2026116",
-    "name": "VII Dom Studencki",
+    "name": "VII Dom Akademicki",
     "category": "11",
     "building": "67",
     "website": ""
   },
   {
     "id": "2026117",
-    "name": "VIII Dom Studencki",
+    "name": "VIII Dom Akademicki",
     "category": "11",
     "building": "74",
     "website": ""
   },
   {
     "id": "2026117",
-    "name": "IX Dom Studencki",
+    "name": "IX Dom Akademicki",
     "category": "11",
     "building": "83",
     "website": ""
@@ -937,7 +937,7 @@
   },
   {
     "id": "2027",
-    "name": "Samorząd Studencki",
+    "name": "Samorząd Akademicki",
     "category": "11",
     "building": "73",
     "website": ""
@@ -951,7 +951,7 @@
   },
   {
     "id": "203011",
-    "name": "Organizacje studenckie",
+    "name": "Organizacje Akademickie",
     "category": "11",
     "building": "73",
     "website": ""
@@ -987,14 +987,14 @@
   },
   {
     "id": "2033",
-    "name": "Studenckie Radio Żak",
+    "name": "Akademickie Radio Żak",
     "category": "11",
     "building": "70",
     "website": ""
   },
   {
     "id": "2033111",
-    "name": "Kluby studenckie",
+    "name": "Kluby Akademickie",
     "category": "11",
     "building": "63,68,69,70",
     "website": ""
@@ -1012,5 +1012,12 @@
     "category": "11",
     "building": "68",
     "website": ""
+  },
+  {
+  "id": "3025",
+  "name": "Audytorium im. Sołtana",
+  "category": "15",
+  "building": "19",
+  "website": ""
   }
 ]

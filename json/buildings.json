@@ -5,7 +5,7 @@
     "name": "Budynek A1",
     "lat": "51.755138",
     "lng": "19.452522",
-    "address": ""
+    "address": "ul. Wólczańska 213"
   },
   {
     "id": "2",
@@ -13,7 +13,7 @@
     "name": "Budynek A2",
     "lat": "51.754645",
     "lng": "19.452780",
-    "address": ""
+    "address": "ul. Wólczańska 171/173"
   },
   {
     "id": "3",
@@ -21,7 +21,7 @@
     "name": "Budynek A3",
     "lat": "51.7547082",
     "lng": "19.4532694",
-    "address": ""
+    "address": "Wólczańska 171/173"
   },
   {
     "id": "4",
@@ -29,7 +29,7 @@
     "name": "Budynek A4",
     "lat": "51.754585",
     "lng": "19.454711",
-    "address": ""
+    "address": "Wólczańska 171/173"
   },
   {
     "id": "5",
@@ -37,7 +37,7 @@
     "name": "Budynek A5",
     "lat": "51.754243",
     "lng": "19.454883",
-    "address": ""
+    "address": "Wólczańska 175"
   },
   {
     "id": "6",
@@ -71,7 +71,7 @@
     "tags": "Elektryczny",
     "lat": "51.752606",
     "lng": "19.453086",
-    "address": ""
+    "address": "ul. Bohdana Stefanowskiego 18/22"
   },
   {
     "id": "11",
@@ -88,7 +88,7 @@
     "name": "Budynek A12",
     "lat": "51.7528589",
     "lng": "19.4543747",
-    "address": ""
+    "address": "Stefanowskiego 18/22"
   },
   {
     "id": "13",
@@ -187,7 +187,7 @@
     "name": "Budynek A27",
     "lat": "51.753825",
     "lng": "19.450967",
-    "address": ""
+    "address": "Żeromskiego 116"
   },
   {
     "id": "28",
@@ -195,7 +195,7 @@
     "name": "Budynek A28",
     "lat": "51.7535851",
     "lng": "19.4509969",
-    "address": ""
+    "address": "Żeromskiego 116"
   },
   {
     "id": "30",
@@ -219,7 +219,7 @@
     "name": "Budynek A33",
     "lat": "51.7528475",
     "lng": "19.4500623",
-    "address": ""
+    "address": "Żeromskiego 116"
   },
   {
     "id": "34",
@@ -227,7 +227,7 @@
     "name": "Rektorat Politechniki Łódzkiej",
     "lat": "51.748621",
     "lng": "19.455360",
-    "address": ""
+    "address": "Ks. I. Skorupki 6/8"
   },
   {
     "id": "35",
@@ -235,7 +235,7 @@
     "name": "Budynek B2",
     "lat": "51.7489063",
     "lng": "19.4548576",
-    "address": ""
+    "address": "Ks. I. Skorupki 6/8"
   },
   {
     "id": "36",
@@ -243,7 +243,7 @@
     "name": "Budynek B3",
     "lat": "51.7486057",
     "lng": "19.453125",
-    "address": ""
+    "address": "Ks. I. Skorupki 6/8"
   },
   {
     "id": "37",
@@ -268,7 +268,7 @@
     "tags": "",
     "lat": "51.7477509",
     "lng": "19.4531241",
-    "address": ""
+    "address": "Al. Politechniki 6"
   },
   {
     "id": "40",
@@ -276,7 +276,7 @@
     "name": "Budynek B7",
     "lat": "51.7476239",
     "lng": "19.4519306",
-    "address": ""
+    "address": "Al. Politechniki 6"
   },
   {
     "id": "42",
@@ -285,7 +285,7 @@
     "tags": "Lodex, Tramwaj",
     "lat": "51.7472277",
     "lng": "19.4537199",
-    "address": ""
+    "address": "ul. Wólczańska 223"
   },
   {
     "id": "43",
@@ -366,7 +366,7 @@
     "name": "Centrum Technologii Informatycznych",
     "lat": "51.7470548",
     "lng": "19.4559248",
-    "address": ""
+    "address": "Wólczańska 223"
   },
   {
     "id": "55",
@@ -374,7 +374,7 @@
     "name": "Biblioteka Główna",
     "lat": "51.7456283",
     "lng": "19.4539643",
-    "address": ""
+    "address": "Wólczańska 223"
   },
   {
     "id": "57",
@@ -382,7 +382,7 @@
     "name": "Centrum Językowe",
     "lat": "51.7454352",
     "lng": "19.4519802",
-    "address": ""
+    "address": "Al. Politechniki 12"
   },
   {
     "id": "58",
@@ -390,7 +390,7 @@
     "name": "Centrum Językowe",
     "lat": "51.7453924",
     "lng": "19.451256",
-    "address": ""
+    "address": "Al. Politechniki 12"
   },
   {
     "id": "59",
@@ -432,7 +432,7 @@
     "tags": "Akwarium",
     "lat": "51.7457995",
     "lng": "19.4498475",
-    "address": ""
+    "address": "al. Politechniki 11"
   },
   {
     "id": "64",
@@ -457,7 +457,7 @@
     "tags": "Siódemka",
     "lat": "51.7461292",
     "lng": "19.4500547",
-    "address": ""
+    "address": "al. Politechniki 9"
   },
   {
     "id": "68",
@@ -474,7 +474,7 @@
     "tags": "Czwórka",
     "lat": "51.7467162",
     "lng": "19.450183",
-    "address": ""
+    "address": "al. Politechniki 9A"
   },
   {
     "id": "70",
@@ -483,7 +483,7 @@
     "tags": "Trójka",
     "lat": "51.7474178",
     "lng": "19.4500173",
-    "address": ""
+    "address": "al. Politechniki 7"
   },
   {
     "id": "71",
@@ -509,7 +509,7 @@
     "name": "Budynek C15",
     "lat": "51.7489808",
     "lng": "19.4494321",
-    "address": ""
+    "address": "Al. Politechniki 3A"
   },
   {
     "id": "74",
@@ -518,7 +518,7 @@
     "tags": "Zwartek",
     "lat": "51.7513544",
     "lng": "19.4479121",
-    "address": ""
+    "address": "Radwańska 40/42"
   },
   {
     "id": "75",
@@ -534,7 +534,7 @@
     "name": "Budynek D1",
     "lat": "51.749568",
     "lng": "19.460970",
-    "address": ""
+    "address": "Piotrkowska 266"
   },
   {
     "id": "79",
@@ -550,7 +550,7 @@
     "name": "Budynek D3",
     "lat": "51.749398",
     "lng": "19.461506",
-    "address": ""
+    "address": "Piotrkowska 266"
   },
   {
     "id": "81",

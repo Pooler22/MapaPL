@@ -697,6 +697,8 @@ class View {
 
 class GoogleMapsApi {
     constructor(mapElement, zoom, initCoordinate) {
+//todo
+        let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33, B1,B2,B3,B6,B7,B9,B19,B22,B24,B25, C15, D1,D2,D3";
 
         var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             fullscreenControl: true,
