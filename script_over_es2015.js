@@ -74,10 +74,22 @@ class QueryHelper {
         }
         else if (queryString.buildingId !== undefined) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-            view.updateMarkerExt(view.prepareInfoContent(building, false), [{
+
+            if(building.polygon.length > 0){
+                console.log("works");
+                view.updateMarkerPolygon(view.prepareInfoContent(building, false), [{
+                    "lat": Number(building.lat),
+                    "lng": Number(building.lng)
+                }],[building.polygon]);
+            }
+            else{
+                console.log(building.polygon);
+                console.log("works1");
+                view.updateMarkerExt(view.prepareInfoContent(building, false), [{
                 "lat": Number(building.lat),
                 "lng": Number(building.lng)
             }]);
+            }
         }
     }
 
@@ -455,6 +467,39 @@ class View {
         // googleApi.map.addLayer(markers);
     }
 
+
+    updateMarkerPolygon(content, coordinate, polygons) {
+        markers.forEach(x => googleApi.map.removeLayer(x));
+        markers = [];
+        let index = 0;
+
+        polygons.forEach(polygon => {
+            console.log(polygon);
+            polygon.forEach((x)=>{
+                let tmp = x[0];
+                x[0] =x[1];
+                x[1] = tmp;
+            });
+            console.log(polygon);
+            let markerTmp = L.polygon(polygon).addTo(googleApi.map);
+
+            let marker = googleApi.createMarker(coordinate[index].lat, coordinate[index].lng, googleApi.map);
+            googleApi.createInfoWindow(markerTmp, content[index]);
+            if (markers.length == 0) {
+                // marker.openPopup();
+                markerTmp.openPopup();
+            }
+            markers.push(markerTmp);
+            markers.push(marker);
+            index += 1;
+        });
+        googleApi.setZoom(16);
+        googleApi.setCenter(coordinate[0].lat, coordinate[0].lng);
+        if (window.innerWidth < this.sizeMin) {
+            view.closeSidedraver();
+        }
+    }
+
     activateModalPlace(id) {
         let place = data.getPlacesById(id)[0];
         this.prepareUpdateMarker(id, true);
@@ -589,8 +634,7 @@ class View {
                 });
             }
             else {
-
-                let building = data.getBuildingsById(idBuildings[0])[0];
+                let building = data.getBuildingsById(Number(idBuildings[0]))[0];
                 return [`<p><strong>${element.name}</strong><br>`
                 // + `<a href=?placeId=${element.id}>${text}</a>`
                 + `${building.name}<br>`
@@ -799,7 +843,16 @@ class GoogleMapsApi {
     }
 
     createMarker(x, y, map1) {
-        return L.marker([x, y]).addTo(map1);
+        let doorIcon = new L.icon({
+            iconUrl: 'door.png',
+            iconSize:     [30, 30], // size of the icon
+            iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
+            // shadowAnchor: [4, 62],  // the same for the shadow
+            // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
+        return L.marker([x, y],{icon:doorIcon}).addTo(map1);
+        // return L.marker([x, y]).addTo(map1);
+
     }
 
     createInfoWindow(marker, content) {
@@ -846,7 +899,7 @@ function init() {
         (categories) => {
             JSONHelper.loadJSON('json/places.json',
                 (places) => {
-                    JSONHelper.loadJSON('json/places.json',
+                    JSONHelper.loadJSON('json/buildings.json',
                         (buildings) => {
                             JSONHelper.loadJSON('json/campuses.json',
                                 (campuses) => {
