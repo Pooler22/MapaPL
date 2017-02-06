@@ -48,9 +48,7 @@ class QueryHelper {
             if (queryString.index !== undefined) {
                 let place = data.getPlacesById(queryString.placeId)[0];
                 let coordinates = data.getCoordinate(place.building);
-                let tmp = coordinates[queryString.index];
-                coordinates[queryString.index] = coordinates[0];
-                coordinates[0] = tmp;
+                [coordinates[queryString.index],coordinates[0]] = [coordinates[0],coordinates[queryString.index]];
                 view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
             }
             else {
@@ -59,10 +57,7 @@ class QueryHelper {
         }
         else if (queryString.buildingId !== undefined) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-                view.updateMarkerPolygon(view.prepareInfoContent(building, false), [{
-                    "lat": Number(building.lat),
-                    "lng": Number(building.lng)
-                }], [building.polygon]);
+                view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
         }
     }
 
@@ -111,7 +106,7 @@ class Data {
     getCoordinate(buildingIds) {
         return buildingIds.split(",").map(buildingId => {
             let coordinate = this.getBuildingsById(buildingId)[0];
-            return {"lat": Number(coordinate.lat), "lng": Number(coordinate.lng)};
+            return coordinate.latLng;
         });
     }
 
@@ -190,8 +185,6 @@ class View {
     }
 
     static getCategory(element) {
-
-        //todo
         if (element.category !== undefined && element.category !== "") {
             return "<dt>Kategoria</dt><dd>" + data.categories.filter(x => {
                     if (x.id == element.category) {
@@ -205,12 +198,7 @@ class View {
                             else {
                                 if (element.subcategory !== undefined) {
                                     return element.subcategory.some(z => {
-                                        if (z.id == element.category) {
-                                            return true;
-                                        }
-                                        else {
-                                            return false;
-                                        }
+                                        return z.id == element.category;
                                     });
                                 }
                             }
@@ -325,7 +313,8 @@ class View {
         return modal;
     }
 
-    initMap(latIn = 51.752845, lngIn = 19.553180, zoom = 16) {
+    initMap() {
+        const zoom = 16;
         mapApi = new MapsApi(this.mapElement, zoom, [51.749845, 19.453180]);
     }
 
@@ -368,7 +357,6 @@ class View {
                 tmp += this.prepareLink(place, true);
             });
         }
-
         tmp += `</ul>`;
         return tmp;
     }
@@ -393,13 +381,13 @@ class View {
         }
         else {
             let element = data.buildings.filter(building => building.id == id)[0];
-            this.updateMarkerExt1(this.prepareInfoContent(element, false), element.lat, element.lng);
+            this.updateMarkerExt1(this.prepareInfoContent(element, false), [element.latLng]);
         }
         mui.overlay('off');
     }
 
-    updateMarkerExt1(content, latIn, lngIn) {
-        this.updateMarkerExt(content, [{"lat": Number(latIn), "lng": Number(lngIn)}]);
+    updateMarkerExt1(content, latLng) {
+        this.updateMarkerExt(content, latLng);
     }
 
     cleanUpMarkers() {
@@ -411,7 +399,14 @@ class View {
         this.cleanUpMarkers();
         let index = 0;
         coordinate.forEach(coordinate => {
-            let marker = mapApi.createMarker(coordinate.lat, coordinate.lng, mapApi.map);
+
+            let doorIcon = new L.icon({
+                iconUrl: 'door.png',
+                iconSize: [30, 30],
+                iconAnchor: [10, 10],
+            });
+            let marker =  L.marker(coordinate, {icon: doorIcon});
+            marker.addTo(mapApi.map);
             mapApi.createInfoWindow(marker, content[index]);
             if (markers.length == 0) {
                 marker.openPopup();
@@ -421,7 +416,7 @@ class View {
         });
 
         mapApi.setZoom(16);
-        mapApi.setCenter(coordinate[0].lat, coordinate[0].lng);
+        mapApi.setCenter(coordinate[0]);
 
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
@@ -451,7 +446,7 @@ class View {
             index += 1;
         });
         mapApi.setZoom(16);
-        mapApi.setCenter(coordinate[0].lat, coordinate[0].lng);
+        mapApi.setCenter(coordinate);
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
         }
@@ -475,12 +470,10 @@ class View {
         if (isPlace) {
             let place = data.getPlacesById(id)[0];
             mui.overlay('on', this.initModalInfoPlace(place));
-
         }
         else {
             let building = data.getBuildingsById(id)[0];
             mui.overlay('on', this.initModalInfoBuilding(building));
-
         }
     }
 
@@ -547,7 +540,7 @@ class View {
 
     setMarker(index) {
         let position = markers[index]._latlng;
-        mapApi.setCenter(position.lat, position.lng);
+        mapApi.setCenter([position.lat,position.lng]);
         markers[index].openPopup();
     }
 
@@ -579,7 +572,6 @@ class View {
                     index += 1;
                     let building = data.getBuildingsById(idBuildings[index])[0];
                     return `<p><strong>${element.name}</strong>`
-                        // + `<a href=?placeId=${element.id}>${text}</a>`
                         + `<br>${View.getAddresExt(building)}</p>`
                         + `Pozostałe budynki tej jednostki:<ul>${x}</ul>`
                         + `<a href='javascript:view.activateModalInfo(${element.id},true);'>Więcej informacji</a>`;
@@ -588,7 +580,6 @@ class View {
             else {
                 let building = data.getBuildingsById(Number(idBuildings[0]))[0];
                 return [`<p><strong>${element.name}</strong><br>`
-                // + `<a href=?placeId=${element.id}>${text}</a>`
                 + `${building.name}<br>`
                 + `${View.getAddresExt(building)}`
                 + `</br><a href='javascript:view.activateModalInfo(${element.id},true);'>Więcej informacji</a>`];
@@ -596,9 +587,7 @@ class View {
         }
         else {
             QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
-
             return [`<p><strong>${element.name}</strong><br>`
-            // + `<a href=?buildingId=${element.id}>${text}</a><br>`
             + `${View.getAddresExt(element)}`
             + `</p><a href='javascript:view.activateModalInfo(${element.id},false);'>Więcej informacji</a>`];
         }
@@ -648,8 +637,8 @@ class View {
 
     updateMapSize() {
         this.mapElement = document.getElementById("map");
-        let sideListWidth = 300;
-        let navbarHeight = 70;
+        const sideListWidth = 300;
+        const navbarHeight = 70;
 
         if (this.lastWidth > this.sizeMin)
             mui.overlay('off', {
@@ -674,19 +663,14 @@ class View {
             this.mapElement.style.height = `${window.innerHeight - navbarHeight}px`;
             this.mapElement.style.width = `${window.innerWidth}px`;
         }
-
         mapApi.resizeMap();
     }
 
     searchExt() {
-        // this.isOpenPanel = window.innerWidth < this.sizeMin;
-        //
-        // if (!this.isOpenPanel) {
         this.openSidedrawerExt();
         if (window.innerWidth < this.sizeMin) {
             this.showSidedrawer();
         }
-        // }
         document.getElementById("search-input").focus();
     }
 }
@@ -784,14 +768,6 @@ class MapsApi {
 
     }
 
-    createMarker(x, y, map1) {
-        let doorIcon = new L.icon({
-            iconUrl: 'door.png',
-            iconSize: [30, 30],
-            iconAnchor: [10, 10],
-        });
-        return L.marker([x, y], {icon: doorIcon}).addTo(map1);
-    }
 
     createInfoWindow(marker, content) {
         marker.bindPopup(content);
@@ -800,8 +776,8 @@ class MapsApi {
     setZoom(zoom) {
     }
 
-    setCenter(x, y) {
-        this.map.panTo(new L.LatLng(x, y));
+    setCenter(latLng) {
+        this.map.panTo(new L.LatLng(latLng[0], latLng[1]));
     }
 
     resizeMap() {

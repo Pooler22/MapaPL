@@ -3,8 +3,10 @@
     "id": "1",
     "short": "A1",
     "name": "Budynek A1",
-    "lat": "51.755138",
-    "lng": "19.452522",
+    "latLng": [
+      51.755138,
+      19.452522
+    ],
     "address": "ul. Wólczańska 213",
     "polygon": [
       [
@@ -33,8 +35,10 @@
     "id": "2",
     "short": "A2",
     "name": "Budynek A2",
-    "lat": "51.754645",
-    "lng": "19.452780",
+    "latLng": [
+      51.754645,
+      19.452780
+    ],
     "address": "ul. Wólczańska 171/173",
     "polygon": [
       [
@@ -63,8 +67,10 @@
     "id": "3",
     "short": "A3",
     "name": "Budynek A3",
-    "lat": "51.7547082",
-    "lng": "19.4532694",
+    "latLng": [
+      51.7547082,
+      19.4532694
+    ],
     "address": "Wólczańska 171/173",
     "polygon": [
       [
@@ -117,8 +123,10 @@
     "id": "4",
     "short": "A4",
     "name": "Budynek A4",
-    "lat": "51.754585",
-    "lng": "19.454711",
+    "latLng": [
+      51.754585,
+      19.454711
+    ],
     "address": "Wólczańska 171/173",
     "polygon": [
       [
@@ -211,8 +219,10 @@
     "id": "5",
     "short": "A5",
     "name": "Budynek A5",
-    "lat": "51.754243",
-    "lng": "19.454883",
+    "latLng": [
+      51.754243,
+      19.454883
+    ],
     "address": "Wólczańska 175",
     "polygon": [
       [
@@ -253,8 +263,10 @@
     "id": "6",
     "short": "A6",
     "name": "Budynek A6",
-    "lat": "51.7541216",
-    "lng": "19.4540303",
+    "latLng": [
+      51.7541216,
+      19.4540303
+    ],
     "address": "",
     "polygon": [
       [
@@ -312,8 +324,10 @@
     "short": "A8",
     "name": "Budynek A8",
     "tags": "Garbarstwo",
-    "lat": "51.753513",
-    "lng": "19.453027",
+    "latLng": [
+      51.753513,
+      19.453027
+    ],
     "address": "",
     "polygon": [
       [
@@ -342,8 +356,10 @@
     "id": "9",
     "short": "A9",
     "name": "Budynek A9",
-    "lat": "51.7534724",
-    "lng": "19.4533662",
+    "latLng": [
+      51.7534724,
+      19.4533662
+    ],
     "address": "",
     "polygon": [
       [
@@ -373,8 +389,10 @@
     "short": "A10",
     "name": "Budynek A10",
     "tags": "Elektryczny",
-    "lat": "51.752606",
-    "lng": "19.453086",
+    "latLng": [
+      51.752606,
+      19.453086
+    ],
     "address": "ul. Bohdana Stefanowskiego 18/22",
     "polygon": [
       [
@@ -432,8 +450,10 @@
     "short": "A11",
     "name": "Budynek A11",
     "tags": "Mały Elektryczny",
-    "lat": "51.753124",
-    "lng": "19.453531",
+    "latLng": [
+      51.753124,
+      19.453531
+    ],
     "address": "",
     "polygon": [
       [
@@ -486,8 +506,10 @@
     "id": "12",
     "short": "A12",
     "name": "Budynek A12",
-    "lat": "51.7528589",
-    "lng": "19.4543747",
+    "latLng": [
+      51.7528589,
+      19.4543747
+    ],
     "address": "Stefanowskiego 18/22",
     "polygon": []
   },
@@ -495,8 +517,10 @@
     "id": "13",
     "short": "A13",
     "name": "Sekcja Rekrutacji Politechniki Łódzkiej",
-    "lat": "51.752407",
-    "lng": "19.453772",
+    "latLng": [
+      51.752407,
+      19.453772
+    ],
     "address": "",
     "polygon": [
       [
@@ -605,8 +629,10 @@
     "id": "14",
     "short": "A14",
     "name": "Budynek A14",
-    "lat": "51.753060",
-    "lng": "19.455130",
+    "latLng": [
+      51.753060,
+      19.455130
+    ],
     "address": "",
     "polygon": [
       [
@@ -644,8 +670,10 @@
     "short": "A16",
     "name": "Centrum Kształcenia Międzynarodowego",
     "tags": "IFE",
-    "lat": "51.755112",
-    "lng": "19.451533",
+    "latLng": [
+      51.755112,
+      19.451533
+    ],
     "address": "",
     "polygon": [
       [
@@ -694,8 +722,10 @@
     "id": "17",
     "short": "A17",
     "name": "Kwestura",
-    "lat": "51.755103",
-    "lng": "19.450631",
+    "latLng": [
+      51.755103,
+      19.450631
+    ],
     "address": "",
     "polygon": [
       [
@@ -724,8 +754,10 @@
     "id": "18",
     "short": "A18",
     "name": "Fabryka Inżynierów",
-    "lat": "51.7547448",
-    "lng": "19.4516909",
+    "latLng": [
+      51.7547448,
+      19.4516909
+    ],
     "address": "",
     "polygon": [
       [
@@ -762,8 +794,10 @@
     "id": "19",
     "short": "A19",
     "name": "Budynek A19",
-    "lat": "51.753788",
-    "lng": "19.452072",
+    "latLng": [
+      51.753788,
+      19.452072
+    ],
     "address": "",
     "polygon": [
       [
@@ -793,8 +827,10 @@
     "short": "A20",
     "name": "Budynek A20",
     "tags": "4M",
-    "lat": "51.753490",
-    "lng": "19.451648",
+    "latLng": [
+      51.753490,
+      19.451648
+    ],
     "address": "",
     "polygon": [
       [
@@ -823,8 +859,10 @@
     "id": "21",
     "short": "A21",
     "name": "Budynek A21",
-    "lat": "51.7529831",
-    "lng": "19.4516726",
+    "latLng": [
+      51.7529831,
+      19.4516726
+    ],
     "address": "",
     "polygon": [
       [
@@ -854,8 +892,10 @@
     "short": "A22",
     "name": "Budynek A22",
     "tags": "1M, 2M",
-    "lat": "51.752576",
-    "lng": "19.451809",
+    "latLng": [
+      51.752576,
+      19.451809
+    ],
     "address": "",
     "polygon": [
       [
@@ -884,8 +924,10 @@
     "id": "24",
     "short": "A24",
     "name": "Budynek A24",
-    "lat": "51.7544842",
-    "lng": "19.4508928",
+    "latLng": [
+      51.7544842,
+      19.4508928
+    ],
     "address": "",
     "polygon": [
       [
@@ -922,8 +964,10 @@
     "id": "26",
     "short": "A26",
     "name": "Budynek A26",
-    "lat": "51.7540867",
-    "lng": "19.4505966",
+    "latLng": [
+      51.7540867,
+      19.4505966
+    ],
     "address": "",
     "polygon": [
       [
@@ -968,8 +1012,10 @@
     "id": "27",
     "short": "A27",
     "name": "Budynek A27",
-    "lat": "51.753825",
-    "lng": "19.450967",
+    "latLng": [
+      51.753825,
+      19.450967
+    ],
     "address": "Żeromskiego 116",
     "polygon": [
       [
@@ -1054,8 +1100,10 @@
     "id": "28",
     "short": "A28",
     "name": "Budynek A28",
-    "lat": "51.7535851",
-    "lng": "19.4509969",
+    "latLng": [
+      51.7535851,
+      19.4509969
+    ],
     "address": "Żeromskiego 116",
     "polygon": [
       [
@@ -1084,8 +1132,10 @@
     "id": "30",
     "short": "A30",
     "name": "Budynek A30",
-    "lat": "51.752588",
-    "lng": "19.451323",
+    "latLng": [
+      51.752588,
+      19.451323
+    ],
     "address": "",
     "polygon": [
       [
@@ -1114,8 +1164,10 @@
     "id": "31",
     "short": "A31",
     "name": "Budynek A31",
-    "lat": "51.7537783",
-    "lng": "19.4496228",
+    "latLng": [
+      51.7537783,
+      19.4496228
+    ],
     "address": "",
     "polygon": [
       [
@@ -1152,8 +1204,10 @@
     "id": "33",
     "short": "A33",
     "name": "Budynek A33",
-    "lat": "51.7528475",
-    "lng": "19.4500623",
+    "latLng": [
+      51.7528475,
+      19.4500623
+    ],
     "address": "Żeromskiego 116",
     "polygon": [
       [
@@ -1198,8 +1252,10 @@
     "id": "34",
     "short": "B1",
     "name": "Rektorat Politechniki Łódzkiej",
-    "lat": "51.748621",
-    "lng": "19.455360",
+    "latLng": [
+      51.748621,
+      19.455360
+    ],
     "address": "Ks. I. Skorupki 6/8",
     "polygon": [
       [
@@ -1244,8 +1300,10 @@
     "id": "35",
     "short": "B2",
     "name": "Budynek B2",
-    "lat": "51.7489063",
-    "lng": "19.4548576",
+    "latLng": [
+      51.7489063,
+      19.4548576
+    ],
     "address": "Ks. I. Skorupki 6/8",
     "polygon": [
       [
@@ -1282,8 +1340,10 @@
     "id": "36",
     "short": "B3",
     "name": "Budynek B3",
-    "lat": "51.7486057",
-    "lng": "19.453125",
+    "latLng": [
+      51.7486057,
+      19.453125
+    ],
     "address": "Ks. I. Skorupki 6/8",
     "polygon": [
       [
@@ -1312,8 +1372,10 @@
     "id": "37",
     "short": "B4",
     "name": "Budynek B4",
-    "lat": "51.7480461",
-    "lng": "19.4558245",
+    "latLng": [
+      51.7480461,
+      19.4558245
+    ],
     "address": "",
     "polygon": [
       [
@@ -1342,8 +1404,10 @@
     "id": "38",
     "short": "B5",
     "name": "Budynek B5",
-    "lat": "51.7480104",
-    "lng": "19.4554295",
+    "latLng": [
+      51.7480104,
+      19.4554295
+    ],
     "address": "",
     "polygon": [
       [
@@ -1373,8 +1437,10 @@
     "short": "B6",
     "name": "Budynek B6",
     "tags": "",
-    "lat": "51.7477509",
-    "lng": "19.4531241",
+    "latLng": [
+      51.7477509,
+      19.4531241
+    ],
     "address": "Al. Politechniki 6",
     "polygon": [
       [
@@ -1403,8 +1469,10 @@
     "id": "40",
     "short": "B7",
     "name": "Budynek B7",
-    "lat": "51.7476239",
-    "lng": "19.4519306",
+    "latLng": [
+      51.7476239,
+      19.4519306
+    ],
     "address": "Al. Politechniki 6",
     "polygon": [
       [
@@ -1466,8 +1534,10 @@
     "short": "B9",
     "name": "Budynek Trzech Wydziałów",
     "tags": "Lodex, Tramwaj",
-    "lat": "51.7472277",
-    "lng": "19.4537199",
+    "latLng": [
+      51.7472277,
+      19.4537199
+    ],
     "address": "ul. Wólczańska 223",
     "polygon": [
       [
@@ -1520,8 +1590,10 @@
     "id": "43",
     "short": "B10",
     "name": "Budynek B10",
-    "lat": "51.7473809",
-    "lng": "19.4554135",
+    "latLng": [
+      51.7473809,
+      19.4554135
+    ],
     "address": "",
     "polygon": [
       [
@@ -1550,8 +1622,10 @@
     "id": "44",
     "short": "B11",
     "name": "Budynek B11",
-    "lat": "51.7473759",
-    "lng": "19.4560713",
+    "latLng": [
+      51.7473759,
+      19.4560713
+    ],
     "address": "",
     "polygon": [
       [
@@ -1588,8 +1662,10 @@
     "id": "45",
     "short": "B12",
     "name": "Budynek B12",
-    "lat": "51.7471604",
-    "lng": "19.4556281",
+    "latLng": [
+      51.7471604,
+      19.4556281
+    ],
     "address": "",
     "polygon": [
       [
@@ -1634,8 +1710,10 @@
     "id": "46",
     "short": "B13",
     "name": "Budynek B13",
-    "lat": "51.746788",
-    "lng": "19.454275",
+    "latLng": [
+      51.746788,
+      19.454275
+    ],
     "address": "",
     "polygon": [
       [
@@ -1664,8 +1742,10 @@
     "id": "47",
     "short": "B14",
     "name": "Budynek B14",
-    "lat": "51.7465176",
-    "lng": "19.4553862",
+    "latLng": [
+      51.7465176,
+      19.4553862
+    ],
     "address": "",
     "polygon": [
       [
@@ -1730,8 +1810,10 @@
     "id": "48",
     "short": "B15",
     "name": "Budynek B15",
-    "lat": "51.7466000",
-    "lng": "19.4557936",
+    "latLng": [
+      51.7466000,
+      19.4557936
+    ],
     "address": "",
     "polygon": [
       [
@@ -1776,8 +1858,10 @@
     "id": "49",
     "short": "B16",
     "name": "Budynek B16",
-    "lat": "51.7463987",
-    "lng": "19.4531671",
+    "latLng": [
+      51.7463987,
+      19.4531671
+    ],
     "address": "",
     "polygon": [
       [
@@ -1806,8 +1890,10 @@
     "id": "50",
     "short": "B17",
     "name": "Instytut Papiernictwa i Poligrafii",
-    "lat": "51.7461245",
-    "lng": "19.4546554",
+    "latLng": [
+      51.7461245,
+      19.4546554
+    ],
     "address": "",
     "polygon": [
       [
@@ -1837,8 +1923,10 @@
     "short": "B18",
     "name": "Budynek B18",
     "tags": "DMCS, 5E",
-    "lat": "51.7460987",
-    "lng": "19.4557229",
+    "latLng": [
+      51.7460987,
+      19.4557229
+    ],
     "address": "",
     "polygon": [
       [
@@ -1899,8 +1987,10 @@
     "id": "52",
     "short": "B19",
     "name": "Centrum Technologii Informatycznych",
-    "lat": "51.7470548",
-    "lng": "19.4559248",
+    "latLng": [
+      51.7470548,
+      19.4559248
+    ],
     "address": "Wólczańska 223",
     "polygon": [
       [
@@ -1929,8 +2019,10 @@
     "id": "55",
     "short": "B22",
     "name": "Biblioteka Główna",
-    "lat": "51.7456283",
-    "lng": "19.4539643",
+    "latLng": [
+      51.7456283,
+      19.4539643
+    ],
     "address": "Wólczańska 223",
     "polygon": [
       [
@@ -1991,8 +2083,10 @@
     "id": "57",
     "short": "B24",
     "name": "Centrum Językowe",
-    "lat": "51.7454352",
-    "lng": "19.4519802",
+    "latLng": [
+      51.7454352,
+      19.4519802
+    ],
     "address": "Al. Politechniki 12",
     "polygon": [
       [
@@ -2045,8 +2139,10 @@
     "id": "58",
     "short": "B25",
     "name": "Centrum Językowe",
-    "lat": "51.7453924",
-    "lng": "19.451256",
+    "latLng": [
+      51.7453924,
+      19.451256
+    ],
     "address": "Al. Politechniki 12",
     "polygon": [
       [
@@ -2075,8 +2171,10 @@
     "id": "59",
     "short": "C1",
     "name": "Budynek C1",
-    "lat": "51.744552",
-    "lng": "19.448524",
+    "latLng": [
+      51.744552,
+      19.448524
+    ],
     "address": "",
     "polygon": [
       [
@@ -2105,8 +2203,10 @@
     "id": "60",
     "short": "C2",
     "name": "Budynek C2",
-    "lat": "51.74470514",
-    "lng": "19.44905698",
+    "latLng": [
+      51.74470514,
+      19.44905698
+    ],
     "address": "",
     "polygon": [
       [
@@ -2160,8 +2260,10 @@
     "short": "C3",
     "name": "Budynek C3",
     "tags": "Akwarium",
-    "lat": "51.74519",
-    "lng": "19.4499796",
+    "latLng": [
+      51.74519,
+      19.4499796
+    ],
     "address": "",
     "polygon": [
       [
@@ -2190,8 +2292,10 @@
     "id": "62",
     "short": "C4",
     "name": "Centrum Sportu",
-    "lat": "51.7454267",
-    "lng": "19.4493607",
+    "latLng": [
+      51.7454267,
+      19.4493607
+    ],
     "address": "",
     "polygon": [
       [
@@ -2253,8 +2357,10 @@
     "short": "C5",
     "name": "VI Dom Akademicki",
     "tags": "Akwarium",
-    "lat": "51.7457995",
-    "lng": "19.4498475",
+    "latLng": [
+      51.7457995,
+      19.4498475
+    ],
     "address": "al. Politechniki 11",
     "polygon": [
       [
@@ -2283,8 +2389,10 @@
     "id": "64",
     "short": "C6",
     "name": "Budynek C6",
-    "lat": "51.7458352",
-    "lng": "19.4493218",
+    "latLng": [
+      51.7458352,
+      19.4493218
+    ],
     "address": "",
     "polygon": [
       [
@@ -2313,8 +2421,10 @@
     "id": "65",
     "short": "C7",
     "name": "Budynek C7",
-    "lat": "51.7458228",
-    "lng": "19.4489041",
+    "latLng": [
+      51.7458228,
+      19.4489041
+    ],
     "address": "",
     "polygon": [
       [
@@ -2360,8 +2470,10 @@
     "short": "C9",
     "name": "VII Dom Akademicki",
     "tags": "Siódemka",
-    "lat": "51.7461292",
-    "lng": "19.4500547",
+    "latLng": [
+      51.7461292,
+      19.4500547
+    ],
     "address": "al. Politechniki 9",
     "polygon": [
       [
@@ -2390,8 +2502,10 @@
     "id": "68",
     "short": "C10",
     "name": "Underground",
-    "lat": "51.746343",
-    "lng": "19.450086",
+    "latLng": [
+      51.746343,
+      19.450086
+    ],
     "address": "",
     "polygon": [
       [
@@ -2429,8 +2543,10 @@
     "short": "C11",
     "name": "IV Dom Akademicki",
     "tags": "Czwórka",
-    "lat": "51.7467162",
-    "lng": "19.450183",
+    "latLng": [
+      51.7467162,
+      19.450183
+    ],
     "address": "al. Politechniki 9A",
     "polygon": [
       [
@@ -2460,8 +2576,10 @@
     "short": "C12",
     "name": "III Dom Akademicki",
     "tags": "Trójka",
-    "lat": "51.7474178",
-    "lng": "19.4500173",
+    "latLng": [
+      51.7474178,
+      19.4500173
+    ],
     "address": "al. Politechniki 7",
     "polygon": [
       [
@@ -2503,8 +2621,10 @@
     "short": "C13",
     "name": "II Dom Akademicki",
     "tags": "Mikrus",
-    "lat": "51.7482778",
-    "lng": "19.4498611",
+    "latLng": [
+      51.7482778,
+      19.4498611
+    ],
     "address": "",
     "polygon": [
       [
@@ -2534,8 +2654,10 @@
     "short": "C14",
     "name": "I Dom Akademicki",
     "tags": "Jedynka",
-    "lat": "51.748684",
-    "lng": "19.449569",
+    "latLng": [
+      51.748684,
+      19.449569
+    ],
     "address": "",
     "polygon": [
       [
@@ -2564,8 +2686,10 @@
     "id": "73",
     "short": "C15",
     "name": "Budynek C15",
-    "lat": "51.7489808",
-    "lng": "19.4494321",
+    "latLng": [
+      51.7489808,
+      19.4494321
+    ],
     "address": "Al. Politechniki 3A",
     "polygon": [
       [
@@ -2603,8 +2727,10 @@
     "short": "C16",
     "name": "VIII Dom Akademicki",
     "tags": "Zwartek",
-    "lat": "51.7513544",
-    "lng": "19.4479121",
+    "latLng": [
+      51.7513544,
+      19.4479121
+    ],
     "address": "Radwańska 40/42",
     "polygon": [
       [
@@ -2633,8 +2759,10 @@
     "id": "75",
     "short": "C18",
     "name": "Budynek C18",
-    "lat": "51.744966",
-    "lng": "19.449698",
+    "latLng": [
+      51.744966,
+      19.449698
+    ],
     "address": "",
     "polygon": [
       [
@@ -2663,8 +2791,10 @@
     "id": "78",
     "short": "D1",
     "name": "Budynek D1",
-    "lat": "51.749568",
-    "lng": "19.460970",
+    "latLng": [
+      51.749568,
+      19.460970
+    ],
     "address": "Piotrkowska 266",
     "polygon": [
       [
@@ -2729,8 +2859,10 @@
     "id": "79",
     "short": "D2",
     "name": "Budynek D2",
-    "lat": "51.749681",
-    "lng": "19.461451",
+    "latLng": [
+      51.749681,
+      19.461451
+    ],
     "address": "",
     "polygon": [
       [
@@ -2759,8 +2891,10 @@
     "id": "80",
     "short": "D3",
     "name": "Budynek D3",
-    "lat": "51.749398",
-    "lng": "19.461506",
+    "latLng": [
+      51.749398,
+      19.461506
+    ],
     "address": "Piotrkowska 266",
     "polygon": [
       [
@@ -2789,8 +2923,10 @@
     "id": "81",
     "short": "D4",
     "name": "Budynek D4",
-    "lat": "51.749202",
-    "lng": "19.461279",
+    "latLng": [
+      51.749202,
+      19.461279
+    ],
     "address": "",
     "polygon": [
       [
@@ -2835,8 +2971,10 @@
     "id": "82",
     "short": "D5",
     "name": "Budynek D5",
-    "lat": "51.749160",
-    "lng": "19.461006",
+    "latLng": [
+      51.749160,
+      19.461006
+    ],
     "address": "",
     "polygon": [
       [
@@ -2881,8 +3019,10 @@
     "id": "83",
     "short": "E1",
     "name": "IX Dom Akademicki",
-    "lat": "51.7469747",
-    "lng": "19.4598611",
+    "latLng": [
+      51.7469747,
+      19.4598611
+    ],
     "address": "",
     "polygon": [
       [
@@ -2912,8 +3052,10 @@
     "short": "E2",
     "name": "V Dom Akademicki",
     "tags": "Tygrys",
-    "lat": "51.7790746",
-    "lng": "19.4944225",
+    "latLng": [
+      51.7790746,
+      19.4944225
+    ],
     "address": "",
     "polygon": [
       [
@@ -2942,8 +3084,10 @@
     "id": "85",
     "short": "X1",
     "name": "Hala Sportowa",
-    "lat": "51.7492691",
-    "lng": "19.4517149",
+    "latLng": [
+      51.7492691,
+      19.4517149
+    ],
     "address": "",
     "polygon": [
       [
@@ -3020,8 +3164,10 @@
     "id": "86",
     "short": "X2",
     "name": "Lodowisko Bombonierka",
-    "lat": "51.7504749",
-    "lng": "19.4539359",
+    "latLng": [
+      51.7504749,
+      19.4539359
+    ],
     "address": "",
     "polygon": [
       [
@@ -3078,8 +3224,10 @@
     "id": "87",
     "short": "X3",
     "name": "Miejski Klub Tenisowy",
-    "lat": "51.7547895",
-    "lng": "19.4420291",
+    "latLng": [
+      51.7547895,
+      19.4420291
+    ],
     "address": "",
     "polygon": [
       [
@@ -3124,8 +3272,10 @@
     "id": "88",
     "short": "X4",
     "name": "Aqua Park Fala",
-    "lat": "51.7640732",
-    "lng": "19.4216938",
+    "latLng": [
+      51.7640732,
+      19.4216938
+    ],
     "address": "",
     "polygon": [
       [
