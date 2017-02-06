@@ -80,7 +80,7 @@ class QueryHelper {
                 view.updateMarkerPolygon(view.prepareInfoContent(building, false), [{
                     "lat": Number(building.lat),
                     "lng": Number(building.lng)
-                }],[building.polygon]);
+                }],[building.polygon], building.name);
             }
             else{
                 console.log(building.polygon);
@@ -468,7 +468,7 @@ class View {
     }
 
 
-    updateMarkerPolygon(content, coordinate, polygons) {
+    updateMarkerPolygon(content, coordinate, polygons, doorsText) {
         markers.forEach(x => googleApi.map.removeLayer(x));
         markers = [];
         let index = 0;
@@ -485,6 +485,7 @@ class View {
 
             let marker = googleApi.createMarker(coordinate[index].lat, coordinate[index].lng, googleApi.map);
             googleApi.createInfoWindow(markerTmp, content[index]);
+            googleApi.createInfoWindow(marker, `Wejście do budynku:<br>${doorsText}`);
             if (markers.length == 0) {
                 // marker.openPopup();
                 markerTmp.openPopup();
