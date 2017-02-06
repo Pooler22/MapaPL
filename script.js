@@ -202,9 +202,9 @@ var Data = function () {
             return collection.reduce(function (a, element) {
                 if (_this3.isFunded(searched.toLowerCase().trim(), element)) {
                     if (findInBuildingsCollection) {
-                        return a + view.prepareLink(element, true);
+                        return a + View.prepareLink(element, true);
                     } else {
-                        return a + view.prepareLink(element);
+                        return a + View.prepareLink(element);
                     }
                 } else {
                     return a;
@@ -235,7 +235,7 @@ var View = function () {
 
         this.sidedrawerElement = document.getElementById('sidedrawer');
         this.mapElement = document.getElementById('map');
-        this.modal = this.initModal();
+        this.modal = View.initModal();
         this.sizeMin = 768;
         this.lastWidth = window.innerWidth;
         this.isOpenPanel = this.lastWidth > this.sizeMin;
@@ -286,9 +286,9 @@ var View = function () {
         value: function printBuildings(buildings) {
             var _this4 = this;
 
-            return "<strong onclick='view.toggleListElement(this);'>Budynki" + view.arrowSpan() + "</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
+            return "<strong onclick='View.toggleListElement(this);'>Budynki" + View.arrowSpan() + "</strong>" + "<ul style='display:none;'>" + buildings.reduce(function (a, building) {
                     return a + _this4.prepareLink(building);
-                }, "") + (this.arrowSpan() + "</ul>");
+                }, "") + (View.arrowSpan() + "</ul>");
         }
     }, {
         key: "printCategories",
@@ -309,7 +309,7 @@ var View = function () {
             var _this6 = this;
 
             var tmp = "";
-            tmp += "<strong onclick='view.toggleListElement(this);'>" + (category.name + this.arrowSpan()) + "</strong>";
+            tmp += "<strong onclick='View.toggleListElement(this);'>" + (category.name + View.arrowSpan()) + "</strong>";
             tmp += "<ul style='display:none;'>";
 
             if (category.subcategory !== undefined) {
@@ -420,17 +420,17 @@ var View = function () {
         value: function activateModalBuilding(id) {
             var building = data.getBuildingsById(id)[0];
             this.prepareUpdateMarker(id, false);
-            this.buildingModal(building);
+            View.buildingModal(building);
         }
     }, {
         key: "activateModalInfo",
         value: function activateModalInfo(id, isPlace) {
             if (isPlace) {
                 var place = data.getPlacesById(id)[0];
-                mui.overlay('on', this.initModalInfoPlace(place));
+                mui.overlay('on', View.initModalInfoPlace(place));
             } else {
                 var building = data.getBuildingsById(id)[0];
-                mui.overlay('on', this.initModalInfoBuilding(building));
+                mui.overlay('on', View.initModalInfoBuilding(building));
             }
         }
     }, {
@@ -439,7 +439,7 @@ var View = function () {
             QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id + "&index=" + index);
 
             mui.overlay('off');
-            this.setMarker(index);
+            View.setMarker(index);
         }
     }, {
         key: "palceModal",
