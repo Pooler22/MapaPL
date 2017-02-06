@@ -92,10 +92,11 @@ class QueryHelper {
 }
 
 class Data {
-    constructor(buildings, categories, places) {
+    constructor(buildings, categories, places,campuses) {
         this.listSearched = document.getElementById("listSearched");
         this.listElement = document.getElementById("list");
 
+        this.campuses = campuses;
         this.buildings = buildings;
         this.categories = categories;
         this.places = places;
@@ -644,8 +645,8 @@ class View {
     }
 
     openSidedrawerExt() {
-            this.isOpenPanel = true;
-            document.body.className = 'show-sidedrawer';
+        this.isOpenPanel = true;
+        document.body.className = 'show-sidedrawer';
         this.updateMapSize();
     }
 
@@ -686,31 +687,67 @@ class View {
         // this.isOpenPanel = window.innerWidth < this.sizeMin;
         //
         // if (!this.isOpenPanel) {
-            this.openSidedrawerExt();
-            if (window.innerWidth < this.sizeMin) {
-                this.showSidedrawer();
-            }
+        this.openSidedrawerExt();
+        if (window.innerWidth < this.sizeMin) {
+            this.showSidedrawer();
+        }
         // }
         document.getElementById("search-input").focus();
     }
 }
 
 class GoogleMapsApi {
+
+
+    getPopout(tmpGroup){
+        return "tekst";
+    }
+
     constructor(mapElement, zoom, initCoordinate) {
 //todo
         let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33, B1,B2,B3,B6,B7,B9,B19,B22,B24,B25, C15, D1,D2,D3";
 
-        var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-            fullscreenControl: true,
-            fullscreenControlOptions: {
-                position: 'topleft'
-            },
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+        let cities = new L.LayerGroup();
+
+        L.marker([51.7547082, 19.4532694]).bindPopup('This is Littleton, CO.').addTo(cities);
+
+        let overlays = {
+            "Cities": cities
+        };
+
+        data.campuses.forEach(x=>{
+
+            overlays[x.name] = cities;//x.name;
+            //todo
+            // overlays[x.name] = data.buildings.filter(x=>{
+            //     let tmpGroup = new L.LayerGroup();
+            //     if(x.short[0] == x.element[x.element.length-1]){
+            //         L.polygon(x.polygon).bindPopup(this.getPopout(x.id)).addTo(tmpGroup);
+            //     }
+            // });
         });
 
 
-        this.map = L.map('map').setView(initCoordinate, zoom);
+
+        let mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+
+
+        let streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
+            full = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+
+        let baseLayers = {
+            "Standardowa": streets,
+            "Pełna": full
+        };
+
+        // cities
+        this.map = L.map('map', {layers: [full]}).setView(initCoordinate, zoom);
+        //overlays
+        L.control.layers(baseLayers).addTo(this.map);
+
         L.control.locate().addTo(this.map);
 
         L.control.fullscreen({
@@ -733,10 +770,10 @@ class GoogleMapsApi {
         });
 
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            minZoom: 7,
-        }).addTo(this.map);
+        // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        //     maxZoom: 19,
+        //     minZoom: 7,
+        // }).addTo(this.map);
 
 
         // JSONHelper.loadJSON('json/buildings.geojson', (myRegions) => {
@@ -804,18 +841,23 @@ class GoogleMapsApi {
 }
 
 function init() {
-    let buildings, categories, places;
+    let buildings, categories, places, campuses;
     JSONHelper.loadJSON('json/categories.json',
         (categories) => {
             JSONHelper.loadJSON('json/places.json',
                 (places) => {
-                    JSONHelper.loadJSON('json/buildings.json',
+                    JSONHelper.loadJSON('json/places.json',
                         (buildings) => {
-                            data = new Data(buildings, categories, places);
-                            view = new View();
-                            data.preparePrintCategories();
-                            view.updateMapSize();
-                            QueryHelper.getQueryURL();
+                            JSONHelper.loadJSON('json/campuses.json',
+                                (campuses) => {
+                                    data = new Data(buildings, categories, places, campuses);
+                                    view = new View();
+                                    data.preparePrintCategories();
+                                    view.updateMapSize();
+                                    QueryHelper.getQueryURL();
+                                },
+                                (xhr) => console.error(xhr)
+                            );
                         },
                         (xhr) => console.error(xhr)
                     );
