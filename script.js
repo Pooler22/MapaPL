@@ -278,7 +278,7 @@ var View = function () {
             // const welcomeText = "Witaj na stronie mapy Politechniki Łódzkiej - online. Wybierz z menu po lewej stornie " +
             //     "kategorię i miejsce jakie cię interesują albo wyszukaj za pomocą wyszukiwarki.";
             googleApi = new GoogleMapsApi(this.mapElement, zoom, [51.749845, 19.453180]);
-            //map = googleApi.map;
+            //map = mapApi.map;
             // this.updateMarkerExt([welcomeText], [{"lat": latIn, "lng": lngIn}]);
         }
     }, {
@@ -404,7 +404,7 @@ var View = function () {
             if (window.innerWidth < this.sizeMin) {
                 view.closeSidedraver();
             }
-            // googleApi.map.addLayer(markers);
+            // mapApi.map.addLayer(markers);
         }
     }, {
         key: "activateModalPlace",

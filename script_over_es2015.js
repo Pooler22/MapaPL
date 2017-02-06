@@ -2,19 +2,8 @@
  * Pooler22 copyright. all right reserved
  */
 
-
-let view, data, googleApi;
+let view, data, mapApi;
 let map, markers = [];
-// let markers2 = L.markerClusterGroup({
-//     spiderLegPolylineOptions: {weight: 1.5, color: '#222', opacity: 0.1},
-//     // maxClusterRadius: 120,
-//     // iconCreateFunction: function (cluster) {
-//     //     var markers = cluster.getAllChildMarkers();
-//     //     return L.divIcon({ className: 'mycluster'});
-//     // },
-// });
-var tmp;
-
 
 class JSONHelper {
     static loadJSON(path, success, error) {
@@ -58,37 +47,29 @@ class QueryHelper {
         if (queryString.placeId !== undefined) {
             if (queryString.index !== undefined) {
                 let place = data.getPlacesById(queryString.placeId)[0];
-
-                // view.prepareUpdateMarker(queryString.placeId, true);
-
                 let coordinates = data.getCoordinate(place.building);
                 let tmp = coordinates[queryString.index];
                 coordinates[queryString.index] = coordinates[0];
                 coordinates[0] = tmp;
-
                 view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
             }
             else {
-                view.activateModalPlace(queryString.placeId); // todo wex poprawke na nr lindexu
+                view.activateModalPlace(queryString.placeId);
             }
         }
         else if (queryString.buildingId !== undefined) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-
-            if(building.polygon.length > 0){
-                console.log("works");
+            if (building.polygon.length > 0) {
                 view.updateMarkerPolygon(view.prepareInfoContent(building, false), [{
                     "lat": Number(building.lat),
                     "lng": Number(building.lng)
-                }],[building.polygon], building.name);
+                }], [building.polygon], building.name);
             }
-            else{
-                console.log(building.polygon);
-                console.log("works1");
+            else {
                 view.updateMarkerExt(view.prepareInfoContent(building, false), [{
-                "lat": Number(building.lat),
-                "lng": Number(building.lng)
-            }]);
+                    "lat": Number(building.lat),
+                    "lng": Number(building.lng)
+                }]);
             }
         }
     }
@@ -104,7 +85,7 @@ class QueryHelper {
 }
 
 class Data {
-    constructor(buildings, categories, places,campuses) {
+    constructor(buildings, categories, places, campuses) {
         this.listSearched = document.getElementById("listSearched");
         this.listElement = document.getElementById("list");
 
@@ -124,8 +105,7 @@ class Data {
     }
 
     preparePrintCategories() {
-        this.htmlCategoriesList = "<p style='margin-left:10px'>Lista miejsc:</p>" + view.printCategories(this.categories) + view.printBuildings(this.buildings);
-        this.listElement.innerHTML = this.htmlCategoriesList;
+        this.listElement.innerHTML = this.htmlCategoriesList = `<p style='margin-left:10px'>Lista miejsc:</p>${view.printCategories(this.categories) + view.printBuildings(this.buildings)}`;
     }
 
     getPlacesById(id) {
@@ -354,11 +334,7 @@ class View {
     }
 
     initMap(latIn = 51.752845, lngIn = 19.553180, zoom = 16) {
-        // const welcomeText = "Witaj na stronie mapy Politechniki Łódzkiej - online. Wybierz z menu po lewej stornie " +
-        //     "kategorię i miejsce jakie cię interesują albo wyszukaj za pomocą wyszukiwarki.";
-        googleApi = new GoogleMapsApi(this.mapElement, zoom, [51.749845, 19.453180]);
-        //map = googleApi.map;
-        // this.updateMarkerExt([welcomeText], [{"lat": latIn, "lng": lngIn}]);
+        mapApi = new MapsApi(this.mapElement, zoom, [51.749845, 19.453180]);
     }
 
     printBuildings(buildings) {
@@ -385,16 +361,12 @@ class View {
         tmp += `<ul style='display:none;'>`;
 
         if (category.subcategory !== undefined) {
-            // tmp += `<ul style='display:none;'>`;
             category.subcategory.split(",").map(x => {
-
                 let tmp1 = data.categories.filter(a => a.id == x);
                 tmp1[0].isSubCat = false;
                 tmp += view.printCategories(tmp1);
                 tmp1[0].isSubCat = true;
-
             });
-            // tmp += `</ul>`;
         }
         else {
             category.places.forEach(place => {
@@ -403,7 +375,6 @@ class View {
                 }
                 tmp += this.prepareLink(place, true);
             });
-
         }
 
         tmp += `</ul>`;
@@ -439,63 +410,56 @@ class View {
         this.updateMarkerExt(content, [{"lat": Number(latIn), "lng": Number(lngIn)}]);
     }
 
-    updateMarkerExt(content, coordinate) {
-        // todo: setmap
-
-        markers.forEach(x => googleApi.map.removeLayer(x));
-        // markers2.clearLayers();
+    cleanUpMarkers() {
+        markers.forEach(x => mapApi.map.removeLayer(x));
         markers = [];
+    }
+
+    updateMarkerExt(content, coordinate) {
+        this.cleanUpMarkers();
         let index = 0;
         coordinate.forEach(coordinate => {
-            let marker = googleApi.createMarker(coordinate.lat, coordinate.lng, googleApi.map);
-            // let marker = L.marker(new L.LatLng(coordinate.lat, coordinate.lng), {});
-            googleApi.createInfoWindow(marker, content[index]);
+            let marker = mapApi.createMarker(coordinate.lat, coordinate.lng, mapApi.map);
+            mapApi.createInfoWindow(marker, content[index]);
             if (markers.length == 0) {
                 marker.openPopup();
             }
             markers.push(marker);
-            // markers2.addLayer(marker);
             index += 1;
         });
 
-        googleApi.setZoom(16);
-        googleApi.setCenter(coordinate[0].lat, coordinate[0].lng);
+        mapApi.setZoom(16);
+        mapApi.setCenter(coordinate[0].lat, coordinate[0].lng);
 
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
         }
-        // googleApi.map.addLayer(markers);
     }
 
+    convertToCorrectFormat(polygon) {
+        polygon.forEach((x) => [x[0], x[1]] = [x[1], x[0]]);
+    }
 
     updateMarkerPolygon(content, coordinate, polygons, doorsText) {
-        markers.forEach(x => googleApi.map.removeLayer(x));
-        markers = [];
+        this.cleanUpMarkers();
+
         let index = 0;
-
         polygons.forEach(polygon => {
-            console.log(polygon);
-            polygon.forEach((x)=>{
-                let tmp = x[0];
-                x[0] =x[1];
-                x[1] = tmp;
-            });
-            console.log(polygon);
-            let markerTmp = L.polygon(polygon).addTo(googleApi.map);
+            this.convertToCorrectFormat(polygon);
+            let markerPolygon = L.polygon(polygon).addTo(mapApi.map);
+            let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
 
-            let marker = googleApi.createMarker(coordinate[index].lat, coordinate[index].lng, googleApi.map);
-            googleApi.createInfoWindow(markerTmp, content[index]);
-            googleApi.createInfoWindow(marker, `Wejście do budynku:<br>${doorsText}`);
+            mapApi.createInfoWindow(markerPolygon, content[index]);
+            mapApi.createInfoWindow(marker, `Wejście do budynku:<br>${doorsText}`);
             if (markers.length == 0) {
-                // marker.openPopup();
-                markerTmp.openPopup();
+                markerPolygon.openPopup();
             }
-            markers.push(markerTmp);
+            markers.push(markerPolygon);
             markers.push(marker);
             index += 1;
         });
-        googleApi.setZoom(16);
-        googleApi.setCenter(coordinate[0].lat, coordinate[0].lng);
+        mapApi.setZoom(16);
+        mapApi.setCenter(coordinate[0].lat, coordinate[0].lng);
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
         }
@@ -530,7 +494,6 @@ class View {
 
     setMarkerCloseModal(element, index) {
         QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id + "&index=" + index);
-
         mui.overlay('off');
         this.setMarker(index);
     }
@@ -574,16 +537,12 @@ class View {
     buildingModal(element) {
         QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
 
-        let idBuildings = element.id;
         let index = -1;
-        let building = data.getBuildingsById(idBuildings);
-
+        let building = data.getBuildingsById(element.id);
         let tmp = `<div class="mui-divider"></div><a href='javascript:view.setMarkerCloseModal(${JSON.stringify({
             id: element.id,
             name: element.name
         })},${index})'>${building.name}</a><br><p>${building.address}</p>`;
-
-
     }
 
     activateModal() {
@@ -596,7 +555,7 @@ class View {
 
     setMarker(index) {
         let position = markers[index]._latlng;
-        googleApi.setCenter(position.lat, position.lng);
+        mapApi.setCenter(position.lat, position.lng);
         markers[index].openPopup();
     }
 
@@ -695,7 +654,6 @@ class View {
         this.updateMapSize();
     }
 
-
     updateMapSize() {
         this.mapElement = document.getElementById("map");
         let sideListWidth = 300;
@@ -725,7 +683,7 @@ class View {
             this.mapElement.style.width = `${window.innerWidth}px`;
         }
 
-        googleApi.resizeMap(this.mapElement);
+        mapApi.resizeMap();
     }
 
     searchExt() {
@@ -741,10 +699,8 @@ class View {
     }
 }
 
-class GoogleMapsApi {
-
-
-    getPopout(tmpGroup){
+class MapsApi {
+    getPopout(tmpGroup) {
         return "tekst";
     }
 
@@ -760,7 +716,7 @@ class GoogleMapsApi {
             "Cities": cities
         };
 
-        data.campuses.forEach(x=>{
+        data.campuses.forEach(x => {
 
             overlays[x.name] = cities;//x.name;
             //todo
@@ -771,7 +727,6 @@ class GoogleMapsApi {
             //     }
             // });
         });
-
 
 
         let mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -788,20 +743,17 @@ class GoogleMapsApi {
             "Pełna": full
         };
 
-        // cities
         this.map = L.map('map', {layers: [full]}).setView(initCoordinate, zoom);
-        //overlays
+
         L.control.layers(baseLayers).addTo(this.map);
 
         L.control.locate().addTo(this.map);
 
         L.control.fullscreen({
-            position: 'topleft', // change the position of the button can be topleft, topright, bottomright or bottomleft, defaut topleft
-            title: 'Show me the fullscreen !', // change the title of the button, default Full Screen
-            titleCancel: 'Exit fullscreen mode', // change the title of the button when fullscreen is on, default Exit Full Screen
-            forceSeparateButton: true, // force seperate button to detach from zoom buttons, default false
-            forcePseudoFullscreen: true, // force use of pseudo full screen even if full screen API is available, default false
-            fullscreenElement: false // Dom element to render in full screen, false by default, fallback to map._container
+            position: 'topleft',
+            forceSeparateButton: true,
+            forcePseudoFullscreen: true,
+            fullscreenElement: false
         }).addTo(this.map);
 
         this.map.on('enterFullscreen', function () {
@@ -811,15 +763,12 @@ class GoogleMapsApi {
 
         this.map.on('exitFullscreen', function () {
             view.mapElement.style.top = '64px';
-            // view.resizeMap();
         });
-
 
         // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         //     maxZoom: 19,
         //     minZoom: 7,
         // }).addTo(this.map);
-
 
         // JSONHelper.loadJSON('json/buildings.geojson', (myRegions) => {
         //     // var myRegions = ;
@@ -846,52 +795,30 @@ class GoogleMapsApi {
     createMarker(x, y, map1) {
         let doorIcon = new L.icon({
             iconUrl: 'door.png',
-            iconSize:     [30, 30], // size of the icon
-            iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
-            // shadowAnchor: [4, 62],  // the same for the shadow
-            // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            iconSize: [30, 30],
+            iconAnchor: [10, 10],
         });
-        return L.marker([x, y],{icon:doorIcon}).addTo(map1);
-        // return L.marker([x, y]).addTo(map1);
-
+        return L.marker([x, y], {icon: doorIcon}).addTo(map1);
     }
 
     createInfoWindow(marker, content) {
         marker.bindPopup(content);
-        // return new google.maps.InfoWindow({content: content});
-
-    }
-
-    addEventListenerInfoWindow() {
-        // return google.maps.event.addListener(marker, 'click', () => {
-        //     infowindow.open(map, marker);
-        // });
     }
 
     setZoom(zoom) {
-        // map.setZoom(zoom);
     }
 
     setCenter(x, y) {
         this.map.panTo(new L.LatLng(x, y));
-        // map.setCenter(new google.maps.LatLng(x, y));
-
     }
 
-    resizeMap(mapElement) {
+    resizeMap() {
         try {
             this.map.invalidateSize();
-            // google.maps.event.trigger(mapElement, 'resize');
         } catch (e) {
             console.error(e)
         }
     }
-
-    addListener(marker, eventType, fun) {
-        // google.maps.event.addListener(marker, eventType, fun);
-    }
-
-
 }
 
 function init() {
