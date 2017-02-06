@@ -59,18 +59,10 @@ class QueryHelper {
         }
         else if (queryString.buildingId !== undefined) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-            if (building.polygon.length > 0) {
                 view.updateMarkerPolygon(view.prepareInfoContent(building, false), [{
                     "lat": Number(building.lat),
                     "lng": Number(building.lng)
-                }], [building.polygon], building.name);
-            }
-            else {
-                view.updateMarkerExt(view.prepareInfoContent(building, false), [{
-                    "lat": Number(building.lat),
-                    "lng": Number(building.lng)
-                }]);
-            }
+                }], [building.polygon]);
         }
     }
 
@@ -440,22 +432,22 @@ class View {
         polygon.forEach((x) => [x[0], x[1]] = [x[1], x[0]]);
     }
 
-    updateMarkerPolygon(content, coordinate, polygons, doorsText) {
+    updateMarkerPolygon(content, coordinate, polygons) {
         this.cleanUpMarkers();
 
         let index = 0;
         polygons.forEach(polygon => {
             this.convertToCorrectFormat(polygon);
             let markerPolygon = L.polygon(polygon).addTo(mapApi.map);
-            let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
+            // let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
 
             mapApi.createInfoWindow(markerPolygon, content[index]);
-            mapApi.createInfoWindow(marker, `Wejście do budynku:<br>${doorsText}`);
+            // mapApi.createInfoWindow(marker, `Wejście do budynku:<br>${doorsText}`);
             if (markers.length == 0) {
                 markerPolygon.openPopup();
             }
             markers.push(markerPolygon);
-            markers.push(marker);
+            // markers.push(marker);
             index += 1;
         });
         mapApi.setZoom(16);

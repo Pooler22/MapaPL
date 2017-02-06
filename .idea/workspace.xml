@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json/buildings.json" afterPath="$PROJECT_DIR$/json/buildings.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_over_es2015.js" afterPath="$PROJECT_DIR$/script_over_es2015.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +23,52 @@
     <favorites_list name="MapaPL" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7237">
+              <caret line="416" column="35" lean-forward="true" selection-start-line="416" selection-start-column="35" selection-end-line="416" selection-end-column="35" />
+              <folding>
+                <element signature="n#JSONHelper#0" expanded="false" />
+                <marker date="1486398446856" expanded="true" signature="3412:3428" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="7188:8275" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="9401:9948" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="9489:9762" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="10141:10249" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="11236:11625" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="11324:11439" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="12016:12029" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="12647:12660" ph="..." />
+                <marker date="1486398446856" expanded="true" signature="25286:25292" ph="©" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buildings.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json/buildings.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="347" column="12" lean-forward="false" selection-start-line="347" selection-start-column="5" selection-end-line="347" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -36,10 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getAddres</find>
-      <find>building</find>
-      <find>let building = data.getBuildingsById</find>
-      <find>101</find>
       <find>buildingID</find>
       <find>createMarker</find>
       <find>place</find>
@@ -53,8 +94,6 @@
       <find>createInfoWindow</find>
       <find>fu</find>
       <find>l.marker</find>
-      <find>updateMarkerPolygon</find>
-      <find>polygon</find>
       <find>google</find>
       <find>idBuildings</find>
       <find>addEventListenerInfoWindow</find>
@@ -66,6 +105,12 @@
       <find>b28</find>
       <find>70</find>
       <find>building.name</find>
+      <find>marker</find>
+      <find>activateModalPlace</find>
+      <find>updateMarkerPolygon</find>
+      <find>updateMarkerExt</find>
+      <find>polygon</find>
+      <find>coordinate.lat</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -129,8 +174,8 @@
         <option value="$PROJECT_DIR$/json/places.json" />
         <option value="$PROJECT_DIR$/json/campuses.json" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/script_over_es2015.js" />
         <option value="$PROJECT_DIR$/json/buildings.json" />
+        <option value="$PROJECT_DIR$/script_over_es2015.js" />
       </list>
     </option>
   </component>
@@ -341,14 +386,7 @@
       <workItem from="1484576047617" duration="75000" />
       <workItem from="1484587473425" duration="1881000" />
       <workItem from="1484680110186" duration="16822000" />
-      <workItem from="1486317692287" duration="31002000" />
-    </task>
-    <task id="LOCAL-00022" summary="refactoring">
-      <created>1483654305759</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1483654305759</updated>
+      <workItem from="1486317692287" duration="31986000" />
     </task>
     <task id="LOCAL-00023" summary="refactoring">
       <created>1483732647651</created>
@@ -686,17 +724,24 @@
       <option name="project" value="LOCAL" />
       <updated>1486378720955</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="update base">
+      <created>1486397577624</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1486397577624</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240534000" />
+    <option name="totallyTimeSpent" value="241518000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="312" width="1366" height="768" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34277198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16393442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -747,7 +792,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="transpile" />
     <MESSAGE value="fix v2" />
     <MESSAGE value="fix v3" />
     <MESSAGE value="find to filter fix" />
@@ -772,7 +816,8 @@
     <MESSAGE value="prepare ad polygons" />
     <MESSAGE value="prepare polygons and dor icon" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="update base" />
+    <option name="LAST_COMMIT_MESSAGE" value="update base" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1006,24 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json/buildings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="352" column="7" lean-forward="true" selection-start-line="352" selection-start-column="7" selection-end-line="352" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/json/places.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1032,23 +1059,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/buildings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="347" column="12" lean-forward="false" selection-start-line="347" selection-start-column="5" selection-end-line="347" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="818" column="15" lean-forward="true" selection-start-line="818" selection-start-column="15" selection-end-line="818" selection-end-column="15" />
+        <state relative-caret-position="-7237">
+          <caret line="416" column="35" lean-forward="true" selection-start-line="416" selection-start-column="35" selection-end-line="416" selection-end-column="35" />
           <folding>
             <element signature="n#JSONHelper#0" expanded="false" />
-            <marker date="1486378701559" expanded="true" signature="3721:3737" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="7497:8584" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="9710:10257" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="9798:10071" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="10450:10558" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="10831:10892" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="11545:11934" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="11633:11748" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="12325:12338" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="12956:12969" ph="..." />
-            <marker date="1486378701559" expanded="true" signature="25597:25603" ph="©" />
+            <marker date="1486398446856" expanded="true" signature="3412:3428" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="7188:8275" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="9401:9948" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="9489:9762" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="10141:10249" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="11236:11625" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="11324:11439" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="12016:12029" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="12647:12660" ph="..." />
+            <marker date="1486398446856" expanded="true" signature="25286:25292" ph="©" />
           </folding>
         </state>
       </provider>
