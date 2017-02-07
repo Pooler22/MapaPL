@@ -48,7 +48,7 @@ class QueryHelper {
             if (queryString.index !== undefined) {
                 let place = data.getPlacesById(queryString.placeId)[0];
                 let coordinates = data.getCoordinate(place.building);
-                [coordinates[queryString.index],coordinates[0]] = [coordinates[0],coordinates[queryString.index]];
+                [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
                 view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
             }
             else {
@@ -57,7 +57,7 @@ class QueryHelper {
         }
         else if (queryString.buildingId !== undefined) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-                view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
+            view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
         }
     }
 
@@ -154,22 +154,12 @@ class Data {
     }
 }
 
-class View {
-    constructor() {
-        this.sidedrawerElement = document.getElementById('sidedrawer');
-        this.mapElement = document.getElementById('map');
-        this.modal = View.initModal();
-        this.sizeMin = 768;
-        this.lastWidth = window.innerWidth;
-        this.isOpenPanel = this.lastWidth > this.sizeMin;
-        window.addEventListener('resize', this.updateMapSize);
-        document.addEventListener('resize', this.updateMapSize);
-        this.initMap()
-    }
-
+class Modal {
     static initModal() {
         let modal = document.createElement('div');
-        modal.innerHTML = `<div class='mui-container mui-panel'><h2>Mapa Politechniki Łódzkiej</h2>` +
+        modal.innerHTML =
+            `<div class='mui-container mui-panel'>` +
+            `<h2>Mapa Politechniki Łódzkiej</h2>` +
             `<p>Niniejsza strona jest projektem od studentów dla studentów i nie tylko.</p>` +
             `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz!. Link poniżej:</p>` +
             `<div class="mui-row mui--text-center">` +
@@ -181,6 +171,54 @@ class View {
             `</div>`;
         modal.style.margin = '10px auto auto auto';
         return modal;
+    }
+
+    static initModalInfoPlace(element) {
+        let modal = document.createElement('div');
+        modal.innerHTML = `<div class='mui-container mui-panel'>` +
+            `<h1>${View.getShort(element)} ${element.name}</h1>` +
+            ` <dl>
+                      ${View.getCategory(element)}
+                      ${View.getElement(element, "website", "Strona www")}
+                       ${View.getElement(element, "buildings", "Budynki")}
+                      ${View.getElement(element, "tags", "Tagi")}
+                  </dl>` +
+            `<div class="mui-row mui--text-center">` +
+            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
+            `</div>` +
+            `</div>`;
+        modal.style.margin = '10px auto auto auto';
+        return modal;
+    }
+
+    static initModalInfoBuilding(element) {
+        let modal = document.createElement('div');
+        modal.innerHTML = `<div class='mui-container mui-panel'>` +
+            `<h1>${View.getShort(element)}${element.name}</h1>` +
+            ` <dl>${View.getElement(element, "address", "Adres")}
+                ${View.getPlaces(element)}
+                ${View.getElement(element, "tags", "Tagi")}</dl>` +
+            `<div class="mui-row mui--text-center">` +
+            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
+            `</div>` +
+            `</div>`;
+        modal.style.margin = '10px auto auto auto';
+        return modal;
+    }
+
+}
+
+class View {
+    constructor() {
+        this.sidedrawerElement = document.getElementById('sidedrawer');
+        this.mapElement = document.getElementById('map');
+        this.modal = Modal.initModal();
+        this.sizeMin = 768;
+        this.lastWidth = window.innerWidth;
+        this.isOpenPanel = this.lastWidth > this.sizeMin;
+        window.addEventListener('resize', this.updateMapSize);
+        document.addEventListener('resize', this.updateMapSize);
+        mapApi = this.initMap()
     }
 
     static getCategory(element) {
@@ -209,77 +247,39 @@ class View {
         }
     }
 
+    static isAndNotEmpty(element) {
+        return element !== undefined && element !== "";
+    }
+
     static getElement(element, propertyName, propertText) {
-        if (element[propertyName] !== undefined && element[propertyName] !== "") {
-            return `<dt>${propertText}</dt><dd>${element[propertyName]}</dd>`;
-        } else {
-            return ``;
-        }
+        return View.isAndNotEmpty(element[propertyName]) ? `<dt>${propertText}</dt><dd>${element[propertyName]}</dd>` : ``;
     }
 
     static getShort(element) {
-        if (element.short !== undefined && element.short.trim() !== "") {
-            return `${element.short} - `;
-        } else {
-            return ``;
-        }
+        return View.isAndNotEmpty(element.short) ? `${element.short} - ` : ``;
     }
 
     static getPlaces(element) {
         let placess = data.places.filter(x => x.building.split(",").some(y => y == element.id));
         if (placess.length > 0) {
-            return "<dt>Jednostki w budynku</dt><dd>" + placess.reduce((x, y) => {
+            return "<dt>Jednostki w budynku</dt><dd>" +
+                placess.reduce((x, y) => {
                     return x + `<a href="?placeId=${y.id}">${y.name}</a><br>`;
-                }, "") + "</dd>";
+                }, ``) +
+                "</dd>";
         } else {
-            return "";
+            return ``;
         }
     }
 
     static getAddresExt(element) {
-        if (element.address !== "") {
-            return element.address;
-        } else {
-            return "";
-        }
-    }
-
-    static initModalInfoPlace(element) {
-        let modal = document.createElement('div');
-        modal.innerHTML = `<div class='mui-container mui-panel'>` +
-            `<h1>${View.getShort(element)} ${element.name}</h1>` +
-            ` <dl>
-                      ${View.getCategory(element)}
-                      ${View.getElement(element,"website","Strona www")}
-                       ${View.getElement(element,"buildings","Budynki")}
-                      ${View.getElement(element,"tags","Tagi")}
-                  </dl>` +
-            `<div class="mui-row mui--text-center">` +
-            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
-            `</div>` +
-            `</div>`;
-        modal.style.margin = '10px auto auto auto';
-        return modal;
-    }
-
-    static initModalInfoBuilding(element) {
-        let modal = document.createElement('div');
-        modal.innerHTML = `<div class='mui-container mui-panel'>` +
-            `<h1>${View.getShort(element)}${element.name}</h1>` +
-            ` <dl>${View.getElement(element,"address","Adres")}
-                ${View.getPlaces(element)}
-                ${View.getElement(element,"tags","Tagi")}</dl>` +
-            `<div class="mui-row mui--text-center">` +
-            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
-            `</div>` +
-            `</div>`;
-        modal.style.margin = '10px auto auto auto';
-        return modal;
+        return View.isAndNotEmpty(element.address) ? element.address : ``;
     }
 
     initMap() {
         const zoom = 16;
-        mapApi = new MapsApi(this.mapElement, zoom, [51.749845, 19.453180]);
+        const initPosition = [51.749845, 19.453180];
+        return new MapsApi(this.mapElement, zoom, initPosition);
     }
 
     printBuildings(buildings) {
@@ -369,7 +369,7 @@ class View {
                 iconSize: [30, 30],
                 iconAnchor: [10, 10],
             });
-            let marker =  L.marker(coordinate, {icon: doorIcon});
+            let marker = L.marker(coordinate, {icon: doorIcon});
             marker.addTo(mapApi.map);
             marker.bindPopup(content[index]);
             if (markers.length == 0) {
@@ -433,11 +433,11 @@ class View {
     activateModalInfo(id, isPlace) {
         if (isPlace) {
             let place = data.getPlacesById(id)[0];
-            mui.overlay('on', View.initModalInfoPlace(place));
+            mui.overlay('on', Modal.initModalInfoPlace(place));
         }
         else {
             let building = data.getBuildingsById(id)[0];
-            mui.overlay('on', View.initModalInfoBuilding(building));
+            mui.overlay('on', Modal.initModalInfoBuilding(building));
         }
     }
 
@@ -453,11 +453,11 @@ class View {
         let idBuildings = element.building.split(',');
         let index = -1;
 
-        let tmp = idBuildings.map( ()=> {
+        let tmp = idBuildings.map(() => {
             let result = idBuildings.reduce((a, x) => {
                 let tmp = data.buildings.filter(y => y.id == x)[0];
                 index += 1;
-                return a + `<div class="mui-divider"></div><a href='javascript:View.setMarkerCloseModal(${JSON.stringify({
+                return a + `<div class="mui-divider"></div><a href='javascript:view.setMarkerCloseModal(${JSON.stringify({
                         id: element.id,
                         name: element.name
                     })},${index})'>${tmp.name}</a><br><p>${tmp.address}</p>`
@@ -497,7 +497,7 @@ class View {
 
     static setMarker(index) {
         let position = markers[index]._latlng;
-        mapApi.setCenter([position.lat,position.lng]);
+        mapApi.setCenter([position.lat, position.lng]);
         markers[index].openPopup();
     }
 

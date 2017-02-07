@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb70d92a-b1a0-4199-b1ca-fc380b25c65b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.js" afterPath="$PROJECT_DIR$/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script_over_es2015.js" afterPath="$PROJECT_DIR$/script_over_es2015.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,33 +27,32 @@
       <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="574" column="14" lean-forward="false" selection-start-line="574" selection-start-column="14" selection-end-line="574" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="n#JSONHelper#0" expanded="false" />
-                <element signature="n#QueryHelper#0" expanded="false" />
                 <element signature="n#!!block;n#decodeQueryString#0;n#QueryHelper#0" expanded="false" />
                 <element signature="n#!!block;n#constructor#0;n#MapsApi#0" expanded="false" />
-                <element signature="n#!!block;n#init#0" expanded="false" />
-                <marker date="1486403480592" expanded="true" signature="3225:3241" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="9073:9633" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="9162:9447" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="9876:10301" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="9964:10115" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="10670:10683" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="11301:11314" ph="..." />
-                <marker date="1486403480592" expanded="true" signature="23328:23334" ph="©" />
+                <marker date="1486409148240" expanded="true" signature="3223:3239" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="6508:7074" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="6597:6888" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="7317:7746" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="7405:7560" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="10682:10695" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="11313:11326" ph="..." />
+                <marker date="1486409148240" expanded="true" signature="23342:23348" ph="©" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buildings.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json/buildings.json">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="26" lean-forward="true" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="173">
+              <caret line="54" column="33" lean-forward="false" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+              <folding>
+                <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,14 +70,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>et marker = mapApi.createMarker(coordi</find>
-      <find>lng</find>
-      <find>coordinate</find>
-      <find>createMarker</find>
-      <find>createMa</find>
-      <find>[</find>
-      <find>return [</find>
-      <find>coordinates</find>
       <find>ap.panTo(new L.LatLng(lat</find>
       <find>setCenter</find>
       <find>updateMarkerPolygonupdateMarkerPolygon</find>
@@ -102,6 +92,14 @@
       <find>y</find>
       <find>buildingModal</find>
       <find>view.setMarker</find>
+      <find>listElement</find>
+      <find>setMarkerCloseModal</find>
+      <find>mui.overlay</find>
+      <find>listSearched</find>
+      <find>initModal</find>
+      <find>initModalInfoPlace</find>
+      <find>initModalInfoBuilding</find>
+      <find>initMap</find>
     </findStrings>
     <replaceStrings>
       <replace>faculty</replace>
@@ -181,8 +179,6 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1920" />
-    <option name="y" value="312" />
     <option name="width" value="1366" />
     <option name="height" value="768" />
   </component>
@@ -231,7 +227,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -260,6 +255,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,14 +377,8 @@
       <workItem from="1484576047617" duration="75000" />
       <workItem from="1484587473425" duration="1881000" />
       <workItem from="1484680110186" duration="16822000" />
-      <workItem from="1486317692287" duration="36939000" />
-    </task>
-    <task id="LOCAL-00025" summary="prepare Info Content ext">
-      <created>1483741325022</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1483741325022</updated>
+      <workItem from="1486317692287" duration="41172000" />
+      <workItem from="1486465329496" duration="1274000" />
     </task>
     <task id="LOCAL-00026" summary="refactoring">
       <created>1483950594429</created>
@@ -726,35 +716,42 @@
       <option name="project" value="LOCAL" />
       <updated>1486402098211</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="hard cleanup">
+      <created>1486403518627</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1486403518627</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246471000" />
+    <option name="totallyTimeSpent" value="251978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="312" width="1366" height="768" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16393442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5086072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17069243" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14285715" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25281805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5086072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -787,7 +784,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="find to filter fix" />
     <MESSAGE value="add modal info" />
     <MESSAGE value="old browser fix" />
     <MESSAGE value="hotfix v2" />
@@ -812,11 +808,12 @@
     <MESSAGE value="update base" />
     <MESSAGE value="prepare to refactoring" />
     <MESSAGE value="remove lat lng and add latLng" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove lat lng and add latLng" />
+    <MESSAGE value="hard cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="hard cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="43" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -996,7 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
           <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,7 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,7 +1024,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="984" column="19" lean-forward="false" selection-start-line="984" selection-start-column="17" selection-end-line="984" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1051,17 +1044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="2474" column="0" lean-forward="false" selection-start-line="2474" selection-start-column="0" selection-end-line="2474" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="54" column="33" lean-forward="true" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,28 +1051,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="792">
           <caret line="44" column="26" lean-forward="true" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="54" column="33" lean-forward="false" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="574" column="14" lean-forward="false" selection-start-line="574" selection-start-column="14" selection-end-line="574" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#JSONHelper#0" expanded="false" />
-            <element signature="n#QueryHelper#0" expanded="false" />
             <element signature="n#!!block;n#decodeQueryString#0;n#QueryHelper#0" expanded="false" />
             <element signature="n#!!block;n#constructor#0;n#MapsApi#0" expanded="false" />
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1486403480592" expanded="true" signature="3225:3241" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="9073:9633" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="9162:9447" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="9876:10301" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="9964:10115" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="10670:10683" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="11301:11314" ph="..." />
-            <marker date="1486403480592" expanded="true" signature="23328:23334" ph="©" />
+            <marker date="1486409148240" expanded="true" signature="3223:3239" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="6508:7074" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="6597:6888" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="7317:7746" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="7405:7560" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="10682:10695" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="11313:11326" ph="..." />
+            <marker date="1486409148240" expanded="true" signature="23342:23348" ph="©" />
           </folding>
         </state>
       </provider>
