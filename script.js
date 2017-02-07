@@ -313,7 +313,6 @@ var View = function () {
             tmp += "<ul style='display:none;'>";
 
             if (category.subcategory !== undefined) {
-                // tmp += `<ul style='display:none;'>`;
                 category.subcategory.split(",").map(function (x) {
 
                     var tmp1 = data.categories.filter(function (a) {
@@ -323,7 +322,6 @@ var View = function () {
                     tmp += view.printCategories(tmp1);
                     tmp1[0].isSubCat = true;
                 });
-                // tmp += `</ul>`;
             } else {
                 category.places.forEach(function (place) {
                     if (place.short == undefined) {

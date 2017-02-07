@@ -1,7 +1,3 @@
-/**
- * Pooler22 copyright. all right reserved
- */
-var tmp;
 
 let view, data, mapApi;
 let map, markers = [];
@@ -66,8 +62,16 @@ class Data {
         this.buildings = buildings;
         this.categories = categories;
         this.places = places;
-
+        this.buildings.forEach(
+            x => {
+                x.polygon = Data.convertToCorrectFormat(x.polygon);
+            }
+        );
         this.extendCategories(this.categories);
+    }
+
+    static convertToCorrectFormat(polygon) {
+        return polygon.map((x) => [x[0], x[1]] = [x[1], x[0]]);
     }
 
     extendCategories(categories) {
@@ -142,7 +146,7 @@ class Data {
         if (element.short_name) {
             tmp2 = element.short_name.toLowerCase().search(searched) != -1
         }
-        if(!element.short){
+        if (!element.short) {
             element.short = "";
         }
         return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
@@ -213,7 +217,9 @@ class View {
         this.isOpenPanel = this.lastWidth > this.sizeMin;
         window.addEventListener('resize', this.updateMapSize);
         document.addEventListener('resize', this.updateMapSize);
-        mapApi = this.initMap()
+        const zoom = 16;
+        const initPosition = [51.749845, 19.453180];
+        mapApi = new MapsApi(this.mapElement, zoom, initPosition);
     }
 
     static getCategory(element) {
@@ -254,9 +260,7 @@ class View {
         let placess = data.places.filter(x => x.building.split(",").some(y => y == element.id));
         if (placess.length > 0) {
             return "<dt>Jednostki w budynku</dt><dd>" +
-                placess.reduce((x, y) => {
-                    return x + `<a href="?placeId=${y.id}">${y.name}</a><br>`;
-                }, ``) +
+                placess.reduce((x, y) => x + `<a href="?placeId=${y.id}">${y.name}</a><br>`, ``) +
                 "</dd>";
         } else {
             return ``;
@@ -267,12 +271,6 @@ class View {
         return element.address ? element.address : ``;
     }
 
-    initMap() {
-        const zoom = 16;
-        const initPosition = [51.749845, 19.453180];
-        return new MapsApi(this.mapElement, zoom, initPosition);
-    }
-
     printBuildings(buildings) {
         return `<strong onclick='View.toggleListElement(this);'>Budynki${View.arrowSpan()}</strong>`
             + `<ul style='display:none;'>`
@@ -281,14 +279,9 @@ class View {
     }
 
     printCategories(categories1) {
-        return categories1.reduce((a, category) => {
-            if (category.isSubCat) {
-                return a;
-            }
-            else {
-                return a + `<li>${this.printCategory(category)}</li>`
-            }
-        }, "");
+        return categories1.reduce(
+            (a, category) => a + (!category.isSubCat ? `<li>${this.printCategory(category)}</li>` : ``)
+            , ``);
     }
 
     printCategory(category) {
@@ -329,17 +322,14 @@ class View {
     prepareUpdateMarker(id, isPlace = false) {
         if (isPlace) {
             let element = data.places.filter(place => place.id == id)[0];
-            this.updateMarkerExt(this.prepareInfoContent(element, true), (data.getCoordinate(element.building)));
+            let polygons = element.building.split(",").map(x => data.getBuildingsById(x)[0].polygon);
+            this.updatePolygon(this.prepareInfoContent(element, true), data.getCoordinate(element.building), polygons);
         }
         else {
-            let element = data.buildings.filter(building => building.id == id)[0];
-            this.updateMarkerExt1(this.prepareInfoContent(element, false), [element.latLng]);
+            let building = data.buildings.filter(building => building.id == id)[0];
+            this.updatePolygon(this.prepareInfoContent(building, false), [building.latLng], [building.polygon]);
         }
         mui.overlay('off');
-    }
-
-    updateMarkerExt1(content, latLng) {
-        this.updateMarkerExt(content, latLng);
     }
 
     cleanUpMarkers() {
@@ -347,89 +337,26 @@ class View {
         markers = [];
     }
 
-    updateMarkerExt(content, coordinate) {
-        this.cleanUpMarkers();
-        let index = 0;
-        coordinate.forEach(coordinate => {
-
-            let doorIcon = new L.icon({
-                iconUrl: 'door.png',
-                iconSize: [30, 30],
-                iconAnchor: [10, 10],
-            });
-            let marker = L.marker(coordinate, {icon: doorIcon});
-            marker.addTo(mapApi.map);
-            marker.bindPopup(content[index]);
-            if (markers.length == 0) {
-                marker.openPopup();
-            }
-            markers.push(marker);
-            index += 1;
-        });
-
-        mapApi.setCenter(coordinate[0]);
-
-        if (window.innerWidth < this.sizeMin) {
-            view.closeSidedraver();
-        }
+    isMobile() {
+        return window.innerWidth < this.sizeMin
     }
 
-    static convertToCorrectFormat(polygon) {
-        polygon.forEach((x) => [x[0], x[1]] = [x[1], x[0]]);
-    }
-
-    static convertToCorrectFormatExt(polygon) {
-        return polygon.map((x) => [x[0], x[1]] = [x[1], x[0]]);
-    }
-
-    updateMarkerPolygon(content, coordinate, polygons) {
+    updatePolygon(content, coordinate, polygons) {
         this.cleanUpMarkers();
 
         let index = 0;
         polygons.forEach(polygon => {
-            View.convertToCorrectFormat(polygon);
-            let markerPolygon = L.polygon(polygon).addTo(mapApi.map);
-            // let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
-
-            markerPolygon.bindPopup(content[index]);
-            // marker.bindPopup(, `Wejście do budynku:<br>${doorsText}`);
-            if (markers.length == 0) {
-                markerPolygon.openPopup();
-            }
+            let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content[index]);
             markers.push(markerPolygon);
-            // markers.push(marker);
+            markers[index]._latlng = {lat: coordinate[index][0], lng: coordinate[index][1]};
             index += 1;
         });
 
-        mapApi.setCenter(coordinate);
-        if (window.innerWidth < this.sizeMin) {
-            view.closeSidedraver();
-        }
-    }
+        markers[0].openPopup();
 
-
-    updateMarkerPolygonExt(content, coordinate, polygons) {
-        this.cleanUpMarkers();
-
-        let index = 0;
-        polygons.forEach(polygon => {
-            View.convertToCorrectFormat(polygon);
-            let markerPolygon = L.polygon(polygon).addTo(mapApi.map);
-            // let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
-
-            markerPolygon.bindPopup(content[index]);
-            // marker.bindPopup(, `Wejście do budynku:<br>${doorsText}`);
-            if (markers.length == 0) {
-                markerPolygon.openPopup();
-            }
-            markers.push(markerPolygon);
-            markers[index]._latlng = {lat:coordinate[index][0],lng:coordinate[index][1]};
-            // markers.push(marker);
-            index += 1;
-        });
-        tmp = markers;
         mapApi.setCenter(coordinate[0]);
-        if (window.innerWidth < this.sizeMin) {
+
+        if (this.isMobile()) {
             view.closeSidedraver();
         }
     }
@@ -651,31 +578,18 @@ class View {
 
     static initFromQuery(queryString) {
         if (queryString.placeId) {
-            if (queryString.index) {
-                let place = data.getPlacesById(queryString.placeId)[0];
-                let coordinates = data.getCoordinate(place.building);
-                let polygons = data.getPolygons(place.building);
-                if(queryString.index != 0){
-                    console.log("index != 0");
-                    [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
-                    [polygons[queryString.index], polygons[0]] = [polygons[0], polygons[queryString.index]];
-                }
-                polygons = polygons.map(x=>View.convertToCorrectFormatExt(x));
-                console.log(polygons);
-                view.updateMarkerPolygonExt(view.prepareInfoContent(place, true), coordinates,polygons.map(x=>View.convertToCorrectFormatExt(x)));
+            let place = data.getPlacesById(queryString.placeId)[0];
+            let coordinates = data.getCoordinate(place.building);
+            let polygons = data.getPolygons(place.building);
+            if (queryString.index && queryString.index != 0) {
+                [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
+                [polygons[queryString.index], polygons[0]] = [polygons[0], polygons[queryString.index]];
             }
-            else {
-                let place = data.getPlacesById(queryString.placeId)[0];
-                let coordinates = data.getCoordinate(place.building);
-                let polygons = data.getPolygons(place.building);
-                polygons = polygons.map(x=>View.convertToCorrectFormatExt(x));
-                // console.log(polygons);
-                view.updateMarkerPolygonExt(view.prepareInfoContent(place, true), coordinates,polygons.map(x=>View.convertToCorrectFormatExt(x)));
-            }
+            view.updatePolygon(view.prepareInfoContent(place, true), coordinates, polygons);
         }
         else if (queryString.buildingId) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-            view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
+            view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.polygon]);
         }
     }
 }
