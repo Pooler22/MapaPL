@@ -1,6 +1,7 @@
 /**
  * Pooler22 copyright. all right reserved
  */
+var tmp;
 
 let view, data, mapApi;
 let map, markers = [];
@@ -89,8 +90,13 @@ class Data {
 
     getCoordinate(buildingIds) {
         return buildingIds.split(",").map(buildingId => {
-            let building = this.getBuildingsById(buildingId)[0];
-            return building.latLng;
+            return this.getBuildingsById(buildingId)[0].latLng;
+        });
+    }
+
+    getPolygons(buildingIds) {
+        return buildingIds.split(",").map(buildingId => {
+            return this.getBuildingsById(buildingId)[0].polygon;
         });
     }
 
@@ -107,7 +113,8 @@ class Data {
     }
 
     filterList(searched) {
-        let tmp = this.getSearchResult(searched, this.buildings, false) + this.getSearchResult(searched, this.places, true);
+        let tmp = this.getSearchResult(searched, this.buildings, false)
+            + this.getSearchResult(searched, this.places, true);
         this.listSearched.innerHTML = tmp ? `<strong>Wyniki wyszukiwania</strong><ul>${tmp}</ul>` : `<strong>Brak wyników</strong>`;
     }
 
@@ -134,6 +141,9 @@ class Data {
         }
         if (element.short_name) {
             tmp2 = element.short_name.toLowerCase().search(searched) != -1
+        }
+        if(!element.short){
+            element.short = "";
         }
         return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
     }
@@ -368,6 +378,10 @@ class View {
         polygon.forEach((x) => [x[0], x[1]] = [x[1], x[0]]);
     }
 
+    static convertToCorrectFormatExt(polygon) {
+        return polygon.map((x) => [x[0], x[1]] = [x[1], x[0]]);
+    }
+
     updateMarkerPolygon(content, coordinate, polygons) {
         this.cleanUpMarkers();
 
@@ -388,6 +402,33 @@ class View {
         });
 
         mapApi.setCenter(coordinate);
+        if (window.innerWidth < this.sizeMin) {
+            view.closeSidedraver();
+        }
+    }
+
+
+    updateMarkerPolygonExt(content, coordinate, polygons) {
+        this.cleanUpMarkers();
+
+        let index = 0;
+        polygons.forEach(polygon => {
+            View.convertToCorrectFormat(polygon);
+            let markerPolygon = L.polygon(polygon).addTo(mapApi.map);
+            // let marker = mapApi.createMarker(coordinate[index].lat, coordinate[index].lng, mapApi.map);
+
+            markerPolygon.bindPopup(content[index]);
+            // marker.bindPopup(, `Wejście do budynku:<br>${doorsText}`);
+            if (markers.length == 0) {
+                markerPolygon.openPopup();
+            }
+            markers.push(markerPolygon);
+            markers[index]._latlng = {lat:coordinate[index][0],lng:coordinate[index][1]};
+            // markers.push(marker);
+            index += 1;
+        });
+        tmp = markers;
+        mapApi.setCenter(coordinate[0]);
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
         }
@@ -613,8 +654,15 @@ class View {
             if (queryString.index) {
                 let place = data.getPlacesById(queryString.placeId)[0];
                 let coordinates = data.getCoordinate(place.building);
-                [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
-                view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
+                let polygons = data.getPolygons(place.building);
+                if(queryString.index != 0){
+                    console.log("index != 0");
+                    [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
+                    [polygons[queryString.index], polygons[0]] = [polygons[0], polygons[queryString.index]];
+                }
+                polygons = polygons.map(x=>View.convertToCorrectFormatExt(x));
+                console.log(polygons);
+                view.updateMarkerPolygonExt(view.prepareInfoContent(place, true), coordinates,polygons.map(x=>View.convertToCorrectFormatExt(x)));
             }
             else {
                 view.activateModalPlace(queryString.placeId);
