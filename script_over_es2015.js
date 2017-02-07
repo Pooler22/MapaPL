@@ -220,6 +220,19 @@ class View {
         const zoom = 16;
         const initPosition = [51.749845, 19.453180];
         mapApi = new MapsApi(this.mapElement, zoom, initPosition);
+
+    }
+
+    initAllPolygons() {
+        console.log(data.buildings);
+        data.buildings.forEach((building) => {
+            let content = view.prepareInfoContent(building, false, false);
+            console.log("test");
+            for (let index = 0; index < content.length; index++) {
+                View.drawPolygon(building.polygon, content[index]);
+                markers[index]._latlng = {lat: building.latLng[0], lng: building.latLng[1]};
+            }
+        });
     }
 
     static getCategory(element) {
@@ -344,13 +357,10 @@ class View {
     updatePolygon(content, coordinate, polygons) {
         this.cleanUpMarkers();
 
-        let index = 0;
-        polygons.forEach(polygon => {
-            let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content[index]);
-            markers.push(markerPolygon);
-            markers[index]._latlng = {lat: coordinate[index][0], lng: coordinate[index][1]};
-            index += 1;
-        });
+        for (let index = 0; index < content.length; index++) {
+            View.drawPolygon(polygons[index], content[index]);
+            markers[index]._latlng = {lat: coordinate[0], lng: coordinate[1]};
+        }
 
         markers[0].openPopup();
 
@@ -359,6 +369,11 @@ class View {
         if (this.isMobile()) {
             view.closeSidedraver();
         }
+    }
+
+    static drawPolygon(polygon, content) {
+        let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
+        markers.push(markerPolygon);
     }
 
     activateModalPlace(id) {
@@ -446,9 +461,11 @@ class View {
         markers[index].openPopup();
     }
 
-    prepareInfoContent(element, isPlace) {
+    prepareInfoContent(element, isPlace, normal = true) {
         if (isPlace) {
-            QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
+            if (normal) {
+                QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
+            }
 
             let idBuildings = element.building.split(',');
             if (idBuildings.length > 1) {
@@ -591,7 +608,12 @@ class View {
             let building = data.getBuildingsById(queryString.buildingId)[0];
             view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.polygon]);
         }
+        else {
+            view.initAllPolygons();
+        }
     }
+
+
 }
 
 class MapsApi {
