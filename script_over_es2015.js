@@ -74,6 +74,11 @@ class Data {
         return polygon.map((x) => [x[0], x[1]] = [x[1], x[0]]);
     }
 
+    campusToColor(campus) {
+        return data.campuses.filter(x => x.name[x.name.length - 1] == campus)[0].color;
+    }
+
+
     extendCategories(categories) {
         categories.forEach(category => {
             category.places = this.places.filter(place => place.category == category.id);
@@ -81,7 +86,7 @@ class Data {
     }
 
     preparePrintCategories() {
-        this.listElement.innerHTML = this.htmlCategoriesList = `<p style='margin-left:10px'>Lista miejsc:</p>${view.printCategories(this.categories) + view.printBuildings(this.buildings)}`;
+        this.listElement.innerHTML = `<p style='margin-left:10px'>Lista miejsc:</p>${view.printCategories(this.categories) + view.printBuildings(this.buildings)}`;
     }
 
     getPlacesById(id) {
@@ -101,6 +106,12 @@ class Data {
     getPolygons(buildingIds) {
         return buildingIds.split(",").map(buildingId => {
             return this.getBuildingsById(buildingId)[0].polygon;
+        });
+    }
+
+    getColors(buildingIds) {
+        return buildingIds.split(",").map(buildingId => {
+            return this.getBuildingsById(buildingId)[0].campus;
         });
     }
 
@@ -224,12 +235,10 @@ class View {
     }
 
     initAllPolygons() {
-        console.log(data.buildings);
         data.buildings.forEach((building) => {
             let content = view.prepareInfoContent(building, false, false);
-            console.log("test");
             for (let index = 0; index < content.length; index++) {
-                View.drawPolygon(building.polygon, content[index]);
+                View.drawPolygon(building.polygon, content[index], building.campus);
                 markers[index]._latlng = {lat: building.latLng[0], lng: building.latLng[1]};
             }
         });
@@ -336,11 +345,12 @@ class View {
         if (isPlace) {
             let element = data.places.filter(place => place.id == id)[0];
             let polygons = element.building.split(",").map(x => data.getBuildingsById(x)[0].polygon);
-            this.updatePolygon(this.prepareInfoContent(element, true), data.getCoordinate(element.building), polygons);
+            let colors = element.building.split(",").map(x => data.getBuildingsById(x)[0].campus);
+            this.updatePolygon(this.prepareInfoContent(element, true), data.getCoordinate(element.building), polygons, colors);
         }
         else {
             let building = data.buildings.filter(building => building.id == id)[0];
-            this.updatePolygon(this.prepareInfoContent(building, false), [building.latLng], [building.polygon]);
+            this.updatePolygon(this.prepareInfoContent(building, false), [building.latLng], [building.polygon], building.campus);
         }
         mui.overlay('off');
     }
@@ -354,12 +364,12 @@ class View {
         return window.innerWidth < this.sizeMin
     }
 
-    updatePolygon(content, coordinate, polygons) {
+    updatePolygon(content, coordinate, polygons, colors) {
         this.cleanUpMarkers();
 
         for (let index = 0; index < content.length; index++) {
-            View.drawPolygon(polygons[index], content[index]);
-            markers[index]._latlng = {lat: coordinate[0], lng: coordinate[1]};
+            View.drawPolygon(polygons[index], content[index], colors[index]);
+            markers[index]._latlng = {lat: coordinate[index][0], lng: coordinate[index][1]};
         }
 
         markers[0].openPopup();
@@ -371,8 +381,12 @@ class View {
         }
     }
 
-    static drawPolygon(polygon, content) {
+    static drawPolygon(polygon, content, campus) {
         let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
+        if (campus) {
+            let color = data.campusToColor(campus);
+            markerPolygon.setStyle({color: "#fff", fillColor: color, fillOpacity: 1});
+        }
         markers.push(markerPolygon);
     }
 
@@ -505,7 +519,9 @@ class View {
             }
         }
         else {
-            QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
+            if (normal) {
+                QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
+            }
             return [`<p><strong>${element.name}</strong><br>`
             + `${View.getAddresExt(element)}`
             + `</p><a href='javascript:view.activateModalInfo(${element.id},false);'>Więcej informacji</a>`];
@@ -602,11 +618,12 @@ class View {
                 [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
                 [polygons[queryString.index], polygons[0]] = [polygons[0], polygons[queryString.index]];
             }
-            view.updatePolygon(view.prepareInfoContent(place, true), coordinates, polygons);
+            let colors = data.getColors(place.building);
+            view.updatePolygon(view.prepareInfoContent(place, true), coordinates, polygons, colors);
         }
         else if (queryString.buildingId) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-            view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.polygon]);
+            view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.polygon], building.campus);
         }
         else {
             view.initAllPolygons();
@@ -621,24 +638,23 @@ class MapsApi {
 //todo
         let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33, B1,B2,B3,B6,B7,B9,B19,B22,B24,B25, C15, D1,D2,D3";
 
-        let cities = new L.LayerGroup();
 
-        L.marker([51.7547082, 19.4532694]).bindPopup('This is Littleton, CO.').addTo(cities);
+        // L.marker([51.7547082, 19.4532694]).bindPopup('This is Littleton, CO.').addTo(cities);
 
-        let overlays = {
-            "Cities": cities
-        };
+        let overlays = {};
+
+        let x = data.campuses.map(x => {
+            x.coordinates = Data.convertToCorrectFormat(x.coordinates);
+        });
 
         data.campuses.forEach(x => {
+            // let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
+            // markers.push(markerPolygon);
 
-            overlays[x.name] = cities;//x.name;
-            //todo
-            // overlays[x.name] = data.buildings.filter(x=>{
-            //     let tmpGroup = new L.LayerGroup();
-            //     if(x.short[0] == x.element[x.element.length-1]){
-            //         L.polygon(x.polygon).bindPopup(this.getPopout(x.id)).addTo(tmpGroup);
-            //     }
-            // });
+            overlays[x.name] = new L.LayerGroup();
+            let tmpPolygo = L.polygon(x.coordinates).bindPopup(MapsApi.getPopoutText(x.name));
+            tmpPolygo.setStyle({color: x.color, fillColor: x.color});
+            tmpPolygo.addTo(overlays[x.name]);
         });
 
 
@@ -655,10 +671,22 @@ class MapsApi {
             "Standardowa": streets,
             "Pełna": full
         };
+        let overlaysL = {
+            "Wszystkie Kampusy": overlays
+        };
+        this.map = L.map('map', {layers: [full, overlays["Kampus A"], overlays["Kampus B"], overlays["Kampus C"], overlays["Kampus D"], overlays["Kampus E"], overlays["Kampus F"],]}).setView(initCoordinate, zoom);
+        var options = {
+            // Make the "Landmarks" group exclusive (use radio inputs)
+            // exclusiveGroups: ["Landmarks"],
+            // Show a checkbox next to non-exclusive group labels for toggling all
+            groupCheckboxes: true
+        };
 
-        this.map = L.map('map', {layers: [full]}).setView(initCoordinate, zoom);
 
-        L.control.layers(baseLayers).addTo(this.map);
+        let layerControl = L.control.groupedLayers(baseLayers, overlaysL, options);
+        this.map.addControl(layerControl);
+
+        // L.control.layers(baseLayers).addTo(this.map);
 
         L.control.locate().addTo(this.map);
 
@@ -678,35 +706,10 @@ class MapsApi {
             view.mapElement.style.top = '64px';
         });
 
-        // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        //     maxZoom: 19,
-        //     minZoom: 7,
-        // }).addTo(this.map);
-
-        // JSONHelper.loadJSON('json/buildings.geojson', (myRegions) => {
-        //     // var myRegions = ;
-        //
-        //     var myStyle = {
-        //         "color": "#730007",
-        //         "opacity": 1,
-        //         "fillColor": "#fc0005",
-        //         "fillOpacity": 0.1
-        //     };
-        //
-        //     L.geoJson(myRegions, {style: myStyle}).addTo(this.map);
-        // });
-
-        // this.map.setView([41.8758,-87.6189], 16);
-        // var layer = Tangram.leafletLayer({
-        //     scene: 'https://raw.githubusercontent.com/tangrams/cinnabar-style/gh-pages/cinnabar-style.yaml',
-        //     attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | <a href="http://www.openstreetmap.org/about" target="_blank">&copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>',
-        // });
-        // layer.addTo(this.map);
-
     }
 
-    getPopout(tmpGroup) {
-        return "tekst";
+    static getPopoutText(tmpGroup) {
+        return `Kampus${tmpGroup}`;
     }
 
     setCenter(latLng) {
