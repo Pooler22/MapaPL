@@ -43,30 +43,15 @@ class QueryHelper {
     }
 
     static getQueryURL() {
-        let queryString = QueryHelper.decodeQueryString();
-        if (queryString.placeId !== undefined) {
-            if (queryString.index !== undefined) {
-                let place = data.getPlacesById(queryString.placeId)[0];
-                let coordinates = data.getCoordinate(place.building);
-                [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
-                view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
-            }
-            else {
-                view.activateModalPlace(queryString.placeId);
-            }
-        }
-        else if (queryString.buildingId !== undefined) {
-            let building = data.getBuildingsById(queryString.buildingId)[0];
-            view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
-        }
+        View.initFromQuery(QueryHelper.decodeQueryString());
     }
 
-    static ChangeUrl(title, url) {
+    static UpdateURL(title, url) {
         if (typeof (history.pushState) != "undefined") {
-            let obj = {Title: title, Url: url};
-            history.pushState(obj, obj.Title, obj.Url);
+            let objUrl = {Title: title, Url: url};
+            history.pushState(objUrl, objUrl.Title, objUrl.Url);
         } else {
-            console.error("Error: Change url");
+            console.error("Update url");
         }
     }
 }
@@ -144,10 +129,10 @@ class Data {
 
     static isFunded(searched, element) {
         let tmp1 = false, tmp2 = false;
-        if (element.tags !== undefined) {
+        if (element.tags) {
             tmp1 = element.tags.toLowerCase().search(searched) != -1
         }
-        if (element.short_name !== undefined) {
+        if (element.short_name) {
             tmp2 = element.short_name.toLowerCase().search(searched) != -1
         }
         return element.name.toLowerCase().search(searched) != -1 || element.short.toLowerCase().search(searched) != -1 || tmp1 || tmp2;
@@ -157,6 +142,7 @@ class Data {
 class Modal {
     static initModal() {
         let modal = document.createElement('div');
+        modal.className = 'modal';
         modal.innerHTML =
             `<div class='mui-container mui-panel'>` +
             `<h2>Mapa Politechniki Łódzkiej</h2>` +
@@ -169,12 +155,12 @@ class Modal {
             `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
             `</div>` +
             `</div>`;
-        modal.style.margin = '10px auto auto auto';
         return modal;
     }
 
     static initModalInfoPlace(element) {
         let modal = document.createElement('div');
+        modal.className = 'modal';
         modal.innerHTML = `<div class='mui-container mui-panel'>` +
             `<h1>${View.getShort(element)} ${element.name}</h1>` +
             ` <dl>
@@ -187,12 +173,12 @@ class Modal {
             `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
             `</div>` +
             `</div>`;
-        modal.style.margin = '10px auto auto auto';
         return modal;
     }
 
     static initModalInfoBuilding(element) {
         let modal = document.createElement('div');
+        modal.className = 'modal';
         modal.innerHTML = `<div class='mui-container mui-panel'>` +
             `<h1>${View.getShort(element)}${element.name}</h1>` +
             ` <dl>${View.getElement(element, "address", "Adres")}
@@ -202,7 +188,6 @@ class Modal {
             `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
             `</div>` +
             `</div>`;
-        modal.style.margin = '10px auto auto auto';
         return modal;
     }
 
@@ -222,18 +207,18 @@ class View {
     }
 
     static getCategory(element) {
-        if (element.category !== undefined && element.category !== "") {
+        if (element.category) {
             return "<dt>Kategoria</dt><dd>" + data.categories.filter(x => {
                     if (x.id == element.category) {
                         return true;
                     }
-                    if (element.subcategory !== undefined) {
+                    if (element.subcategory) {
                         element.subcategory.some(y => {
                             if (y.id == element.category) {
                                 return true;
                             }
                             else {
-                                if (element.subcategory !== undefined) {
+                                if (element.subcategory) {
                                     return element.subcategory.some(z => {
                                         return z.id == element.category;
                                     });
@@ -247,16 +232,12 @@ class View {
         }
     }
 
-    static isAndNotEmpty(element) {
-        return element !== undefined && element !== "";
-    }
-
     static getElement(element, propertyName, propertText) {
-        return View.isAndNotEmpty(element[propertyName]) ? `<dt>${propertText}</dt><dd>${element[propertyName]}</dd>` : ``;
+        return element[propertyName] ? `<dt>${propertText}</dt><dd>${element[propertyName]}</dd>` : ``;
     }
 
     static getShort(element) {
-        return View.isAndNotEmpty(element.short) ? `${element.short} - ` : ``;
+        return element.short ? `${element.short} - ` : ``;
     }
 
     static getPlaces(element) {
@@ -273,7 +254,7 @@ class View {
     }
 
     static getAddresExt(element) {
-        return View.isAndNotEmpty(element.address) ? element.address : ``;
+        return element.address ? element.address : ``;
     }
 
     initMap() {
@@ -305,7 +286,7 @@ class View {
         tmp += `<strong onclick='View.toggleListElement(this);'>${category.name + View.arrowSpan()}</strong>`;
         tmp += `<ul style='display:none;'>`;
 
-        if (category.subcategory !== undefined) {
+        if (category.subcategory) {
             category.subcategory.split(",").map(x => {
                 let tmp1 = data.categories.filter(a => a.id == x);
                 tmp1[0].isSubCat = false;
@@ -315,9 +296,6 @@ class View {
         }
         else {
             category.places.forEach(place => {
-                if (place.short == undefined) {
-                    place.short = ""
-                }
                 tmp += View.prepareLink(place, true);
             });
         }
@@ -379,7 +357,6 @@ class View {
             index += 1;
         });
 
-        mapApi.setZoom(16);
         mapApi.setCenter(coordinate[0]);
 
         if (window.innerWidth < this.sizeMin) {
@@ -409,7 +386,7 @@ class View {
             // markers.push(marker);
             index += 1;
         });
-        mapApi.setZoom(16);
+
         mapApi.setCenter(coordinate);
         if (window.innerWidth < this.sizeMin) {
             view.closeSidedraver();
@@ -442,13 +419,13 @@ class View {
     }
 
     setMarkerCloseModal(element, index) {
-        QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id + "&index=" + index);
+        QueryHelper.UpdateURL(element.name, "?placeId=" + element.id + "&index=" + index);
         mui.overlay('off');
         View.setMarker(index);
     }
 
     palceModal(element) {
-        QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id);
+        QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
 
         let idBuildings = element.building.split(',');
         let index = -1;
@@ -484,7 +461,7 @@ class View {
 
 
     static buildingModal(element) {
-        QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
+        QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
     }
 
     activateModal() {
@@ -503,7 +480,7 @@ class View {
 
     prepareInfoContent(element, isPlace) {
         if (isPlace) {
-            QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id);
+            QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
 
             let idBuildings = element.building.split(',');
             if (idBuildings.length > 1) {
@@ -543,7 +520,7 @@ class View {
             }
         }
         else {
-            QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
+            QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
             return [`<p><strong>${element.name}</strong><br>`
             + `${View.getAddresExt(element)}`
             + `</p><a href='javascript:view.activateModalInfo(${element.id},false);'>Więcej informacji</a>`];
@@ -630,13 +607,27 @@ class View {
         }
         document.getElementById("search-input").focus();
     }
+
+    static initFromQuery(queryString) {
+        if (queryString.placeId) {
+            if (queryString.index) {
+                let place = data.getPlacesById(queryString.placeId)[0];
+                let coordinates = data.getCoordinate(place.building);
+                [coordinates[queryString.index], coordinates[0]] = [coordinates[0], coordinates[queryString.index]];
+                view.updateMarkerExt(view.prepareInfoContent(place, true), coordinates);
+            }
+            else {
+                view.activateModalPlace(queryString.placeId);
+            }
+        }
+        else if (queryString.buildingId) {
+            let building = data.getBuildingsById(queryString.buildingId)[0];
+            view.updateMarkerPolygon(view.prepareInfoContent(building, false), building.latLng, [building.polygon]);
+        }
+    }
 }
 
 class MapsApi {
-    getPopout(tmpGroup) {
-        return "tekst";
-    }
-
     constructor(mapElement, zoom, initCoordinate) {
 //todo
         let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33, B1,B2,B3,B6,B7,B9,B19,B22,B24,B25, C15, D1,D2,D3";
@@ -725,7 +716,8 @@ class MapsApi {
 
     }
 
-    setZoom(zoom) {
+    getPopout(tmpGroup) {
+        return "tekst";
     }
 
     setCenter(latLng) {
@@ -733,11 +725,7 @@ class MapsApi {
     }
 
     resizeMap() {
-        try {
-            this.map.invalidateSize();
-        } catch (e) {
-            console.error(e)
-        }
+        this.map.invalidateSize();
     }
 }
 

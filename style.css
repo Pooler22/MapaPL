@@ -190,3 +190,7 @@ buttons {
 #mui-caret {
     margin-top: 0px;
 }
+
+.modal{
+    margin: 10px auto auto auto;
+}

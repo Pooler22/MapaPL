@@ -104,7 +104,7 @@ var QueryHelper = function () {
             }
         }
     }, {
-        key: "ChangeUrl",
+        key: "UpdateURL",
         value: function ChangeUrl(title, url) {
             if (typeof history.pushState != "undefined") {
                 var obj = { Title: title, Url: url };
@@ -436,7 +436,7 @@ var View = function () {
     }, {
         key: "setMarkerCloseModal",
         value: function setMarkerCloseModal(element, index) {
-            QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id + "&index=" + index);
+            QueryHelper.UpdateURL(element.name, "?placeId=" + element.id + "&index=" + index);
 
             mui.overlay('off');
             View.setMarker(index);
@@ -444,7 +444,7 @@ var View = function () {
     }, {
         key: "palceModal",
         value: function palceModal(element) {
-            QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id);
+            QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
 
             var idBuildings = element.building.split(',');
             var index = -1;
@@ -479,7 +479,7 @@ var View = function () {
     }, {
         key: "buildingModal",
         value: function buildingModal(element) {
-            QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
+            QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
 
             var idBuildings = element.id;
             var index = -1;
@@ -514,7 +514,7 @@ var View = function () {
 
             if (isPlace) {
                 var _ret = function () {
-                    QueryHelper.ChangeUrl(element.name, "?placeId=" + element.id);
+                    QueryHelper.UpdateURL(element.name, "?placeId=" + element.id);
 
                     var idBuildings = element.building.split(',');
                     if (idBuildings.length > 1) {
@@ -565,7 +565,7 @@ var View = function () {
 
                 if ((typeof _ret === "undefined" ? "undefined" : _typeof(_ret)) === "object") return _ret.v;
             } else {
-                QueryHelper.ChangeUrl(element.name, "?buildingId=" + element.id);
+                QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
 
                 return ["<p><strong>" + element.name + "</strong><br>"
                 // + `<a href=?buildingId=${element.id}>${text}</a><br>`
