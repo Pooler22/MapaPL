@@ -665,7 +665,12 @@ class View {
                 view.updateMarkerPolygonExt(view.prepareInfoContent(place, true), coordinates,polygons.map(x=>View.convertToCorrectFormatExt(x)));
             }
             else {
-                view.activateModalPlace(queryString.placeId);
+                let place = data.getPlacesById(queryString.placeId)[0];
+                let coordinates = data.getCoordinate(place.building);
+                let polygons = data.getPolygons(place.building);
+                polygons = polygons.map(x=>View.convertToCorrectFormatExt(x));
+                // console.log(polygons);
+                view.updateMarkerPolygonExt(view.prepareInfoContent(place, true), coordinates,polygons.map(x=>View.convertToCorrectFormatExt(x)));
             }
         }
         else if (queryString.buildingId) {

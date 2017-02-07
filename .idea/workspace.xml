@@ -27,8 +27,8 @@
       <file leaf-file-name="script_over_es2015.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="667" column="0" lean-forward="false" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
+            <state relative-caret-position="452">
+              <caret line="673" column="0" lean-forward="false" selection-start-line="673" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
               <folding>
                 <element signature="n#JSONHelper#0" expanded="false" />
                 <element signature="n#QueryHelper#0" expanded="false" />
@@ -42,14 +42,14 @@
                 <element signature="n#Modal#0" expanded="false" />
                 <element signature="n#!!block;n#resizeMap#0;n#MapsApi#0" expanded="false" />
                 <element signature="n#!!block;n#init#0" expanded="false" />
-                <marker date="1486475319856" expanded="true" signature="2411:2427" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="5904:6470" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="5993:6284" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="6696:7125" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="6784:6939" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="9781:9794" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="10412:10425" ph="..." />
-                <marker date="1486475319856" expanded="true" signature="24601:24607" ph="©" />
+                <marker date="1486475412814" expanded="true" signature="2411:2427" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="5904:6470" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="5993:6284" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="6696:7125" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="6784:6939" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="9781:9794" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="10412:10425" ph="..." />
+                <marker date="1486475412814" expanded="true" signature="25014:25020" ph="©" />
               </folding>
             </state>
           </provider>
@@ -388,14 +388,7 @@
       <workItem from="1484587473425" duration="1881000" />
       <workItem from="1484680110186" duration="16822000" />
       <workItem from="1486317692287" duration="41172000" />
-      <workItem from="1486465329496" duration="8216000" />
-    </task>
-    <task id="LOCAL-00028" summary="under es6 testing">
-      <created>1484319346898</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1484319346898</updated>
+      <workItem from="1486465329496" duration="8306000" />
     </task>
     <task id="LOCAL-00029" summary="under es6 testing v2">
       <created>1484321602494</created>
@@ -733,11 +726,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486469290175</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="polygons: place, index from url">
+      <created>1486475339053</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1486475339053</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258920000" />
+    <option name="totallyTimeSpent" value="259010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -794,7 +794,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="old browser fix" />
     <MESSAGE value="hotfix v2" />
     <MESSAGE value="hotfix v3, resize map, drawer bug" />
     <MESSAGE value="hotfix v4, resize map colors" />
@@ -819,7 +818,8 @@
     <MESSAGE value="hard cleanup" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="cleanup code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup code" />
+    <MESSAGE value="polygons: place, index from url" />
+    <option name="LAST_COMMIT_MESSAGE" value="polygons: place, index from url" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1081,8 +1081,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script_over_es2015.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="667" column="0" lean-forward="false" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
+        <state relative-caret-position="452">
+          <caret line="673" column="0" lean-forward="false" selection-start-line="673" selection-start-column="0" selection-end-line="673" selection-end-column="0" />
           <folding>
             <element signature="n#JSONHelper#0" expanded="false" />
             <element signature="n#QueryHelper#0" expanded="false" />
@@ -1096,14 +1096,14 @@
             <element signature="n#Modal#0" expanded="false" />
             <element signature="n#!!block;n#resizeMap#0;n#MapsApi#0" expanded="false" />
             <element signature="n#!!block;n#init#0" expanded="false" />
-            <marker date="1486475319856" expanded="true" signature="2411:2427" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="5904:6470" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="5993:6284" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="6696:7125" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="6784:6939" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="9781:9794" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="10412:10425" ph="..." />
-            <marker date="1486475319856" expanded="true" signature="24601:24607" ph="©" />
+            <marker date="1486475412814" expanded="true" signature="2411:2427" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="5904:6470" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="5993:6284" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="6696:7125" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="6784:6939" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="9781:9794" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="10412:10425" ph="..." />
+            <marker date="1486475412814" expanded="true" signature="25014:25020" ph="©" />
           </folding>
         </state>
       </provider>
