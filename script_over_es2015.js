@@ -62,15 +62,15 @@ class Data {
         this.buildings = buildings;
         this.categories = categories;
         this.places = places;
-        this.buildings.forEach(
-            x => {
-                x.polygon = Data.convertToCorrectFormat(x.polygon);
-            }
-        );
+        this.correctFormatBuildings(this.buildings);
         this.extendCategories(this.categories);
     }
 
-    static convertToCorrectFormat(polygon) {
+    correctFormatBuildings(buildings) {
+        buildings.forEach(x => x.coordinates = Data.correctFormatPolygons(x.coordinates));
+    }
+
+    static correctFormatPolygons(polygon) {
         return polygon.map((x) => [x[0], x[1]] = [x[1], x[0]]);
     }
 
@@ -105,7 +105,7 @@ class Data {
 
     getPolygons(buildingIds) {
         return buildingIds.split(",").map(buildingId => {
-            return this.getBuildingsById(buildingId)[0].polygon;
+            return this.getBuildingsById(buildingId)[0].coordinates;
         });
     }
 
@@ -238,7 +238,7 @@ class View {
         data.buildings.forEach((building) => {
             let content = view.prepareInfoContent(building, false, false);
             for (let index = 0; index < content.length; index++) {
-                View.drawPolygon(building.polygon, content[index], building.campus);
+                View.drawPolygon(building.coordinates, content[index], building.campus);
                 markers[index]._latlng = {lat: building.latLng[0], lng: building.latLng[1]};
             }
         });
@@ -294,7 +294,7 @@ class View {
     }
 
     printBuildings(buildings) {
-        return `<strong onclick='View.toggleListElement(this);'>Budynki${View.arrowSpan()}</strong>`
+        return `<strong onclick='View.toggleListElement(this);'> <span><i class="fa fa-building"></i> Budynki</span>${View.arrowSpan()}</strong>`
             + `<ul style='display:none;'>`
             + buildings.reduce((a, building) => a + View.prepareLink(building), "")
             + `${View.arrowSpan()}</ul>`;
@@ -308,7 +308,7 @@ class View {
 
     printCategory(category) {
         let tmp = ``;
-        tmp += `<strong onclick='View.toggleListElement(this);'>${category.name + View.arrowSpan()}</strong>`;
+        tmp += `<strong onclick='View.toggleListElement(this);'><i class="fa ${category.icon}"></i> ${category.name + View.arrowSpan()}</strong>`;
         tmp += `<ul style='display:none;'>`;
 
         if (category.subcategory) {
@@ -344,13 +344,13 @@ class View {
     prepareUpdateMarker(id, isPlace = false) {
         if (isPlace) {
             let element = data.places.filter(place => place.id == id)[0];
-            let polygons = element.building.split(",").map(x => data.getBuildingsById(x)[0].polygon);
+            let polygons = element.building.split(",").map(x => data.getBuildingsById(x)[0].coordinates);
             let colors = element.building.split(",").map(x => data.getBuildingsById(x)[0].campus);
             this.updatePolygon(this.prepareInfoContent(element, true), data.getCoordinate(element.building), polygons, colors);
         }
         else {
             let building = data.buildings.filter(building => building.id == id)[0];
-            this.updatePolygon(this.prepareInfoContent(building, false), [building.latLng], [building.polygon], building.campus);
+            this.updatePolygon(this.prepareInfoContent(building, false), [building.latLng], [building.coordinates], building.campus);
         }
         mui.overlay('off');
     }
@@ -385,7 +385,7 @@ class View {
         let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
         if (campus) {
             let color = data.campusToColor(campus);
-            markerPolygon.setStyle({color: "#fff", fillColor: color, fillOpacity: 1});
+            markerPolygon.setStyle({color: "#fff", fillColor: color, fillOpacity: 1, opacity: 0.5});
         }
         markers.push(markerPolygon);
     }
@@ -623,7 +623,7 @@ class View {
         }
         else if (queryString.buildingId) {
             let building = data.getBuildingsById(queryString.buildingId)[0];
-            view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.polygon], building.campus);
+            view.updatePolygon(view.prepareInfoContent(building, false), [building.latLng], [building.coordinates], building.campus);
         }
         else {
             view.initAllPolygons();
@@ -635,22 +635,26 @@ class View {
 
 class MapsApi {
     constructor(mapElement, zoom, initCoordinate) {
-//todo
-        let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33, B1,B2,B3,B6,B7,B9,B19,B22,B24,B25, C15, D1,D2,D3";
+        let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33,B1,B2,B3,B6,B7,B9,B19,B22,B24,B25,C15,D1,D2,D3";
+        let eduroamArry = {};
+        eduroamArry["Eduroam"] = new L.LayerGroup();
+        eduroam.split(",").forEach(x => {
+            let building = data.buildings.filter(y => y.short == x)[0];
+            console.log(building);
+            let tmpPolygon = L.polygon(building.coordinates).bindPopup("Eduroam");
+            tmpPolygon.setStyle({color: "#3C3F41", fillColor: "#3C3F41", fillOpacity: 0.5, weight: 6});
+            tmpPolygon.addTo(eduroamArry['Eduroam']);
+            // eduroamArry['Eduroam'].push(tmpPolygon)
+        });
 
-
-        // L.marker([51.7547082, 19.4532694]).bindPopup('This is Littleton, CO.').addTo(cities);
 
         let overlays = {};
 
         let x = data.campuses.map(x => {
-            x.coordinates = Data.convertToCorrectFormat(x.coordinates);
+            x.coordinates = Data.correctFormatPolygons(x.coordinates);
         });
 
         data.campuses.forEach(x => {
-            // let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
-            // markers.push(markerPolygon);
-
             overlays[x.name] = new L.LayerGroup();
             let tmpPolygo = L.polygon(x.coordinates).bindPopup(MapsApi.getPopoutText(x.name));
             tmpPolygo.setStyle({color: x.color, fillColor: x.color});
@@ -672,21 +676,20 @@ class MapsApi {
             "Pełna": full
         };
         let overlaysL = {
-            "Wszystkie Kampusy": overlays
+            "Wszystkie Kampusy": overlays,
+            "Inne warstwy": eduroamArry
+
         };
-        this.map = L.map('map', {layers: [full, overlays["Kampus A"], overlays["Kampus B"], overlays["Kampus C"], overlays["Kampus D"], overlays["Kampus E"], overlays["Kampus F"],]}).setView(initCoordinate, zoom);
+
+        this.map = L.map('map', {layers: [full, overlays["A"], overlays["B"], overlays["C"], overlays["D"], overlays["E"], overlays["F"],]}).setView(initCoordinate, zoom);
         var options = {
-            // Make the "Landmarks" group exclusive (use radio inputs)
-            // exclusiveGroups: ["Landmarks"],
-            // Show a checkbox next to non-exclusive group labels for toggling all
+            collapsed: true,
             groupCheckboxes: true
         };
 
 
         let layerControl = L.control.groupedLayers(baseLayers, overlaysL, options);
         this.map.addControl(layerControl);
-
-        // L.control.layers(baseLayers).addTo(this.map);
 
         L.control.locate().addTo(this.map);
 
@@ -705,11 +708,13 @@ class MapsApi {
         this.map.on('exitFullscreen', function () {
             view.mapElement.style.top = '64px';
         });
+        document.getElementsByClassName('leaflet-control-layers-group-selector')[0].checked = true
+
 
     }
 
     static getPopoutText(tmpGroup) {
-        return `Kampus${tmpGroup}`;
+        return `Kampus ${tmpGroup}`;
     }
 
     setCenter(latLng) {

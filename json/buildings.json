@@ -2,14 +2,14 @@
   {
     "id": "1",
     "short": "A1",
-    "name": "Budynek A1",
+    "name": "A1",
     "latLng": [
       51.755138,
       19.452522
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.452321231365204,
         51.75532429143626
@@ -35,14 +35,14 @@
   {
     "id": "2",
     "short": "A2",
-    "name": "Budynek A2",
+    "name": "A2",
     "latLng": [
       51.754645,
       19.452780
     ],
     "address": "ul. Stefanowskiego 4/10",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45265382528305,
         51.754973957572275
@@ -68,14 +68,14 @@
   {
     "id": "3",
     "short": "A3",
-    "name": "Budynek A3",
+    "name": "A3",
     "latLng": [
       51.7547082,
       19.4532694
     ],
     "address": "Wólczańska 171/173",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.4529327750206,
         51.754758110710654
@@ -125,14 +125,14 @@
   {
     "id": "4",
     "short": "A4",
-    "name": "Budynek A4",
+    "name": "A4",
     "latLng": [
       51.754585,
       19.454711
     ],
     "address": "Wólczańska 171/173",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.454855918884277,
         51.754341357312725
@@ -222,14 +222,14 @@
   {
     "id": "5",
     "short": "A5",
-    "name": "Budynek A5",
+    "name": "A5",
     "latLng": [
       51.754243,
       19.454883
     ],
     "address": "Wólczańska 175",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.454772770404812,
         51.75433471579317
@@ -267,14 +267,14 @@
   {
     "id": "6",
     "short": "A6",
-    "name": "Budynek A6",
+    "name": "A6",
     "latLng": [
       51.7541216,
       19.4540303
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45383131504059,
         51.75426331939639
@@ -328,7 +328,7 @@
   {
     "id": "8",
     "short": "A8",
-    "name": "Budynek A8",
+    "name": "A8",
     "tags": "Garbarstwo",
     "latLng": [
       51.753513,
@@ -336,7 +336,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.452747702598572,
         51.753554330446754
@@ -362,14 +362,14 @@
   {
     "id": "9",
     "short": "A9",
-    "name": "Budynek A9",
+    "name": "A9",
     "latLng": [
       51.7534724,
       19.4533662
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.453085660934445,
         51.753607463493886
@@ -395,7 +395,7 @@
   {
     "id": "10",
     "short": "A10",
-    "name": "Budynek A10",
+    "name": "A10",
     "tags": "Elektryczny",
     "latLng": [
       51.752606,
@@ -403,7 +403,7 @@
     ],
     "address": "ul. Bohdana Stefanowskiego 18/22",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.453324377536774,
         51.752989787960466
@@ -457,7 +457,7 @@
   {
     "id": "11",
     "short": "A11",
-    "name": "Budynek A11",
+    "name": "A11",
     "tags": "Mały Elektryczny",
     "latLng": [
       51.753124,
@@ -465,7 +465,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45344239473343,
         51.75330028720122
@@ -515,14 +515,14 @@
   {
     "id": "12",
     "short": "A12",
-    "name": "Budynek A12",
+    "name": "A12",
     "latLng": [
       51.7528589,
       19.4543747
     ],
     "address": "Stefanowskiego 18/22",
     "campus": "A",
-    "polygon": []
+    "coordinates": []
   },
   {
     "id": "13",
@@ -534,7 +534,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45407807826996,
         51.753056205089834
@@ -640,14 +640,14 @@
   {
     "id": "14",
     "short": "A14",
-    "name": "Budynek A14",
+    "name": "A14",
     "latLng": [
       51.753060,
       19.455130
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.455209970474243,
         51.75320730369526
@@ -689,7 +689,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45203423500061,
         51.755277801790776
@@ -742,7 +742,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.450803101062775,
         51.755158256768446
@@ -775,7 +775,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45200204849243,
         51.754954033289806
@@ -809,14 +809,14 @@
   {
     "id": "19",
     "short": "A19",
-    "name": "Budynek A19",
+    "name": "A19",
     "latLng": [
       51.753788,
       19.452072
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45187598466873,
         51.754050789919226
@@ -842,7 +842,7 @@
   {
     "id": "20",
     "short": "A20",
-    "name": "Budynek A20",
+    "name": "A20",
     "tags": "4M",
     "latLng": [
       51.753490,
@@ -850,7 +850,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.4514200091362,
         51.75354768881147
@@ -876,14 +876,14 @@
   {
     "id": "21",
     "short": "A21",
-    "name": "Budynek A21",
+    "name": "A21",
     "latLng": [
       51.7529831,
       19.4516726
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45152997970581,
         51.75314752848325
@@ -909,7 +909,7 @@
   {
     "id": "22",
     "short": "A22",
-    "name": "Budynek A22",
+    "name": "A22",
     "tags": "1M, 2M",
     "latLng": [
       51.752576,
@@ -917,7 +917,7 @@
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.451580941677094,
         51.75286193471146
@@ -943,14 +943,14 @@
   {
     "id": "24",
     "short": "A24",
-    "name": "Budynek A24",
+    "name": "A24",
     "latLng": [
       51.7544842,
       19.4508928
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45069044828415,
         51.75458377210771
@@ -984,14 +984,14 @@
   {
     "id": "26",
     "short": "A26",
-    "name": "Budynek A26",
+    "name": "A26",
     "latLng": [
       51.7540867,
       19.4505966
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.450261294841766,
         51.75416867748708
@@ -1033,14 +1033,14 @@
   {
     "id": "27",
     "short": "A27",
-    "name": "Budynek A27",
+    "name": "A27",
     "latLng": [
       51.753825,
       19.450967
     ],
     "address": "Żeromskiego 116",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.450829923152924,
         51.753951166382514
@@ -1122,14 +1122,14 @@
   {
     "id": "28",
     "short": "A28",
-    "name": "Budynek A28",
+    "name": "A28",
     "latLng": [
       51.7535851,
       19.4509969
     ],
     "address": "Żeromskiego 116",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.45069581270218,
         51.753635690399754
@@ -1155,14 +1155,14 @@
   {
     "id": "30",
     "short": "A30",
-    "name": "Budynek A30",
+    "name": "A30",
     "latLng": [
       51.752588,
       19.451323
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.451159834861755,
         51.752612868901366
@@ -1188,14 +1188,14 @@
   {
     "id": "31",
     "short": "A31",
-    "name": "Budynek A31",
+    "name": "A31",
     "latLng": [
       51.7537783,
       19.4496228
     ],
     "address": "",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.44933593273163,
         51.75417697941692
@@ -1229,14 +1229,14 @@
   {
     "id": "33",
     "short": "A33",
-    "name": "Budynek A33",
+    "name": "A33",
     "latLng": [
       51.7528475,
       19.4500623
     ],
     "address": "Żeromskiego 116",
     "campus": "A",
-    "polygon": [
+    "coordinates": [
       [
         19.450491964817044,
         51.75342149755544
@@ -1285,7 +1285,7 @@
     ],
     "address": "Ks. I. Skorupki 6/8",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.455161690711975,
         51.74878372431203
@@ -1327,14 +1327,14 @@
   {
     "id": "35",
     "short": "B2",
-    "name": "Budynek B2",
+    "name": "B2",
     "latLng": [
       51.7489063,
       19.4548576
     ],
     "address": "Ks. I. Skorupki 6/8",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.454491138458252,
         51.74879202723167
@@ -1368,14 +1368,14 @@
   {
     "id": "36",
     "short": "B3",
-    "name": "Budynek B3",
+    "name": "B3",
     "latLng": [
       51.7486057,
       19.453125
     ],
     "address": "Ks. I. Skorupki 6/8",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.452913999557495,
         51.74867744680549
@@ -1401,14 +1401,14 @@
   {
     "id": "37",
     "short": "B4",
-    "name": "Budynek B4",
+    "name": "B4",
     "latLng": [
       51.7480461,
       19.4558245
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.455990493297577,
         51.74814771612961
@@ -1434,14 +1434,14 @@
   {
     "id": "38",
     "short": "B5",
-    "name": "Budynek B5",
+    "name": "B5",
     "latLng": [
       51.7480104,
       19.4554295
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.45556402206421,
         51.748094576659405
@@ -1467,7 +1467,7 @@
   {
     "id": "39",
     "short": "B6",
-    "name": "Budynek B6",
+    "name": "B6",
     "tags": "",
     "latLng": [
       51.7477509,
@@ -1475,7 +1475,7 @@
     ],
     "address": "Al. Politechniki 6",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.452857673168182,
         51.747880357536175
@@ -1501,14 +1501,14 @@
   {
     "id": "40",
     "short": "B7",
-    "name": "Budynek B7",
+    "name": "B7",
     "latLng": [
       51.7476239,
       19.4519306
     ],
     "address": "Al. Politechniki 6",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.451361000537872,
         51.747857108888034
@@ -1566,7 +1566,7 @@
   {
     "id": "42",
     "short": "B9",
-    "name": "Budynek Trzech Wydziałów",
+    "name": "Trzech Wydziałów",
     "tags": "Lodex, Tramwaj",
     "latLng": [
       51.7472277,
@@ -1574,7 +1574,7 @@
     ],
     "address": "ul. Wólczańska 223",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.452720880508423,
         51.74721942701726
@@ -1624,14 +1624,14 @@
   {
     "id": "43",
     "short": "B10",
-    "name": "Budynek B10",
+    "name": "B10",
     "latLng": [
       51.7473809,
       19.4554135
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.45507049560547,
         51.747363902604846
@@ -1657,14 +1657,14 @@
   {
     "id": "44",
     "short": "B11",
-    "name": "Budynek B11",
+    "name": "B11",
     "latLng": [
       51.7473759,
       19.4560713
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.45584028959274,
         51.747420364203144
@@ -1698,14 +1698,14 @@
   {
     "id": "45",
     "short": "B12",
-    "name": "Budynek B12",
+    "name": "B12",
     "latLng": [
       51.7471604,
       19.4556281
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.455590844154358,
         51.74720780252462
@@ -1747,14 +1747,14 @@
   {
     "id": "46",
     "short": "B13",
-    "name": "Budynek B13",
+    "name": "B13",
     "latLng": [
       51.746788,
       19.454275
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.454158544540405,
         51.74701018569195
@@ -1780,14 +1780,14 @@
   {
     "id": "47",
     "short": "B14",
-    "name": "Budynek B14",
+    "name": "B14",
     "latLng": [
       51.7465176,
       19.4553862
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.454115629196167,
         51.74667307262915
@@ -1849,14 +1849,14 @@
   {
     "id": "48",
     "short": "B15",
-    "name": "Budynek B15",
+    "name": "B15",
     "latLng": [
       51.7466000,
       19.4557936
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.45612460374832,
         51.7465219521637
@@ -1898,14 +1898,14 @@
   {
     "id": "49",
     "short": "B16",
-    "name": "Budynek B16",
+    "name": "B16",
     "latLng": [
       51.7463987,
       19.4531671
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.452994465827942,
         51.74644722207636
@@ -1938,7 +1938,7 @@
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.45454478263855,
         51.74631270760768
@@ -1964,7 +1964,7 @@
   {
     "id": "51",
     "short": "B18",
-    "name": "Budynek B18",
+    "name": "B18",
     "tags": "DMCS, 5E",
     "latLng": [
       51.7460987,
@@ -1972,7 +1972,7 @@
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.454839825630188,
         51.74605530226084
@@ -2037,7 +2037,7 @@
     ],
     "address": "Wólczańska 223",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.456084370613098,
         51.74716296516783
@@ -2070,7 +2070,7 @@
     ],
     "address": "Wólczańska 223",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.453241229057312,
         51.745631825756995
@@ -2135,7 +2135,7 @@
     ],
     "address": "Al. Politechniki 12",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.451473653316498,
         51.74554546927675
@@ -2192,7 +2192,7 @@
     ],
     "address": "Al. Politechniki 12",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.451237618923184,
         51.745580344029015
@@ -2218,14 +2218,14 @@
   {
     "id": "59",
     "short": "C1",
-    "name": "Budynek C1",
+    "name": "C1",
     "latLng": [
       51.744552,
       19.448524
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44843202829361,
         51.74483468274534
@@ -2251,14 +2251,14 @@
   {
     "id": "60",
     "short": "C2",
-    "name": "Budynek C2",
+    "name": "C2",
     "latLng": [
       51.74470514,
       19.44905698
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.448949694633484,
         51.74479482522553
@@ -2308,7 +2308,7 @@
   {
     "id": "61",
     "short": "C3",
-    "name": "Budynek C3",
+    "name": "C3",
     "tags": "Akwarium",
     "latLng": [
       51.74519,
@@ -2316,7 +2316,7 @@
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44994479417801,
         51.744759949866854
@@ -2349,7 +2349,7 @@
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.449201822280884,
         51.74524986315242
@@ -2415,7 +2415,7 @@
     ],
     "address": "al. Politechniki 11",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44978654384613,
         51.745484023219134
@@ -2441,14 +2441,14 @@
   {
     "id": "64",
     "short": "C6",
-    "name": "Budynek C6",
+    "name": "C6",
     "latLng": [
       51.7458352,
       19.4493218
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44912940263748,
         51.745776306422094
@@ -2474,14 +2474,14 @@
   {
     "id": "65",
     "short": "C7",
-    "name": "Budynek C7",
+    "name": "C7",
     "latLng": [
       51.7458228,
       19.4489041
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44894701242447,
         51.74590750110851
@@ -2531,7 +2531,7 @@
     ],
     "address": "al. Politechniki 9",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.45027470588684,
         51.7461931388548
@@ -2564,7 +2564,7 @@
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.450247883796692,
         51.74623963785184
@@ -2606,7 +2606,7 @@
     ],
     "address": "al. Politechniki 9A",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.45018619298935,
         51.746898922052814
@@ -2640,7 +2640,7 @@
     ],
     "address": "al. Politechniki 7",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.449974298477173,
         51.747008525042624
@@ -2686,7 +2686,7 @@
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.449858963489532,
         51.748413412542924
@@ -2720,7 +2720,7 @@
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.449856281280518,
         51.748750512618074
@@ -2746,14 +2746,14 @@
   {
     "id": "73",
     "short": "C15",
-    "name": "Budynek C15",
+    "name": "C15",
     "latLng": [
       51.7489808,
       19.4494321
     ],
     "address": "Al. Politechniki 3A",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.44947004318237,
         51.74931842922284
@@ -2795,7 +2795,7 @@
     ],
     "address": "Radwańska 40/42",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.447667598724365,
         51.751568437981746
@@ -2821,14 +2821,14 @@
   {
     "id": "75",
     "short": "C18",
-    "name": "Budynek C18",
+    "name": "C18",
     "latLng": [
       51.744966,
       19.449698
     ],
     "address": "",
     "campus": "C",
-    "polygon": [
+    "coordinates": [
       [
         19.449676573276516,
         51.744919379858196
@@ -2854,14 +2854,14 @@
   {
     "id": "78",
     "short": "D1",
-    "name": "Budynek D1",
+    "name": "D1",
     "latLng": [
       51.749568,
       19.460970
     ],
     "address": "Piotrkowska 266",
     "campus": "D",
-    "polygon": [
+    "coordinates": [
       [
         19.46090430021286,
         51.74932008978726
@@ -2923,14 +2923,14 @@
   {
     "id": "79",
     "short": "D2",
-    "name": "Budynek D2",
+    "name": "D2",
     "latLng": [
       51.749681,
       19.461451
     ],
     "address": "",
     "campus": "D",
-    "polygon": [
+    "coordinates": [
       [
         19.461362957954407,
         51.74963891702058
@@ -2956,14 +2956,14 @@
   {
     "id": "80",
     "short": "D3",
-    "name": "Budynek D3",
+    "name": "D3",
     "latLng": [
       51.749398,
       19.461506
     ],
     "address": "Piotrkowska 266",
     "campus": "D",
-    "polygon": [
+    "coordinates": [
       [
         19.4615963101387,
         51.749461237537965
@@ -2989,14 +2989,14 @@
   {
     "id": "81",
     "short": "D4",
-    "name": "Budynek D4",
+    "name": "D4",
     "latLng": [
       51.749202,
       19.461279
     ],
     "address": "",
     "campus": "D",
-    "polygon": [
+    "coordinates": [
       [
         19.461443424224854,
         51.74930514470545
@@ -3038,14 +3038,14 @@
   {
     "id": "82",
     "short": "D5",
-    "name": "Budynek D5",
+    "name": "D5",
     "latLng": [
       51.749160,
       19.461006
     ],
     "address": "",
     "campus": "D",
-    "polygon": [
+    "coordinates": [
       [
         19.46099281311035,
         51.74928023622483
@@ -3094,7 +3094,7 @@
     ],
     "address": "",
     "campus": "E",
-    "polygon": [
+    "coordinates": [
       [
         19.459836781024933,
         51.747071629673705
@@ -3128,7 +3128,7 @@
     ],
     "address": "",
     "campus": "F",
-    "polygon": [
+    "coordinates": [
       [
         19.494281709194183,
         51.77866268948875
@@ -3161,7 +3161,7 @@
     ],
     "address": "",
     "campus": "",
-    "polygon": [
+    "coordinates": [
       [
         19.45232391357422,
         51.7498265590799
@@ -3242,7 +3242,7 @@
     ],
     "address": "",
     "campus": "",
-    "polygon": [
+    "coordinates": [
       [
         19.453522861003876,
         51.75074317103227
@@ -3303,7 +3303,7 @@
     ],
     "address": "",
     "campus": "",
-    "polygon": [
+    "coordinates": [
       [
         19.440321028232574,
         51.75465848873424
@@ -3352,7 +3352,7 @@
     ],
     "address": "",
     "campus": "",
-    "polygon": [
+    "coordinates": [
       [
         19.42157506942749,
         51.76437723767012
@@ -3433,7 +3433,7 @@
     ],
     "address": "",
     "campus": "B",
-    "polygon": [
+    "coordinates": [
       [
         19.450939893722534,
         51.747129752282234

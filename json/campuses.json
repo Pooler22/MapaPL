@@ -1,6 +1,6 @@
 [
   {
-    "name": "Kampus A",
+    "name": "A",
     "color": "#006e9b",
     "coordinates": [
       [
@@ -26,7 +26,7 @@
     ]
   },
   {
-    "name": "Kampus B",
+    "name": "B",
     "color": "#9b0400",
     "coordinates": [
       [
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "name": "Kampus C",
+    "name": "C",
     "color": "#74039b",
     "coordinates": [
       [
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "name": "Kampus D",
+    "name": "D",
     "color": "#092400",
     "coordinates": [
       [
@@ -104,7 +104,7 @@
     ]
   },
   {
-    "name": "Kampus E",
+    "name": "E",
     "color": "#1e7700",
     "coordinates": [
       [
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "name": "Kampus F",
+    "name": "F",
     "color": "#44ae21",
     "coordinates": [
       [
