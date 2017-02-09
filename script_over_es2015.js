@@ -384,8 +384,10 @@ class View {
         }
     }
 
-    static drawPolygon(polygon, content, campus) {
-        let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content);
+    static drawPolygon(polygon, content, campus, url = "") {
+        polygon.url = url;
+        let markerPolygon = L.polygon(polygon).addTo(mapApi.map).bindPopup(content).on('click', mapApi.onPolyClick);
+
         if (campus) {
             let color = data.campusToColor(campus);
             markerPolygon.setStyle({color: "#fff", fillColor: color, fillOpacity: 1, opacity: 0.5});
@@ -654,6 +656,7 @@ class MapsApi {
         data.campuses.forEach(x => {
             overlays[x.name] = new L.LayerGroup();
             let tmpPolygo = L.polygon(x.coordinates).bindPopup(MapsApi.getPopoutText(x.name));
+            tmpPolygo.on('click', this.onPolyClick);
             tmpPolygo.setStyle({color: x.color, fillColor: x.color});
             tmpPolygo.addTo(overlays[x.name]);
         });
@@ -663,14 +666,24 @@ class MapsApi {
                 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
             mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
 
-        let streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
+        let googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }),
+            googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+                subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+                attribution: '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            }),
+            streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
             full = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             });
 
         let baseLayers = {
             "Standardowa": streets,
-            "Pełna": full
+            "Pełna": full,
+            "Hybrydowa": googleHybrid,
+            "Satelitarna": googleSat
         };
 
         let overlaysL = {
@@ -701,8 +714,14 @@ class MapsApi {
         this.map.on('enterFullscreen', MapsApi.enterFullscreen);
         this.map.on('exitFullscreen', MapsApi.exitFullscreen);
 
-        MapsApi.setAllCampusesSelected()
+        MapsApi.setAllCampusesSelected();
+
+        // this.map.on('click', this.onMapClick);
     }
+
+    // onMapClick(e) {
+    //     console.log("asd");
+    // }
 
     static enterFullscreen() {
         view.mapElement.style.top = '0';
@@ -726,6 +745,12 @@ class MapsApi {
 
     resizeMap() {
         this.map.invalidateSize();
+    }
+
+    onPolyClick(event) {
+        //setCenter
+        console.log(event.target.options)
+
     }
 }
 
