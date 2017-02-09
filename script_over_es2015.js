@@ -1,4 +1,3 @@
-
 let view, data, mapApi;
 let map, markers = [];
 
@@ -190,7 +189,7 @@ class Modal {
             `<h1>${View.getShort(element)} ${element.name}</h1>` +
             ` <dl>
                       ${View.getCategory(element)}
-                      ${View.getElement(element, "website", "Strona www")}
+                      ${View.getElementLink(element, "website", "Strona www")}
                        ${View.getElement(element, "buildings", "Budynki")}
                       ${View.getElement(element, "tags", "Tagi")}
                   </dl>` +
@@ -230,8 +229,7 @@ class View {
         document.addEventListener('resize', this.updateMapSize);
         const zoom = 16;
         const initPosition = [51.749845, 19.453180];
-        mapApi = new MapsApi(this.mapElement, zoom, initPosition);
-
+        mapApi = new MapsApi(zoom, initPosition);
     }
 
     initAllPolygons() {
@@ -272,6 +270,11 @@ class View {
 
     static getElement(element, propertyName, propertText) {
         return element[propertyName] ? `<dt>${propertText}</dt><dd>${element[propertyName]}</dd>` : ``;
+    }
+
+
+    static getElementLink(element, propertyName, propertText) {
+        return element[propertyName] ? `<dt>${propertText}</dt><dd><a href="${element[propertyName]}" target="_blank">Strona WWW</a></dd>` : ``;
     }
 
     static getShort(element) {
@@ -456,7 +459,6 @@ class View {
         return modal;
     }
 
-
     static buildingModal(element) {
         QueryHelper.UpdateURL(element.name, "?buildingId=" + element.id);
     }
@@ -629,24 +631,19 @@ class View {
             view.initAllPolygons();
         }
     }
-
-
 }
 
 class MapsApi {
-    constructor(mapElement, zoom, initCoordinate) {
-        let eduroam = "A1,A2,A3,A4,A5,A10,A12,A27,A28,A33,B1,B2,B3,B6,B7,B9,B19,B22,B24,B25,C15,D1,D2,D3";
+    constructor(zoom, initCoordinate) {
+        let eduroam = ["A1", "A2", "A3", "A4", "A5", "A10", "A12", "A27", "A28", "A33", "B1", "B2", "B3", "B6", "B7", "B9", "B19", "B22", "B24", "B25", "C15", "D1", "D2", "D3"];
         let eduroamArry = {};
         eduroamArry["Eduroam"] = new L.LayerGroup();
-        eduroam.split(",").forEach(x => {
+        eduroam.forEach(x => {
             let building = data.buildings.filter(y => y.short == x)[0];
-            console.log(building);
             let tmpPolygon = L.polygon(building.coordinates).bindPopup("Eduroam");
             tmpPolygon.setStyle({color: "#3C3F41", fillColor: "#3C3F41", fillOpacity: 0.5, weight: 6});
             tmpPolygon.addTo(eduroamArry['Eduroam']);
-            // eduroamArry['Eduroam'].push(tmpPolygon)
         });
-
 
         let overlays = {};
 
@@ -661,20 +658,21 @@ class MapsApi {
             tmpPolygo.addTo(overlays[x.name]);
         });
 
-
         let mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
                 '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
                 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
             mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
 
-
         let streets = L.tileLayer(mbUrl, {id: 'mapbox.streets', attribution: mbAttr}),
-            full = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+            full = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            });
 
         let baseLayers = {
             "Standardowa": streets,
             "Pełna": full
         };
+
         let overlaysL = {
             "Wszystkie Kampusy": overlays,
             "Inne warstwy": eduroamArry
@@ -682,11 +680,11 @@ class MapsApi {
         };
 
         this.map = L.map('map', {layers: [full, overlays["A"], overlays["B"], overlays["C"], overlays["D"], overlays["E"], overlays["F"],]}).setView(initCoordinate, zoom);
-        var options = {
+
+        let options = {
             collapsed: true,
             groupCheckboxes: true
         };
-
 
         let layerControl = L.control.groupedLayers(baseLayers, overlaysL, options);
         this.map.addControl(layerControl);
@@ -700,17 +698,22 @@ class MapsApi {
             fullscreenElement: false
         }).addTo(this.map);
 
-        this.map.on('enterFullscreen', function () {
-            view.mapElement.style.top = '0';
+        this.map.on('enterFullscreen', MapsApi.enterFullscreen);
+        this.map.on('exitFullscreen', MapsApi.exitFullscreen);
 
-        });
+        MapsApi.setAllCampusesSelected()
+    }
 
-        this.map.on('exitFullscreen', function () {
-            view.mapElement.style.top = '64px';
-        });
+    static enterFullscreen() {
+        view.mapElement.style.top = '0';
+    }
+
+    static exitFullscreen() {
+        view.mapElement.style.top = '64px';
+    }
+
+    static setAllCampusesSelected() {
         document.getElementsByClassName('leaflet-control-layers-group-selector')[0].checked = true
-
-
     }
 
     static getPopoutText(tmpGroup) {
