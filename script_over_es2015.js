@@ -170,13 +170,13 @@ class Modal {
         modal.innerHTML =
             `<div class='mui-container mui-panel'>` +
             `<h2>Mapa Politechniki Łódzkiej</h2>` +
-            `<p>Niniejsza strona jest projektem od studentów dla studentów i nie tylko.</p>` +
+            `<p>Niniejsza strona jest projektem mapy online Politechniki Łódzkiej.</p>` +
             `<p>Jeśli znalazłeś błąd lub masz jakieś sugestie napisz!. Link poniżej:</p>` +
             `<div class="mui-row mui--text-center">` +
             `<a class="mui-btn mui-btn--primary "  href='https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1'><i class="fa fa-envelope-o"></i> Kontakt</a>` +
             `</div>` +
             `<div class="mui-row mui--text-center">` +
-            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
+            `<button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button>` +
             `</div>` +
             `</div>`;
         return modal;
@@ -194,7 +194,7 @@ class Modal {
                       ${View.getElement(element, "tags", "Tagi")}
                   </dl>` +
             `<div class="mui-row mui--text-center">` +
-            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
+            `<button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button>` +
             `</div>` +
             `</div>`;
         return modal;
@@ -209,7 +209,7 @@ class Modal {
                 ${View.getPlaces(element)}
                 ${View.getElement(element, "tags", "Tagi")}</dl>` +
             `<div class="mui-row mui--text-center">` +
-            `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>` +
+            `<button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button>` +
             `</div>` +
             `</div>`;
         return modal;
@@ -453,7 +453,7 @@ class View {
 
         let modal = document.createElement('div');
         modal.innerHTML = `<div class='mui-container mui--text-center mui-panel'><div class="mui--text-center">${next[0]}</div>`
-            + `<button class="mui-btn" onclick="view.overlayOff()">Zamknij</button>`
+            + `<button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button>`
             + `</div>`;
         modal.style.margin = '10px auto auto auto';
         return modal;
