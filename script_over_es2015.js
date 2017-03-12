@@ -680,7 +680,6 @@ class MapsApi {
             });
 
         let baseLayers = {
-            "Standardowa": streets,
             "Pełna": full,
             "Hybrydowa": googleHybrid,
             "Satelitarna": googleSat
