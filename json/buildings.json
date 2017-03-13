@@ -2407,7 +2407,7 @@
   {
     "id": "63",
     "short": "C5",
-    "name": "VI Dom Akademicki",
+    "name": "VI Dom Studenta",
     "tags": "Akwarium",
     "latLng": [
       51.7457995,
@@ -2523,7 +2523,7 @@
   {
     "id": "67",
     "short": "C9",
-    "name": "VII Dom Akademicki",
+    "name": "VII Dom Studenta",
     "tags": "Siódemka",
     "latLng": [
       51.7461292,
@@ -2598,7 +2598,7 @@
   {
     "id": "69",
     "short": "C11",
-    "name": "IV Dom Akademicki",
+    "name": "IV Dom Studenta",
     "tags": "Czwórka",
     "latLng": [
       51.7467162,
@@ -2632,7 +2632,7 @@
   {
     "id": "70",
     "short": "C12",
-    "name": "III Dom Akademicki",
+    "name": "III Dom Studenta",
     "tags": "Trójka",
     "latLng": [
       51.7474178,
@@ -2678,7 +2678,7 @@
   {
     "id": "71",
     "short": "C13",
-    "name": "II Dom Akademicki",
+    "name": "II Dom Studenta",
     "tags": "Mikrus",
     "latLng": [
       51.7482778,
@@ -2712,7 +2712,7 @@
   {
     "id": "72",
     "short": "C14",
-    "name": "I Dom Akademicki",
+    "name": "I Dom Studenta",
     "tags": "Jedynka",
     "latLng": [
       51.748684,
@@ -2787,7 +2787,7 @@
   {
     "id": "74",
     "short": "C16",
-    "name": "VIII Dom Akademicki",
+    "name": "VIII Dom Studenta",
     "tags": "Zwartek",
     "latLng": [
       51.7513544,
@@ -3087,7 +3087,7 @@
   {
     "id": "83",
     "short": "E1",
-    "name": "IX Dom Akademicki",
+    "name": "IX Dom Studenta",
     "latLng": [
       51.7469747,
       19.4598611
@@ -3120,7 +3120,7 @@
   {
     "id": "84",
     "short": "E2",
-    "name": "V Dom Akademicki",
+    "name": "V Dom Studenta",
     "tags": "Tygrys",
     "latLng": [
       51.7790746,
