@@ -900,18 +900,18 @@
     "building": "69",
     "website": ""
   },
-   {
-    "id": "2026115",
-    "name": "VI Dom Studenta",
-    "category": "11",
-    "building": "63",
-    "website": ""
-  },
   {
-    "id": "2026116",
+    "id": "2026115",
     "name": "V Dom Studenta",
     "category": "11",
     "building": "84",
+    "website": ""
+  },
+   {
+    "id": "2026116",
+    "name": "VI Dom Studenta",
+    "category": "11",
+    "building": "63",
     "website": ""
   },
   {
