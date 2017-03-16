@@ -874,56 +874,63 @@
   },
   {
     "id": "2026111",
-    "name": "I Dom Akademicki",
+    "name": "I Dom Studenta",
     "category": "11",
     "building": "72",
     "website": ""
   },
   {
     "id": "2026112",
-    "name": "II Dom Akademicki",
+    "name": "II Dom Studenta",
     "category": "11",
     "building": "71",
     "website": ""
   },
   {
     "id": "2026113",
-    "name": "III Dom Akademicki",
+    "name": "III Dom Studenta",
     "category": "11",
     "building": "70",
     "website": ""
   },
   {
     "id": "2026114",
-    "name": "IV Dom Akademicki",
+    "name": "IV Dom Studenta",
     "category": "11",
     "building": "69",
     "website": ""
   },
   {
     "id": "2026115",
-    "name": "VI Dom Akademicki",
+    "name": "V Dom Studenta",
+    "category": "11",
+    "building": "84",
+    "website": ""
+  },
+   {
+    "id": "2026116",
+    "name": "VI Dom Studenta",
     "category": "11",
     "building": "63",
     "website": ""
   },
   {
-    "id": "2026116",
-    "name": "VII Dom Akademicki",
+    "id": "2026117",
+    "name": "VII Dom Studenta",
     "category": "11",
     "building": "67",
     "website": ""
   },
   {
-    "id": "2026117",
-    "name": "VIII Dom Akademicki",
+    "id": "2026118",
+    "name": "VIII Dom Studenta",
     "category": "11",
     "building": "74",
     "website": ""
   },
   {
-    "id": "2026117",
-    "name": "IX Dom Akademicki",
+    "id": "2026119",
+    "name": "IX Dom Studenta",
     "category": "11",
     "building": "83",
     "website": ""
@@ -987,7 +994,7 @@
   },
   {
     "id": "2033",
-    "name": "Akademickie Radio Żak",
+    "name": "Studenckie Radio Żak",
     "category": "11",
     "building": "70",
     "website": ""
