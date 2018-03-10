@@ -19,9 +19,10 @@ jobs:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
       - run:
-          name: Run tests
+          name: Unit tests with coverage
           command: |
-            sudo docker-php-ext-enable xdebug
             ./cc-test-reporter before-build
-            sudo vendor/bin/phpunit --coverage-clover clover.xml
-            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+            npm run coverage
+            ./cc-test-reporter after-build --exit-code $?
+          environment:
+            JEST_JUNIT_OUTPUT: "coverage/junit/js-test-results.xml"
