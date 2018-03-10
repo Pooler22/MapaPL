@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "coverage": "react-scripts test --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -28,6 +29,7 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.2",
-    "jest-cli": "^22.4.2"
+    "jest-cli": "^22.4.2",
+    "jest-junit": "^3.6.0"
   }
 }
