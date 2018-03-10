@@ -54,12 +54,12 @@ class QueryHelper {
     }
 
     static UpdateURL(title, url) {
-        if (typeof(history.pushState) != "undefined") {
+        if (typeof(document.history.pushState) !== "undefined") {
             let objUrl = {
                 Title: title,
                 Url: url
             };
-            history.pushState(objUrl, objUrl.Title, objUrl.Url);
+            document.history.pushState(objUrl, objUrl.Title, objUrl.Url);
         } else {
             console.error("Update url");
         }
