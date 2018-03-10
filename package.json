@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lint": "eslint .",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
-    "lint": "eslint .",
-    "prettier":
-      "find . -name node_modules -prune -or -name '*.js' -print | xargs prettier --write",
+    "prettier": "1.11.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
@@ -20,7 +19,8 @@
     "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "coverage":
-      "react-scripts test --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit"
+      "react-scripts test --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
+    "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -29,7 +29,10 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "jest-junit": "^3.6.0"
+    "husky": "^0.14.3",
+    "jest-junit": "^3.6.0",
+    "pretty-quick": "^1.4.1"
   }
 }
