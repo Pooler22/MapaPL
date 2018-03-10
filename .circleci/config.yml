@@ -2,12 +2,29 @@ version: 2.0
 jobs:
   build:
     environment:
-      CC_TEST_REPORTER_ID: pooler22
+      CC_TEST_REPORTER_ID: 1ee39d42cd290093e6af2b3e8a8dd1c35696aa361d7538c44edf9e0cc5b20912
     docker:
       - image: circleci/php:7.1.9-browsers
     working_directory: ~/repo
     steps:
       - checkout
+      - run:
+          name: Setup dependencies
+          command: |
+            sudo composer self-update
+            composer install -n --prefer-dist
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            sudo docker-php-ext-enable xdebug
+            ./cc-test-reporter before-build
+            sudo vendor/bin/phpunit --coverage-clover clover.xml
+            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
       - run:
           name: Setup Code Climate test reporter
           command: |
@@ -21,7 +38,3 @@ jobs:
             ./cc-test-reporter after-build --exit-code $?
           environment:
             JEST_JUNIT_OUTPUT: "coverage/junit/js-test-results.xml"
-      - store_test_results:
-          path: coverage/
-      - store_artifacts:
-          path: coverage
