@@ -7,7 +7,6 @@ jobs:
       - image: circleci/php:7.1.9-browsers
     working_directory: ~/repo
     steps:
-      - 
       - run: 
           name: apt-get install -y sudo
           command: apt-get install -y sudo
