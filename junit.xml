@@ -1,2 +1,10 @@
-<testsuites name="jest tests" tests="0" failures="0" time="0">
+<testsuites name="jest tests" tests="2" failures="0" time="0.99">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T21:11:04" time="0.813" tests="1">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.133">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T21:11:04" time="0.177" tests="1">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.074">
+    </testcase>
+  </testsuite>
 </testsuites>
