@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lint": "eslint .",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
     "prettier": "1.11.1",
@@ -14,6 +13,7 @@
     "react-tap-event-plugin": "^3.0.2"
   },
   "scripts": {
+    "lint": "eslint .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --coverage",
@@ -23,12 +23,12 @@
     "precommit": "pretty-quick --staged"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.2.2",
     "eslint": "^4.18.2",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3",
