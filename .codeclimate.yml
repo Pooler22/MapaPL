@@ -1,0 +1,3 @@
+## old-files excluded
+exclude_patterns:
+- "/old-files"
