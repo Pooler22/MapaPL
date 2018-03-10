@@ -1,10 +1,23 @@
-<testsuites name="jest tests" tests="2" failures="0" time="0.99">
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T21:11:04" time="0.813" tests="1">
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.133">
+<testsuites name="jest tests" tests="3" failures="1" time="1.3350000000000002">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2018-03-10T23:26:13" time="0.519" tests="1">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.004">
+      <failure>TypeError: expect(...).isEqual is not a function
+    at Object.&lt;anonymous&gt;.it (/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/data/buildings.test.js:4:38)
+    at Object.asyncFn (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at resolve (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:38:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at Promise.resolve.then.el (/Users/pooler/Documents/ja/MapaPL/node_modules/p-map/index.js:46:16)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T21:11:04" time="0.177" tests="1">
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.074">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T23:26:13" time="0.645" tests="1">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.138">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2018-03-10T23:26:14" time="0.171" tests="1">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.076">
     </testcase>
   </testsuite>
 </testsuites>
