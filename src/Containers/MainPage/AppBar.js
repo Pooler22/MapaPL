@@ -10,7 +10,8 @@ import MenuIcon from 'material-ui-icons/Menu';
 const drawerWidth = 240;
 
 const metrics = ['margin', 'width'];
-const styles = theme => ({
+
+const styles = ({ transitions }) => ({
   appFrame: {
     height: '100%',
     zIndex: 1,
@@ -21,16 +22,16 @@ const styles = theme => ({
   },
   appBar: {
     position: 'absolute',
-    transition: theme.transitions.create(metrics, {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+    transition: transitions.create(metrics, {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.leavingScreen
     })
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(metrics, {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
+    transition: transitions.create(metrics, {
+      easing: transitions.easing.easeOut,
+      duration: transitions.duration.enteringScreen
     })
   },
   'appBarShift-left': {
