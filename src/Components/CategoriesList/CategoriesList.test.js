@@ -16,6 +16,18 @@ it('renders without crashing with initial data', () => {
     {
       id: '0',
       name: 'Wydziały',
+      icon: 'industry'
+    }
+  ];
+
+  shallow(<CategoriesList categories={categories} />);
+});
+
+it('renders without crashing with initial data and subcategory', () => {
+  const categories = [
+    {
+      id: '0',
+      name: 'Wydziały',
       icon: 'industry',
       subcategory: [
         {
