@@ -25,13 +25,15 @@ const ListItems = ({
 }) => (
   <React.Fragment key={`categories-${id}`}>
     <ListItem key={`category-${id}`} onClick={handleClick} button>
-      <ListItemIcon>
-        <FontAwesome name={icon} />
-      </ListItemIcon>
+      {icon && (
+        <ListItemIcon>
+          <FontAwesome name={!!icon} />
+        </ListItemIcon>
+      )}
       <ListItemText inset primary={name} />
-      {subcategory && (open ? <ExpandLess /> : <ExpandMore />)}
+      {!!subcategory && (open ? <ExpandLess /> : <ExpandMore />)}
     </ListItem>
-    {subcategory && (
+    {!!subcategory && (
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           <ListItem button className={classes.nested}>

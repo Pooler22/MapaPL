@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List from 'material-ui/List';
 
-import ListItems from './ListItem';
+import ListItems from '../ListItem';
 
 const styles = theme => ({
   root: {
