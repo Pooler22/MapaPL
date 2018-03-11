@@ -9,7 +9,14 @@ import centered from '@storybook/addon-centered';
 import backgrounds from '@storybook/addon-backgrounds';
 import { withInfo } from '@storybook/addon-info';
 
+// import results from '../../../.jest-test-results.json';
+// import { withTests } from '@storybook/addon-jest';
+
 import ListItem from './ListItem';
+
+// const newWithTests = withTests({
+//   results
+// });
 
 const category = {
   id: '0',
@@ -34,6 +41,7 @@ const categoryWithSubcategories = Object.assign(categoryWithIcon, {
 });
 
 storiesOf('ListItem', module)
+  // .addDecorator(withTests('ListItem'))
   .addDecorator((story, context) => withInfo('common info')(story)(context))
   .addDecorator(checkA11y)
   .addDecorator(
@@ -43,7 +51,6 @@ storiesOf('ListItem', module)
     ])
   )
   .addDecorator(centered)
-
   .add('default', () => <ListItem />)
   .add('with data', () => <ListItem {...category} />)
   .add('with data and icon', () => <ListItem {...categoryWithIcon} />)

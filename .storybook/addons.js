@@ -8,3 +8,4 @@ import '@storybook/addon-info';
 import '@storybook/addon-viewport/register';
 import '@storybook/addon-storysource/register';
 import '@storybook/addon-storyshots';
+import '@storybook/addon-jest';

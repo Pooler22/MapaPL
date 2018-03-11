@@ -25,7 +25,11 @@
       "react-scripts test --env=jsdom --coverage --testResultsProcessor ./node_modules/jest-junit",
     "precommit": "pretty-quick --staged",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "test:generate-output": "jest --json --outputFile=jest-test-results.json",
+
+    "prebuild:storybook": "npm run test:generate-output",
+    "build:storybook": "build-storybook -c .storybook -o build/"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^3.3.15",
@@ -34,6 +38,7 @@
     "@storybook/addon-centered": "^3.3.15",
     "@storybook/addon-events": "^3.3.15",
     "@storybook/addon-info": "^3.3.15",
+    "@storybook/addon-jest": "^3.3.15",
     "@storybook/addon-links": "^3.3.15",
     "@storybook/addon-storyshots": "^3.3.15",
     "@storybook/addon-storysource": "^3.4.0-alpha.8",
