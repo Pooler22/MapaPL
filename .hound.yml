@@ -4,5 +4,3 @@ eslint:
   ignore_file: .eslintignore
 tslint:
   enabled: true
-jshint:
-  enabled: true
