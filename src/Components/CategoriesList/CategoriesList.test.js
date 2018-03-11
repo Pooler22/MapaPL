@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import CategoriesListDefault from './index';
 import CategoriesList from './CategoriesList';
 import { shallow } from 'enzyme';
@@ -24,10 +23,10 @@ it('renders without crashing with initial data', () => {
           name: 'Mechaniczny',
           icon: 'cogs',
           short_name: 'Mechaniczny',
-          short: 'W1',
-        },
-      ],
-    },
+          short: 'W1'
+        }
+      ]
+    }
   ];
 
   shallow(<CategoriesList categories={categories} />);

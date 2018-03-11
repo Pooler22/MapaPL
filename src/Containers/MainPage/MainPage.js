@@ -4,16 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from './Drawer';
 import AppBar from './AppBar';
-import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
-import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
-import ChevronRightIcon from 'material-ui-icons/ChevronRight';
-import CategoriesList from '../../Components/CategoriesList';
-
-import categories from './data/categories';
 
 const drawerWidth = 240;
 
@@ -25,37 +16,6 @@ const styles = theme => ({
     position: 'relative',
     display: 'flex',
     width: '100%'
-  },
-  appBar: {
-    position: 'absolute',
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
-  'appBarShift-left': {
-    marginLeft: drawerWidth
-  },
-  'appBarShift-right': {
-    marginRight: drawerWidth
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20
-  },
-  hide: {
-    display: 'none'
-  },
-  drawerPaper: {
-    position: 'relative',
-    width: drawerWidth
   },
   drawerHeader: {
     display: 'flex',
@@ -75,9 +35,6 @@ const styles = theme => ({
   },
   'content-left': {
     marginLeft: -drawerWidth
-  },
-  'content-right': {
-    marginRight: -drawerWidth
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
