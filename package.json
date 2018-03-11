@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
     "prettier": "1.11.1",
@@ -10,7 +12,8 @@
     "react-dom": "^16.2.0",
     "react-fontawesome": "^1.6.1",
     "react-scripts": "1.1.1",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-tap-event-plugin": "^3.0.2",
+    "react-test-renderer": "^16.2.0"
   },
   "scripts": {
     "lint": "eslint .",
