@@ -8,7 +8,8 @@ import Typography from 'material-ui/Typography';
 
 const drawerWidth = 240;
 
-const styles = theme => ({
+const margin = 'margin';
+const styles = ({ mixins, palette, spacing, transitions }) => ({
   appFrame: {
     height: '100%',
     zIndex: 1,
@@ -22,24 +23,24 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
-    ...theme.mixins.toolbar
+    ...mixins.toolbar
   },
   content: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+    backgroundColor: palette.background.default,
+    padding: spacing.unit * 3,
+    transition: transitions.create(margin, {
+      easing: transitions.easing.sharp,
+      duration: transitions.duration.leavingScreen
     })
   },
   'content-left': {
     marginLeft: -drawerWidth
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
+    transition: transitions.create(margin, {
+      easing: transitions.easing.easeOut,
+      duration: transitions.duration.enteringScreen
     })
   },
   'contentShift-left': {
@@ -69,18 +70,8 @@ class PersistentDrawer extends React.Component {
 
     return (
       <div className={classes.appFrame}>
-        <AppBar
-          open={open}
-          classes={classes}
-          theme={theme}
-          handleDrawerOpen={this.handleDrawerOpen}
-        />
-        <Drawer
-          open={open}
-          classes={classes}
-          theme={theme}
-          handleDrawerClose={this.handleDrawerClose}
-        />
+        <AppBar open={open} handleDrawerOpen={this.handleDrawerOpen} />
+        <Drawer open={open} handleDrawerClose={this.handleDrawerClose} />
         <main
           className={classNames(classes.content, classes[`content-left`], {
             [classes.contentShift]: open,
