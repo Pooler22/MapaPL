@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
-import Drawer from './Drawer';
-import AppBar from './AppBar';
+import Drawer from 'material-ui/Drawer';
+import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
@@ -93,56 +93,29 @@ const styles = theme => ({
   }
 });
 
-class PersistentDrawer extends React.Component {
-  state = {
-    open: false
-  };
-
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleDrawerClose = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes, theme } = this.props;
-    const { open } = this.state;
-
-    return (
-      <div className={classes.appFrame}>
-        <AppBar
-          open={open}
-          classes={classes}
-          theme={theme}
-          handleDrawerOpen={this.handleDrawerOpen}
-        />
-        <Drawer
-          open={open}
-          classes={classes}
-          theme={theme}
-          handleDrawerClose={this.handleDrawerClose}
-        />
-        <main
-          className={classNames(classes.content, classes[`content-left`], {
-            [classes.contentShift]: open,
-            [classes[`contentShift-left`]]: open
-          })}
+const MyAppBar = ({ open, classes, theme, handleDrawerOpen }) => {
+  return (
+    <AppBar
+      className={classNames(classes.appBar, {
+        [classes.appBarShift]: open,
+        [classes[`appBarShift-left`]]: open
+      })}
+    >
+      <Toolbar disableGutters={!open}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          className={classNames(classes.menuButton, open && classes.hide)}
         >
-          <div className={classes.drawerHeader} />
-          <Typography>
-            {'You think water moves fast? You should see ice.'}
-          </Typography>
-        </main>
-      </div>
-    );
-  }
-}
-
-PersistentDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="title" color="inherit" noWrap>
+          Mapa PŁ
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
 };
 
-export default withStyles(styles, { withTheme: true })(PersistentDrawer);
+export default withStyles(styles, { withTheme: true })(MyAppBar);
