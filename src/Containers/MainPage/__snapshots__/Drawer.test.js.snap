@@ -425,7 +425,7 @@ exports[`Storyshots ListItem with data 1`] = `
             <h3
               className="MuiTypography-root-47 MuiTypography-subheading-54 MuiListItemText-primary-44"
             >
-              Wydziały
+              Name
             </h3>
           </div>
           <svg
@@ -677,7 +677,7 @@ exports[`Storyshots ListItem with data 1`] = `
                             }
                           >
                             "
-                            Wydziały
+                            Name
                             "
                           </span>
                         </span>
@@ -738,7 +738,7 @@ exports[`Storyshots ListItem with data 1`] = `
                             }
                           >
                             "
-                            industry
+                            menu
                             "
                           </span>
                         </span>
@@ -821,7 +821,7 @@ exports[`Storyshots ListItem with data 1`] = `
                                     }
                                   >
                                     "
-                                    Mechaniczny
+                                    Name
                                     "
                                   </span>
                                   , 
@@ -844,7 +844,7 @@ exports[`Storyshots ListItem with data 1`] = `
                                     }
                                   >
                                     "
-                                    cogs
+                                    menu
                                     "
                                   </span>
                                   , 
@@ -1052,7 +1052,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
             <h3
               className="MuiTypography-root-108 MuiTypography-subheading-115 MuiListItemText-primary-105"
             >
-              Wydziały
+              Name
             </h3>
           </div>
           <svg
@@ -1304,7 +1304,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
                             }
                           >
                             "
-                            Wydziały
+                            Name
                             "
                           </span>
                         </span>
@@ -1365,7 +1365,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
                             }
                           >
                             "
-                            industry
+                            menu
                             "
                           </span>
                         </span>
@@ -1448,7 +1448,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
                                     }
                                   >
                                     "
-                                    Mechaniczny
+                                    Name
                                     "
                                   </span>
                                   , 
@@ -1471,7 +1471,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
                                     }
                                   >
                                     "
-                                    cogs
+                                    menu
                                     "
                                   </span>
                                   , 
@@ -1679,7 +1679,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
             <h3
               className="MuiTypography-root-169 MuiTypography-subheading-176 MuiListItemText-primary-166"
             >
-              Wydziały
+              Name
             </h3>
           </div>
           <svg
@@ -1931,7 +1931,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
                             }
                           >
                             "
-                            Wydziały
+                            Name
                             "
                           </span>
                         </span>
@@ -1992,7 +1992,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
                             }
                           >
                             "
-                            industry
+                            menu
                             "
                           </span>
                         </span>
@@ -2075,7 +2075,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
                                     }
                                   >
                                     "
-                                    Mechaniczny
+                                    Name
                                     "
                                   </span>
                                   , 
@@ -2098,7 +2098,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
                                     }
                                   >
                                     "
-                                    cogs
+                                    menu
                                     "
                                   </span>
                                   , 

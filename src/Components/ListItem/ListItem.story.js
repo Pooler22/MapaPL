@@ -1,9 +1,9 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
+// import FontAwesome from 'react-fontawesome';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+// import { linkTo } from '@storybook/addon-links';
 import { checkA11y } from '@storybook/addon-a11y';
 import centered from '@storybook/addon-centered';
 import backgrounds from '@storybook/addon-backgrounds';
@@ -20,22 +20,22 @@ import ListItem from './ListItem';
 
 const category = {
   id: '0',
-  name: 'Wydziały',
+  name: 'Name',
   handleClick: action('handleClick')
 };
 
 const categoryWithIcon = Object.assign(category, {
-  icon: 'industry'
+  icon: 'menu'
 });
 
 const categoryWithSubcategories = Object.assign(categoryWithIcon, {
   subcategory: [
     {
       id: '1',
-      name: 'Mechaniczny',
-      icon: 'cogs',
-      short_name: 'Mechaniczny',
-      short: 'W1'
+      name: 'Name',
+      icon: 'menu',
+      short_name: 'ShortNaem',
+      short: 'Short'
     }
   ]
 });
