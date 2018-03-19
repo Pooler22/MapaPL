@@ -1,0 +1,167 @@
+<!-- Pooler22 copyright. all right reserved  -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mapa Politechniki Łódzkiej</title>
+
+    <meta property="og:image" content="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-512.png" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        html {
+            overflow: hidden;
+        }
+        
+        .marker-cluster-small {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        
+        .marker-cluster-small div {
+            border-radius: 50%;
+            background-color: #1F79C8;
+            border: 2px solid #1f79c8;
+            color: #ffffff;
+            font-weight: bolder;
+        }
+        
+        #search {
+            width: 480px;
+            height: 49px;
+            border: 3px solid black;
+            padding: 1px 0 0 48px;
+            font-size: 22px;
+            color: blue;
+            background-image: url('images/search.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            outline: 0;
+        }
+        
+        span.search {
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 0.5em;
+            -webkit-border-radius: 0.5em;
+        }
+        
+        span.search>input {
+            background: none;
+            border: none;
+        }
+    </style>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+    <link href="mui.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/leaflet.markercluster.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.3/leaflet.markercluster-src.js"></script>
+
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <script src="//cdn.muicss.com/mui-0.9.6/js/mui.min.js"></script>
+
+    <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />-->
+    <!--<link rel="stylesheet"-->
+    <!--href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.css"/>-->
+    <!--<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.5/leaflet-routing-machine.js"></script>-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.js"></script>
+
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.css"/>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.60.0/L.Control.Locate.min.js"></script>-->
+    <script src="leaflet.groupedlayercontrol.js"></script>
+
+    <style>
+        .clearable-input {
+            position: relative;
+        }
+        
+        .clearable-input>input {
+            padding-right: 1.4em;
+        }
+        
+        .clearable-input>[data-clear-input] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-weight: bold;
+            font-size: 1.4em;
+            padding: 0 0.2em;
+            line-height: 1em;
+            cursor: pointer;
+        }
+        
+        .clearable-input>input::-ms-clear {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidedrawer" class="mui--no-user-select">
+        <div class="mui-container-fluid mui--visible-inline-block">
+            </br>
+            </br>
+            <div class="clearable-input mui-textfield mui-textfield--float-label">
+                <input id="search-input" type="search" id="search" oninput="data.filterPlaces(this.value)" title="Wyszukiwarka">
+                <span data-clear-input style="padding: 20px 0 0 0">&times;</span>
+                <label><i class="fa fa-search"></i>Szukaj...</label>
+            </div>
+        </div>
+        <ul id="list"></ul>
+        <ul id="listSearched"></ul>
+    </div>
+
+    <header id="header">
+        <div class="mui-appbar mui--appbar-line-height mui--no-user-select">
+            <table width="100%">
+                <tr style="vertical-align:middle;">
+                    <td class="mui--appbar-height ">
+                        <div class="mui-container-fluid ">
+                            <span class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block" onclick="view.showSidedrawer()">
+                            <i class="fa fa-bars"></i>
+                        </span>
+                            <span class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm " onclick="view.toggleSidedrawer()">
+                            <i class="fa fa-bars mui--no-user-select"></i>
+                        </span>
+                            <a href="/MapaPL/" class="mui--text-title mui--visible-inline-block mui--text-light"> Mapa
+                            PŁ</a>
+                        </div>
+                    </td>
+                    <td align="right">
+                        <span class="sidedrawer-toggle " onclick="view.searchExt()">
+                            <i class="fa fa-search mui--no-user-select"></i>
+                        </span>
+                        <span class="sidedrawer-toggle " onclick="view.activateModal()">
+                            <i class="fa fa-info-circle mui--no-user-select"></i>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <div id="content-wrapper">
+        <div id="map" class="map"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

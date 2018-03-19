@@ -1,0 +1,184 @@
+{
+  "numFailedTestSuites": 5,
+  "numFailedTests": 2,
+  "numPassedTestSuites": 5,
+  "numPassedTests": 5,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 4,
+  "numTotalTestSuites": 10,
+  "numTotalTests": 7,
+  "snapshot": {
+    "added": 0,
+    "didUpdate": true,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1520772145352,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [
+            "Error: \n      Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To\n      configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`\n      before using any of Enzyme's top level APIs, where `Adapter` is the adapter\n      corresponding to the library currently being tested. For example:\n\n      import Adapter from 'enzyme-adapter-react-15';\n\n      To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html\n    \n    at validateAdapter (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/validateAdapter.js:14:11)\n    at getAdapter (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/Utils.js:76:36)\n    at new ShallowWrapper (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/ShallowWrapper.js:117:44)\n    at shallow (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/shallow.js:19:10)\n    at Object.<anonymous> (/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/AppBar.test.js:6:23)\n    at Object.asyncFn (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)\n    at resolve (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:38:12)\n    at new Promise (<anonymous>)\n    at mapper (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:31:21)\n    at Promise.resolve.then.el (/Users/pooler/Documents/ja/MapaPL/node_modules/p-map/index.js:46:16)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+          ],
+          "status": "failed",
+          "title": "renders without crashing when open true"
+        },
+        {
+          "failureMessages": [
+            "Error: \n      Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To\n      configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`\n      before using any of Enzyme's top level APIs, where `Adapter` is the adapter\n      corresponding to the library currently being tested. For example:\n\n      import Adapter from 'enzyme-adapter-react-15';\n\n      To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html\n    \n    at validateAdapter (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/validateAdapter.js:14:11)\n    at getAdapter (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/Utils.js:76:36)\n    at new ShallowWrapper (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/ShallowWrapper.js:117:44)\n    at shallow (/Users/pooler/Documents/ja/MapaPL/node_modules/enzyme/build/shallow.js:19:10)\n    at Object.<anonymous> (/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/AppBar.test.js:10:23)\n    at Object.asyncFn (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)\n    at resolve (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:38:12)\n    at new Promise (<anonymous>)\n    at mapper (/Users/pooler/Documents/ja/MapaPL/node_modules/jest-jasmine2/build/queueRunner.js:31:21)\n    at Promise.resolve.then.el (/Users/pooler/Documents/ja/MapaPL/node_modules/p-map/index.js:46:16)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:188:7)"
+          ],
+          "status": "failed",
+          "title": "renders without crashing when open false"
+        }
+      ],
+      "endTime": 1520772146387,
+      "message":
+        "\u001b[1m\u001b[31m  \u001b[1m● \u001b[1mrenders without crashing when open true\u001b[39m\u001b[22m\n\n    \n          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To\n          configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`\n          before using any of Enzyme's top level APIs, where `Adapter` is the adapter\n          corresponding to the library currently being tested. For example:\n    \n          import Adapter from 'enzyme-adapter-react-15';\n    \n          To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html\n\u001b[2m      \n          \n      \u001b[2mat validateAdapter (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/validateAdapter.js\u001b[39m\u001b[0m\u001b[2m:14:11)\u001b[2m\n      \u001b[2mat getAdapter (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/Utils.js\u001b[39m\u001b[0m\u001b[2m:76:36)\u001b[2m\n      \u001b[2mat new ShallowWrapper (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/ShallowWrapper.js\u001b[39m\u001b[0m\u001b[2m:117:44)\u001b[2m\n      \u001b[2mat shallow (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/shallow.js\u001b[39m\u001b[0m\u001b[2m:19:10)\u001b[2m\n      \u001b[2mat Object.<anonymous> (\u001b[2m\u001b[0m\u001b[36msrc/Containers/MainPage/AppBar.test.js\u001b[39m\u001b[0m\u001b[2m:6:23)\u001b[2m\n          at new Promise (<anonymous>)\n      \u001b[2mat Promise.resolve.then.el (\u001b[2m\u001b[0m\u001b[36mnode_modules/p-map/index.js\u001b[39m\u001b[0m\u001b[2m:46:16)\u001b[2m\n          at <anonymous>\n      \u001b[2mat process._tickCallback (\u001b[2m\u001b[0m\u001b[36minternal/process/next_tick.js\u001b[39m\u001b[0m\u001b[2m:188:7)\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[1mrenders without crashing when open false\u001b[39m\u001b[22m\n\n    \n          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none. To\n          configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`\n          before using any of Enzyme's top level APIs, where `Adapter` is the adapter\n          corresponding to the library currently being tested. For example:\n    \n          import Adapter from 'enzyme-adapter-react-15';\n    \n          To find out more about this, see http://airbnb.io/enzyme/docs/installation/index.html\n\u001b[2m      \n          \n      \u001b[2mat validateAdapter (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/validateAdapter.js\u001b[39m\u001b[0m\u001b[2m:14:11)\u001b[2m\n      \u001b[2mat getAdapter (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/Utils.js\u001b[39m\u001b[0m\u001b[2m:76:36)\u001b[2m\n      \u001b[2mat new ShallowWrapper (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/ShallowWrapper.js\u001b[39m\u001b[0m\u001b[2m:117:44)\u001b[2m\n      \u001b[2mat shallow (\u001b[2m\u001b[0m\u001b[36mnode_modules/enzyme/build/shallow.js\u001b[39m\u001b[0m\u001b[2m:19:10)\u001b[2m\n      \u001b[2mat Object.<anonymous> (\u001b[2m\u001b[0m\u001b[36msrc/Containers/MainPage/AppBar.test.js\u001b[39m\u001b[0m\u001b[2m:10:23)\u001b[2m\n          at new Promise (<anonymous>)\n      \u001b[2mat Promise.resolve.then.el (\u001b[2m\u001b[0m\u001b[36mnode_modules/p-map/index.js\u001b[39m\u001b[0m\u001b[2m:46:16)\u001b[2m\n          at <anonymous>\n      \u001b[2mat process._tickCallback (\u001b[2m\u001b[0m\u001b[36minternal/process/next_tick.js\u001b[39m\u001b[0m\u001b[2m:188:7)\u001b[2m\u001b[22m\n",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/AppBar.test.js",
+      "startTime": 1520772145740,
+      "status": "failed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [],
+          "status": "passed",
+          "title": "renders without crashing with "
+        }
+      ],
+      "endTime": 1520772146551,
+      "message": "",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Components/ListItem/ListItem.test.js",
+      "startTime": 1520772146393,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [],
+          "status": "passed",
+          "title": "renders without crashing"
+        }
+      ],
+      "endTime": 1520772146620,
+      "message": "",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/data/places.test.js",
+      "startTime": 1520772146592,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [],
+          "status": "passed",
+          "title": "renders without crashing"
+        }
+      ],
+      "endTime": 1520772146645,
+      "message": "",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/data/categories.test.js",
+      "startTime": 1520772146623,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [],
+          "status": "passed",
+          "title": "renders without crashing"
+        }
+      ],
+      "endTime": 1520772146669,
+      "message": "",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/data/campuses.test.js",
+      "startTime": 1520772146648,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [
+        {
+          "failureMessages": [],
+          "status": "passed",
+          "title": "renders without crashing"
+        }
+      ],
+      "endTime": 1520772146702,
+      "message": "",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/data/buildings.test.js",
+      "startTime": 1520772146672,
+      "status": "passed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [],
+      "coverage": {},
+      "endTime": 1520772147101,
+      "message":
+        "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    /Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/Drawer.js: Unexpected token (35:4)\n      \u001b[0m \u001b[90m 33 | \u001b[39m    justifyContent\u001b[33m:\u001b[39m \u001b[32m'flex-end'\u001b[39m\u001b[33m,\u001b[39m\n       \u001b[90m 34 | \u001b[39m    padding\u001b[33m:\u001b[39m \u001b[32m'0 8px'\u001b[39m\u001b[33m,\u001b[39m\n      \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 35 | \u001b[39m    \u001b[33m...\u001b[39mtheme\u001b[33m.\u001b[39mmixins\u001b[33m.\u001b[39mtoolbar\n       \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n       \u001b[90m 36 | \u001b[39m  }\n       \u001b[90m 37 | \u001b[39m})\u001b[33m;\u001b[39m\n       \u001b[90m 38 | \u001b[39m\u001b[0m\n",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/Drawer.test.js",
+      "startTime": 1520772147101,
+      "status": "failed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [],
+      "coverage": {},
+      "endTime": 1520772147101,
+      "message":
+        "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    /Users/pooler/Documents/ja/MapaPL/src/Components/CategoriesList/CategoriesList.js: Unexpected token (18:8)\n      \u001b[0m \u001b[90m 16 | \u001b[39m\n       \u001b[90m 17 | \u001b[39m\u001b[36mclass\u001b[39m \u001b[33mCategoriesList\u001b[39m \u001b[36mextends\u001b[39m \u001b[33mReact\u001b[39m\u001b[33m.\u001b[39m\u001b[33mComponent\u001b[39m {\n      \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 18 | \u001b[39m  state \u001b[33m=\u001b[39m {\n       \u001b[90m    | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n       \u001b[90m 19 | \u001b[39m    open\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\n       \u001b[90m 20 | \u001b[39m  }\u001b[33m;\u001b[39m\n       \u001b[90m 21 | \u001b[39m\u001b[0m\n",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Components/CategoriesList/CategoriesList.test.js",
+      "startTime": 1520772147101,
+      "status": "failed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [],
+      "coverage": {},
+      "endTime": 1520772147101,
+      "message":
+        "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    /Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/MainPage.js: Unexpected token (26:4)\n      \u001b[0m \u001b[90m 24 | \u001b[39m    justifyContent\u001b[33m:\u001b[39m \u001b[32m'flex-end'\u001b[39m\u001b[33m,\u001b[39m\n       \u001b[90m 25 | \u001b[39m    padding\u001b[33m:\u001b[39m \u001b[32m'0 8px'\u001b[39m\u001b[33m,\u001b[39m\n      \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 | \u001b[39m    \u001b[33m...\u001b[39mmixins\u001b[33m.\u001b[39mtoolbar\n       \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n       \u001b[90m 27 | \u001b[39m  }\u001b[33m,\u001b[39m\n       \u001b[90m 28 | \u001b[39m  content\u001b[33m:\u001b[39m {\n       \u001b[90m 29 | \u001b[39m    flexGrow\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/App/App.test.js",
+      "startTime": 1520772147101,
+      "status": "failed",
+      "summary": ""
+    },
+    {
+      "assertionResults": [],
+      "coverage": {},
+      "endTime": 1520772147101,
+      "message":
+        "  \u001b[1m● \u001b[22mTest suite failed to run\n\n    /Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/MainPage.js: Unexpected token (26:4)\n      \u001b[0m \u001b[90m 24 | \u001b[39m    justifyContent\u001b[33m:\u001b[39m \u001b[32m'flex-end'\u001b[39m\u001b[33m,\u001b[39m\n       \u001b[90m 25 | \u001b[39m    padding\u001b[33m:\u001b[39m \u001b[32m'0 8px'\u001b[39m\u001b[33m,\u001b[39m\n      \u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 26 | \u001b[39m    \u001b[33m...\u001b[39mmixins\u001b[33m.\u001b[39mtoolbar\n       \u001b[90m    | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n       \u001b[90m 27 | \u001b[39m  }\u001b[33m,\u001b[39m\n       \u001b[90m 28 | \u001b[39m  content\u001b[33m:\u001b[39m {\n       \u001b[90m 29 | \u001b[39m    flexGrow\u001b[33m:\u001b[39m \u001b[35m1\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n",
+      "name":
+        "/Users/pooler/Documents/ja/MapaPL/src/Containers/MainPage/MainPage.test.js",
+      "startTime": 1520772147101,
+      "status": "failed",
+      "summary": ""
+    }
+  ],
+  "wasInterrupted": false
+}
