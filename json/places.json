@@ -247,8 +247,7 @@
   },
   {
     "id": "404",
-    "name":
-      "Katedra Materiałoznawstwa, Towaroznawstwa i Metrologii Włókienniczej",
+    "name": "Katedra Materiałoznawstwa, Towaroznawstwa i Metrologii Włókienniczej",
     "short": "K48",
     "category": "4",
     "building": "33",
@@ -292,8 +291,7 @@
     "short": "I28",
     "category": "5",
     "building": "2",
-    "website":
-      "http://binoz.p.lodz.pl/pl/instytut-podstaw-chemii-zywnosci/o-instytucie"
+    "website": "http://binoz.p.lodz.pl/pl/instytut-podstaw-chemii-zywnosci/o-instytucie"
   },
   {
     "id": "503",
@@ -301,8 +299,7 @@
     "short": "I29",
     "category": "5",
     "building": "2,4",
-    "website":
-      "http://binoz.p.lodz.pl/pl/instytut-biochemii-technicznej/o-instytucie"
+    "website": "http://binoz.p.lodz.pl/pl/instytut-biochemii-technicznej/o-instytucie"
   },
   {
     "id": "505",
@@ -310,8 +307,7 @@
     "short": "I31",
     "category": "5",
     "building": "2,4",
-    "website":
-      "http://binoz.p.lodz.pl/pl/instytut-technologii-fermentacji-mikrobiologii/o-instytucie"
+    "website": "http://binoz.p.lodz.pl/pl/instytut-technologii-fermentacji-mikrobiologii/o-instytucie"
   },
   {
     "id": "506",
@@ -319,8 +315,7 @@
     "short": "",
     "category": "5",
     "building": "2,4",
-    "website":
-      "http://binoz.p.lodz.pl/pl/instytut-technologii-analizy-zywnosci/o-instytucie"
+    "website": "http://binoz.p.lodz.pl/pl/instytut-technologii-analizy-zywnosci/o-instytucie"
   },
   {
     "id": "601",
@@ -563,7 +558,7 @@
     "category": "12",
     "building": "13",
     "website": "http://rekrutacja.p.lodz.pl/pl/kontakt",
-    "tags": "rekrutacja"
+    "tags":"rekrutacja"
   },
   {
     "id": "2035",
@@ -912,7 +907,7 @@
     "building": "84",
     "website": ""
   },
-  {
+   {
     "id": "2026116",
     "name": "VI Dom Studenta",
     "category": "11",
@@ -1026,11 +1021,11 @@
     "website": ""
   },
   {
-    "id": "3025",
-    "name": "Audytorium im. Sołtana",
-    "category": "15",
-    "building": "19",
-    "website": ""
+  "id": "3025",
+  "name": "Audytorium im. Sołtana",
+  "category": "15",
+  "building": "19",
+  "website": ""
   },
   {
     "id": "3026",
