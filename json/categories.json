@@ -1,0 +1,77 @@
+[
+  {
+    "id": "0",
+    "name": "Wydziały",
+    "subcategory": "1,2,3,4,5,6,7,9,10"
+  },
+  {
+    "id": "1",
+    "name": "Mechaniczny",
+    "short_name": "Mechaniczny",
+    "short": "W1"
+  },
+  {
+    "id": "2",
+    "name": "Elektrotechniki, Elektroniki, Informatyki i Automatyki",
+    "short_name": "EEIA",
+    "short": "W2"
+  },
+  {
+    "id": "3",
+    "name": "Chemiczny",
+    "short_name": "Chemiczny",
+    "short": "W3"
+  },
+  {
+    "id": "4",
+    "name": "Technologii Materiałowych i Wzornictwa Tekstyliów",
+    "short_name": "TWiWT",
+    "short": "W4"
+  },
+  {
+    "id": "5",
+    "name": "Biotechnologi i Nauk o Żywności",
+    "short_name": "BiNOŻ",
+    "short": "W5"
+  },
+  {
+    "id": "6",
+    "name": "Budownictwa, Architektury i Inżynierii Środowiska",
+    "short_name": "BAIŚ",
+    "short": "W6"
+  },
+  {
+    "id": "7",
+    "name": "Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
+    "short_name": "FTIMS",
+    "short": "W7"
+  },
+  {
+    "id": "9",
+    "name": "Organizacji i Zarządzania",
+    "short_name": "OIZ",
+    "short": "W9"
+  },
+  {
+    "id": "10",
+    "name": "Inżynierii Procesowej i Ochrony Środowiska",
+    "short_name": "IPOŚ",
+    "short": "W10"
+  },
+  {
+    "id": "11",
+    "name": "Osiedle akademickie"
+  },
+  {
+    "id": "12",
+    "name": "Administracja"
+  },
+  {
+    "id": "14",
+    "name": "Kolegia"
+  },
+  {
+    "id": "15",
+    "name": "Jednostki pozawydziałowe"
+  }
+]
