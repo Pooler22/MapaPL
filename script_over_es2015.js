@@ -36,7 +36,7 @@ class QueryHelper {
         } else if (typeof query_string[pair[0]] === 'string') {
           query_string[pair[0]] = [
             query_string[pair[0]],
-            decodeURIComponent(pair[1]),
+            decodeURIComponent(pair[1])
           ];
         } else {
           query_string[pair[0]].push(decodeURIComponent(pair[1]));
@@ -53,7 +53,7 @@ class QueryHelper {
     if (typeof history.pushState != 'undefined') {
       let objUrl = {
         Title: title,
-        Url: url,
+        Url: url
       };
       history.pushState(objUrl, objUrl.Title, objUrl.Url);
     } else {
@@ -262,7 +262,7 @@ class View {
         View.drawPolygon(building.coordinates, content[index], building.campus);
         markers[index]._latlng = {
           lat: building.latLng[0],
-          lng: building.latLng[1],
+          lng: building.latLng[1]
         };
       }
     });
@@ -437,7 +437,7 @@ class View {
       View.drawPolygon(polygons[index], content[index], colors[index]);
       markers[index]._latlng = {
         lat: coordinate[index][0],
-        lng: coordinate[index][1],
+        lng: coordinate[index][1]
       };
     }
 
@@ -463,7 +463,7 @@ class View {
         color: '#fff',
         fillColor: color,
         fillOpacity: 1,
-        opacity: 0.5,
+        opacity: 0.5
       });
     }
     markers.push(markerPolygon);
@@ -517,7 +517,7 @@ class View {
           `<div class="mui-divider"></div><a href='javascript:view.setMarkerCloseModal(${JSON.stringify(
             {
               id: element.id,
-              name: element.name,
+              name: element.name
             }
           )},${index})'>${tmp.name}</a><br><p>${tmp.address}</p>`
         );
@@ -615,7 +615,7 @@ class View {
             `${View.getAddresExt(building)}` +
             `</br><a href='javascript:view.activateModalInfo(${
               element.id
-            },true);'>Więcej informacji</a>`,
+            },true);'>Więcej informacji</a>`
         ];
       }
     } else {
@@ -627,7 +627,7 @@ class View {
           `${View.getAddresExt(element)}` +
           `</p><a href='javascript:view.activateModalInfo(${
             element.id
-          },false);'>Więcej informacji</a>`,
+          },false);'>Więcej informacji</a>`
       ];
     }
   }
@@ -648,7 +648,7 @@ class View {
           );
           document.body.appendChild(this.sidedrawerElement);
           this.isOpenPanel = false;
-        },
+        }
       })
       .appendChild(this.sidedrawerElement);
     setTimeout(() => (this.sidedrawerElement.className += ' active'), 20);
@@ -691,7 +691,7 @@ class View {
       mui.overlay('off', {
         onclose: () => {
           this.isOpenPanel = false;
-        },
+        }
       });
     if (this.isOpenPanel) {
       this.mapElement.style.height = `${window.innerHeight - navbarHeight}px`;
@@ -727,11 +727,11 @@ class View {
       if (queryString.index && queryString.index != 0) {
         [coordinates[queryString.index], coordinates[0]] = [
           coordinates[0],
-          coordinates[queryString.index],
+          coordinates[queryString.index]
         ];
         [polygons[queryString.index], polygons[0]] = [
           polygons[0],
-          polygons[queryString.index],
+          polygons[queryString.index]
         ];
       }
       let colors = data.getColors(place.building);
@@ -781,7 +781,7 @@ class MapsApi {
       'C15',
       'D1',
       'D2',
-      'D3',
+      'D3'
     ];
     let eduroamArry = {};
     eduroamArry['Eduroam'] = new L.LayerGroup();
@@ -792,7 +792,7 @@ class MapsApi {
         color: '#3C3F41',
         fillColor: '#3C3F41',
         fillOpacity: 0.5,
-        weight: 6,
+        weight: 6
       });
       tmpPolygon.addTo(eduroamArry['Eduroam']);
     });
@@ -827,7 +827,7 @@ class MapsApi {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution:
             '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google la' +
-            'yer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            'yer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }
       ),
       googleHybrid = L.tileLayer(
@@ -836,27 +836,27 @@ class MapsApi {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution:
             '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google la' +
-            'yer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            'yer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }
       ),
       streets = L.tileLayer(mbUrl, {
         id: 'mapbox.streets',
-        attribution: mbAttr,
+        attribution: mbAttr
       }),
       full = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution:
-          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       });
 
     let baseLayers = {
       Pełna: full,
       Hybrydowa: googleHybrid,
-      Satelitarna: googleSat,
+      Satelitarna: googleSat
     };
 
     let overlaysL = {
       'Wszystkie Kampusy': overlays,
-      'Inne warstwy': eduroamArry,
+      'Inne warstwy': eduroamArry
     };
 
     this.map = L.map('map', {
@@ -867,13 +867,13 @@ class MapsApi {
         overlays['C'],
         overlays['D'],
         overlays['E'],
-        overlays['F'],
-      ],
+        overlays['F']
+      ]
     }).setView(initCoordinate, zoom);
 
     let options = {
       collapsed: true,
-      groupCheckboxes: true,
+      groupCheckboxes: true
     };
 
     let layerControl = L.control.groupedLayers(baseLayers, overlaysL, options);
@@ -886,7 +886,7 @@ class MapsApi {
         position: 'topleft',
         forceSeparateButton: true,
         forcePseudoFullscreen: true,
-        fullscreenElement: false,
+        fullscreenElement: false
       })
       .addTo(this.map);
 

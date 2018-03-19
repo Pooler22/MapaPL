@@ -8,7 +8,7 @@ L.Control.GroupedLayers = L.Control.extend({
     position: 'topright',
     autoZIndex: true,
     exclusiveGroups: [],
-    groupCheckboxes: false,
+    groupCheckboxes: false
   },
 
   initialize: function(baseLayers, groupedOverlays, options) {
@@ -131,7 +131,7 @@ L.Control.GroupedLayers = L.Control.extend({
     this._layers[id] = {
       layer: layer,
       name: name,
-      overlay: overlay,
+      overlay: overlay
     };
 
     group = group || '';
@@ -146,7 +146,7 @@ L.Control.GroupedLayers = L.Control.extend({
     this._layers[id].group = {
       name: group,
       id: groupId,
-      exclusive: exclusive,
+      exclusive: exclusive
     };
 
     if (this.options.autoZIndex && layer.setZIndex) {
@@ -381,7 +381,7 @@ L.Control.GroupedLayers = L.Control.extend({
       }
     }
     return -1;
-  },
+  }
 });
 
 L.control.groupedLayers = function(baseLayers, groupedOverlays, options) {

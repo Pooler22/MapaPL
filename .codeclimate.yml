@@ -1,3 +1,6 @@
 ## old-files excluded
 exclude_patterns:
 - "/old-files"
+- "/src/index.js"
+- "/src/registerServiceWorker.js"
+

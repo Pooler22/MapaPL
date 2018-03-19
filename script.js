@@ -39,8 +39,8 @@ var view,
             }),
               g.open('GET', c, !0),
               g.send();
-          },
-        },
+          }
+        }
       ]),
       b
     );
@@ -69,13 +69,13 @@ var view,
                 }),
               c
             );
-          },
+          }
         },
         {
           key: 'getQueryURL',
           value: function getQueryURL() {
             View.initFromQuery(b.decodeQueryString());
-          },
+          }
         },
         {
           key: 'UpdateURL',
@@ -84,8 +84,8 @@ var view,
               var f = { Title: c, Url: d };
               history.pushState(f, f.Title, f.Url);
             } else console.error('Update url');
-          },
-        },
+          }
+        }
       ]),
       b
     );
@@ -112,7 +112,7 @@ var view,
               c.forEach(function(d) {
                 return (d.coordinates = b.correctFormatPolygons(d.coordinates));
               });
-            },
+            }
           },
           {
             key: 'campusToColor',
@@ -120,7 +120,7 @@ var view,
               return data.campuses.filter(function(d) {
                 return d.name[d.name.length - 1] == c;
               })[0].color;
-            },
+            }
           },
           {
             key: 'extendCategories',
@@ -131,7 +131,7 @@ var view,
                   return g.category == f.id;
                 });
               });
-            },
+            }
           },
           {
             key: 'preparePrintCategories',
@@ -140,7 +140,7 @@ var view,
                 "<p style='margin-left:10px'>Lista miejsc:</p>" +
                 (view.printCategories(this.categories) +
                   view.printBuildings(this.buildings));
-            },
+            }
           },
           {
             key: 'getPlacesById',
@@ -148,7 +148,7 @@ var view,
               return this.places.filter(function(d) {
                 return d.id == c;
               });
-            },
+            }
           },
           {
             key: 'getBuildingsById',
@@ -156,7 +156,7 @@ var view,
               return this.buildings.filter(function(d) {
                 return d.id == c;
               });
-            },
+            }
           },
           {
             key: 'getCoordinate',
@@ -165,7 +165,7 @@ var view,
               return c.split(',').map(function(f) {
                 return d.getBuildingsById(f)[0].latLng;
               });
-            },
+            }
           },
           {
             key: 'getPolygons',
@@ -174,7 +174,7 @@ var view,
               return c.split(',').map(function(f) {
                 return d.getBuildingsById(f)[0].coordinates;
               });
-            },
+            }
           },
           {
             key: 'getColors',
@@ -183,7 +183,7 @@ var view,
               return c.split(',').map(function(f) {
                 return d.getBuildingsById(f)[0].campus;
               });
-            },
+            }
           },
           {
             key: 'filterPlaces',
@@ -194,7 +194,7 @@ var view,
                   this.filterList(c))
                 : ((this.listSearched.style.display = 'none'),
                   (this.listElement.style.display = 'block'));
-            },
+            }
           },
           {
             key: 'filterList',
@@ -205,7 +205,7 @@ var view,
               this.listSearched.innerHTML = d
                 ? '<strong>Wyniki wyszukiwania</strong><ul>' + d + '</ul>'
                 : '<strong>Brak wynik\xF3w</strong>';
-            },
+            }
           },
           {
             key: 'getSearchResult',
@@ -217,8 +217,8 @@ var view,
                   ? f ? g + View.prepareLink(h, !0) : g + View.prepareLink(h)
                   : g;
               }, '');
-            },
-          },
+            }
+          }
         ],
         [
           {
@@ -228,7 +228,7 @@ var view,
                 var f;
                 return (f = [d[1], d[0]]), (d[0] = f[0]), (d[1] = f[1]), f;
               });
-            },
+            }
           },
           {
             key: 'isFunded',
@@ -245,8 +245,8 @@ var view,
                   f ||
                   g
               );
-            },
-          },
+            }
+          }
         ]
       ),
       b
@@ -268,7 +268,7 @@ var view,
                 '<div class=\'mui-container mui-panel\'><h2>Mapa Politechniki \u0141\xF3dzkiej</h2><p>Niniejsza strona jest projektem mapy online Politechniki \u0141\xF3dzkiej.</p><p>Je\u015Bli znalaz\u0142e\u015B b\u0142\u0105d lub masz jakie\u015B sugestie napisz!. Link poni\u017Cej:</p><div class="mui-row mui--text-center"><a class="mui-btn mui-btn--primary "  href=\'https://docs.google.com/forms/d/e/1FAIpQLSdSOC7mxqPRETVWX9-24MreBA9Rsj3vltYn9lQvl2yPhFvpAw/viewform?c=0&w=1\'><i class="fa fa-envelope-o"></i> Kontakt</a></div><div class="mui-row mui--text-center"><button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button></div></div>'),
               c
             );
-          },
+          }
         },
         {
           key: 'initModalInfoPlace',
@@ -293,7 +293,7 @@ var view,
                   '\n                  </dl><div class="mui-row mui--text-center"><button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button></div></div>')),
               d
             );
-          },
+          }
         },
         {
           key: 'initModalInfoBuilding',
@@ -315,8 +315,8 @@ var view,
                   '</dl><div class="mui-row mui--text-center"><button class="mui-btn" onclick="view.overlayOff()"><i class="fa fa-close"></i> Zamknij</button></div></div>')),
               d
             );
-          },
-        },
+          }
+        }
       ]),
       b
     );
@@ -350,10 +350,10 @@ var view,
                   b.drawPolygon(c.coordinates, d[f], c.campus),
                     (markers[f]._latlng = {
                       lat: c.latLng[0],
-                      lng: c.latLng[1],
+                      lng: c.latLng[1]
                     });
               });
-            },
+            }
           },
           {
             key: 'printBuildings',
@@ -367,7 +367,7 @@ var view,
                 }, '') +
                 (b.arrowSpan() + '</ul>')
               );
-            },
+            }
           },
           {
             key: 'printCategories',
@@ -378,7 +378,7 @@ var view,
                   f + (g.isSubCat ? '' : '<li>' + d.printCategory(g) + '</li>')
                 );
               }, '');
-            },
+            }
           },
           {
             key: 'printCategory',
@@ -407,7 +407,7 @@ var view,
                 (d += '</ul>'),
                 d
               );
-            },
+            }
           },
           {
             key: 'prepareUpdateMarker',
@@ -442,7 +442,7 @@ var view,
                 );
               }
               mui.overlay('off');
-            },
+            }
           },
           {
             key: 'cleanUpMarkers',
@@ -451,13 +451,13 @@ var view,
                 return mapApi.map.removeLayer(c);
               }),
                 (markers = []);
-            },
+            }
           },
           {
             key: 'isMobile',
             value: function isMobile() {
               return window.innerWidth < this.sizeMin;
-            },
+            }
           },
           {
             key: 'updatePolygon',
@@ -469,7 +469,7 @@ var view,
               markers[0].openPopup(),
                 mapApi.setCenter(d[0]),
                 this.isMobile() && view.closeSidedraver();
-            },
+            }
           },
           {
             key: 'activateModalPlace',
@@ -478,14 +478,14 @@ var view,
               this.prepareUpdateMarker(c, !0),
                 1 < d.building.split(',').length &&
                   mui.overlay('on', this.palceModal(d));
-            },
+            }
           },
           {
             key: 'activateModalBuilding',
             value: function activateModalBuilding(c) {
               var d = data.getBuildingsById(c)[0];
               this.prepareUpdateMarker(c, !1), b.buildingModal(d);
-            },
+            }
           },
           {
             key: 'activateModalInfo',
@@ -497,7 +497,7 @@ var view,
                 var g = data.getBuildingsById(c)[0];
                 mui.overlay('on', Modal.initModalInfoBuilding(g));
               }
-            },
+            }
           },
           {
             key: 'setMarkerCloseModal',
@@ -505,7 +505,7 @@ var view,
               QueryHelper.UpdateURL(c.name, '?placeId=' + c.id + '&index=' + d),
                 mui.overlay('off'),
                 b.setMarker(d);
-            },
+            }
           },
           {
             key: 'palceModal',
@@ -553,19 +553,19 @@ var view,
                 (j.style.margin = '10px auto auto auto'),
                 j
               );
-            },
+            }
           },
           {
             key: 'activateModal',
             value: function activateModal() {
               mui.overlay('on', this.modal);
-            },
+            }
           },
           {
             key: 'overlayOff',
             value: function overlayOff() {
               mui.overlay('off');
-            },
+            }
           },
           {
             key: 'prepareInfoContent',
@@ -627,7 +627,7 @@ var view,
                     ('' + b.getAddresExt(k)) +
                     ("</br><a href='javascript:view.activateModalInfo(" +
                       c.id +
-                      ",true);'>Wi\u0119cej informacji</a>"),
+                      ",true);'>Wi\u0119cej informacji</a>")
                 ];
               }
               return (
@@ -639,10 +639,10 @@ var view,
                     ('' + b.getAddresExt(c)) +
                     ("</p><a href='javascript:view.activateModalInfo(" +
                       c.id +
-                      ",false);'>Wi\u0119cej informacji</a>"),
+                      ",false);'>Wi\u0119cej informacji</a>")
                 ]
               );
-            },
+            }
           },
           {
             key: 'showSidedrawer',
@@ -658,13 +658,13 @@ var view,
                       )),
                         document.body.appendChild(c.sidedrawerElement),
                         (c.isOpenPanel = !1);
-                    },
+                    }
                   })
                   .appendChild(this.sidedrawerElement),
                 setTimeout(function() {
                   return (c.sidedrawerElement.className += ' active');
                 }, 20);
-            },
+            }
           },
           {
             key: 'closeSidedraver',
@@ -677,7 +677,7 @@ var view,
                 document.body.appendChild(this.sidedrawerElement),
                 mui.overlay('off'),
                 this.updateMapSize();
-            },
+            }
           },
           {
             key: 'toggleSidedrawer',
@@ -688,7 +688,7 @@ var view,
                 : ((this.isOpenPanel = !1),
                   (document.body.className = 'hide-sidedrawer')),
                 this.updateMapSize();
-            },
+            }
           },
           {
             key: 'openSidedrawerExt',
@@ -696,7 +696,7 @@ var view,
               (this.isOpenPanel = !0),
                 (document.body.className = 'show-sidedrawer'),
                 this.updateMapSize();
-            },
+            }
           },
           {
             key: 'updateMapSize',
@@ -708,7 +708,7 @@ var view,
                 mui.overlay('off', {
                   onclose: function onclose() {
                     f.isOpenPanel = !1;
-                  },
+                  }
                 }),
                 this.isOpenPanel
                   ? ((this.mapElement.style.height =
@@ -725,7 +725,7 @@ var view,
                       window.innerHeight - d + 'px'),
                     (this.mapElement.style.width = window.innerWidth + 'px')),
                 mapApi.resizeMap();
-            },
+            }
           },
           {
             key: 'searchExt',
@@ -733,8 +733,8 @@ var view,
               this.openSidedrawerExt(),
                 window.innerWidth < this.sizeMin && this.showSidedrawer(),
                 document.getElementById('search-input').focus();
-            },
-          },
+            }
+          }
         ],
         [
           {
@@ -762,13 +762,13 @@ var view,
                     })[0].name +
                     '</dd>'
                 : '';
-            },
+            }
           },
           {
             key: 'getElement',
             value: function getElement(c, d, f) {
               return c[d] ? '<dt>' + f + '</dt><dd>' + c[d] + '</dd>' : '';
-            },
+            }
           },
           {
             key: 'getElementLink',
@@ -780,13 +780,13 @@ var view,
                     c[d] +
                     '" target="_blank">Strona WWW</a></dd>'
                 : '';
-            },
+            }
           },
           {
             key: 'getShort',
             value: function getShort(c) {
               return c.short ? c.short + ' - ' : '';
-            },
+            }
           },
           {
             key: 'getPlaces',
@@ -810,13 +810,13 @@ var view,
                     }, '') +
                     '</dd>'
                 : '';
-            },
+            }
           },
           {
             key: 'getAddresExt',
             value: function getAddresExt(c) {
               return c.address ? c.address : '';
-            },
+            }
           },
           {
             key: 'prepareLink',
@@ -834,13 +834,13 @@ var view,
                     '");\'>' +
                     c.name +
                     '</a></li>';
-            },
+            }
           },
           {
             key: 'arrowSpan',
             value: function arrowSpan() {
               return '<span class="mui--pull-right mui-caret"></span>';
-            },
+            }
           },
           {
             key: 'drawPolygon',
@@ -860,31 +860,31 @@ var view,
                   color: '#fff',
                   fillColor: j,
                   fillOpacity: 1,
-                  opacity: 0.5,
+                  opacity: 0.5
                 });
               }
               markers.push(h);
-            },
+            }
           },
           {
             key: 'buildingModal',
             value: function buildingModal(c) {
               QueryHelper.UpdateURL(c.name, '?buildingId=' + c.id);
-            },
+            }
           },
           {
             key: 'setMarker',
             value: function setMarker(c) {
               var d = markers[c]._latlng;
               mapApi.setCenter([d.lat, d.lng]), markers[c].openPopup();
-            },
+            }
           },
           {
             key: 'toggleListElement',
             value: function toggleListElement(c) {
               var d = c.nextSibling;
               d.style.display = 'none' == d.style.display ? 'block' : 'none';
-            },
+            }
           },
           {
             key: 'initFromQuery',
@@ -910,8 +910,8 @@ var view,
                   j.campus
                 );
               } else view.initAllPolygons();
-            },
-          },
+            }
+          }
         ]
       ),
       b
@@ -947,7 +947,7 @@ var view,
           'C15',
           'D1',
           'D2',
-          'D3',
+          'D3'
         ].forEach(function(v) {
           var w = data.buildings.filter(function(B) {
               return B.short == v;
@@ -957,7 +957,7 @@ var view,
             color: '#3C3F41',
             fillColor: '#3C3F41',
             fillOpacity: 0.5,
-            weight: 6,
+            weight: 6
           }),
             A.addTo(g.Eduroam);
         });
@@ -975,27 +975,27 @@ var view,
       var n = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution:
-            '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }),
         o = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
           subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
           attribution:
-            '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            '&copy;<a href="https://www.google.com/intl/en_en/help/terms_maps.html">Google layer</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }),
         p = L.tileLayer(
           'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw',
           {
             id: 'mapbox.streets',
             attribution:
-              'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery \xA9 <a href="http://mapbox.com">Mapbox</a>',
+              'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery \xA9 <a href="http://mapbox.com">Mapbox</a>'
           }
         ),
         q = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
           attribution:
-            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         });
       this.map = L.map('map', {
-        layers: [q, h.A, h.B, h.C, h.D, h.E, h.F],
+        layers: [q, h.A, h.B, h.C, h.D, h.E, h.F]
       }).setView(d, c);
       var u = L.control.groupedLayers(
         { Pełna: q, Hybrydowa: o, Satelitarna: n },
@@ -1009,7 +1009,7 @@ var view,
             position: 'topleft',
             forceSeparateButton: !0,
             forcePseudoFullscreen: !0,
-            fullscreenElement: !1,
+            fullscreenElement: !1
           })
           .addTo(this.map),
         this.map.on('enterFullscreen', b.enterFullscreen),
@@ -1024,33 +1024,33 @@ var view,
             key: 'setCenter',
             value: function setCenter(c) {
               this.map.panTo(new L.LatLng(c[0], c[1]));
-            },
+            }
           },
           {
             key: 'resizeMap',
             value: function resizeMap() {
               this.map.invalidateSize();
-            },
+            }
           },
           {
             key: 'onPolyClick',
             value: function onPolyClick(c) {
               console.log(c.target.options);
-            },
-          },
+            }
+          }
         ],
         [
           {
             key: 'enterFullscreen',
             value: function enterFullscreen() {
               view.mapElement.style.top = '0';
-            },
+            }
           },
           {
             key: 'exitFullscreen',
             value: function exitFullscreen() {
               view.mapElement.style.top = '64px';
-            },
+            }
           },
           {
             key: 'setAllCampusesSelected',
@@ -1058,14 +1058,14 @@ var view,
               document.getElementsByClassName(
                 'leaflet-control-layers-group-selector'
               )[0].checked = !0;
-            },
+            }
           },
           {
             key: 'getPopoutText',
             value: function getPopoutText(c) {
               return 'Kampus ' + c;
-            },
-          },
+            }
+          }
         ]
       ),
       b
