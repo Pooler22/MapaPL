@@ -47,22 +47,8 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
 
   const newCategories = mapPlaces(categories);
 
-  // const newCategories  = categories.map(category => {
-  //   let newCategory = category
-  //   newCategory.places =  places.filter(place => place.category === category.id)
+  console.log('newCategories', newCategories);
 
-  //   if(!!newCategory.subcategory){
-  //     newCategory.subcategory = newCategory.subcategory.map(subcategory => {
-  //       debugger
-  //       let newSubcategory = subcategory
-  //       newSubcategory =  places.filter(place => place.category === newSubcategory.id)
-  //       return newSubcategory
-  //     })
-  //   }
-  //   return newCategory
-  // })
-
-  console.log('categories', newCategories);
   return (
     <Drawer
       variant="persistent"

@@ -8,32 +8,13 @@ import ExpandMore from 'material-ui-icons/ExpandMore';
 import StarBorder from 'material-ui-icons/StarBorder';
 import FontAwesome from 'react-fontawesome';
 
+import CategoryItem from '../CategoryItem';
+
 const styles = theme => ({
   nested: {
     paddingLeft: theme.spacing.unit * 4
   }
 });
-
-const CategoryItem = ({ children, classes, item, onClick, button }) => (
-  <ListItem onClick={onClick} className={classes} button={button}>
-    {item.icon && (
-      <ListItemIcon>
-        <FontAwesome name={item.icon} />
-      </ListItemIcon>
-    )}
-    <ListItemText inset primary={item.name} />
-    {children}
-  </ListItem>
-);
-
-CategoryItem.defaultProps = {
-  classes: '',
-  item: {
-    name: ''
-  },
-  button: false,
-  onClick: () => {}
-};
 
 const ListItems = ({
   open,
@@ -42,7 +23,8 @@ const ListItems = ({
   id,
   name,
   icon,
-  subcategory
+  subcategory,
+  places
 }) => (
   <React.Fragment>
     <CategoryItem onClick={handleClick} item={{ icon, name }} button>
@@ -62,6 +44,11 @@ const ListItems = ({
         </List>
       </Collapse>
     )}
+    {/* {
+      places.map(place => {
+        <div>{JSON.stringify(place)}</div>
+      })
+    } */}
   </React.Fragment>
 );
 
