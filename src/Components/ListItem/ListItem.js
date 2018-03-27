@@ -12,48 +12,58 @@ import CategoryItem from '../CategoryItem';
 
 const styles = theme => ({
   nested: {
-    paddingLeft: theme.spacing.unit * 4
-  }
+    paddingLeft: theme.spacing.unit * 4,
+  },
 });
 
-const ListItems = ({
-  open,
-  handleClick,
-  classes,
-  id,
-  name,
-  icon,
-  subcategory,
-  places
-}) => (
-  <React.Fragment>
-    <CategoryItem onClick={handleClick} item={{ icon, name }} button>
-      {!!subcategory && (open ? <ExpandLess /> : <ExpandMore />)}
-    </CategoryItem>
-    {!!subcategory && (
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {subcategory.map(item => (
-            <CategoryItem
-              item={item}
-              classes={classes.nested}
-              key={item.id}
-              button
-            />
-          ))}
-        </List>
-      </Collapse>
-    )}
-    {/* {
-      places.map(place => {
-        <div>{JSON.stringify(place)}</div>
-      })
-    } */}
-  </React.Fragment>
-);
+class ListItems extends React.Component {
+  state = {
+    open: false,
+  };
+
+  handleOnClick = () => {
+    this.setState({ open: !this.state.open });
+  };
+
+  renderCategoryItem = (collection, open, classes) => {
+    return (
+      !!collection && (
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {collection.map(item => (
+              <CategoryItem
+                item={item}
+                classes={classes.nested}
+                key={item.id}
+                button
+              />
+            ))}
+          </List>
+        </Collapse>
+      )
+    );
+  };
+
+  render() {
+    const { classes, id, name, icon, subcategory, places } = this.props;
+
+    const { open } = this.state;
+
+    return (
+      <React.Fragment>
+        <CategoryItem onClick={this.handleOnClick} item={{ icon, name }} button>
+          {(!!subcategory || !!places) &&
+            (open ? <ExpandLess /> : <ExpandMore />)}
+        </CategoryItem>
+        {this.renderCategoryItem(subcategory, open, classes)}
+        {this.renderCategoryItem(places, open, classes)}
+      </React.Fragment>
+    );
+  }
+}
 
 ListItems.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles({ styles }, { withTheme: true })(ListItems);

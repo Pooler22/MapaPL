@@ -10,7 +10,7 @@ import CategoriesList from '../../Components/CategoriesList';
 import categories from './data/categories';
 import places from './data/places';
 
-const drawerWidth = 240;
+const drawerWidth = 450;
 
 const styles = theme => ({
   appFrame: {
@@ -19,22 +19,22 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
-    width: '100%'
+    width: '100%',
   },
   hide: {
-    display: 'none'
+    display: 'none',
   },
   drawerPaper: {
     position: 'relative',
-    width: drawerWidth
+    width: drawerWidth,
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
-    ...theme.mixins.toolbar
-  }
+    ...theme.mixins.toolbar,
+  },
 });
 
 const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
@@ -42,7 +42,7 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
     items.map(item => ({
       ...item,
       places: places.filter(({ category }) => category === item.id),
-      subcategory: mapPlaces(item.subcategory)
+      subcategory: mapPlaces(item.subcategory),
     }));
 
   const newCategories = mapPlaces(categories);
@@ -54,7 +54,7 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
       variant="persistent"
       open={open}
       classes={{
-        paper: classes.drawerPaper
+        paper: classes.drawerPaper,
       }}
     >
       <div className={classes.drawerHeader}>

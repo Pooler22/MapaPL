@@ -10,19 +10,11 @@ const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
-  }
+    backgroundColor: theme.palette.background.paper,
+  },
 });
 
 class CategoriesList extends React.Component {
-  state = {
-    open: false
-  };
-
-  handleClick = () => {
-    this.setState({ open: !this.state.open });
-  };
-
   render() {
     const { classes, categories } = this.props;
     return (
@@ -31,14 +23,7 @@ class CategoriesList extends React.Component {
           component="nav"
           subheader={<ListSubheader component="div">Miejsca</ListSubheader>}
         >
-          {categories.map(item => (
-            <ListItems
-              key={item.id}
-              open={this.state.open}
-              handleClick={this.handleClick}
-              {...item}
-            />
-          ))}
+          {categories.map(item => <ListItems key={item.id} {...item} />)}
         </List>
       </div>
     );
@@ -46,7 +31,7 @@ class CategoriesList extends React.Component {
 }
 
 CategoriesList.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles({ styles }, { withTheme: true })(CategoriesList);
