@@ -33,6 +33,7 @@ class CategoriesList extends React.Component {
         >
           {categories.map(item => (
             <ListItems
+              key={item.id}
               open={this.state.open}
               handleClick={this.handleClick}
               {...item}

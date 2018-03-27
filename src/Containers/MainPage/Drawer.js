@@ -8,6 +8,7 @@ import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import CategoriesList from '../../Components/CategoriesList';
 
 import categories from './data/categories';
+import places from './data/places';
 
 const drawerWidth = 240;
 
@@ -37,6 +38,31 @@ const styles = theme => ({
 });
 
 const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
+  const mapPlaces = (items = []) =>
+    items.map(item => ({
+      ...item,
+      places: places.filter(({ category }) => category === item.id),
+      subcategory: mapPlaces(item.subcategory)
+    }));
+
+  const newCategories = mapPlaces(categories);
+
+  // const newCategories  = categories.map(category => {
+  //   let newCategory = category
+  //   newCategory.places =  places.filter(place => place.category === category.id)
+
+  //   if(!!newCategory.subcategory){
+  //     newCategory.subcategory = newCategory.subcategory.map(subcategory => {
+  //       debugger
+  //       let newSubcategory = subcategory
+  //       newSubcategory =  places.filter(place => place.category === newSubcategory.id)
+  //       return newSubcategory
+  //     })
+  //   }
+  //   return newCategory
+  // })
+
+  console.log('categories', newCategories);
   return (
     <Drawer
       variant="persistent"
@@ -55,7 +81,7 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
         </IconButton>
       </div>
       <Divider />
-      <CategoriesList categories={categories} />
+      <CategoriesList categories={newCategories} />
       <Divider />
     </Drawer>
   );

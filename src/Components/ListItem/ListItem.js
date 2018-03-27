@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
@@ -14,6 +14,27 @@ const styles = theme => ({
   }
 });
 
+const CategoryItem = ({ children, classes, item, onClick, button }) => (
+  <ListItem onClick={onClick} className={classes} button={button}>
+    {item.icon && (
+      <ListItemIcon>
+        <FontAwesome name={item.icon} />
+      </ListItemIcon>
+    )}
+    <ListItemText inset primary={item.name} />
+    {children}
+  </ListItem>
+);
+
+CategoryItem.defaultProps = {
+  classes: '',
+  item: {
+    name: ''
+  },
+  button: false,
+  onClick: () => {}
+};
+
 const ListItems = ({
   open,
   handleClick,
@@ -23,25 +44,21 @@ const ListItems = ({
   icon,
   subcategory
 }) => (
-  <React.Fragment key={`categories-${id}`}>
-    <ListItem key={`category-${id}`} onClick={handleClick} button>
-      {icon && (
-        <ListItemIcon>
-          <FontAwesome name={!!icon} />
-        </ListItemIcon>
-      )}
-      <ListItemText inset primary={name} />
+  <React.Fragment>
+    <CategoryItem onClick={handleClick} item={{ icon, name }} button>
       {!!subcategory && (open ? <ExpandLess /> : <ExpandMore />)}
-    </ListItem>
+    </CategoryItem>
     {!!subcategory && (
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <StarBorder />
-            </ListItemIcon>
-            <ListItemText inset primary="Starred" />
-          </ListItem>
+          {subcategory.map(item => (
+            <CategoryItem
+              item={item}
+              classes={classes.nested}
+              key={item.id}
+              button
+            />
+          ))}
         </List>
       </Collapse>
     )}

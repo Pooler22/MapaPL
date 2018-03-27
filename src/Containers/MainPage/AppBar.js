@@ -67,7 +67,7 @@ const MyAppBar = ({ open, classes, theme, handleDrawerOpen }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="title" color="inherit" noWrap>
-          Mapa PŁ
+          Mapa
         </Typography>
       </Toolbar>
     </AppBar>

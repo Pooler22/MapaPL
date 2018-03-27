@@ -79,9 +79,7 @@ class PersistentDrawer extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          <Typography>
-            {'You think water moves fast? You should see ice.'}
-          </Typography>
+          <Typography>{'Miejsce na mapę'}</Typography>
         </main>
       </div>
     );
