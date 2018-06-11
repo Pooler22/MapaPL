@@ -11,7 +11,7 @@ global.window.matchMedia = jest.fn(() => ({
   removeListener: jest.fn(),
 }));
 
-jest.mock('scroll-to-element', () => 'scroll-to-element');
+// jest.mock('scroll-to-element', () => 'scroll-to-element');
 
 const localStorageMock = {
   getItem: jest.fn(),

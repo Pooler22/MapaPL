@@ -13,7 +13,7 @@ import buildings from './data/buildings';
 const drawerWidth = 440;
 
 const margin = 'margin';
-const styles = ({ mixins, palette, spacing, transitions }) => ({
+const styles = ({ mixins, palette, transitions }) => ({
   appFrame: {
     height: '100%',
     zIndex: 1,
@@ -70,7 +70,7 @@ class PersistentDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     const { open } = this.state;
 
     return (
