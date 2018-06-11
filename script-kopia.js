@@ -1,4 +1,3 @@
-'use strict';
 var _createClass = (function() {
   function b(c, d) {
     for (var g, f = 0; f < d.length; f++)
@@ -61,9 +60,9 @@ var view,
                 .split('&')
                 .forEach(function(d) {
                   var f = d.split('=');
-                  'undefined' == typeof c[f[0]]
+                  'undefined' === typeof c[f[0]]
                     ? (c[f[0]] = decodeURIComponent(f[1]))
-                    : 'string' == typeof c[f[0]]
+                    : 'string' === typeof c[f[0]]
                       ? (c[f[0]] = [c[f[0]], decodeURIComponent(f[1])])
                       : c[f[0]].push(decodeURIComponent(f[1]));
                 }),
@@ -80,7 +79,7 @@ var view,
         {
           key: 'UpdateURL',
           value: function UpdateURL(c, d) {
-            if ('undefined' != typeof history.pushState) {
+            if ('undefined' !== typeof history.pushState) {
               var f = { Title: c, Url: d };
               history.pushState(f, f.Title, f.Url);
             } else console.error('Update url');
@@ -1034,9 +1033,7 @@ var view,
           },
           {
             key: 'onPolyClick',
-            value: function onPolyClick(c) {
-              console.log(c.target.options);
-            },
+            value: function onPolyClick(c) {},
           },
         ],
         [

@@ -4,9 +4,13 @@ import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from './Drawer';
 import AppBar from './AppBar';
-import Typography from 'material-ui/Typography';
 
-const drawerWidth = 240;
+import { MyMapComponent } from '../Map';
+import categories from './data/categories';
+import places from './data/places';
+import buildings from './data/buildings';
+
+const drawerWidth = 440;
 
 const margin = 'margin';
 const styles = ({ mixins, palette, spacing, transitions }) => ({
@@ -16,44 +20,38 @@ const styles = ({ mixins, palette, spacing, transitions }) => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
-    width: '100%'
+    width: '100%',
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...mixins.toolbar
+    ...mixins.toolbar,
   },
   content: {
     flexGrow: 1,
     backgroundColor: palette.background.default,
-    padding: spacing.unit * 3,
     transition: transitions.create(margin, {
       easing: transitions.easing.sharp,
-      duration: transitions.duration.leavingScreen
-    })
+      duration: transitions.duration.leavingScreen,
+    }),
   },
   'content-left': {
-    marginLeft: -drawerWidth
+    marginLeft: -drawerWidth,
   },
   contentShift: {
     transition: transitions.create(margin, {
       easing: transitions.easing.easeOut,
-      duration: transitions.duration.enteringScreen
-    })
+      duration: transitions.duration.enteringScreen,
+    }),
   },
-  'contentShift-left': {
-    marginLeft: 0
-  },
-  'contentShift-right': {
-    marginRight: 0
-  }
 });
 
 class PersistentDrawer extends React.Component {
   state = {
-    open: false
+    open: true,
+    selectedPlace: null,
+    selectedBuildings: null,
   };
 
   handleDrawerOpen = () => {
@@ -64,6 +62,13 @@ class PersistentDrawer extends React.Component {
     this.setState({ open: false });
   };
 
+  onSelectPlace = selectedPlace => () => {
+    const selectedBuildings = buildings.filter(item =>
+      selectedPlace.building.split(',').includes(item.id)
+    );
+    this.setState({ selectedPlace, selectedBuildings });
+  };
+
   render() {
     const { classes, theme } = this.props;
     const { open } = this.state;
@@ -71,15 +76,25 @@ class PersistentDrawer extends React.Component {
     return (
       <div className={classes.appFrame}>
         <AppBar open={open} handleDrawerOpen={this.handleDrawerOpen} />
-        <Drawer open={open} handleDrawerClose={this.handleDrawerClose} />
+        <Drawer
+          open={open}
+          handleDrawerClose={this.handleDrawerClose}
+          places={places}
+          categories={categories}
+          onSelectPlace={this.onSelectPlace}
+        />
         <main
           className={classNames(classes.content, classes[`content-left`], {
             [classes.contentShift]: open,
-            [classes[`contentShift-left`]]: open
+            [classes[`contentShift-left`]]: open,
           })}
         >
           <div className={classes.drawerHeader} />
-          <Typography>{'Miejsce na mapę'}</Typography>
+          <MyMapComponent
+            drawerWidth={open ? drawerWidth : 0}
+            selectedPlace={this.state.selectedPlace}
+            selectedBuildings={this.state.selectedBuildings}
+          />
         </main>
       </div>
     );
@@ -88,7 +103,7 @@ class PersistentDrawer extends React.Component {
 
 PersistentDrawer.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(PersistentDrawer);

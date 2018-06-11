@@ -23,7 +23,13 @@ class CategoriesList extends React.Component {
           component="nav"
           subheader={<ListSubheader component="div">Miejsca</ListSubheader>}
         >
-          {categories.map(item => <ListItems key={item.id} {...item} />)}
+          {categories.map(item => (
+            <ListItems
+              onSelectPlace={this.props.onSelectPlace}
+              key={item.id}
+              {...item}
+            />
+          ))}
         </List>
       </div>
     );

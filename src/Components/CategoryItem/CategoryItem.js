@@ -6,13 +6,13 @@ import FontAwesome from 'react-fontawesome';
 const CategoryItem = ({ children, classes, item, onClick, button }) => {
   return (
     <ListItem onClick={onClick} className={classes} button={button}>
-      {' '}
       {item.icon && (
         <ListItemIcon>
-          <FontAwesome name={item.icon} />{' '}
+          <FontAwesome name={item.icon} />
         </ListItemIcon>
-      )}{' '}
-      <ListItemText inset primary={item.name} /> {children}{' '}
+      )}
+      <ListItemText inset primary={item.name} />
+      {children}
     </ListItem>
   );
 };

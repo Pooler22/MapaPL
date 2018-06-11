@@ -7,9 +7,6 @@ import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import CategoriesList from '../../Components/CategoriesList';
 
-import categories from './data/categories';
-import places from './data/places';
-
 const drawerWidth = 450;
 
 const styles = theme => ({
@@ -37,7 +34,15 @@ const styles = theme => ({
   },
 });
 
-const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
+const MyDrawer = ({
+  open,
+  classes,
+  theme,
+  handleDrawerClose,
+  places,
+  categories,
+  onSelectPlace,
+}) => {
   const mapPlaces = (items = []) =>
     items.map(item => ({
       ...item,
@@ -46,8 +51,6 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
     }));
 
   const newCategories = mapPlaces(categories);
-
-  console.log('newCategories', newCategories);
 
   return (
     <Drawer
@@ -67,7 +70,10 @@ const MyDrawer = ({ open, classes, theme, handleDrawerClose }) => {
         </IconButton>
       </div>
       <Divider />
-      <CategoriesList categories={newCategories} />
+      <CategoriesList
+        onSelectPlace={onSelectPlace}
+        categories={newCategories}
+      />
       <Divider />
     </Drawer>
   );

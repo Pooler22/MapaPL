@@ -1,12 +1,10 @@
-import React, { Children } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
 import ExpandLess from 'material-ui-icons/ExpandLess';
 import ExpandMore from 'material-ui-icons/ExpandMore';
-import StarBorder from 'material-ui-icons/StarBorder';
-import FontAwesome from 'react-fontawesome';
 
 import CategoryItem from '../CategoryItem';
 
@@ -33,6 +31,7 @@ class ListItems extends React.Component {
             {collection.map(item => (
               <CategoryItem
                 item={item}
+                onClick={this.props.onSelectPlace(item)}
                 classes={classes.nested}
                 key={item.id}
                 button
