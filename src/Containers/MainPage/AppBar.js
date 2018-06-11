@@ -18,35 +18,35 @@ const styles = ({ transitions }) => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
-    width: '100%'
+    width: '100%',
   },
   appBar: {
     position: 'absolute',
     transition: transitions.create(metrics, {
       easing: transitions.easing.sharp,
-      duration: transitions.duration.leavingScreen
-    })
+      duration: transitions.duration.leavingScreen,
+    }),
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     transition: transitions.create(metrics, {
       easing: transitions.easing.easeOut,
-      duration: transitions.duration.enteringScreen
-    })
+      duration: transitions.duration.enteringScreen,
+    }),
   },
   'appBarShift-left': {
-    marginLeft: drawerWidth
+    marginLeft: drawerWidth,
   },
   'appBarShift-right': {
-    marginRight: drawerWidth
+    marginRight: drawerWidth,
   },
   menuButton: {
     marginLeft: 12,
-    marginRight: 20
+    marginRight: 20,
   },
   hide: {
-    display: 'none'
-  }
+    display: 'none',
+  },
 });
 
 const MyAppBar = ({ open, classes, theme, handleDrawerOpen }) => {
@@ -54,7 +54,7 @@ const MyAppBar = ({ open, classes, theme, handleDrawerOpen }) => {
     <AppBar
       className={classNames(classes.appBar, {
         [classes.appBarShift]: open,
-        [classes[`appBarShift-left`]]: open
+        [classes[`appBarShift-left`]]: open,
       })}
     >
       <Toolbar disableGutters={!open}>
@@ -67,7 +67,7 @@ const MyAppBar = ({ open, classes, theme, handleDrawerOpen }) => {
           <MenuIcon />
         </IconButton>
         <Typography variant="title" color="inherit" noWrap>
-          Mapa
+          Mapa PŁ
         </Typography>
       </Toolbar>
     </AppBar>
