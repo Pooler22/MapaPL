@@ -20,12 +20,12 @@ const theme = createMuiTheme({
   },
 });
 
-Raven.config(
-  'https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712'
-).install();
-
 class App extends React.Component {
   render() {
+    Raven.config(
+      'https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712'
+    ).install();
+
     return (
       <MuiThemeProvider theme={theme}>
         {/* Reboot kickstart an elegant, consistent, and simple baseline to build upon. */}
