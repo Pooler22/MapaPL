@@ -44,7 +44,7 @@ class ListItems extends React.Component {
   };
 
   render() {
-    const { classes, id, name, icon, subcategory, places } = this.props;
+    const { classes, name, icon, subcategory, places } = this.props;
 
     const { open } = this.state;
 

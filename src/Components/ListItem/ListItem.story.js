@@ -21,11 +21,12 @@ import ListItem from './ListItem';
 const category = {
   id: '0',
   name: 'Name',
-  handleClick: action('handleClick')
+  handleClick: action('handleClick'),
+  onSelectPlace: action('onSelectPlace'),
 };
 
 const categoryWithIcon = Object.assign(category, {
-  icon: 'menu'
+  icon: 'menu',
 });
 
 const categoryWithSubcategories = Object.assign(categoryWithIcon, {
@@ -35,9 +36,9 @@ const categoryWithSubcategories = Object.assign(categoryWithIcon, {
       name: 'Name',
       icon: 'menu',
       short_name: 'ShortNaem',
-      short: 'Short'
-    }
-  ]
+      short: 'Short',
+    },
+  ],
 });
 
 storiesOf('ListItem', module)
@@ -47,7 +48,7 @@ storiesOf('ListItem', module)
   .addDecorator(
     backgrounds([
       { name: 'light', value: '#f9f9f9', default: true },
-      { name: 'dark', value: '#010101' }
+      { name: 'dark', value: '#010101' },
     ])
   )
   .addDecorator(centered)
