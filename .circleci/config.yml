@@ -42,8 +42,7 @@ jobs:
       - attach_workspace:
           at: ~/circleci-deployment
       - run: yarn install
-      - run: CI=true yarn test:coverage
-      - run: yarn reportCoverage
+      - run: yarn coverage
       - store_artifacts:
           path: ./coverage/clover.xml
           prefix: tests
