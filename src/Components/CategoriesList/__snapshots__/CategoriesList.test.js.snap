@@ -35,7 +35,7 @@ exports[`Storyshots ListItem default 1`] = `
         <div
           className="MuiButtonBase-root-12 MuiListItem-root-2 MuiListItem-default-5 MuiListItem-gutters-9 MuiListItem-button-10"
           onBlur={[Function]}
-          onClick={undefined}
+          onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -417,7 +417,7 @@ exports[`Storyshots ListItem with data 1`] = `
         >
           <span
             aria-hidden={true}
-            className="fa fa-true MuiListItemIcon-root-40"
+            className="fa fa-menu MuiListItemIcon-root-40"
           />
           <div
             className="MuiListItemText-root-41 MuiListItemText-inset-42"
@@ -708,6 +708,37 @@ exports[`Storyshots ListItem with data 1`] = `
                               }
                             >
                               handleClick()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onSelectPlace
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              onSelectPlace()
                             </span>
                             }
                           </span>
@@ -1044,7 +1075,7 @@ exports[`Storyshots ListItem with data and icon 1`] = `
         >
           <span
             aria-hidden={true}
-            className="fa fa-true MuiListItemIcon-root-101"
+            className="fa fa-menu MuiListItemIcon-root-101"
           />
           <div
             className="MuiListItemText-root-102 MuiListItemText-inset-103"
@@ -1335,6 +1366,37 @@ exports[`Storyshots ListItem with data and icon 1`] = `
                               }
                             >
                               handleClick()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onSelectPlace
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              onSelectPlace()
                             </span>
                             }
                           </span>
@@ -1671,7 +1733,7 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
         >
           <span
             aria-hidden={true}
-            className="fa fa-true MuiListItemIcon-root-162"
+            className="fa fa-menu MuiListItemIcon-root-162"
           />
           <div
             className="MuiListItemText-root-163 MuiListItemText-inset-164"
@@ -1962,6 +2024,37 @@ exports[`Storyshots ListItem with data, icon and subcategories 1`] = `
                               }
                             >
                               handleClick()
+                            </span>
+                            }
+                          </span>
+                        </span>
+                      </span>
+                    </span>
+                    <span>
+                      <span>
+                        <br />
+                          
+                      </span>
+                      <span
+                        style={Object {}}
+                      >
+                        onSelectPlace
+                      </span>
+                      <span>
+                        =
+                        <span
+                          style={Object {}}
+                        >
+                          <span>
+                            {
+                            <span
+                              style={
+                                Object {
+                                  "color": "#170",
+                                }
+                              }
+                            >
+                              onSelectPlace()
                             </span>
                             }
                           </span>
