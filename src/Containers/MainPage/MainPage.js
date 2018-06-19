@@ -58,6 +58,7 @@ class PersistentDrawer extends React.Component {
 
     this.handleDrawerOpen = this.handleDrawerOpen.bind();
     this.handleDrawerClose = this.handleDrawerClose.bind();
+    this.onSelectPlace = this.onSelectPlace.bind();
   }
 
   handleDrawerOpen() {
@@ -69,9 +70,11 @@ class PersistentDrawer extends React.Component {
   }
 
   onSelectPlace = selectedPlace => () => {
-    const selectedBuildings = buildings.filter(item =>
-      selectedPlace.building.split(',').includes(item.id)
+    const selected = selectedPlace.building.split(',');
+    const selectedBuildings = buildings.filter(({ id }) =>
+      selected.includes(id)
     );
+
     this.setState({ selectedPlace, selectedBuildings });
   };
 
