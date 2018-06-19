@@ -1,10 +1,15 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-// import Reboot from 'material-ui/Reboot';
 import Raven from 'raven-js';
+
 import MainPage from '../MainPage';
 // A theme with custom primary and secondary color.
 // It's optional.
+
+Raven.config('https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712', {
+  release: process.env.NODE_ENV,
+}).install();
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -22,14 +27,8 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
   render() {
-    Raven.config(
-      'https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712'
-    ).install();
-
     return (
       <MuiThemeProvider theme={theme}>
-        {/* Reboot kickstart an elegant, consistent, and simple baseline to build upon. */}
-        {/*<Reboot />*/}
         <MainPage {...this.props} />
       </MuiThemeProvider>
     );

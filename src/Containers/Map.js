@@ -65,11 +65,16 @@ export const MyMapComponent = compose(
 ));
 
 class MyMarker extends Component {
-  state = { visibleInfo: false };
+  constructor(props) {
+    super(props);
+    this.state = { visibleInfo: false };
 
-  toggleInfo = () => {
+    this.toggleInfo = this.toggleInfo.bind();
+  }
+
+  toggleInfo() {
     this.setState({ visibleInfo: !this.state.visibleInfo });
-  };
+  }
 
   render() {
     const { building, selectedPlace } = this.props;
