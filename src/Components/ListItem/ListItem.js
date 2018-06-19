@@ -15,15 +15,20 @@ const styles = theme => ({
 });
 
 class ListItems extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+    };
+    this.handleOnClick = this.handleOnClick.bind(this);
+    this.renderCategoryItem = this.renderCategoryItem.bind(this);
+  }
 
-  handleOnClick = () => {
+  handleOnClick() {
     this.setState({ open: !this.state.open });
-  };
+  }
 
-  renderCategoryItem = (collection, open, classes) => {
+  renderCategoryItem(collection, open, classes) {
     return (
       !!collection && (
         <Collapse in={open} timeout="auto" unmountOnExit>
@@ -41,11 +46,10 @@ class ListItems extends React.Component {
         </Collapse>
       )
     );
-  };
+  }
 
   render() {
     const { classes, name, icon, subcategory, places } = this.props;
-
     const { open } = this.state;
 
     return (

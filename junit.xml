@@ -1,124 +1,124 @@
-<testsuites name="jest tests" tests="51" failures="0" time="81.40400000000001">
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="10.129" tests="5">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.439">
+<testsuites name="jest tests" tests="51" failures="0" time="69.161">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.657" tests="5">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.462">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.555">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.516">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.527">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.528">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.593">
-    </testcase>
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="10.257" tests="4">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.445">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.52">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.52">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.668">
-    </testcase>
-  </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="10.421" tests="5">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.459">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.554">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.519">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.745">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.594">
     </testcase>
     <testcase classname=" renders without crashing" name=" renders without crashing" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="10.58" tests="4">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.466">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.678" tests="5">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.448">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.52">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.564">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.596">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.516">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.797">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.591">
+    </testcase>
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="10.673" tests="6">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.45">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.717" tests="5">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.469">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.53">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.558">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.574">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.532">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.854">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.597">
     </testcase>
-    <testcase classname=" renders without crashing when open true" name=" renders without crashing when open true" time="0.005">
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.852" tests="4">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.47">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.534">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.556">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.636">
+    </testcase>
+  </testsuite>
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.866" tests="4">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.477">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.537">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.565">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.632">
+    </testcase>
+  </testsuite>
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="8.864" tests="6">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.483">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.538">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.568">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.605">
+    </testcase>
+    <testcase classname=" renders without crashing when open true" name=" renders without crashing when open true" time="0.006">
     </testcase>
     <testcase classname=" renders without crashing when open false" name=" renders without crashing when open false" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="11.093" tests="6">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.449">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:13" time="9.148" tests="6">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.492">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.549">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.533">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.636">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.548">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.781">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.609">
     </testcase>
-    <testcase classname=" renders without crashing  when open false" name=" renders without crashing  when open false" time="0.006">
+    <testcase classname=" renders without crashing  when open false" name=" renders without crashing  when open false" time="0.005">
     </testcase>
     <testcase classname=" renders without crashing  when open true" name=" renders without crashing  when open true" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:46" time="11.481" tests="5">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.433">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:22" time="2.058" tests="5">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.303">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.59">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.395">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.845">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.356">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.448">
-    </testcase>
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.005">
-    </testcase>
-  </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:57" time="2.126" tests="5">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.385">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.339">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.328">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.331">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.364">
     </testcase>
     <testcase classname=" renders without crashing" name=" renders without crashing" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:57" time="1.998" tests="5">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.35">
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:22" time="2.44" tests="5">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.295">
     </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.342">
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.345">
     </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.331">
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.362">
     </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.327">
-    </testcase>
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-11T21:19:57" time="2.646" tests="6">
-    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.25">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.327">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.31">
-    </testcase>
-    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.361">
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.33">
     </testcase>
     <testcase classname=" renders without crashing" name=" renders without crashing" time="0.004">
     </testcase>
-    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.001">
+  </testsuite>
+  <testsuite name="Storyshots" errors="0" failures="0" skipped="0" timestamp="2018-06-19T06:08:22" time="2.881" tests="6">
+    <testcase classname="Storyshots ListItem default" name="Storyshots ListItem default" time="0.269">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data" name="Storyshots ListItem with data" time="0.319">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data and icon" name="Storyshots ListItem with data and icon" time="0.31">
+    </testcase>
+    <testcase classname="Storyshots ListItem with data, icon and subcategories" name="Storyshots ListItem with data, icon and subcategories" time="0.306">
+    </testcase>
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0.002">
+    </testcase>
+    <testcase classname=" renders without crashing" name=" renders without crashing" time="0">
     </testcase>
   </testsuite>
 </testsuites>

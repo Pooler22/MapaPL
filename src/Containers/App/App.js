@@ -5,6 +5,11 @@ import Raven from 'raven-js';
 import MainPage from '../MainPage';
 // A theme with custom primary and secondary color.
 // It's optional.
+
+Raven.config('https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712', {
+  release: process.env.NODE_ENV,
+}).install();
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -22,10 +27,6 @@ const theme = createMuiTheme({
 
 class App extends React.Component {
   render() {
-    Raven.config(
-      'https://c185eda6089740c5904068dfc02ccbe8@sentry.io/1223712'
-    ).install();
-
     return (
       <MuiThemeProvider theme={theme}>
         <MainPage {...this.props} />

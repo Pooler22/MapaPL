@@ -26,7 +26,7 @@ const styles = ({ mixins, palette, transitions }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    ...mixins.toolbar,
+    // ...mixins.toolbar,
   },
   content: {
     flexGrow: 1,
@@ -48,19 +48,25 @@ const styles = ({ mixins, palette, transitions }) => ({
 });
 
 class PersistentDrawer extends React.Component {
-  state = {
-    open: true,
-    selectedPlace: null,
-    selectedBuildings: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: true,
+      selectedPlace: null,
+      selectedBuildings: null,
+    };
 
-  handleDrawerOpen = () => {
+    this.handleDrawerOpen = this.handleDrawerOpen.bind();
+    this.handleDrawerClose = this.handleDrawerClose.bind();
+  }
+
+  handleDrawerOpen() {
     this.setState({ open: true });
-  };
+  }
 
-  handleDrawerClose = () => {
+  handleDrawerClose() {
     this.setState({ open: false });
-  };
+  }
 
   onSelectPlace = selectedPlace => () => {
     const selectedBuildings = buildings.filter(item =>
