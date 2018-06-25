@@ -1,7 +1,6 @@
 Mapa online Politechniki Łódzkiej
 
 
-
 Bugs:
 zamykanie drawera po wybraniu miejsca
 rozwijanie wszystkich list
