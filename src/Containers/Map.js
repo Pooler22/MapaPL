@@ -33,7 +33,7 @@ export const MyMapComponent = compose(
     defaultZoom={16}
     defaultCenter={{ lat: 51.749845, lng: 19.45318 }}
     center={
-      !!selectedBuildings
+      selectedBuildings
         ? {
             lat: selectedBuildings[0].latLng[0],
             lng: selectedBuildings[0].latLng[1],
@@ -72,9 +72,9 @@ class MyMarker extends Component {
     this.toggleInfo = this.toggleInfo.bind();
   }
 
-  toggleInfo() {
+  toggleInfo = () => {
     this.setState({ visibleInfo: !this.state.visibleInfo });
-  }
+  };
 
   render() {
     const { building, selectedPlace } = this.props;
